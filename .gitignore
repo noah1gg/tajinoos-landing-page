@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+node_modules/
+vendor/
+.env
+.env.local
+*.log
+.cache/
+dist/
+build/
+
+# WordPress local/temp
+wp-config.php
+.htaccess
+uploads/
+upgrade/
+backup*/
+backups/
+*.sql
+*.zip
+*.tar.gz
