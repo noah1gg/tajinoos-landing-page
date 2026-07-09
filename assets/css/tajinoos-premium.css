@@ -16016,111 +16016,177 @@ html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  width: min(100%, 438px);
-  min-height: 104px;
-  margin: 20px auto 0;
-  padding: 16px 22px 15px;
+  width: min(100%, 452px);
+  min-height: 118px;
+  margin: 22px auto 0;
+  padding: 16px 19px 20px 25px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1.04fr) minmax(124px, .54fr);
   align-items: center;
-  gap: 4px 22px;
-  border: 1px solid rgba(255, 200, 105, .28);
-  border-radius: 15px;
+  gap: 15px;
+  border: 1px solid rgba(255, 211, 126, .32);
+  border-radius: 13px;
   background:
-    radial-gradient(260px 90px at 16% 0%, rgba(255, 189, 82, .38), transparent 70%),
-    linear-gradient(135deg, rgba(216, 94, 36, .98) 0%, rgba(190, 66, 21, .98) 58%, rgba(155, 48, 17, .97) 100%);
+    radial-gradient(270px 116px at 13% 0%, rgba(255, 220, 148, .3), transparent 68%),
+    linear-gradient(135deg, #d95f2d 0%, #bd4019 50%, #80240e 100%);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   box-shadow:
-    0 18px 40px rgba(154, 53, 18, .18),
-    inset 0 1px 0 rgba(255, 229, 176, .34),
-    inset 0 -1px 0 rgba(105, 30, 10, .18);
+    0 18px 38px rgba(123, 43, 16, .22),
+    0 7px 16px rgba(69, 27, 13, .08),
+    inset 0 1px 0 rgba(255, 235, 185, .36),
+    inset 0 -1px 0 rgba(93, 26, 9, .24);
   transition: transform 250ms ease-out, box-shadow 250ms ease-out;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 14px;
+  right: 14px;
+  bottom: 8px;
+  height: 9px;
   z-index: -1;
-  background-image: url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp");
-  background-repeat: repeat;
-  background-size: 240px auto;
-  background-position: center;
-  opacity: .13;
-  mix-blend-mode: screen;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 219, 143, .34), transparent) center / 100% 1px no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 24px, rgba(255, 219, 143, .12) 24px 25px, transparent 25px 48px);
+  opacity: .34;
+  pointer-events: none;
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(120deg, transparent 0 34%, rgba(255, 238, 186, .16) 42%, transparent 52% 100%),
+    radial-gradient(circle at 86% 12%, rgba(255, 219, 151, .18), transparent 28%);
   pointer-events: none;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price:hover {
   transform: translateY(-1px);
   box-shadow:
-    0 20px 44px rgba(154, 53, 18, .22),
+    0 24px 50px rgba(123, 43, 16, .28),
     inset 0 1px 0 rgba(255, 229, 176, .34),
     inset 0 -1px 0 rgba(105, 30, 10, .18);
 }
 
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+}
+
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price strong {
-  grid-column: 1;
   display: block;
-  color: #f5d591;
+  color: #fff2d9;
   font-family: var(--taj-serif);
-  font-size: clamp(50px, 3.9vw, 66px);
-  line-height: .82;
-  letter-spacing: -.02em;
+  font-size: clamp(74px, 5.4vw, 98px);
+  line-height: .74;
+  letter-spacing: 0;
   text-shadow:
-    0 2px 0 rgba(70, 24, 10, .3),
-    0 12px 24px rgba(37, 11, 4, .28);
+    0 2px 0 rgba(70, 24, 10, .22),
+    0 13px 26px rgba(37, 11, 4, .28);
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main strong {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: clamp(76px, 5.45vw, 98px);
+  line-height: .78;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__currency {
+  position: relative;
+  top: .06em;
   margin-left: 7px;
   color: #f2cf86;
-  font-size: .48em;
-  letter-spacing: .02em;
+  font-family: Manrope, sans-serif;
+  font-size: .31em;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
-html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price > span {
-  grid-column: 1;
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main > span {
   width: max-content;
-  margin: 3px auto 0;
-  padding: 5px 16px;
+  margin-top: 1px;
+  padding: 4px 14px;
   border-radius: 999px;
-  color: rgba(255, 239, 209, .76);
-  background: rgba(72, 23, 10, .24);
-  font: 700 13px/1.2 Manrope, sans-serif;
+  color: rgba(255, 243, 221, .86);
+  background: rgba(64, 18, 7, .22);
+  font: 800 12px/1.2 Manrope, sans-serif;
   text-transform: uppercase;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price del {
-  color: rgba(255, 239, 209, .62);
-  text-decoration-thickness: 1px;
+  color: rgba(255, 241, 217, .72);
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 241, 217, .86);
 }
 
-html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price em {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  min-width: 108px;
-  min-height: 52px;
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+  position: relative;
+  z-index: 1;
+  min-height: 80px;
+  padding: 0 0 0 16px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+  border-left: 1px solid rgba(255, 218, 144, .24);
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer em {
+  min-height: 31px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 241, 192, .42);
+  gap: 6px;
+  padding: 0 13px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 241, 192, .34);
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .52), transparent 44%),
-    linear-gradient(145deg, #f5dea4 0%, #e6bd69 58%, #d59a43 100%);
+    linear-gradient(180deg, rgba(255, 246, 218, .96), rgba(232, 188, 99, .92));
   color: #4b2a13;
-  font: 900 14px/1.05 Manrope, sans-serif;
+  font: 900 11px/1 Manrope, sans-serif;
   font-style: normal;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
   box-shadow:
-    0 10px 20px rgba(39, 13, 4, .18),
+    0 8px 16px rgba(39, 13, 4, .14),
     inset 0 1px 0 rgba(255, 255, 255, .58),
     inset 0 -1px 0 rgba(105, 63, 18, .18);
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer em::before {
+  content: "\2605";
+  color: #bc6f1d;
+  font-size: 11px;
+  line-height: 1;
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer strong {
+  color: #fff8ef;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(24px, 1.75vw, 28px);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: 0;
+  text-shadow: 0 10px 22px rgba(37, 11, 4, .24);
+}
+
+html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer > span {
+  color: rgba(255, 245, 229, .86);
+  font: 900 10px/1.1 Manrope, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__actions {
@@ -16280,32 +16346,30 @@ html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust span:hover {
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
   position: relative;
-  width: min(100%, 730px);
-  height: min(100%, clamp(500px, 76svh, 640px));
-  justify-self: center;
-  align-self: center;
+  width: min(100%, 790px);
+  height: calc(100% + clamp(86px, 10svh, 142px));
+  justify-self: stretch;
+  align-self: stretch;
   overflow: visible;
+  isolation: isolate;
+  margin: calc(clamp(42px, 5.4svh, 76px) * -1) clamp(-82px, -4.8vw, -42px) calc(clamp(46px, 5.8svh, 82px) * -1) -20px;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::before {
   content: "";
   position: absolute;
-  right: -10%;
-  top: 6%;
-  width: 26%;
-  height: 78%;
-  z-index: 3;
-  opacity: .16;
+  inset: -3px -12.4% -3px 4.8%;
+  z-index: 0;
   pointer-events: none;
+  border-radius: 78px 0 0 40px;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(66, 44, 24, .65) 0 9%, transparent 10%),
-    linear-gradient(88deg, transparent 0 48%, rgba(66, 44, 24, .55) 49% 51%, transparent 52% 100%),
-    radial-gradient(ellipse at 12% 24%, transparent 0 42%, rgba(66, 44, 24, .48) 43% 49%, transparent 50%),
-    radial-gradient(ellipse at 86% 30%, transparent 0 42%, rgba(66, 44, 24, .42) 43% 49%, transparent 50%),
-    radial-gradient(ellipse at 22% 50%, transparent 0 42%, rgba(66, 44, 24, .38) 43% 49%, transparent 50%),
-    radial-gradient(ellipse at 82% 58%, transparent 0 42%, rgba(66, 44, 24, .34) 43% 49%, transparent 50%);
-  filter: blur(8px);
-  transform: rotate(-8deg);
+    linear-gradient(135deg, rgba(255, 248, 216, .78) 0%, rgba(238, 198, 103, .82) 44%, rgba(190, 105, 38, .58) 100%);
+  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transform: skewX(-8deg);
+  transform-origin: left bottom;
+  box-shadow:
+    -18px 28px 38px rgba(84, 35, 13, .2),
+    inset 1px 0 0 rgba(255, 249, 224, .42);
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__blob {
@@ -16315,13 +16379,35 @@ html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__blob {
   width: 95%;
   height: 98%;
   z-index: 0;
-  display: block;
+  display: none;
   overflow: visible;
   transform: translate(-50%, -48.5%);
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::after {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 8px -10.5% 8px 6.2%;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 66px 0 0 32px;
+  background:
+    radial-gradient(circle at 55% 50%, rgba(255, 199, 120, .5), rgba(255, 190, 108, .15) 24%, transparent 43%),
+    radial-gradient(circle at 61% 49%, rgba(255, 241, 195, .23), transparent 25%),
+    radial-gradient(circle at 90% 90%, rgba(56, 13, 4, .4), transparent 46%),
+    radial-gradient(circle at 99% 10%, rgba(74, 18, 5, .24), transparent 38%),
+    radial-gradient(circle at 76% 24%, transparent 0 38px, rgba(255, 216, 143, .018) 39px 41px, transparent 42px 76px),
+    radial-gradient(circle at 88% 52%, transparent 0 44px, rgba(255, 216, 143, .016) 45px 47px, transparent 48px 90px),
+    linear-gradient(145deg, #dc6631 0%, #c64a1d 36%, #a93213 66%, #76200b 100%);
+  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transform: skewX(-8deg);
+  transform-origin: left bottom;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 226, 164, .18),
+    inset 0 1px 0 rgba(255, 244, 209, .14),
+    inset 32px 0 44px rgba(255, 197, 113, .06),
+    inset -68px -72px 110px rgba(54, 14, 5, .34),
+    inset 0 0 108px rgba(66, 16, 5, .18);
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__blob-fill {
@@ -16357,30 +16443,31 @@ html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__blob-outline {
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__shadow {
   position: absolute;
-  left: 50%;
-  bottom: 7.5%;
-  width: 64%;
-  height: 7%;
-  transform: translateX(-50%);
+  left: 60%;
+  bottom: 12.5%;
+  width: 66%;
+  height: 10%;
+  transform: translateX(-46%);
   border-radius: 999px;
-  background: rgba(67, 31, 13, .13);
-  filter: blur(36px);
-  z-index: 1;
+  background:
+    radial-gradient(ellipse at center, rgba(37, 10, 3, .38) 0%, rgba(43, 12, 4, .22) 42%, transparent 76%);
+  filter: blur(30px);
+  z-index: 2;
   pointer-events: none;
 }
 
 html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product {
   position: absolute;
-  left: 50%;
-  top: 48%;
-  z-index: 2;
+  left: 60.2%;
+  top: 50.7%;
+  z-index: 3;
   width: auto;
-  height: 87%;
+  height: 94%;
   max-width: 94%;
-  max-height: 87%;
+  max-height: 94%;
   object-fit: contain;
-  filter: brightness(1.035) contrast(1.045) saturate(1.055) sepia(.025);
-  transform: translate(-50%, -51%) scaleX(1.025);
+  filter: brightness(1.045) contrast(1.055) saturate(1.06) sepia(.025) drop-shadow(0 28px 30px rgba(55, 18, 6, .18));
+  transform: translate(-50%, -50%) scaleX(1.025);
 }
 
 @media (max-width: 980px) {
@@ -16423,15 +16510,94 @@ html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product {
   }
 
   html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
-    width: min(100%, 440px);
-    height: clamp(320px, 68vw, 430px);
+    width: min(100%, 560px);
+    height: clamp(340px, 68vw, 460px);
+    justify-self: center;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::before {
+    inset: 0 -4% 0 5%;
+    border-radius: 44px 36px 26px 26px;
+    clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: skewX(-6deg);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::after {
+    inset: 9px -2% 9px 7%;
+    border-radius: 36px 30px 22px 22px;
+    clip-path: polygon(17% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: skewX(-6deg);
   }
 
   html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product {
-    height: 84%;
-    max-width: 88%;
-    max-height: 84%;
-    transform: translate(-50%, -50.5%) scaleX(1.015);
+    left: 56%;
+    top: 52%;
+    height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+    transform: translate(-50%, -50%) scaleX(1.015);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__shadow {
+    left: 55%;
+    bottom: 13%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 560px) {
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price {
+    width: min(100%, 390px);
+    min-height: 0;
+    padding: 16px 16px 22px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main {
+    gap: 8px;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price strong {
+    font-size: clamp(60px, 17vw, 76px);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+    min-height: 0;
+    padding: 14px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 211, 126, .22);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer strong {
+    font-size: 28px;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
+    height: clamp(310px, 78vw, 380px);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::before {
+    inset: 0 -2% 0 4%;
+    border-radius: 32px 32px 20px 20px;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: skewX(-4deg);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual::after {
+    inset: 8px 0 8px 6%;
+    border-radius: 26px 26px 18px 18px;
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: skewX(-4deg);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product {
+    left: 55%;
+    top: 52%;
+    height: 86%;
+    max-height: 86%;
   }
 }
 

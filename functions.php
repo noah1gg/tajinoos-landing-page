@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.1.24');
+define('TAJINOOS_CHILD_VERSION', '1.1.27');
 
 add_action('wp_enqueue_scripts', 'tajinoos_child_enqueue_assets', 20);
 add_action('init', 'tajinoos_child_ensure_thank_you_page');
@@ -769,9 +769,15 @@ function tajinoos_child_render_reference_match_hero(string $content): string
       <p class="taj-clean-hero__lead">Un tajine artisanal en terre cuite fa&ccedil;onn&eacute; au Maroc pour sublimer vos repas avec &eacute;l&eacute;gance et authenticit&eacute;.</p>
 
       <div class="taj-clean-hero__price" aria-label="Prix de l'offre Tajinoos">
-        <strong>390 <span class="taj-clean-hero__currency">MAD</span></strong>
-        <span>au lieu de <del>520 MAD</del></span>
-        <em>OFFRE LIMIT&Eacute;E</em>
+        <div class="taj-clean-hero__price-main">
+          <strong>390 <span class="taj-clean-hero__currency">MAD</span></strong>
+          <span>au lieu de <del>520 MAD</del></span>
+        </div>
+        <div class="taj-clean-hero__price-offer">
+          <em>OFFRE LIMIT&Eacute;E</em>
+          <strong>130 MAD</strong>
+          <span>DE R&Eacute;DUCTION</span>
+        </div>
       </div>
 
       <div class="taj-clean-hero__actions">
@@ -788,10 +794,6 @@ function tajinoos_child_render_reference_match_hero(string $content): string
     </div>
 
     <div class="taj-clean-hero__visual" aria-label="Tajine artisanal Tajinoos">
-      <svg class="taj-clean-hero__blob" viewBox="0 0 820 660" aria-hidden="true" focusable="false" preserveAspectRatio="none">
-        <path class="taj-clean-hero__blob-fill" d="M134 83C209 28 314 15 411 43c72 21 121 49 196 38 84-12 159 35 190 118 34 91-5 160-22 231-18 76 26 129-34 178-64 52-155 30-245 27-109-4-184 35-289 10C105 621 35 555 19 462 0 354 54 290 49 208c-4-57 32-100 85-125Z"/>
-        <path class="taj-clean-hero__blob-outline" d="M134 83C209 28 314 15 411 43c72 21 121 49 196 38 84-12 159 35 190 118 34 91-5 160-22 231-18 76 26 129-34 178-64 52-155 30-245 27-109-4-184 35-289 10C105 621 35 555 19 462 0 354 54 290 49 208c-4-57 32-100 85-125Z"/>
-      </svg>
       <img class="taj-clean-hero__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.png" alt="Tajine artisanal marocain Tajinoos" width="1024" height="1024" fetchpriority="high" decoding="async">
       <div class="taj-clean-hero__shadow" aria-hidden="true"></div>
     </div>
