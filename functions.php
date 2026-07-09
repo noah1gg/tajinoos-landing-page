@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.1.27');
+define('TAJINOOS_CHILD_VERSION', '1.1.28');
 
 add_action('wp_enqueue_scripts', 'tajinoos_child_enqueue_assets', 20);
 add_action('init', 'tajinoos_child_ensure_thank_you_page');
@@ -23,6 +23,7 @@ add_filter('script_loader_src', 'tajinoos_child_page_13_relative_premium_js', 10
 add_filter('the_content', 'tajinoos_child_render_testimonials', 21);
 add_filter('the_content', 'tajinoos_child_render_order_section', 22);
 add_filter('the_content', 'tajinoos_child_render_reference_product_section', 23);
+add_filter('the_content', 'tajinoos_child_render_editorial_benefits_section', 24);
 add_filter('the_content', 'tajinoos_child_render_reference_faq_section', 25);
 add_filter('the_content', 'tajinoos_child_render_final_hero_faq_sections', 99);
 add_filter('the_content', 'tajinoos_child_render_reference_match_hero', 100);
@@ -633,6 +634,87 @@ HTML;
     return preg_replace(
         '~<section\b[^>]*\bid=(["\'])produit\1[^>]*>.*?</section>~s',
         $product,
+        $content,
+        1
+    ) ?: $content;
+}
+
+function tajinoos_child_render_editorial_benefits_section(string $content): string
+{
+    if (!is_page(13) || !in_the_loop() || !is_main_query() || strpos($content, 'id="benefices"') === false) {
+        return $content;
+    }
+
+    $benefits = <<<'HTML'
+<section id="benefices" class="tajx-section tajx-benefits taj-benefits-editorial" aria-labelledby="taj-benefits-title">
+  <div class="tajx-wrap taj-benefits-editorial__inner">
+    <div class="taj-benefits-editorial__story">
+      <div class="tajx-title taj-benefits-editorial__title">
+        <span class="tajx-eyebrow taj-benefits-editorial__eyebrow">POURQUOI TAJINOOS</span>
+        <h2 id="taj-benefits-title">Plus qu&rsquo;un tajine : une exp&eacute;rience de table.</h2>
+        <p>Chez Tajinoos, chaque pi&egrave;ce raconte un savoir-faire ancestral et transforme la cuisine du quotidien en un rituel de partage et d&rsquo;authenticit&eacute;.</p>
+      </div>
+
+      <blockquote class="taj-benefits-editorial__quote">
+        <p>Chaque repas devient un moment de partage.</p>
+      </blockquote>
+
+      <div class="taj-benefits-editorial__proofs" aria-label="Les preuves Tajinoos">
+        <div class="taj-benefits-editorial__proof">
+          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
+          <strong>Fait main</strong>
+          <small>Par des artisans passionn&eacute;s</small>
+        </div>
+        <div class="taj-benefits-editorial__proof">
+          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
+          <strong>Terre cuite</strong>
+          <small>100% naturelle et saine</small>
+        </div>
+        <div class="taj-benefits-editorial__proof">
+          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
+          <strong>Livraison Maroc</strong>
+          <small>Emballage soign&eacute;, livraison s&eacute;curis&eacute;e</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="tajx-grid4 taj-benefits-editorial__panel" aria-label="Pourquoi choisir Tajinoos">
+      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
+        <div class="tajx-icon" aria-hidden="true"></div>
+        <div class="taj-benefits-editorial__item-copy">
+          <h3>Cuisson lente ma&icirc;tris&eacute;e</h3>
+          <p>La terre cuite diffuse une chaleur douce qui attendrit les aliments et concentre naturellement les ar&ocirc;mes.</p>
+        </div>
+      </article>
+      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
+        <div class="tajx-icon" aria-hidden="true"></div>
+        <div class="taj-benefits-editorial__item-copy">
+          <h3>Design artisanal unique</h3>
+          <p>Une pr&eacute;sence &eacute;l&eacute;gante qui transforme le tajine en pi&egrave;ce de service et en objet d&eacute;coratif.</p>
+        </div>
+      </article>
+      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
+        <div class="tajx-icon" aria-hidden="true"></div>
+        <div class="taj-benefits-editorial__item-copy">
+          <h3>Valeur de cadeau</h3>
+          <p>Un cadeau chaleureux, culturel et premium pour une maison, un mariage ou un amateur de cuisine.</p>
+        </div>
+      </article>
+      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
+        <div class="tajx-icon" aria-hidden="true"></div>
+        <div class="taj-benefits-editorial__item-copy">
+          <h3>Achat rassurant</h3>
+          <p>Commande confirm&eacute;e, livraison suivie et paiement &agrave; la r&eacute;ception pour acheter avec tranquillit&eacute;.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+HTML;
+
+    return preg_replace(
+        '~<section\b[^>]*\bid=(["\'])benefices\1[^>]*>.*?</section>~s',
+        $benefits,
         $content,
         1
     ) ?: $content;
