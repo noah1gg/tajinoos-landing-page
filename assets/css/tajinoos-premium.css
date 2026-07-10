@@ -23062,3 +23062,514 @@ html body.page-id-13 #benefices .taj-benefits-editorial__item p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ================================================================
+   Pourquoi Tajinoos — Premium orange Moroccan section
+   Scope: Page 13, #benefices only
+   ================================================================ */
+
+html body.page-id-13 #benefices.taj-benefits-orange {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(56px, 4.8vw, 64px) 0 clamp(56px, 5.2vw, 74px) !important;
+  background:
+    radial-gradient(circle at 22% 34%, rgba(232, 115, 55, .95) 0%, transparent 42%),
+    linear-gradient(135deg, #c94b24 0%, #b83f1f 55%, #8f2f18 100%);
+}
+
+/* Moroccan pattern on far left edge */
+html body.page-id-13 #benefices.taj-benefits-orange::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  bottom: 80px;
+  width: 160px;
+  background: url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") left top / auto 100% repeat-y;
+  opacity: .045;
+  pointer-events: none;
+}
+
+/* Cream wave at bottom */
+html body.page-id-13 #benefices.taj-benefits-orange::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -1px;
+  left: -3%;
+  right: -3%;
+  height: 60px;
+  background: #faf5ed;
+  border-radius: 50% 50% 0 0;
+  pointer-events: none;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__inner {
+  display: grid;
+  grid-template-columns: minmax(280px, .96fr) minmax(0, 1.04fr);
+  align-items: start;
+  gap: clamp(36px, 4.5vw, 54px);
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* ==================== LEFT COLUMN ==================== */
+
+html body.page-id-13 #benefices .taj-benefits-orange__left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow with decorative diamond + line */
+html body.page-id-13 #benefices .taj-benefits-orange__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #fbead2;
+  font-family: Manrope, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .35em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__eyebrow::before {
+  content: "\2014 \25C6 \2014";
+  display: inline-flex;
+  align-items: center;
+  color: rgba(255, 255, 255, .45);
+  font-size: 12px;
+  letter-spacing: .15em;
+  font-weight: 400;
+}
+
+/* Main heading — large uppercase serif campaign headline */
+html body.page-id-13 #benefices .taj-benefits-orange__title {
+  margin: 0 0 0;
+  max-width: 560px;
+  color: #fff4e4 !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 4.6vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* Intro paragraph */
+html body.page-id-13 #benefices .taj-benefits-orange__intro {
+  max-width: 540px;
+  margin: 24px 0 0;
+  color: #fff8ef !important;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* Quote block — not a card, left vertical line + mark */
+html body.page-id-13 #benefices .taj-benefits-orange__quote {
+  position: relative;
+  margin: 48px 0 0;
+  padding: 0 0 0 28px;
+  max-width: 520px;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__quote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: rgba(255, 255, 255, .35);
+  border-radius: 2px;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__quote-mark {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 56px;
+  line-height: .6;
+  color: rgba(255, 255, 255, .5);
+  margin-bottom: -6px;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__quote p {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.45;
+  color: #fff8ed !important;
+}
+
+/* Separator line with diamond */
+html body.page-id-13 #benefices .taj-benefits-orange__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 36px 0 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__divider-line {
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: rgba(255, 255, 255, .2);
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__divider-diamond {
+  color: rgba(255, 255, 255, .4);
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Trust row */
+html body.page-id-13 #benefices .taj-benefits-orange__trust {
+  display: flex;
+  margin: 28px 0 0;
+  gap: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-item {
+  flex: 1;
+  min-width: 0;
+  padding: 0 10px;
+  text-align: center;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-item:first-child {
+  padding-left: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-item:last-child {
+  padding-right: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .2);
+  border: 1px solid rgba(255, 255, 255, .45);
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-item strong {
+  display: block;
+  color: #fff8ed !important;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-item span {
+  display: block;
+  color: rgba(255, 255, 255, .7) !important;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__trust-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  background: rgba(255, 255, 255, .15);
+}
+
+/* ==================== RIGHT COLUMN ==================== */
+
+html body.page-id-13 #benefices .taj-benefits-orange__right {
+  min-width: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 24px;
+  background: #fff7ea;
+  box-shadow: 0 24px 56px rgba(110, 42, 20, .18);
+}
+
+/* --- Feature cards --- */
+html body.page-id-13 #benefices .taj-benefits-orange__card {
+  display: flex;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 1px solid rgba(201, 108, 55, .22);
+  border-radius: 18px;
+  background: #fff9ef;
+  box-shadow: 0 8px 20px rgba(150, 60, 30, .06);
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__num {
+  flex: 0 0 auto;
+  width: 78px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: #c94924;
+  padding-top: 2px;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__card-divider {
+  flex: 0 0 auto;
+  width: 1px;
+  align-self: stretch;
+  min-height: 80px;
+  background: rgba(201, 108, 55, .18);
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #c94924;
+  color: #fff7ea !important;
+  font-family: Manrope, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__card-title {
+  margin: 0 0 6px;
+  color: #28160f !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__card-text {
+  margin: 0;
+  color: #5a3d30 !important;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==================== TABLET ==================== */
+@media (max-width: 1024px) {
+  html body.page-id-13 #benefices .taj-benefits-orange__inner {
+    gap: 32px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__title {
+    font-size: clamp(38px, 4.2vw, 56px);
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__intro {
+    font-size: 16px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote p {
+    font-size: 24px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__panel {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card {
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__num {
+    width: 72px;
+    font-size: 42px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-title {
+    font-size: 22px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-text {
+    font-size: 14px;
+  }
+}
+
+/* ================================================================
+   FIX: Force orange background on #benefices — overrides old
+   `html body.page-id-13 #benefices { background: #fffaf1 !important; }`
+   at line 8482 and any other cream overrides.
+   ================================================================ */
+html body.page-id-13 #benefices.tajx-section,
+html body.page-id-13 section#benefices.tajx-benefits {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 34%, rgba(232, 115, 55, 0.95) 0%, rgba(232, 115, 55, 0.35) 36%, transparent 58%),
+    linear-gradient(135deg, #c94b24 0%, #b84220 52%, #8f2f18 100%) !important;
+}
+
+html body.page-id-13 #benefices::before,
+html body.page-id-13 #benefices.tajx-benefits::before,
+html body.page-id-13 #benefices.tajx-section::before {
+  opacity: 0.10 !important;
+  background: none !important;
+  background-image: none !important;
+  pointer-events: none;
+}
+
+html body.page-id-13 #benefices::after {
+  pointer-events: none;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange,
+html body.page-id-13 #benefices .taj-benefits-orange__inner,
+html body.page-id-13 #benefices .taj-benefits-orange__left {
+  opacity: 1 !important;
+  color: #fff8ef !important;
+}
+
+html body.page-id-13 #benefices .taj-benefits-orange__eyebrow,
+html body.page-id-13 #benefices .taj-benefits-orange__title,
+html body.page-id-13 #benefices .taj-benefits-orange__intro,
+html body.page-id-13 #benefices .taj-benefits-orange__quote,
+html body.page-id-13 #benefices .taj-benefits-orange__trust,
+html body.page-id-13 #benefices .taj-benefits-orange__trust * {
+  color: #fff8ef !important;
+  opacity: 1 !important;
+}
+
+/* ==================== MOBILE ==================== */
+@media (max-width: 767px) {
+  html body.page-id-13 #benefices.taj-benefits-orange {
+    padding: 56px 0 64px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: min(100% - 32px, 1240px);
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__eyebrow {
+    font-size: 11px;
+    letter-spacing: .25em;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__eyebrow::before {
+    font-size: 10px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__title {
+    font-size: clamp(34px, 9vw, 44px);
+    max-width: none;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__intro {
+    font-size: 15px;
+    margin-top: 18px;
+    max-width: none;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote {
+    margin-top: 32px;
+    padding-left: 22px;
+    max-width: none;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote-mark {
+    font-size: 44px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote p {
+    font-size: 22px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__divider {
+    margin-top: 28px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust {
+    flex-wrap: wrap;
+    gap: 8px 0;
+    margin-top: 22px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item {
+    flex: none;
+    width: 100%;
+    padding: 6px 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-dot {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item strong,
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item span {
+    display: inline;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item span {
+    margin-left: 4px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-sep {
+    display: none;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__panel {
+    padding: 16px;
+    gap: 10px;
+    border-radius: 20px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__num {
+    width: auto;
+    font-size: 36px;
+    padding-top: 0;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-divider {
+    display: none;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__badge {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-title {
+    font-size: 22px;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-text {
+    font-size: 14px;
+  }
+}

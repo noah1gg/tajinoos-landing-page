@@ -646,67 +646,82 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     }
 
     $benefits = <<<'HTML'
-<section id="benefices" class="tajx-section tajx-benefits taj-benefits-editorial" aria-labelledby="taj-benefits-title">
-  <div class="tajx-wrap taj-benefits-editorial__inner">
-    <div class="taj-benefits-editorial__story">
-      <div class="tajx-title taj-benefits-editorial__title">
-        <span class="tajx-eyebrow taj-benefits-editorial__eyebrow">POURQUOI TAJINOOS</span>
-        <h2 id="taj-benefits-title">Plus qu&rsquo;un tajine : une exp&eacute;rience de table.</h2>
-        <p>Chez Tajinoos, chaque pi&egrave;ce raconte un savoir-faire ancestral et transforme la cuisine du quotidien en un rituel de partage et d&rsquo;authenticit&eacute;.</p>
+<section id="benefices" class="tajx-section tajx-benefits taj-benefits-orange" aria-labelledby="taj-benefits-orange-title">
+  <div class="tajx-wrap taj-benefits-orange__inner">
+    <div class="taj-benefits-orange__left">
+      <div class="taj-benefits-orange__eyebrow" aria-label="POURQUOI TAJINOOS">
+        POURQUOI TAJINOOS
       </div>
-
-      <blockquote class="taj-benefits-editorial__quote">
+      <h2 id="taj-benefits-orange-title" class="taj-benefits-orange__title">PLUS QU&rsquo;UN TAJINE :<br>UNE EXP&Eacute;RIENCE<br>DE TABLE.</h2>
+      <p class="taj-benefits-orange__intro">Chez Tajinoos, chaque pi&egrave;ce raconte un savoir-faire ancestral et transforme la cuisine du quotidien en un rituel de partage et d&rsquo;authenticit&eacute;.</p>
+      <blockquote class="taj-benefits-orange__quote">
+        <span class="taj-benefits-orange__quote-mark" aria-hidden="true">&ldquo;</span>
         <p>Chaque repas devient un moment de partage.</p>
       </blockquote>
-
-      <div class="taj-benefits-editorial__proofs" aria-label="Les preuves Tajinoos">
-        <div class="taj-benefits-editorial__proof">
-          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
+      <div class="taj-benefits-orange__divider" aria-hidden="true">
+        <span class="taj-benefits-orange__divider-line"></span>
+        <span class="taj-benefits-orange__divider-diamond">&#9670;</span>
+        <span class="taj-benefits-orange__divider-line"></span>
+      </div>
+      <div class="taj-benefits-orange__trust" aria-label="Les preuves Tajinoos">
+        <div class="taj-benefits-orange__trust-item">
+          <span class="taj-benefits-orange__trust-dot" aria-hidden="true"></span>
           <strong>Fait main</strong>
-          <small>Par des artisans passionn&eacute;s</small>
+          <span>Par des artisans passionn&eacute;s</span>
         </div>
-        <div class="taj-benefits-editorial__proof">
-          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
-          <strong>Terre cuite</strong>
-          <small>100% naturelle et saine</small>
+        <div class="taj-benefits-orange__trust-sep" aria-hidden="true"></div>
+        <div class="taj-benefits-orange__trust-item">
+          <span class="taj-benefits-orange__trust-dot" aria-hidden="true"></span>
+          <strong>Terre cuite naturelle</strong>
+          <span>100% naturelle et saine</span>
         </div>
-        <div class="taj-benefits-editorial__proof">
-          <span class="taj-benefits-editorial__proof-icon" aria-hidden="true"></span>
-          <strong>Livraison Maroc</strong>
-          <small>Emballage soign&eacute;, livraison s&eacute;curis&eacute;e</small>
+        <div class="taj-benefits-orange__trust-sep" aria-hidden="true"></div>
+        <div class="taj-benefits-orange__trust-item">
+          <span class="taj-benefits-orange__trust-dot" aria-hidden="true"></span>
+          <strong>Livraison partout au Maroc</strong>
+          <span>Emballage soign&eacute;, livraison s&eacute;curis&eacute;e</span>
         </div>
       </div>
     </div>
-
-    <div class="tajx-grid4 taj-benefits-editorial__panel" aria-label="Pourquoi choisir Tajinoos">
-      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
-        <div class="tajx-icon" aria-hidden="true"></div>
-        <div class="taj-benefits-editorial__item-copy">
-          <h3>Cuisson lente ma&icirc;tris&eacute;e</h3>
-          <p>La terre cuite diffuse une chaleur douce qui attendrit les aliments et concentre naturellement les ar&ocirc;mes.</p>
-        </div>
-      </article>
-      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
-        <div class="tajx-icon" aria-hidden="true"></div>
-        <div class="taj-benefits-editorial__item-copy">
-          <h3>Design artisanal unique</h3>
-          <p>Une pr&eacute;sence &eacute;l&eacute;gante qui transforme le tajine en pi&egrave;ce de service et en objet d&eacute;coratif.</p>
-        </div>
-      </article>
-      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
-        <div class="tajx-icon" aria-hidden="true"></div>
-        <div class="taj-benefits-editorial__item-copy">
-          <h3>Valeur de cadeau</h3>
-          <p>Un cadeau chaleureux, culturel et premium pour une maison, un mariage ou un amateur de cuisine.</p>
-        </div>
-      </article>
-      <article class="tajx-card tajx-benefit taj-benefits-editorial__item">
-        <div class="tajx-icon" aria-hidden="true"></div>
-        <div class="taj-benefits-editorial__item-copy">
-          <h3>Achat rassurant</h3>
-          <p>Commande confirm&eacute;e, livraison suivie et paiement &agrave; la r&eacute;ception pour acheter avec tranquillit&eacute;.</p>
-        </div>
-      </article>
+    <div class="taj-benefits-orange__right">
+      <div class="taj-benefits-orange__panel">
+        <article class="taj-benefits-orange__card">
+          <span class="taj-benefits-orange__num" aria-hidden="true">01</span>
+          <span class="taj-benefits-orange__card-divider" aria-hidden="true"></span>
+          <div class="taj-benefits-orange__card-content">
+            <span class="taj-benefits-orange__badge">NOTRE SIGNATURE</span>
+            <h3 class="taj-benefits-orange__card-title">Cuisson lente ma&icirc;tris&eacute;e</h3>
+            <p class="taj-benefits-orange__card-text">La terre cuite diffuse une chaleur douce qui attendrit les aliments et concentre naturellement les ar&ocirc;mes.</p>
+          </div>
+        </article>
+        <article class="taj-benefits-orange__card">
+          <span class="taj-benefits-orange__num" aria-hidden="true">02</span>
+          <span class="taj-benefits-orange__card-divider" aria-hidden="true"></span>
+          <div class="taj-benefits-orange__card-content">
+            <span class="taj-benefits-orange__badge">NOTRE SIGNATURE</span>
+            <h3 class="taj-benefits-orange__card-title">Design artisanal unique</h3>
+            <p class="taj-benefits-orange__card-text">Une pr&eacute;sence &eacute;l&eacute;gante qui transforme le tajine en pi&egrave;ce de service et en objet d&eacute;coratif.</p>
+          </div>
+        </article>
+        <article class="taj-benefits-orange__card">
+          <span class="taj-benefits-orange__num" aria-hidden="true">03</span>
+          <span class="taj-benefits-orange__card-divider" aria-hidden="true"></span>
+          <div class="taj-benefits-orange__card-content">
+            <span class="taj-benefits-orange__badge">NOTRE SIGNATURE</span>
+            <h3 class="taj-benefits-orange__card-title">Valeur de cadeau</h3>
+            <p class="taj-benefits-orange__card-text">Un cadeau chaleureux, culturel et premium pour une maison, un mariage ou un amateur de cuisine.</p>
+          </div>
+        </article>
+        <article class="taj-benefits-orange__card">
+          <span class="taj-benefits-orange__num" aria-hidden="true">04</span>
+          <span class="taj-benefits-orange__card-divider" aria-hidden="true"></span>
+          <div class="taj-benefits-orange__card-content">
+            <span class="taj-benefits-orange__badge">NOTRE SIGNATURE</span>
+            <h3 class="taj-benefits-orange__card-title">Achat rassurant</h3>
+            <p class="taj-benefits-orange__card-text">Commande confirm&eacute;e, livraison suivie et paiement &agrave; la r&eacute;ception pour acheter avec tranquillit&eacute;.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
