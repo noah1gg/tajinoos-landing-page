@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.1.28');
+define('TAJINOOS_CHILD_VERSION', '1.1.31');
 
 add_action('wp_enqueue_scripts', 'tajinoos_child_enqueue_assets', 20);
 add_action('init', 'tajinoos_child_ensure_thank_you_page');
