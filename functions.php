@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.1.31');
+define('TAJINOOS_CHILD_VERSION', '1.1.37');
 
 add_action('wp_enqueue_scripts', 'tajinoos_child_enqueue_assets', 20);
 add_action('init', 'tajinoos_child_ensure_thank_you_page');
@@ -890,10 +890,16 @@ function tajinoos_child_render_reference_match_hero(string $content): string
       </div>
     </div>
 
-    <div class="taj-clean-hero__visual" aria-label="Tajine artisanal Tajinoos">
-      <img class="taj-clean-hero__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.png" alt="Tajine artisanal marocain Tajinoos" width="1024" height="1024" fetchpriority="high" decoding="async">
-      <div class="taj-clean-hero__shadow" aria-hidden="true"></div>
-    </div>
+    <figure class="taj-clean-hero__visual" aria-label="Tajine artisanal Tajinoos">
+      <div class="taj-clean-hero__orange-panel" aria-hidden="true"></div>
+      <div class="taj-clean-hero__glow" aria-hidden="true"></div>
+      <div class="taj-clean-hero__ground-shadow" aria-hidden="true"></div>
+      <div class="taj-clean-hero__product-wrap">
+        <div class="taj-clean-hero__product-motion">
+          <img class="taj-clean-hero__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal marocain Tajinoos" width="1024" height="1024" fetchpriority="high" decoding="sync">
+        </div>
+      </div>
+    </figure>
   </div>
 </section>
 HTML;
