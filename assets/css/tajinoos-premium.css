@@ -23742,71 +23742,387 @@ html body.page-id-13 #benefices .taj-benefits-orange__card-text {
   }
 }
 
-/* FAQ palette match: scoped to the active landing-page help section. */
+/* Premium Moroccan FAQ composition: scoped to the active landing-page section. */
 html body.page-id-13 #faq.taj-final-faq {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(38px, 4vw, 52px) 0 clamp(42px, 4vw, 56px) !important;
   scroll-margin-top: 96px;
   background:
-    linear-gradient(135deg, rgba(239, 90, 24, .95) 0%, rgba(217, 74, 22, .98) 100%),
-    url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center / 420px auto repeat !important;
+    radial-gradient(circle at 82% 26%, rgba(255, 212, 147, .24), transparent 25%),
+    radial-gradient(circle at 18% 92%, rgba(105, 16, 20, .23), transparent 34%),
+    linear-gradient(112deg, rgba(62, 5, 12, .30) 0%, transparent 32%),
+    linear-gradient(135deg, #df551f 0%, #bd3f18 61%, #731218 128%) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(255, 238, 208, .16), transparent 24% 76%, rgba(73, 5, 12, .14)),
+    url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center / 480px auto repeat;
+  mix-blend-mode: soft-light;
+  opacity: .18;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .72) 22%, rgba(0, 0, 0, .38) 50%, rgba(0, 0, 0, .74) 78%, #000 100%);
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .72) 22%, rgba(0, 0, 0, .38) 50%, rgba(0, 0, 0, .74) 78%, #000 100%);
+  pointer-events: none;
+}
+
+html body.page-id-13 #faq.taj-final-faq::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  bottom: -43%;
+  z-index: -1;
+  width: min(690px, 56vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 224, 177, .25), rgba(255, 196, 113, .07) 44%, transparent 70%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__inner {
+  position: relative;
+  z-index: 1;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head {
+  max-width: 780px;
+  margin: 0 auto clamp(24px, 2.4vw, 30px) !important;
+  text-align: center;
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head .taj-final-eyebrow {
-  color: #240208 !important;
+  display: inline-flex !important;
+  min-height: 30px;
+  margin-bottom: 11px !important;
+  padding: 0 14px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 248, 236, .30);
+  border-radius: 999px;
+  background: rgba(66, 7, 13, .25);
+  color: #fff4e2 !important;
+  letter-spacing: .12em;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .10);
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head h2 {
   color: #fffaf2 !important;
+  font-size: clamp(38px, 4vw, 52px) !important;
+  line-height: 1.02 !important;
+  text-shadow: 0 10px 28px rgba(73, 15, 10, .20);
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 10px;
+  margin: 13px auto 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 236, 205, .78)) left 50% / 48px 1px no-repeat,
+    linear-gradient(90deg, rgba(255, 236, 205, .78), transparent) right 50% / 48px 1px no-repeat,
+    linear-gradient(45deg, transparent 40%, #ffe0ad 41% 59%, transparent 60%) center / 9px 9px no-repeat;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__layout {
+  grid-template-columns: minmax(0, 2.25fr) minmax(300px, .95fr) !important;
+  gap: clamp(20px, 2.4vw, 30px) !important;
+  align-items: start !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__list {
+  counter-reset: taj-faq;
+  min-width: 0;
+  align-content: start;
+  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  interpolate-size: allow-keywords;
 }
 
 html body.page-id-13 #faq.taj-final-faq details {
-  border-color: rgba(91, 13, 22, .18) !important;
-  background: #fffaf1 !important;
+  counter-increment: taj-faq;
+  align-self: start;
+  overflow: hidden;
+  border: 1px solid rgba(255, 235, 206, .82) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .68), transparent 44%),
+    #fff8ec !important;
+  box-shadow:
+    0 12px 27px rgba(75, 18, 11, .14),
+    inset 0 1px rgba(255, 255, 255, .90) !important;
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease !important;
 }
 
-html body.page-id-13 #faq.taj-final-faq details:hover,
+html body.page-id-13 #faq.taj-final-faq details:hover {
+  border-color: rgba(255, 196, 125, .92) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .82), transparent 44%),
+    #fff6e7 !important;
+  box-shadow:
+    0 16px 32px rgba(71, 15, 10, .18),
+    inset 0 1px rgba(255, 255, 255, .96) !important;
+  transform: translateY(-2px);
+}
+
 html body.page-id-13 #faq.taj-final-faq details[open] {
-  border-color: rgba(91, 13, 22, .30) !important;
-  background: #fff4e7 !important;
+  border-color: rgba(255, 181, 96, .98) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .62), transparent 48%),
+    #fff0dc !important;
+  box-shadow:
+    inset 4px 0 0 var(--taj-orange-600),
+    0 17px 35px rgba(73, 16, 10, .19),
+    0 0 0 1px rgba(255, 207, 145, .22) !important;
 }
 
 html body.page-id-13 #faq.taj-final-faq summary {
+  min-height: 66px !important;
+  display: grid !important;
+  grid-template-columns: 30px minmax(0, 1fr) 34px;
+  gap: 11px !important;
+  padding: 13px 15px !important;
+  align-items: center;
   color: var(--taj-maroon-900) !important;
+  font-size: 13px !important;
+  font-weight: 820 !important;
+  line-height: 1.42 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq summary::before {
+  content: counter(taj-faq, decimal-leading-zero);
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(217, 74, 22, .18);
+  border-radius: 9px;
+  background: rgba(255, 230, 196, .66);
+  color: var(--taj-orange-600);
+  font: 850 10px/1 Manrope, sans-serif;
+  letter-spacing: .08em;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
 }
 
 html body.page-id-13 #faq.taj-final-faq summary::after {
+  content: "+" !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(217, 74, 22, .22);
+  border-radius: 50%;
+  background: #fff0df !important;
   color: var(--taj-orange-600) !important;
+  font: 500 22px/1 Manrope, sans-serif;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .86);
+  transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq details:hover summary::after {
+  border-color: rgba(217, 74, 22, .40);
+  background: #ffe4c3 !important;
+  box-shadow: 0 7px 15px rgba(151, 47, 18, .12), inset 0 1px rgba(255, 255, 255, .92);
+}
+
+html body.page-id-13 #faq.taj-final-faq details[open] summary::before {
+  border-color: rgba(217, 74, 22, .46);
+  background: var(--taj-orange-600);
+  color: #fff;
+}
+
+html body.page-id-13 #faq.taj-final-faq details[open] summary::after {
+  background: var(--taj-orange-600) !important;
+  color: #fff !important;
+  transform: rotate(45deg) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq summary:focus-visible {
+  outline: 3px solid rgba(217, 74, 22, .34);
+  outline-offset: -3px;
+  border-radius: 15px;
 }
 
 html body.page-id-13 #faq.taj-final-faq details p {
+  margin: 0 15px 14px 56px !important;
+  padding: 12px 0 0 !important;
+  border-top: 1px solid rgba(108, 45, 24, .12);
   color: #5a3527 !important;
+  font-size: 13px !important;
+  line-height: 1.62 !important;
+  opacity: 1;
+  transform: translateY(0);
+  animation: taj-faq-answer-in .18s ease-out both;
+}
+
+@keyframes taj-faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports selector(details::details-content) {
+  html body.page-id-13 #faq.taj-final-faq details::details-content {
+    block-size: 0;
+    overflow: clip;
+    opacity: 0;
+    transition:
+      block-size .20s ease,
+      opacity .15s ease,
+      content-visibility .20s allow-discrete;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-support {
-  border-color: rgba(91, 13, 22, .18) !important;
-  background: #fffaf1 !important;
+  min-height: 0 !important;
+  position: relative;
+  overflow: hidden;
+  padding: 20px !important;
+  border: 1px solid rgba(255, 245, 228, .62) !important;
+  border-radius: 22px !important;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(239, 90, 24, .10), transparent 30%),
+    #fff7ea !important;
+  box-shadow:
+    0 22px 52px rgba(82, 22, 10, .22),
+    inset 0 1px rgba(255, 255, 255, .92) !important;
+  text-align: center;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(193, 94, 44, .10);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 25px;
+  margin: 0 auto 10px;
+  padding: 0 11px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(217, 74, 22, .22);
+  border-radius: 999px;
+  background: #fff0df;
+  color: var(--taj-orange-600);
+  font: 850 9px/1 Manrope, sans-serif;
+  letter-spacing: .12em;
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-support__icon {
-  color: var(--taj-orange-500) !important;
+  position: relative;
+  z-index: 1;
+  width: 56px !important;
+  height: 56px !important;
+  margin: 0 auto 10px !important;
+  border: 1px solid rgba(217, 74, 22, .24);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fffaf2, #ffe1bf);
+  color: var(--taj-orange-600) !important;
+  box-shadow: 0 11px 24px rgba(139, 52, 21, .13), inset 0 1px #fff;
 }
 
-html body.page-id-13 #faq.taj-final-faq .taj-final-support h3,
-html body.page-id-13 #faq.taj-final-faq .taj-final-support strong {
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__icon svg {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support h3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 5px !important;
   color: var(--taj-maroon-900) !important;
+  font-size: 27px !important;
+  line-height: 1.05 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support strong {
+  position: relative;
+  z-index: 1;
+  color: var(--taj-maroon-900) !important;
+  font-size: 14px !important;
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-support p {
+  position: relative;
+  z-index: 1;
+  margin: 6px 0 14px !important;
   color: #6b4536 !important;
+  font-size: 13px !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa,
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 50px !important;
+  gap: 10px;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+  font-size: 12px !important;
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease !important;
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa {
   border-color: rgba(255, 106, 32, .48) !important;
   background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600)) !important;
   color: #fff !important;
+  box-shadow: 0 14px 30px rgba(149, 47, 17, .24) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa:hover,
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa:focus-visible {
+  background: linear-gradient(135deg, var(--taj-orange-400), var(--taj-orange-500)) !important;
+  box-shadow: 0 18px 38px rgba(149, 47, 17, .30) !important;
+  transform: translateY(-2px);
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa:focus-visible {
+  outline: 3px solid rgba(255, 239, 213, .78);
+  outline-offset: 2px;
 }
 
 html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
-  border-color: rgba(217, 74, 22, .38) !important;
+  margin-top: 10px !important;
+  border-color: rgba(217, 74, 22, .32) !important;
   background: #fffdf8 !important;
   color: var(--taj-maroon-900) !important;
 }
@@ -23814,8 +24130,145 @@ html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
 html body.page-id-13 #faq.taj-final-faq .taj-final-support__email:hover,
 html body.page-id-13 #faq.taj-final-faq .taj-final-support__email:focus-visible {
   border-color: var(--taj-orange-500) !important;
-  background: #fff3e6 !important;
+  background: #fff0df !important;
   color: var(--taj-maroon-900) !important;
+  transform: translateY(-2px);
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email:focus-visible {
+  outline: 3px solid rgba(217, 74, 22, .28);
+  outline-offset: 2px;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__button-icon {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  flex: 0 0 26px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 250, 242, .96);
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__button-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa .taj-final-support__button-icon {
+  color: #218c55 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__button-icon--whatsapp svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email .taj-final-support__button-icon {
+  color: var(--taj-orange-600) !important;
+  background: #fff0df;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__trust {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(108, 45, 24, .12);
+  text-align: left;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__trust span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #674537;
+  font: 700 10px/1.35 Manrope, sans-serif;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__trust span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border: 2px solid #fff7ea;
+  border-radius: 50%;
+  background: var(--taj-orange-500);
+  box-shadow: 0 0 0 1px rgba(217, 74, 22, .28);
+}
+
+@media (max-width: 1100px) {
+  html body.page-id-13 #faq.taj-final-faq .taj-final-faq__layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support {
+    min-height: 0 !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.page-id-13 #faq.taj-final-faq .taj-final-faq__list {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head {
+    margin-bottom: 24px !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head h2 {
+    font-size: clamp(34px, 10.5vw, 44px) !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq .taj-final-faq__list {
+    gap: 10px !important;
+    padding: 0 !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq summary {
+    grid-template-columns: 26px minmax(0, 1fr) 34px;
+    min-height: 62px !important;
+    gap: 10px !important;
+    padding: 14px !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq details p {
+    margin: 0 14px 15px 50px !important;
+    padding-top: 12px !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support {
+    padding: 20px 18px !important;
+    border-radius: 22px !important;
+  }
+
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa,
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
+    min-height: 50px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.page-id-13 #faq.taj-final-faq details,
+  html body.page-id-13 #faq.taj-final-faq details::details-content,
+  html body.page-id-13 #faq.taj-final-faq details p,
+  html body.page-id-13 #faq.taj-final-faq summary::before,
+  html body.page-id-13 #faq.taj-final-faq summary::after,
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa,
+  html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Thank-you page: final full-width presentation pass.
