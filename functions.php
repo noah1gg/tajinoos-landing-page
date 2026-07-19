@@ -9,13 +9,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.1.37');
+define('TAJINOOS_CHILD_VERSION', '1.2.3');
+
+require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
+require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
 
 add_action('wp_enqueue_scripts', 'tajinoos_child_enqueue_assets', 20);
 add_action('init', 'tajinoos_child_ensure_thank_you_page');
-add_action('admin_post_nopriv_tajinoos_submit_order', 'tajinoos_child_handle_order_submit');
-add_action('admin_post_tajinoos_submit_order', 'tajinoos_child_handle_order_submit');
-add_shortcode('tajinoos_thank_you', 'tajinoos_child_render_thank_you_shortcode');
 add_filter('wp_list_pages_excludes', 'tajinoos_child_exclude_thank_you_from_page_list');
 add_filter('body_class', 'tajinoos_child_thank_you_body_class');
 add_filter('style_loader_src', 'tajinoos_child_page_13_relative_premium_css', 10, 2);
@@ -86,6 +86,14 @@ function tajinoos_child_enqueue_assets(): void
         TAJINOOS_CHILD_VERSION,
         true
     );
+
+    wp_localize_script('tajinoos-premium', 'tajinoosOrder', [
+        'ajaxUrl' => wp_make_link_relative(admin_url('admin-ajax.php')),
+        'unitPrice' => tajinoos_get_order_unit_price(),
+        'processingLabel' => 'Traitement de votre commande…',
+        'networkError' => 'Une erreur de connexion est survenue. Vérifiez votre connexion puis réessayez.',
+        'genericError' => 'Nous n’avons pas pu enregistrer votre commande. Veuillez réessayer.',
+    ]);
 }
 
 function tajinoos_child_ensure_thank_you_page(): void
@@ -103,7 +111,7 @@ function tajinoos_child_ensure_thank_you_page(): void
     ]);
 }
 
-function tajinoos_child_render_thank_you_shortcode(): string
+function tajinoos_child_render_thank_you_shortcode_legacy(): string
 {
     $home_url = esc_url(home_url('/'));
 
@@ -130,7 +138,7 @@ function tajinoos_child_render_thank_you_shortcode(): string
 HTML;
 }
 
-function tajinoos_child_handle_order_submit(): void
+function tajinoos_child_handle_order_submit_legacy(): void
 {
     $nonce = isset($_POST['_tajinoos_order_nonce']) ? sanitize_text_field(wp_unslash($_POST['_tajinoos_order_nonce'])) : '';
 
@@ -213,6 +221,7 @@ function tajinoos_child_thank_you_body_class(array $classes): array
 {
     if (is_page('merci')) {
         $classes[] = 'tajinoos-thank-you-page';
+        $classes[] = 'taj-thanks-page-body';
     }
 
     return $classes;
@@ -1033,6 +1042,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
     $form_action = esc_url(wp_make_link_relative(admin_url('admin-post.php')));
     $nonce_field = wp_nonce_field('tajinoos_order_submit', '_tajinoos_order_nonce', true, false);
     $source_url = esc_url(get_permalink() ?: home_url('/#commande'));
+    $unit_price = (string) tajinoos_get_order_unit_price();
 
     $order = <<<'HTML'
 <section id="commande" class="tajx-section tajx-order tajcmd" aria-labelledby="tajcmd-title">
@@ -1068,8 +1078,8 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         %%TAJINOOS_ORDER_NONCE%%
         <input type="hidden" name="action" value="tajinoos_submit_order">
         <input type="hidden" name="Source" value="%%TAJINOOS_ORDER_SOURCE%%">
-        <input type="hidden" name="Prix_unitaire" value="390">
-        <input type="hidden" name="Total" value="390" data-tajcmd-total-input>
+        <input type="hidden" name="Prix_unitaire" value="%%TAJINOOS_UNIT_PRICE%%">
+        <input type="hidden" name="Total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-total-input>
 
         <header class="tajcmd-form__head">
           <span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span>
@@ -1077,17 +1087,19 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         </header>
 
         <div class="tajcmd-form__body">
+          <div class="tajcmd-form__messages" data-tajcmd-messages role="alert" tabindex="-1" hidden></div>
+
           <div class="tajcmd-form__row">
             <label class="tajcmd-field">NOM COMPLET
-              <input name="Nom" required type="text" placeholder="Ex: Ahmed Alaoui" autocomplete="name">
+              <input name="Nom" required type="text" maxlength="120" placeholder="Ex: Ahmed Alaoui" autocomplete="name">
             </label>
             <label class="tajcmd-field">T&Eacute;L&Eacute;PHONE (WHATSAPP)
-              <input name="Telephone" required type="tel" placeholder="06 XX XX XX XX" autocomplete="tel">
+              <input name="Telephone" required type="tel" maxlength="24" inputmode="tel" placeholder="06 XX XX XX XX" autocomplete="tel">
             </label>
           </div>
 
           <label class="tajcmd-field tajcmd-field--full">VILLE &amp; ADRESSE DE LIVRAISON
-            <input name="Adresse" required type="text" placeholder="Votre ville et adresse compl&egrave;te..." autocomplete="street-address">
+            <input name="Adresse" required type="text" maxlength="300" placeholder="Votre ville et adresse compl&egrave;te..." autocomplete="street-address">
           </label>
 
           <div class="tajcmd-form__row tajcmd-form__row--compact">
@@ -1109,15 +1121,15 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
           </div>
 
           <label class="tajcmd-field tajcmd-field--full">MESSAGE (OPTIONNEL)
-            <textarea name="Message" rows="3" placeholder="Pr&eacute;cisez un horaire de rappel, un d&eacute;tail de livraison..."></textarea>
+            <textarea name="Message" rows="3" maxlength="1000" placeholder="Pr&eacute;cisez un horaire de rappel, un d&eacute;tail de livraison..."></textarea>
           </label>
 
           <div class="tajcmd-total" aria-label="Total &agrave; payer">
             <span class="tajcmd-total__meta"><strong>TOTAL &Agrave; PAYER</strong><small>Frais de livraison inclus</small></span>
-            <strong class="tajcmd-total__price"><span data-tajcmd-form-total>390</span><span class="tajcmd-total__currency"> MAD</span></strong>
+            <strong class="tajcmd-total__price"><span data-tajcmd-form-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-total__currency"> MAD</span></strong>
           </div>
 
-          <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINE &mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>390</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
+          <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINE &mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
 
           <div class="tajcmd-reassurance" aria-label="Garanties de commande">
             <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span> Cash on delivery</span>
@@ -1131,8 +1143,8 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
 HTML;
 
     $order = str_replace(
-        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%'],
-        [$form_action, $nonce_field, $source_url],
+        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%', '%%TAJINOOS_UNIT_PRICE%%'],
+        [$form_action, $nonce_field, $source_url, $unit_price],
         $order
     );
 

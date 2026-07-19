@@ -52,7 +52,8 @@
     return;
   }
 
-  var unitPrice = 390;
+  var configuredUnitPrice = window.tajinoosOrder ? parseInt(window.tajinoosOrder.unitPrice, 10) : 390;
+  var unitPrice = Number.isNaN(configuredUnitPrice) ? 390 : configuredUnitPrice;
   var minQuantity = 1;
   var maxQuantity = 5;
   var quantity = minQuantity;
@@ -149,38 +150,154 @@
   }
 
   var submitButton = form.querySelector('.tajcmd-submit');
+  var messageBox = form.querySelector('[data-tajcmd-messages]');
+  var originalButtonHtml = submitButton ? submitButton.innerHTML : '';
+  var isSubmitting = false;
 
-  function showError(message) {
-    var error = form.querySelector('.tajcmd-error');
-
-    if (!error) {
-      error = document.createElement('p');
-      error.className = 'tajcmd-error';
-      error.setAttribute('role', 'alert');
-      form.querySelector('.tajcmd-form__body').insertBefore(error, submitButton);
+  function showError(message, fieldName) {
+    if (messageBox) {
+      messageBox.textContent = message;
+      messageBox.hidden = false;
+      messageBox.classList.add('is-visible');
+      messageBox.focus({ preventScroll: true });
     }
 
-    error.textContent = message;
+    if (fieldName) {
+      var field = form.elements.namedItem(fieldName);
+
+      if (field && typeof field.focus === 'function') {
+        field.setAttribute('aria-invalid', 'true');
+        field.focus();
+      }
+    }
+  }
+
+  function clearError() {
+    form.querySelectorAll('[aria-invalid="true"]').forEach(function (field) {
+      field.removeAttribute('aria-invalid');
+    });
+
+    if (messageBox) {
+      messageBox.textContent = '';
+      messageBox.hidden = true;
+      messageBox.classList.remove('is-visible');
+    }
+  }
+
+  function setSubmitting(nextState) {
+    isSubmitting = nextState;
+    form.setAttribute('aria-busy', nextState ? 'true' : 'false');
+
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = nextState;
+    submitButton.classList.toggle('is-submitting', nextState);
+    submitButton.innerHTML = nextState
+      ? '<span class="tajcmd-submit__spinner" aria-hidden="true"></span>' +
+        (window.tajinoosOrder ? window.tajinoosOrder.processingLabel : 'Traitement de votre commande…')
+      : originalButtonHtml;
   }
 
   form.addEventListener('submit', function (event) {
-    var existingError = form.querySelector('.tajcmd-error');
+    clearError();
 
-    if (existingError) {
-      existingError.remove();
+    if (isSubmitting) {
+      event.preventDefault();
+      return;
     }
 
     if (!form.checkValidity()) {
       event.preventDefault();
-      showError('Veuillez remplir les champs obligatoires.');
-      form.reportValidity();
+      var firstInvalidField = form.querySelector(':invalid');
+      showError(
+        'Veuillez vérifier les champs indiqués avant de continuer.',
+        firstInvalidField ? firstInvalidField.name : ''
+      );
       return;
     }
 
-    if (submitButton) {
-      submitButton.classList.add('is-submitting');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Envoi en cours...';
+    if (!window.fetch || !window.tajinoosOrder || !window.tajinoosOrder.ajaxUrl) {
+      setSubmitting(true);
+      return;
+    }
+
+    event.preventDefault();
+    setSubmitting(true);
+
+    var payload = new FormData(form);
+
+    window.fetch(window.tajinoosOrder.ajaxUrl, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: payload
+    })
+      .then(function (response) {
+        return response.json().catch(function () {
+          throw new Error('invalid_json');
+        }).then(function (json) {
+          return { ok: response.ok, json: json };
+        });
+      })
+      .then(function (result) {
+        if (result.ok && result.json.success && result.json.data && result.json.data.redirect) {
+          window.location.assign(result.json.data.redirect);
+          return;
+        }
+
+        var data = result.json && result.json.data ? result.json.data : {};
+        showError(
+          data.message || window.tajinoosOrder.genericError,
+          data.field || ''
+        );
+        setSubmitting(false);
+      })
+      .catch(function () {
+        showError(window.tajinoosOrder.networkError || window.tajinoosOrder.genericError, '');
+        setSubmitting(false);
+      });
+  });
+})();
+
+(function () {
+  'use strict';
+
+  var page = document.querySelector('.taj-thanks-page');
+
+  if (!page) {
+    return;
+  }
+
+  var nav = page.querySelector('.taj-thanks-page__nav');
+  var toggle = page.querySelector('.taj-thanks-page__menu-toggle');
+  var menu = page.querySelector('.taj-thanks-page__menu');
+
+  if (!nav || !toggle || !menu) {
+    return;
+  }
+
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function () {
+    var isOpen = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeMenu();
+      toggle.focus();
     }
   });
 })();
@@ -330,6 +447,15 @@
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
   });
+
+  if (!menu.querySelector('a[href="#faq"]')) {
+    var faqLink = document.createElement('a');
+    var commanderLink = menu.querySelector('.tajx-navbar-cta, a[href="#commande"]');
+
+    faqLink.href = '#faq';
+    faqLink.textContent = 'FAQ';
+    menu.insertBefore(faqLink, commanderLink || null);
+  }
 
   menu.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function () {

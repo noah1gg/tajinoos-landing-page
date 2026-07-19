@@ -1369,7 +1369,7 @@ html body.page-id-13 #avis .tajx-testimonials-showcase {
 }
 
 html body.page-id-13 #avis .tajx-testimonials-showcase::before {
-  content: "â€œ";
+  content: none;
   position: absolute;
   top: -39px;
   left: 0;
@@ -23739,6 +23739,1575 @@ html body.page-id-13 #benefices .taj-benefits-orange__card-text {
 
   html body.page-id-13 #benefices .taj-benefits-orange__card-text {
     font-size: 14px;
+  }
+}
+
+/* FAQ palette match: scoped to the active landing-page help section. */
+html body.page-id-13 #faq.taj-final-faq {
+  scroll-margin-top: 96px;
+  background:
+    linear-gradient(135deg, rgba(239, 90, 24, .95) 0%, rgba(217, 74, 22, .98) 100%),
+    url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center / 420px auto repeat !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head .taj-final-eyebrow {
+  color: #240208 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-faq__head h2 {
+  color: #fffaf2 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq details {
+  border-color: rgba(91, 13, 22, .18) !important;
+  background: #fffaf1 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq details:hover,
+html body.page-id-13 #faq.taj-final-faq details[open] {
+  border-color: rgba(91, 13, 22, .30) !important;
+  background: #fff4e7 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq summary {
+  color: var(--taj-maroon-900) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq summary::after {
+  color: var(--taj-orange-600) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq details p {
+  color: #5a3527 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support {
+  border-color: rgba(91, 13, 22, .18) !important;
+  background: #fffaf1 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__icon {
+  color: var(--taj-orange-500) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support h3,
+html body.page-id-13 #faq.taj-final-faq .taj-final-support strong {
+  color: var(--taj-maroon-900) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support p {
+  color: #6b4536 !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__wa {
+  border-color: rgba(255, 106, 32, .48) !important;
+  background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600)) !important;
+  color: #fff !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email {
+  border-color: rgba(217, 74, 22, .38) !important;
+  background: #fffdf8 !important;
+  color: var(--taj-maroon-900) !important;
+}
+
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email:hover,
+html body.page-id-13 #faq.taj-final-faq .taj-final-support__email:focus-visible {
+  border-color: var(--taj-orange-500) !important;
+  background: #fff3e6 !important;
+  color: var(--taj-maroon-900) !important;
+}
+
+/* Thank-you page: final full-width presentation pass.
+ * Kept strictly scoped to page 79 so the Tajinoos landing page is unaffected.
+ */
+html body.page-id-79.taj-thanks-page-body,
+html body.page-id-79.taj-thanks-page-body .elementor-79,
+html body.page-id-79.taj-thanks-page-body .elementor-element-748c802e,
+html body.page-id-79.taj-thanks-page-body .elementor-element-748c802e > .e-con-inner,
+html body.page-id-79.taj-thanks-page-body .elementor-widget-shortcode,
+html body.page-id-79.taj-thanks-page-body .elementor-widget-shortcode > .elementor-widget-container,
+html body.page-id-79.taj-thanks-page-body .elementor-shortcode {
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+html body.page-id-79.taj-thanks-page-body .elementor-element-748c802e {
+  --container-max-width: none;
+  --content-width: 100%;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh;
+  margin: 0 !important;
+  overflow-x: clip;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__nav,
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__footer,
+html body.page-id-79.taj-thanks-page-body .site-header,
+html body.page-id-79.taj-thanks-page-body .site-footer {
+  display: none !important;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__main {
+  width: min(1500px, calc(100% - 64px)) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: clamp(32px, 3vw, 50px) 0 clamp(58px, 5vw, 82px) !important;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero {
+  grid-template-columns: minmax(0, 0.93fr) minmax(520px, 1.07fr);
+  gap: clamp(46px, 5vw, 88px);
+  align-items: center;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy {
+  padding: clamp(18px, 2.5vw, 40px) 0;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy h1 {
+  max-width: 760px;
+  margin-top: 24px;
+  font-size: clamp(62px, 5.25vw, 84px);
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > h2 {
+  margin-top: 24px;
+  font-size: clamp(23px, 1.7vw, 29px);
+  line-height: 1.2;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > p:not(.taj-thanks-page__microcopy) {
+  max-width: 60ch;
+  margin-top: 13px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference {
+  min-height: 66px;
+  margin-top: 24px;
+  padding: 14px 20px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference span {
+  font-size: 10px;
+  letter-spacing: 0.11em;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference strong {
+  font-size: 18px;
+  letter-spacing: 0.035em;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__actions {
+  flex-wrap: nowrap;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button {
+  height: 60px;
+  min-height: 60px;
+  padding: 0 clamp(24px, 2vw, 34px);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--primary {
+  min-width: 240px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--secondary {
+  min-width: 320px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--secondary svg {
+  width: 21px;
+  height: 21px;
+  color: #218c55;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__microcopy {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual {
+  min-height: clamp(530px, 37vw, 625px);
+  border-radius: 30px 30px 72px 30px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__product {
+  width: min(86%, 620px);
+  max-height: 82%;
+  object-fit: contain;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal {
+  top: 25px;
+  right: 25px;
+  min-height: 54px;
+  padding: 9px 17px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual figcaption {
+  right: 28px;
+  bottom: 22px;
+  left: 28px;
+  padding-top: 15px;
+  font-size: 12px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey {
+  margin-top: 38px;
+  padding: 30px 38px 32px;
+  border-radius: 24px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header {
+  padding-bottom: 20px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header h2 {
+  font-size: clamp(31px, 2.4vw, 39px);
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey ol {
+  padding-top: 21px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__step-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li strong {
+  font-size: 14px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li p {
+  margin-top: 4px;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+  min-height: 84px;
+  margin-top: 22px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div {
+  gap: 13px;
+  padding: 18px 25px;
+  font-size: 12.5px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div > span {
+  width: 40px;
+  height: 40px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice {
+  gap: 20px;
+  margin-top: 24px;
+  padding: 24px 26px;
+  border-radius: 22px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice-icon {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice h2 {
+  font-size: 26px;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice p {
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice a {
+  min-height: 50px;
+  padding: 0 24px;
+  font-size: 10.5px;
+}
+
+@media (max-width: 1180px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__main {
+    width: min(1120px, calc(100% - 40px)) !important;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
+    gap: 36px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy h1 {
+    font-size: clamp(54px, 5.8vw, 68px);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__actions {
+    flex-wrap: wrap;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--primary,
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--secondary {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__main {
+    width: min(820px, calc(100% - 36px)) !important;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy {
+    max-width: 720px;
+    padding-bottom: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual {
+    min-height: clamp(470px, 72vw, 600px);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey {
+    margin-top: 28px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  }
+}
+
+@media (max-width: 767px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__main {
+    width: 100% !important;
+    padding: 22px 18px 48px !important;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy {
+    padding-top: 8px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy h1 {
+    margin-top: 19px;
+    font-size: clamp(44px, 13.5vw, 58px);
+    line-height: 0.96;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > h2 {
+    margin-top: 20px;
+    font-size: 21px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > p:not(.taj-thanks-page__microcopy) {
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference {
+    align-items: flex-start;
+    min-height: 0;
+    padding: 15px 17px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button {
+    width: 100%;
+    height: 56px;
+    min-height: 56px;
+    padding: 0 18px;
+    font-size: 11px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual {
+    min-height: clamp(390px, 108vw, 510px);
+    border-radius: 24px 24px 48px 24px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__product {
+    width: min(94%, 500px);
+    max-height: 78%;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal {
+    top: 16px;
+    right: 16px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual figcaption {
+    right: 18px;
+    bottom: 16px;
+    left: 18px;
+    font-size: 10px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey {
+    padding: 24px 20px 26px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header h2 {
+    font-size: 30px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li strong {
+    font-size: 13px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li p {
+    font-size: 11px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div {
+    min-height: 76px;
+    padding: 14px 13px;
+    font-size: 11.5px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice {
+    align-items: flex-start;
+    padding: 21px 19px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice h2 {
+    font-size: 23px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice a {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+    grid-template-columns: 1fr;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div,
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* ========================================================================
+   Tajinoos secure order form states
+   ======================================================================== */
+html body.page-id-13 #commande .tajcmd-form__messages {
+  width: 100%;
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid rgba(169, 49, 25, .36);
+  border-radius: 11px;
+  background: #fff1ed;
+  color: #842813;
+  font: 700 12px/1.5 "Manrope", sans-serif;
+  box-shadow: 0 8px 20px rgba(119, 37, 20, .08);
+}
+
+html body.page-id-13 #commande .tajcmd-form__messages[hidden] {
+  display: none !important;
+}
+
+html body.page-id-13 #commande .tajcmd-field [aria-invalid="true"] {
+  border-color: #b9341c !important;
+  box-shadow: 0 0 0 4px rgba(185, 52, 28, .13) !important;
+}
+
+html body.page-id-13 #commande .tajcmd-submit:disabled {
+  cursor: wait;
+  filter: saturate(.72);
+  opacity: .84;
+  transform: none !important;
+}
+
+html body.page-id-13 #commande .tajcmd-submit__spinner {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(255, 255, 255, .42);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: tajcmd-spin .7s linear infinite;
+}
+
+@keyframes tajcmd-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================================================
+   Tajinoos branded thank-you page
+   Scope: .taj-thanks-page only
+   ======================================================================== */
+body.taj-thanks-page-body {
+  margin: 0 !important;
+  background: #fbf1e3 !important;
+}
+
+body.taj-thanks-page-body .site-header,
+body.taj-thanks-page-body .site-footer,
+body.taj-thanks-page-body #ast-scroll-top {
+  display: none !important;
+}
+
+.taj-thanks-page,
+.taj-thanks-page * {
+  box-sizing: border-box;
+}
+
+.taj-thanks-page {
+  --taj-thanks-maroon: #510b12;
+  --taj-thanks-maroon-2: #71151c;
+  --taj-thanks-ink: #2b130f;
+  --taj-thanks-orange: #ea541b;
+  --taj-thanks-orange-dark: #bd3516;
+  --taj-thanks-cream: #fff9f0;
+  --taj-thanks-beige: #f5e2ca;
+  --taj-thanks-muted: #70534a;
+  --taj-thanks-line: rgba(125, 65, 39, .17);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 0 16%, rgba(224, 121, 53, .13), transparent 24%),
+    radial-gradient(circle at 100% 74%, rgba(130, 43, 26, .1), transparent 26%),
+    #fbf1e3;
+  color: var(--taj-thanks-ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.taj-thanks-page a {
+  text-decoration: none !important;
+}
+
+.taj-thanks-page button,
+.taj-thanks-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.taj-thanks-page :where(a, button):focus-visible {
+  outline: 3px solid #f4a55e;
+  outline-offset: 4px;
+}
+
+.taj-thanks-page__nav {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  min-height: 82px;
+  border-bottom: 1px solid rgba(255, 189, 135, .18);
+  background:
+    radial-gradient(circle at 88% 5%, rgba(214, 80, 29, .2), transparent 30%),
+    linear-gradient(105deg, #43080e, #631018 72%, #771920);
+  box-shadow: 0 14px 32px rgba(55, 8, 12, .18);
+}
+
+.admin-bar .taj-thanks-page__nav {
+  top: 32px;
+}
+
+.taj-thanks-page__nav-inner {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 82px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.taj-thanks-page__brand,
+.taj-thanks-page__footer-brand {
+  position: relative;
+  display: inline-flex;
+  padding: 7px 0 11px;
+  color: #fff9f0 !important;
+  font: 700 32px/1 "Cormorant Garamond", Georgia, serif;
+  letter-spacing: .12em;
+}
+
+.taj-thanks-page__brand::after,
+.taj-thanks-page__footer-brand::after {
+  content: "";
+  position: absolute;
+  right: 66%;
+  bottom: 2px;
+  left: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--taj-thanks-orange);
+  transition: right .22s ease;
+}
+
+.taj-thanks-page__brand:hover::after,
+.taj-thanks-page__brand:focus-visible::after,
+.taj-thanks-page__footer-brand:hover::after,
+.taj-thanks-page__footer-brand:focus-visible::after {
+  right: 0;
+}
+
+.taj-thanks-page__menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.taj-thanks-page__menu > a {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: #fcefe8 !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.taj-thanks-page__menu > a:not(.taj-thanks-page__nav-cta)::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  bottom: 4px;
+  left: 50%;
+  height: 2px;
+  background: #f47a3d;
+  transition: right .2s ease, left .2s ease;
+}
+
+.taj-thanks-page__menu > a:not(.taj-thanks-page__nav-cta):hover::after,
+.taj-thanks-page__menu > a:not(.taj-thanks-page__nav-cta):focus-visible::after {
+  right: 0;
+  left: 0;
+}
+
+.taj-thanks-page__menu .taj-thanks-page__nav-cta {
+  min-width: 142px;
+  justify-content: center;
+  padding: 0 25px;
+  border: 1px solid rgba(255, 187, 132, .42);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f56b25, #d54316);
+  box-shadow: 0 12px 28px rgba(212, 60, 18, .29), inset 0 1px rgba(255, 255, 255, .25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.taj-thanks-page__menu .taj-thanks-page__nav-cta:hover,
+.taj-thanks-page__menu .taj-thanks-page__nav-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 32px rgba(212, 60, 18, .36), inset 0 1px rgba(255, 255, 255, .3);
+}
+
+.taj-thanks-page__menu-toggle {
+  display: none;
+}
+
+.taj-thanks-page__main {
+  position: relative;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 38px 0 52px;
+}
+
+.taj-thanks-page__main::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -90px;
+  left: -340px;
+  width: 560px;
+  aspect-ratio: 16 / 9;
+  background: url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center / cover no-repeat;
+  opacity: .075;
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.taj-thanks-page__hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(390px, .96fr);
+  align-items: stretch;
+  gap: clamp(28px, 4vw, 58px);
+}
+
+.taj-thanks-page__hero-copy {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 42px) 0 20px;
+}
+
+.taj-thanks-page__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 31px;
+  padding: 6px 12px;
+  border: 1px solid rgba(222, 94, 28, .28);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, .82);
+  color: #aa3718;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  box-shadow: 0 8px 20px rgba(105, 45, 25, .06);
+}
+
+.taj-thanks-page__eyebrow svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__hero h1 {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: var(--taj-thanks-maroon);
+  font: 700 clamp(48px, 5vw, 68px)/.91 "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.taj-thanks-page__hero h1 em {
+  display: block;
+  color: var(--taj-thanks-orange);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.taj-thanks-page__hero h2 {
+  margin: 20px 0 7px;
+  color: #3d1812;
+  font: 700 clamp(21px, 2vw, 27px)/1.15 "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-thanks-page__hero-copy > p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--taj-thanks-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.taj-thanks-page__reference {
+  width: fit-content;
+  min-width: 250px;
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 11px 14px;
+  border: 1px solid rgba(203, 116, 56, .25);
+  border-left: 3px solid var(--taj-thanks-orange);
+  border-radius: 9px;
+  background: rgba(255, 250, 243, .88);
+  box-shadow: 0 10px 24px rgba(90, 43, 25, .07);
+}
+
+.taj-thanks-page__reference span {
+  color: #8a5c4a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.taj-thanks-page__reference strong {
+  color: var(--taj-thanks-maroon);
+  font-size: 15px;
+  letter-spacing: .035em;
+}
+
+.taj-thanks-page__actions {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.taj-thanks-page__button {
+  min-height: 49px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.taj-thanks-page__button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__button--primary {
+  min-width: 190px;
+  border: 1px solid rgba(141, 42, 15, .2);
+  background: linear-gradient(135deg, #f36a25, #d63e13);
+  color: #fff !important;
+  box-shadow: 0 15px 28px rgba(183, 54, 18, .24), inset 0 1px rgba(255, 255, 255, .25);
+}
+
+.taj-thanks-page__button--secondary {
+  border: 1px solid rgba(123, 40, 27, .26);
+  background: rgba(255, 250, 243, .72);
+  color: #6f2118 !important;
+}
+
+.taj-thanks-page__button:hover,
+.taj-thanks-page__button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 30px rgba(101, 37, 22, .18);
+}
+
+.taj-thanks-page__hero-copy .taj-thanks-page__microcopy {
+  margin-top: 13px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #77584e;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.taj-thanks-page__microcopy svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #b44825;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.taj-thanks-page__visual {
+  position: relative;
+  min-height: 490px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(153, 74, 39, .18);
+  border-radius: 27px 27px 78px 27px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, .94), transparent 38%),
+    linear-gradient(145deg, #f7dfc5, #fff7e9 70%);
+  box-shadow: 0 28px 58px rgba(76, 33, 20, .14), inset 0 1px rgba(255, 255, 255, .8);
+}
+
+.taj-thanks-page__pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .13;
+  mix-blend-mode: multiply;
+}
+
+.taj-thanks-page__product {
+  position: absolute;
+  z-index: 2;
+  top: 51%;
+  left: 50%;
+  width: min(94%, 490px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 28px 26px rgba(71, 32, 17, .24));
+}
+
+.taj-thanks-page__success-seal {
+  position: absolute;
+  z-index: 4;
+  top: 23px;
+  right: 23px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 999px;
+  background: rgba(82, 12, 17, .91);
+  color: #fff8ef;
+  box-shadow: 0 12px 25px rgba(68, 15, 15, .2);
+}
+
+.taj-thanks-page__success-seal svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: #ff9c58;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__success-seal span {
+  display: grid;
+  font-size: 8px;
+  line-height: 1.25;
+  letter-spacing: .08em;
+}
+
+.taj-thanks-page__success-seal strong {
+  font-size: 10px;
+}
+
+.taj-thanks-page__visual figcaption {
+  position: absolute;
+  z-index: 4;
+  right: 20px;
+  bottom: 19px;
+  left: 20px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(108, 49, 28, .17);
+  color: #6d493c;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .03em;
+}
+
+.taj-thanks-page__visual figcaption span {
+  margin: 0 8px;
+  color: var(--taj-thanks-orange);
+}
+
+.taj-thanks-page__journey {
+  position: relative;
+  z-index: 1;
+  margin-top: 38px;
+  padding: 26px 30px 28px;
+  border: 1px solid var(--taj-thanks-line);
+  border-radius: 21px;
+  background: rgba(255, 250, 242, .75);
+  box-shadow: 0 18px 42px rgba(79, 35, 22, .08), inset 0 1px rgba(255, 255, 255, .82);
+}
+
+.taj-thanks-page__journey > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid rgba(133, 72, 43, .13);
+}
+
+.taj-thanks-page__journey > header > span {
+  color: #b8401d;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.taj-thanks-page__journey h2 {
+  margin: 0;
+  color: #431817;
+  font: 700 clamp(23px, 2.5vw, 31px)/1.05 "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-thanks-page__journey ol {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 23px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taj-thanks-page__journey ol::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 22px;
+  right: 16%;
+  left: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, #dd5b27 0 34%, rgba(162, 92, 58, .24) 34% 100%);
+}
+
+.taj-thanks-page__journey li {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr);
+  align-items: start;
+  gap: 11px;
+  padding: 0 12px;
+}
+
+.taj-thanks-page__step-number {
+  position: absolute;
+  top: -5px;
+  left: 2px;
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ead9c7;
+  color: #7c5647;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.taj-thanks-page__step-icon {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(153, 91, 55, .18);
+  border-radius: 50%;
+  background: #fffaf3;
+  color: #9a5b43;
+  box-shadow: 0 8px 18px rgba(95, 42, 23, .07);
+}
+
+.taj-thanks-page__journey .is-complete .taj-thanks-page__step-icon {
+  border-color: #e5682f;
+  background: linear-gradient(145deg, #f57837, #d94a1e);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(199, 68, 25, .23);
+}
+
+.taj-thanks-page__step-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__journey li strong {
+  display: block;
+  margin-top: 2px;
+  color: #3a1713;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.taj-thanks-page__journey li p {
+  margin: 4px 0 0;
+  color: #806257;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.taj-thanks-page__reassurance {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(106, 24, 23, .18);
+  border-radius: 17px;
+  background: linear-gradient(100deg, #561018, #7b1d20);
+  box-shadow: 0 17px 36px rgba(73, 16, 18, .14);
+}
+
+.taj-thanks-page__reassurance > div {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 15px;
+  color: #fff6ed;
+}
+
+.taj-thanks-page__reassurance > div + div {
+  border-left: 1px solid rgba(255, 224, 196, .16);
+}
+
+.taj-thanks-page__reassurance span {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 179, 115, .3);
+  border-radius: 50%;
+  background: rgba(255, 248, 238, .08);
+  color: #ff9b57;
+}
+
+.taj-thanks-page__reassurance svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__reassurance strong {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.taj-thanks-page__advice {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 17px;
+  padding: 19px 22px;
+  border: 1px solid var(--taj-thanks-line);
+  border-radius: 17px;
+  background:
+    linear-gradient(100deg, rgba(255, 250, 242, .87), rgba(245, 224, 199, .72)),
+    #fff7ec;
+}
+
+.taj-thanks-page__advice-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(218, 93, 34, .22);
+  border-radius: 16px;
+  background: #fff4df;
+  color: #ca4b21;
+}
+
+.taj-thanks-page__advice-icon svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-page__advice h2 {
+  margin: 0;
+  color: #461a14;
+  font: 700 22px/1.1 "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-thanks-page__advice p {
+  margin: 4px 0 0;
+  color: #73574d;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.taj-thanks-page__advice > a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1px solid rgba(130, 42, 25, .25);
+  border-radius: 999px;
+  color: #832d1c !important;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.taj-thanks-page__advice > a:hover,
+.taj-thanks-page__advice > a:focus-visible {
+  background: #fff8ef;
+  transform: translateY(-1px);
+}
+
+.taj-thanks-page__footer {
+  min-height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 25px max(24px, calc((100% - 1180px) / 2));
+  border-top: 1px solid rgba(255, 215, 185, .12);
+  background: #31090d;
+  color: #eadbd2;
+}
+
+.taj-thanks-page__footer-brand {
+  padding-bottom: 8px;
+  font-size: 25px;
+}
+
+.taj-thanks-page__footer p {
+  margin: 4px 0 0;
+  color: #d7bfb2;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .taj-thanks-page__menu {
+    gap: 15px;
+  }
+
+  .taj-thanks-page__menu > a {
+    font-size: 11px;
+  }
+
+  .taj-thanks-page__hero {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .8fr);
+    gap: 26px;
+  }
+
+  .taj-thanks-page__hero h1 {
+    font-size: clamp(43px, 6vw, 58px);
+  }
+
+  .taj-thanks-page__visual {
+    min-height: 450px;
+  }
+
+  .taj-thanks-page__reassurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .taj-thanks-page__reassurance > div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 224, 196, .16);
+  }
+
+  .taj-thanks-page__reassurance > div:nth-child(4) {
+    border-top: 1px solid rgba(255, 224, 196, .16);
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-bar .taj-thanks-page__nav {
+    top: 46px;
+  }
+
+  .taj-thanks-page__nav,
+  .taj-thanks-page__nav-inner {
+    min-height: 70px;
+  }
+
+  .taj-thanks-page__nav-inner,
+  .taj-thanks-page__main {
+    width: min(100% - 28px, 600px);
+  }
+
+  .taj-thanks-page__brand {
+    font-size: 26px;
+  }
+
+  .taj-thanks-page__menu-toggle {
+    min-width: 70px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 211, 178, .26);
+    border-radius: 999px;
+    background: rgba(255, 248, 240, .08);
+    color: #fff8ef;
+    font: 700 10px/1 "Manrope", sans-serif;
+  }
+
+  .taj-thanks-page__menu-icon,
+  .taj-thanks-page__menu-icon::before,
+  .taj-thanks-page__menu-icon::after {
+    width: 16px;
+    height: 1.5px;
+    display: block;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .taj-thanks-page__menu-icon {
+    position: relative;
+  }
+
+  .taj-thanks-page__menu-icon::before,
+  .taj-thanks-page__menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .taj-thanks-page__menu-icon::before { top: -5px; }
+  .taj-thanks-page__menu-icon::after { top: 5px; }
+
+  .taj-thanks-page__nav.is-open .taj-thanks-page__menu-icon {
+    background: transparent;
+  }
+
+  .taj-thanks-page__nav.is-open .taj-thanks-page__menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .taj-thanks-page__nav.is-open .taj-thanks-page__menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .taj-thanks-page__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 14px;
+    left: 14px;
+    display: grid;
+    gap: 2px;
+    padding: 12px;
+    border: 1px solid rgba(255, 202, 164, .18);
+    border-radius: 16px;
+    background: rgba(71, 9, 14, .98);
+    box-shadow: 0 20px 38px rgba(45, 7, 10, .28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  }
+
+  .taj-thanks-page__nav.is-open .taj-thanks-page__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .taj-thanks-page__menu > a {
+    width: 100%;
+    min-height: 46px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .taj-thanks-page__menu > a:not(.taj-thanks-page__nav-cta)::after {
+    display: none;
+  }
+
+  .taj-thanks-page__menu .taj-thanks-page__nav-cta {
+    margin-top: 4px;
+  }
+
+  .taj-thanks-page__main {
+    padding: 23px 0 34px;
+  }
+
+  .taj-thanks-page__hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .taj-thanks-page__hero-copy {
+    padding: 10px 0 0;
+  }
+
+  .taj-thanks-page__hero h1 {
+    margin-top: 14px;
+    font-size: clamp(41px, 12vw, 55px);
+  }
+
+  .taj-thanks-page__hero h2 {
+    margin-top: 16px;
+    font-size: 22px;
+  }
+
+  .taj-thanks-page__hero-copy > p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .taj-thanks-page__reference {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .taj-thanks-page__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .taj-thanks-page__button {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .taj-thanks-page__visual {
+    min-height: min(105vw, 430px);
+    border-radius: 21px 21px 54px 21px;
+  }
+
+  .taj-thanks-page__success-seal {
+    top: 14px;
+    right: 14px;
+  }
+
+  .taj-thanks-page__journey {
+    margin-top: 24px;
+    padding: 22px 18px;
+  }
+
+  .taj-thanks-page__journey > header {
+    display: block;
+  }
+
+  .taj-thanks-page__journey h2 {
+    margin-top: 6px;
+    font-size: 27px;
+  }
+
+  .taj-thanks-page__journey ol {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 18px;
+  }
+
+  .taj-thanks-page__journey ol::before {
+    top: 21px;
+    right: auto;
+    bottom: 22px;
+    left: 34px;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, #dd5b27 0 33%, rgba(162, 92, 58, .24) 33% 100%);
+  }
+
+  .taj-thanks-page__journey li {
+    grid-template-columns: 45px minmax(0, 1fr);
+    min-height: 78px;
+    padding: 0 0 15px;
+  }
+
+  .taj-thanks-page__step-number {
+    left: -7px;
+  }
+
+  .taj-thanks-page__journey li strong {
+    font-size: 12px;
+  }
+
+  .taj-thanks-page__journey li p {
+    font-size: 10px;
+  }
+
+  .taj-thanks-page__reassurance {
+    grid-template-columns: 1fr;
+  }
+
+  .taj-thanks-page__reassurance > div {
+    min-height: 62px;
+    justify-content: flex-start;
+    padding-inline: 18px;
+  }
+
+  .taj-thanks-page__reassurance > div + div,
+  .taj-thanks-page__reassurance > div:nth-child(3),
+  .taj-thanks-page__reassurance > div:nth-child(4) {
+    border-top: 1px solid rgba(255, 224, 196, .16);
+    border-left: 0;
+  }
+
+  .taj-thanks-page__advice {
+    grid-template-columns: 48px minmax(0, 1fr);
+    padding: 17px;
+  }
+
+  .taj-thanks-page__advice-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .taj-thanks-page__advice h2 {
+    font-size: 20px;
+  }
+
+  .taj-thanks-page__advice > a {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .taj-thanks-page__footer {
+    min-height: 0;
+    display: grid;
+    justify-items: start;
+    padding: 27px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taj-thanks-page *,
+  html body.page-id-13 #commande .tajcmd-submit__spinner {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 
