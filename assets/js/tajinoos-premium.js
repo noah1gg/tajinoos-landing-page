@@ -266,6 +266,212 @@
 (function () {
   'use strict';
 
+  var faq = document.querySelector('#faq.taj-final-faq');
+
+  if (!faq || document.body.classList.contains('elementor-editor-active')) {
+    return;
+  }
+
+  faq.querySelectorAll('details').forEach(function (detail) {
+    var summary = detail.querySelector('summary');
+
+    if (!summary) {
+      return;
+    }
+
+    function syncExpandedState() {
+      summary.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
+    }
+
+    syncExpandedState();
+    detail.addEventListener('toggle', syncExpandedState);
+  });
+})();
+
+(function () {
+  'use strict';
+
+  var section = document.querySelector('#avis.tajx-testimonials');
+  var track = section ? section.querySelector('.tajx-reviews-track') : null;
+
+  if (!track || document.body.classList.contains('elementor-editor-active')) {
+    return;
+  }
+
+  var mobileQuery = window.matchMedia('(max-width: 1023px)');
+  var initialized = false;
+
+  function initializeMobileReviews() {
+    if (!mobileQuery.matches || initialized) {
+      return;
+    }
+
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.tajx-review-card:not([aria-hidden="true"])'));
+
+    if (cards.length < 2) {
+      return;
+    }
+
+    initialized = true;
+    var dots = document.createElement('div');
+    dots.className = 'tajx-review-dots';
+    dots.setAttribute('aria-label', 'Choisir un avis client');
+
+    cards.forEach(function (card, index) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'tajx-review-dot';
+      dot.setAttribute('aria-label', 'Afficher l\u2019avis ' + (index + 1));
+      dot.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+      dot.addEventListener('click', function () {
+        card.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      });
+      dots.appendChild(dot);
+    });
+
+    section.querySelector('.tajx-testimonials-showcase').appendChild(dots);
+
+    var ticking = false;
+
+    function updateDots() {
+      ticking = false;
+      var trackRect = track.getBoundingClientRect();
+      var trackCenter = trackRect.left + trackRect.width / 2;
+      var activeIndex = 0;
+      var smallestDistance = Infinity;
+
+      cards.forEach(function (card, index) {
+        var rect = card.getBoundingClientRect();
+        var distance = Math.abs(rect.left + rect.width / 2 - trackCenter);
+
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          activeIndex = index;
+        }
+      });
+
+      dots.querySelectorAll('.tajx-review-dot').forEach(function (dot, index) {
+        dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+      });
+    }
+
+    track.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateDots);
+      }
+    }, { passive: true });
+
+    updateDots();
+  }
+
+  initializeMobileReviews();
+
+  if (mobileQuery.addEventListener) {
+    mobileQuery.addEventListener('change', initializeMobileReviews);
+  }
+})();
+
+(function () {
+  'use strict';
+
+  var hero = document.querySelector('#accueil');
+  var order = document.querySelector('#commande');
+  var footer = document.querySelector('.tajx-footer');
+  var landing = document.querySelector('.tajx, .tajv2-page');
+  var legacySticky = document.querySelector('.tajx-mobile-sticky');
+
+  if (!landing || !hero || !order || !footer || document.body.classList.contains('elementor-editor-active')) {
+    return;
+  }
+
+  var existingWhatsApp = document.querySelector('.taj-whatsapp-float, #faq .taj-final-support__wa');
+  var emailLink = document.querySelector('#faq .taj-final-support__email');
+  var whatsappHref = existingWhatsApp ? existingWhatsApp.href : '';
+
+  if (!whatsappHref || document.querySelector('.taj-mobile-actions')) {
+    return;
+  }
+
+  var actions = document.createElement('div');
+  actions.className = 'taj-mobile-actions';
+  actions.setAttribute('aria-label', 'Actions rapides');
+  actions.innerHTML = [
+    '<a class="taj-mobile-action taj-mobile-action--shop" href="#commande" aria-label="Aller au formulaire de commande">',
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+    '</a>',
+    '<a class="taj-mobile-action taj-mobile-action--whatsapp" href="' + whatsappHref.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener noreferrer" aria-label="Contacter Tajinoos sur WhatsApp">',
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .15 5.34.15 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.85 11.85 0 0 0 5.76 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.46-8.43Zm-8.45 18.33h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.74.98 1-3.65-.24-.37a9.88 9.88 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.91-9.89 2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.46-4.44 9.91-9.88 9.91Zm5.43-7.42c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49a9.13 9.13 0 0 1-1.68-2.08c-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.05 3.13 4.97 4.39.7.3 1.24.47 1.66.6.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>',
+    '</a>'
+  ].join('');
+
+  document.body.appendChild(actions);
+
+  var shopButton = actions.querySelector('.taj-mobile-action--shop');
+
+  shopButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    order.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  });
+
+  var visibility = {
+    hero: true,
+    order: false,
+    footer: false
+  };
+
+  function updateActions() {
+    actions.classList.toggle('is-visible', !visibility.hero && !visibility.order && !visibility.footer);
+
+    if (legacySticky) {
+      legacySticky.classList.toggle('is-order-visible', visibility.order);
+    }
+  }
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.target === hero) {
+          visibility.hero = entry.isIntersecting;
+        } else if (entry.target === order) {
+          visibility.order = entry.isIntersecting;
+        } else if (entry.target === footer) {
+          visibility.footer = entry.isIntersecting;
+        }
+      });
+      updateActions();
+    }, {
+      threshold: 0.08
+    });
+
+    observer.observe(hero);
+    observer.observe(order);
+    observer.observe(footer);
+  }
+
+  if (!footer.querySelector('.tajx-footer-mobile-contact')) {
+    var mobileContact = document.createElement('div');
+    mobileContact.className = 'tajx-footer-mobile-contact';
+    mobileContact.innerHTML = [
+      '<strong>Contact</strong>',
+      '<a href="' + whatsappHref.replace(/"/g, '&quot;') + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>',
+      emailLink ? '<a href="' + emailLink.href.replace(/"/g, '&quot;') + '">Email</a>' : '',
+      '<a href="#faq">FAQ</a>'
+    ].join('');
+    footer.appendChild(mobileContact);
+  }
+})();
+
+(function () {
+  'use strict';
+
   var page = document.querySelector('.taj-thanks-page');
 
   if (!page) {
@@ -442,12 +648,6 @@
     navbar.insertBefore(toggle, menu);
   }
 
-  toggle.addEventListener('click', function () {
-    var isOpen = navbar.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-  });
-
   if (!menu.querySelector('a[href="#faq"]')) {
     var faqLink = document.createElement('a');
     var commanderLink = menu.querySelector('.tajx-navbar-cta, a[href="#commande"]');
@@ -457,12 +657,149 @@
     menu.insertBefore(faqLink, commanderLink || null);
   }
 
+  if (document.querySelector('#artisanat') && !menu.querySelector('a[href="#artisanat"]')) {
+    var processLink = document.createElement('a');
+    var productLink = menu.querySelector('a[href="#produit"]');
+
+    processLink.href = '#artisanat';
+    processLink.textContent = 'Processus';
+    processLink.className = 'tajx-navbar-mobile-only';
+    menu.insertBefore(processLink, productLink || menu.querySelector('.tajx-navbar-cta') || null);
+  }
+
+  menu.id = menu.id || 'tajx-mobile-menu';
+  toggle.setAttribute('aria-controls', menu.id);
+  var mobileMenuQuery = window.matchMedia('(max-width: 1023px)');
+  var menuHome = document.createComment('tajx-navbar-menu-home');
+  menu.parentNode.insertBefore(menuHome, menu);
+
+  var closeButton = menu.querySelector('.tajx-navbar-close');
+
+  if (!closeButton) {
+    closeButton = document.createElement('button');
+    closeButton.className = 'tajx-navbar-close';
+    closeButton.type = 'button';
+    closeButton.setAttribute('aria-label', 'Fermer le menu');
+    closeButton.innerHTML = '<span aria-hidden="true"></span>';
+    menu.insertBefore(closeButton, menu.firstChild);
+  }
+
+  var drawerHeader = menu.querySelector('.tajx-navbar-drawer-header');
+
+  if (!drawerHeader) {
+    drawerHeader = document.createElement('div');
+    drawerHeader.className = 'tajx-navbar-drawer-header';
+
+    var drawerBrand = document.createElement('a');
+    drawerBrand.className = 'tajx-navbar-drawer-brand';
+    drawerBrand.href = '#accueil';
+    drawerBrand.textContent = 'TAJINOOS';
+    drawerBrand.setAttribute('aria-label', 'Tajinoos — Accueil');
+
+    drawerHeader.appendChild(drawerBrand);
+    drawerHeader.appendChild(closeButton);
+    menu.insertBefore(drawerHeader, menu.firstChild);
+  }
+
+  var backdrop = document.querySelector('.tajx-navbar-backdrop');
+
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'tajx-navbar-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+  }
+
+  function syncMenuLocation() {
+    if (mobileMenuQuery.matches) {
+      if (menu.parentNode !== document.body) {
+        document.body.appendChild(menu);
+      }
+      menu.setAttribute('aria-hidden', navbar.classList.contains('is-open') ? 'false' : 'true');
+      return;
+    }
+
+    if (menuHome.parentNode && menu.parentNode !== menuHome.parentNode) {
+      menuHome.parentNode.insertBefore(menu, menuHome.nextSibling);
+    }
+    menu.removeAttribute('aria-hidden');
+  }
+
+  syncMenuLocation();
+
+  function setMenu(open, restoreFocus) {
+    var mobile = mobileMenuQuery.matches;
+    var shouldOpen = Boolean(open && mobile);
+
+    navbar.classList.toggle('is-open', shouldOpen);
+    backdrop.classList.toggle('is-open', shouldOpen);
+    document.body.classList.toggle('tajx-mobile-menu-open', shouldOpen);
+    toggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+    toggle.setAttribute('aria-label', shouldOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+    backdrop.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+    menu.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
+
+    if (shouldOpen) {
+      closeButton.focus();
+    } else if (restoreFocus) {
+      toggle.focus();
+    }
+  }
+
+  toggle.addEventListener('click', function () {
+    setMenu(!navbar.classList.contains('is-open'), false);
+  });
+
+  closeButton.addEventListener('click', function () {
+    setMenu(false, true);
+  });
+
+  backdrop.addEventListener('click', function () {
+    setMenu(false, true);
+  });
+
   menu.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      navbar.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Ouvrir le menu');
+      setMenu(false, false);
     });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (!navbar.classList.contains('is-open')) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      setMenu(false, true);
+      return;
+    }
+
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    var focusable = Array.prototype.slice.call(menu.querySelectorAll('button:not([disabled]), a[href]'));
+
+    if (!focusable.length) {
+      return;
+    }
+
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  mobileMenuQuery.addEventListener('change', function () {
+    setMenu(false, false);
+    syncMenuLocation();
   });
 })();
 

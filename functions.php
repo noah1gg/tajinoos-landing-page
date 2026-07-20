@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.2.5');
+define('TAJINOOS_CHILD_VERSION', '1.5.0');
 
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
@@ -898,10 +898,26 @@ function tajinoos_child_render_reference_match_hero(string $content): string
       </div>
 
       <div class="taj-clean-hero__trust" aria-label="Les garanties Tajinoos">
-        <span>Livraison partout au Maroc</span>
-        <span>Paiement &agrave; la livraison</span>
-        <span>Confirmation t&eacute;l&eacute;phonique</span>
-        <span>Garantie 7 jours</span>
+        <span class="taj-clean-hero__trust-delivery">
+          <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3 6h10v9h1.2a3 3 0 0 1 5.6 0H21v-4.1L18.4 8H15V6h4.3L23 10.1V17h-3.2a3 3 0 0 1-5.6 0H9.8a3 3 0 0 1-5.6 0H1V6h2Zm3 10.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0Zm10 0a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0ZM3 8v7h1.2a3 3 0 0 1 5.6 0H11V8H3Z"/></svg>
+          Livraison partout au Maroc
+        </span>
+        <span class="taj-clean-hero__trust-payment">
+          <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 4h14V7H5v2Zm0 2v6h14v-6H5Zm2 3h5v2H7v-2Z"/></svg>
+          Paiement &agrave; la livraison
+        </span>
+        <span class="taj-clean-hero__trust-confirmation">
+          <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m7.6 3.6 2.5 2.5c.6.6.6 1.5.1 2.1l-1.1 1.1a10.8 10.8 0 0 0 5.6 5.6l1.1-1.1c.6-.5 1.5-.5 2.1.1l2.5 2.5c.6.6.7 1.5.2 2.2l-1.2 1.7c-.5.7-1.4 1.1-2.3.9C10.6 20 4 13.4 2.8 6.9c-.2-.9.2-1.8.9-2.3l1.7-1.2c.7-.5 1.6-.4 2.2.2Z"/></svg>
+          Confirmation t&eacute;l&eacute;phonique
+        </span>
+        <span class="taj-clean-hero__trust-guarantee">
+          <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5 21 6v6.3c0 5.4-3.6 8.7-9 9.7c-5.4-1-9-4.3-9-9.7V6l9-3.5Zm0 2.2L5 7.4v4.9c0 4.1 2.5 6.5 7 7.5c4.5-1 7-3.4 7-7.5V7.4l-7-2.7Zm3.8 4.5 1.4 1.4-5.9 5.9-3.5-3.5 1.4-1.4 2.1 2.1 4.5-4.5Z"/></svg>
+          Garantie 7 jours
+        </span>
+        <span class="taj-clean-hero__trust-mobile">
+          <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5c1.2 2.4 1.9 4.4 1.9 6.1c0 2.1-1.1 3.6-2.9 4.5c-.4-1.2-.5-2.4-.2-3.6c-1.9 1.7-2.8 3.6-2.8 5.6c0 3 2 5.4 4.8 5.4c3.2 0 5.7-2.5 5.7-5.9c0-3.7-2.2-7.7-6.5-12.1ZM6.4 8.7C4.5 10.9 3.5 13.2 3.5 15.5c0 3.4 2.1 5.8 5.2 6.3c-1.8-1.5-2.7-3.6-2.7-6.3c0-2.2.7-4.5 2.2-6.9c-.7.5-1.3.5-1.8.1Z"/></svg>
+          Fait main au Maroc
+        </span>
       </div>
     </div>
 
@@ -1069,7 +1085,15 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         <div class="tajcmd-product__content">
           <span class="tajcmd-product__badge">OFFRE LIMIT&Eacute;E</span>
           <h3 id="tajcmd-product-title">TAJINOOS PREMIUM</h3>
+          <p class="tajcmd-product__mobile-kicker">Tajine artisanal</p>
+          <p class="tajcmd-product__price"><strong>%%TAJINOOS_UNIT_PRICE%%</strong><span>MAD</span><small>Prix unitaire</small></p>
           <p class="tajcmd-product__description">Un tajine en terre cuite fa&ccedil;onn&eacute; &agrave; la main pour une cuisson lente, une table &eacute;l&eacute;gante et des repas qui rassemblent.</p>
+
+          <ul class="tajcmd-product__microbenefits" aria-label="Avantages essentiels">
+            <li>Fait main</li>
+            <li>Paiement &agrave; la livraison</li>
+            <li>Garantie 7 jours</li>
+          </ul>
 
           <ul class="tajcmd-trust" aria-label="Garanties Tajinoos">
             <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11.5V8a2 2 0 0 1 4 0v3"/><path d="M11 10V6.5a2 2 0 0 1 4 0V12"/><path d="M15 11V8.5a2 2 0 0 1 4 0v5.2c0 4.3-2.8 7.3-7.1 7.3H10a6 6 0 0 1-4.8-2.4L3 15.5a1.9 1.9 0 0 1 3-2.3l1.6 1.9"/></svg></span><strong>Fait main</strong><small>Chaque pi&egrave;ce est unique, r&eacute;alis&eacute;e avec soin.</small></li>
@@ -1089,7 +1113,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
 
         <header class="tajcmd-form__head">
           <span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span>
-          <h3>VOS INFORMATIONS</h3>
+          <div class="tajcmd-form__heading-copy"><h3>VOS INFORMATIONS</h3><small>Commande s&eacute;curis&eacute;e</small></div>
         </header>
 
         <div class="tajcmd-form__body">
@@ -1130,16 +1154,19 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
             <textarea name="Message" rows="3" maxlength="1000" placeholder="Pr&eacute;cisez un horaire de rappel, un d&eacute;tail de livraison..."></textarea>
           </label>
 
-          <div class="tajcmd-total" aria-label="Total &agrave; payer">
-            <span class="tajcmd-total__meta"><strong>TOTAL &Agrave; PAYER</strong><small>Frais de livraison inclus</small></span>
-            <strong class="tajcmd-total__price"><span data-tajcmd-form-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-total__currency"> MAD</span></strong>
+          <div class="tajcmd-action">
+            <div class="tajcmd-total" aria-label="Total &agrave; payer">
+              <span class="tajcmd-total__meta"><strong>TOTAL &Agrave; PAYER</strong><small>Frais de livraison inclus</small></span>
+              <strong class="tajcmd-total__price"><span data-tajcmd-form-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-total__currency"> MAD</span></strong>
+            </div>
+
+            <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINE</span> <span class="tajcmd-submit__separator" aria-hidden="true">&mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
           </div>
 
-          <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINE &mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
-
           <div class="tajcmd-reassurance" aria-label="Garanties de commande">
-            <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span> Cash on delivery</span>
+            <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span><span class="tajcmd-reassurance__desktop-label">Cash on delivery</span><span class="tajcmd-reassurance__mobile-label">Paiement &agrave; la livraison</span></span>
             <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-3l-4 3v-3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 10h8"/><path d="M8 13h5"/></svg></span> Confirmation t&eacute;l&eacute;phonique</span>
+            <span class="tajcmd-reassurance__mobile"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span> Livraison au Maroc</span>
           </div>
         </div>
       </form>

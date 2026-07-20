@@ -22033,67 +22033,6 @@ html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--pr
   height: 26px !important;
 }
 
-@media (max-width: 1080px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
-    padding: 64px 18px 20px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__grid,
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
-    grid-template-columns: 1fr !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
-    grid-template-rows: minmax(210px, 228px) auto !important;
-  }
-}
-
-@media (max-width: 767px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
-    padding: 64px 14px 22px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product,
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
-    border-radius: 20px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
-    min-height: 214px !important;
-    padding: 14px 12px 8px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__image {
-    width: min(92%, 292px) !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__content,
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
-    padding: 16px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-trust,
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__row,
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
-    grid-template-columns: 1fr !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total {
-    align-items: flex-start !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
-    min-height: 56px !important;
-    gap: 8px !important;
-    padding: 0 12px !important;
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-    flex-wrap: wrap !important;
-  }
-}
-
 /* Tajinoos #commande final scale fix + WhatsApp FAB */
 html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
   gap: 10px !important;
@@ -22371,39 +22310,7 @@ html body.page-id-13.has-tajx-page .taj-whatsapp-float__label {
   }
 }
 
-@media (max-width: 1080px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
-    padding: 52px 16px 18px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
-    grid-template-rows: minmax(202px, 218px) auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
-    min-height: 202px !important;
-  }
-}
-
 @media (max-width: 767px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
-    padding: 52px 14px 20px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__header h2 {
-    font-size: clamp(28px, 9vw, 40px) !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
-    min-height: 198px !important;
-    padding: 12px 10px 6px !important;
-    background-size: 420px auto, 420px auto, auto, auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__image {
-    width: min(90%, 276px) !important;
-  }
-
   html body.page-id-13.has-tajx-page .taj-whatsapp-float,
   html body.page-id-13.has-tajx-page .taj-whatsapp-float.is-footer-visible {
     right: 14px !important;
@@ -22483,43 +22390,6 @@ html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--pr
 html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-trust li {
   min-height: 60px !important;
   padding: 8px 9px !important;
-}
-
-@media (max-width: 1080px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
-    grid-template-rows: minmax(258px, 286px) auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
-    min-height: 258px !important;
-    padding: 4px 4px 0 !important;
-    background-size: auto, 500px auto, auto, auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__image {
-    width: min(82%, 332px) !important;
-  }
-}
-
-@media (max-width: 767px) {
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
-    grid-template-rows: minmax(238px, 258px) auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
-    min-height: 238px !important;
-    padding: 4px 4px 0 !important;
-    background-size: auto, 440px auto, auto, auto !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual::before {
-    inset: 4px 4px 8px !important;
-  }
-
-  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__image {
-    width: min(80%, 304px) !important;
-    transform: translateY(2px) scale(0.92) !important;
-  }
 }
 
 /* Tajinoos thank-you page + order submit flow */
@@ -26222,5 +26092,3148 @@ html body.page-id-13 #benefices .taj-benefits-orange__trust * {
 
   html body.page-id-13 #benefices .taj-benefits-orange__card-text {
     font-size: 14px;
+  }
+}
+
+/* ================================================================
+   Approved Tajinoos mobile reference adaptation
+   Mobile/tablet only: desktop remains unchanged from 1024px upward.
+   ================================================================ */
+html body.page-id-13 .tajx-navbar-backdrop,
+html body.page-id-13 .tajx-navbar-close,
+html body.page-id-13 .tajx-navbar-drawer-header,
+html body.page-id-13 .tajx-navbar-mobile-only,
+html body.page-id-13 .taj-mobile-actions,
+html body.page-id-13 .tajx-review-dots,
+html body.page-id-13 .tajx-footer-mobile-contact,
+html body.page-id-13 .taj-clean-hero__trust-mobile,
+html body.page-id-13 #accueil .taj-clean-hero__trust-icon {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  html body.page-id-13 {
+    --taj-mobile-x: clamp(18px, 4vw, 32px);
+    --taj-mobile-radius: 18px;
+    overflow-x: clip !important;
+  }
+
+  html body.page-id-13.tajx-mobile-menu-open {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+
+  html body.page-id-13 #accueil,
+  html body.page-id-13 #heritage,
+  html body.page-id-13 #benefices,
+  html body.page-id-13 #artisanat,
+  html body.page-id-13 #produit,
+  html body.page-id-13 #avis,
+  html body.page-id-13 #faq,
+  html body.page-id-13 #commande {
+    scroll-margin-top: 76px !important;
+  }
+
+  /* Mobile navigation drawer. */
+  html body.page-id-13 .tajx-navbar,
+  html body.page-id-13 .entry-content .tajx-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1002 !important;
+    width: 100% !important;
+    min-height: 64px !important;
+    height: 64px !important;
+    margin: 0 !important;
+    padding: 0 var(--taj-mobile-x) !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .09) !important;
+    border-radius: 0 !important;
+    background: rgba(43, 3, 8, .97) !important;
+    box-shadow: 0 8px 24px rgba(34, 3, 7, .24) !important;
+    backdrop-filter: blur(14px) saturate(1.08) !important;
+  }
+
+  html body.admin-bar.page-id-13 .tajx-navbar {
+    top: 32px !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand {
+    position: relative !important;
+    z-index: 2;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 0 5px !important;
+    overflow: visible !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand img {
+    display: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand::before {
+    font-size: clamp(28px, 4vw, 31px) !important;
+    line-height: 1 !important;
+    letter-spacing: .11em !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand::after {
+    right: 54% !important;
+    bottom: 5px !important;
+    left: 0 !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle {
+    position: relative !important;
+    z-index: 2;
+    width: 46px !important;
+    height: 46px !important;
+    display: grid !important;
+    flex: 0 0 46px !important;
+    place-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(255, 255, 255, .12) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, .07) !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle > span,
+  html body.page-id-13 .tajx-navbar-toggle > span::before,
+  html body.page-id-13 .tajx-navbar-toggle > span::after {
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 2px;
+    background: #fff !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-menu {
+    position: fixed !important;
+    z-index: 1004 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    width: min(84vw, 340px) !important;
+    min-height: 100dvh;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 2px !important;
+    margin: 0 !important;
+    padding: 82px 22px calc(26px + env(safe-area-inset-bottom, 0px)) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #4a0910, #290308) !important;
+    box-shadow: -22px 0 50px rgba(0, 0, 0, .30) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(104%) !important;
+    transition: transform .22s ease !important;
+  }
+
+  html body.page-id-13 .tajx-navbar.is-open .tajx-navbar-menu {
+    transform: translateX(0) !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-menu > a,
+  html body.page-id-13 .tajx-navbar-menu > a:not(.tajx-navbar-cta),
+  html body.page-id-13 .tajx-navbar-menu .tajx-navbar-cta {
+    width: 100% !important;
+    min-height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 4px !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .10) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, .90) !important;
+    box-shadow: none !important;
+    font-size: 15px !important;
+    font-weight: 720 !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-menu > a::after {
+    display: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-menu .tajx-navbar-cta {
+    min-height: 52px !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+    padding: 0 18px !important;
+    border: 1px solid rgba(255, 130, 60, .48) !important;
+    border-radius: 15px !important;
+    background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600)) !important;
+    color: #fff !important;
+    box-shadow: 0 14px 28px rgba(150, 44, 14, .32) !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-mobile-only {
+    display: flex !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    display: grid !important;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .07);
+    color: #fff;
+  }
+
+  html body.page-id-13 .tajx-navbar-close > span,
+  html body.page-id-13 .tajx-navbar-close > span::before {
+    content: "";
+    width: 21px;
+    height: 2px;
+    display: block;
+    border-radius: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+  }
+
+  html body.page-id-13 .tajx-navbar-close > span {
+    position: relative;
+  }
+
+  html body.page-id-13 .tajx-navbar-close > span::before {
+    position: absolute;
+    inset: 0;
+    transform: rotate(90deg);
+  }
+
+  html body.page-id-13 .tajx-navbar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1003;
+    display: block !important;
+    background: rgba(18, 3, 6, .58);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .20s ease;
+  }
+
+  html body.page-id-13 .tajx-navbar-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Tablet-first hero adaptation. */
+  html body.page-id-13 #accueil.taj-clean-hero {
+    min-height: 0 !important;
+    padding: 30px 0 34px !important;
+    overflow: hidden !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__inner {
+    width: min(calc(100% - (var(--taj-mobile-x) * 2)), 820px) !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, 1.04fr) minmax(240px, .96fr) !important;
+    gap: 22px !important;
+    padding: 0 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy {
+    padding: 0 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__eyebrow {
+    margin-bottom: 9px !important;
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy h1 {
+    font-size: clamp(42px, 7vw, 58px) !important;
+    line-height: .90 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy h1::after {
+    margin-top: 12px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__lead {
+    margin: 12px 0 0 !important;
+    font-size: 13px !important;
+    line-height: 1.52 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price {
+    margin-top: 14px !important;
+    padding: 12px !important;
+    border-radius: 15px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__actions {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__primary,
+  html body.page-id-13 #accueil .taj-clean-hero__secondary {
+    min-height: 50px !important;
+    border-radius: 14px !important;
+    font-size: 11px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__visual {
+    min-height: 380px !important;
+    height: 100% !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__product {
+    width: min(330px, 44vw) !important;
+    max-width: none !important;
+    object-fit: contain !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px 10px !important;
+    margin-top: 14px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-delivery,
+  html body.page-id-13 #accueil .taj-clean-hero__trust-confirmation {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-mobile {
+    display: inline-flex !important;
+    order: 1;
+    --taj-trust-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2.5c1.2 2.4 1.9 4.4 1.9 6.1c0 2.1-1.1 3.6-2.9 4.5c-.4-1.2-.5-2.4-.2-3.6c-1.9 1.7-2.8 3.6-2.8 5.6c0 3 2 5.4 4.8 5.4c3.2 0 5.7-2.5 5.7-5.9c0-3.7-2.2-7.7-6.5-12.1ZM6.4 8.7C4.5 10.9 3.5 13.2 3.5 15.5c0 3.4 2.1 5.8 5.2 6.3c-1.8-1.5-2.7-3.6-2.7-6.3c0-2.2.7-4.5 2.2-6.9c-.7.5-1.3.5-1.8.1Z'/%3E%3C/svg%3E");
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-payment {
+    order: 2;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-guarantee {
+    order: 3;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust span {
+    min-height: 34px !important;
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Heritage card. */
+  html body.page-id-13 #heritage.tajx-story {
+    padding: 48px var(--taj-mobile-x) !important;
+    background: #fffaf3 !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-heritage-wrap {
+    width: min(100%, 820px) !important;
+    padding: 14px !important;
+    border: 1px solid rgba(74, 32, 19, .10);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .84);
+    box-shadow: 0 12px 30px rgba(74, 35, 20, .09);
+  }
+
+  html body.page-id-13 #heritage .tajx-heritage-wrap > .tajx-eyebrow {
+    margin: 4px 4px 12px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-split {
+    grid-template-columns: minmax(220px, .85fr) minmax(0, 1.15fr) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-artisan {
+    min-height: 260px !important;
+    overflow: hidden;
+    border-radius: 18px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-artisan img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 36% !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy {
+    align-content: center !important;
+    padding: 4px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy h2 {
+    font-size: clamp(31px, 5vw, 42px) !important;
+    line-height: .98 !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy p {
+    margin-top: 10px !important;
+    font-size: 12.5px !important;
+    line-height: 1.58 !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-checks {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-checks span {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 60px !important;
+    height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 10px 11px 10px 44px !important;
+    overflow: visible !important;
+    border-radius: 14px !important;
+    font-size: clamp(10.5px, 1.5vw, 12px) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-checks span::before {
+    left: 11px !important;
+    width: 24px !important;
+    height: 24px !important;
+    flex: 0 0 24px !important;
+  }
+
+  /* Why Tajinoos cards. */
+  html body.page-id-13 #benefices.taj-benefits-orange {
+    padding: 50px var(--taj-mobile-x) !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__inner {
+    width: min(100%, 820px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__left {
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__eyebrow {
+    justify-content: center !important;
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__title {
+    max-width: 680px !important;
+    margin-inline: auto !important;
+    font-size: clamp(35px, 7vw, 52px) !important;
+    line-height: .94 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__intro {
+    max-width: 640px !important;
+    margin: 12px auto 0 !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote {
+    margin: 18px auto 0 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote p {
+    font-size: 21px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__divider {
+    margin-top: 18px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust {
+    max-width: 680px !important;
+    margin: 16px auto 0 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__panel {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card,
+  html body.page-id-13 #benefices .taj-benefits-orange__card:first-child {
+    position: relative;
+    min-height: 104px !important;
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) 18px !important;
+    gap: 10px !important;
+    align-items: center !important;
+    padding: 13px !important;
+    border: 1px solid rgba(255, 255, 255, .72) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 250, 243, .97) !important;
+    box-shadow: 0 10px 24px rgba(93, 24, 6, .15) !important;
+    color: #2b1b16 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card::after {
+    content: "›";
+    grid-column: 3;
+    grid-row: 1;
+    color: var(--taj-orange-600);
+    font: 500 24px/1 Manrope, sans-serif;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card:hover,
+  html body.page-id-13 #benefices .taj-benefits-orange__card:focus-within {
+    transform: translateY(-2px) !important;
+    border-color: rgba(255, 202, 142, .92) !important;
+    box-shadow: 0 15px 28px rgba(93, 24, 6, .20) !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__num {
+    width: 40px !important;
+    height: 40px !important;
+    display: grid !important;
+    place-items: center;
+    padding: 0 !important;
+    border: 1px solid rgba(237, 87, 24, .18);
+    border-radius: 50%;
+    background: rgba(237, 87, 24, .09);
+    color: var(--taj-orange-600) !important;
+    font-size: 14px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-divider {
+    display: none !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-content {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__badge {
+    margin-bottom: 4px !important;
+    padding: 3px 7px !important;
+    font-size: 7.5px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-title {
+    color: #3f0b11 !important;
+    font: 800 13px/1.25 Manrope, sans-serif !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card-text {
+    margin-top: 3px !important;
+    color: #6f5c51 !important;
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Five-step process: compact mobile adaptation of the desktop journey. */
+  html body.page-id-13 #artisanat.tajx-process-journey {
+    min-height: 0 !important;
+    padding: 42px var(--taj-mobile-x) 44px !important;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(255, 252, 244, .98), rgba(248, 241, 226, .88) 68%, rgba(239, 222, 197, .48) 100%),
+      #f8f1e4 !important;
+  }
+
+  html body.page-id-13 #artisanat.tajx-process-journey::before,
+  html body.page-id-13 #artisanat.tajx-process-journey::after {
+    width: 140px !important;
+    height: 250px !important;
+    opacity: .065 !important;
+    background-size: 22px 38px !important;
+  }
+
+  html body.page-id-13 #artisanat.tajx-process-journey::before {
+    top: 118px !important;
+    left: -88px !important;
+  }
+
+  html body.page-id-13 #artisanat.tajx-process-journey::after {
+    right: -104px !important;
+    bottom: 28px !important;
+    opacity: .045 !important;
+  }
+
+  html body.page-id-13 #artisanat.tajx-process-journey > .tajx-wrap {
+    width: min(100%, 760px) !important;
+    max-width: 760px !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-title {
+    width: min(100%, 520px) !important;
+    margin: 0 auto 28px !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-title h2 {
+    font-size: clamp(29px, 8vw, 35px) !important;
+    line-height: 1.02 !important;
+    text-wrap: balance !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-ornament {
+    display: flex !important;
+    width: min(132px, 38%) !important;
+    gap: 7px !important;
+    margin: 10px auto 0 !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-ornament svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(154px, auto) 66px minmax(150px, auto) !important;
+    column-gap: 4px !important;
+    row-gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-wave {
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    align-self: center !important;
+    display: block !important;
+    width: 100% !important;
+    height: 66px !important;
+    overflow: visible !important;
+    transform: scaleX(.8333) !important;
+    transform-origin: center !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-wave-path {
+    stroke-width: 2 !important;
+    filter: drop-shadow(0 2px 3px rgba(94, 47, 29, .08)) !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-marker {
+    stroke-width: 3 !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    display: block !important;
+    padding: 0 2px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:nth-of-type(1) {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:nth-of-type(2) {
+    grid-column: 2 / 4 !important;
+    grid-row: 3 !important;
+    align-self: start !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:nth-of-type(3) {
+    grid-column: 3 / 5 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:nth-of-type(4) {
+    grid-column: 4 / 6 !important;
+    grid-row: 3 !important;
+    align-self: start !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13 #artisanat .tajx-journey-step:last-child:nth-child(odd) {
+    grid-column: 5 / 7 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step::before,
+  html body.page-id-13 #artisanat .tajx-journey-step::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-icon {
+    width: 34px !important;
+    height: 34px !important;
+    margin: 0 auto 7px !important;
+    color: var(--taj-orange-600) !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step h3 {
+    margin: 0 0 5px !important;
+    color: #351f18 !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(15.5px, 4.1vw, 18px) !important;
+    font-weight: 700 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.015em !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step p {
+    max-width: 128px !important;
+    margin: 0 !important;
+    color: #6f5c51 !important;
+    font-family: "Manrope", Arial, sans-serif !important;
+    font-size: clamp(10px, 2.65vw, 11.5px) !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:hover,
+  html body.page-id-13 #artisanat .tajx-journey-step:hover .tajx-journey-icon {
+    color: var(--taj-orange-600) !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #artisanat .tajx-journey-step:hover h3 {
+    color: #351f18 !important;
+  }
+
+  /* Dark premium product offer. */
+  html body.page-id-13 #produit.tajx-offer {
+    padding: 50px var(--taj-mobile-x) !important;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(233, 196, 111, .18), transparent 30%),
+      linear-gradient(145deg, #1d1512, #35251f) !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__grid {
+    width: min(100%, 820px) !important;
+    grid-template-columns: minmax(250px, .86fr) minmax(0, 1.14fr) !important;
+    gap: 20px !important;
+    padding: 15px !important;
+    border: 1px solid rgba(233, 196, 111, .18);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .22);
+  }
+
+  html body.page-id-13 #produit .tajx-offer__visual {
+    min-height: 330px !important;
+    border: 1px solid rgba(233, 196, 111, .18) !important;
+    border-radius: 18px !important;
+    background:
+      radial-gradient(circle at center, rgba(233, 196, 111, .20), transparent 46%),
+      rgba(255, 255, 255, .03) !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__product {
+    width: min(330px, 44vw) !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__trust {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__trust-item {
+    min-width: 0 !important;
+    padding: 7px 4px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__trust-item strong,
+  html body.page-id-13 #produit .tajx-offer__trust-item span {
+    font-size: 9px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__content {
+    align-self: center !important;
+    padding: 4px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__eyebrow {
+    color: #e9c46f !important;
+    font-size: 9px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__title {
+    margin-top: 8px !important;
+    font-size: clamp(33px, 6vw, 46px) !important;
+    line-height: .92 !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__title span,
+  html body.page-id-13 #produit .tajx-offer__title em {
+    color: #f7df9d !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__subtitle {
+    margin-top: 10px !important;
+    color: rgba(255, 255, 255, .66) !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__price {
+    margin-top: 12px !important;
+    padding: 10px 0 !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__price-main strong {
+    font-size: 28px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__features {
+    gap: 8px !important;
+    margin-top: 12px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__feature {
+    min-height: 58px !important;
+    padding: 9px 10px !important;
+    border-color: rgba(233, 196, 111, .15) !important;
+    background: rgba(255, 255, 255, .045) !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__feature h3 {
+    color: #fff !important;
+    font-size: 11.5px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__feature p {
+    color: rgba(255, 255, 255, .58) !important;
+    font-size: 9.5px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__cta {
+    width: 100% !important;
+    min-height: 52px !important;
+    margin-top: 14px !important;
+    border-radius: 15px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__reassurance {
+    color: rgba(255, 255, 255, .62) !important;
+    font-size: 9.5px !important;
+  }
+
+  /* Mobile review carousel: manual scroll-snap, no marquee animation. */
+  html body.page-id-13 #avis.tajx-testimonials {
+    padding: 50px 0 !important;
+    background: #fffaf3 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-inner {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-copy {
+    width: min(calc(100% - (var(--taj-mobile-x) * 2)), 760px) !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-labels {
+    justify-content: center !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-copy h2 {
+    max-width: 620px !important;
+    margin-inline: auto !important;
+    font-size: clamp(34px, 7vw, 48px) !important;
+    line-height: .96 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-lede {
+    max-width: 620px !important;
+    margin: 10px auto 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-stats {
+    max-width: 520px !important;
+    margin: 14px auto 0 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-cta {
+    width: min(100%, 420px) !important;
+    min-height: 50px !important;
+    margin: 14px auto 0 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-showcase,
+  html body.page-id-13 #avis .tajx-reviews-marquee {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  html body.page-id-13 #avis .tajx-reviews-track {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+    padding: 4px var(--taj-mobile-x) 18px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--taj-mobile-x);
+    scrollbar-width: none;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #avis .tajx-reviews-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card {
+    flex: 0 0 min(84%, 430px) !important;
+    width: min(84%, 430px) !important;
+    min-width: 0 !important;
+    min-height: 230px !important;
+    height: auto !important;
+    scroll-snap-align: center;
+    padding: 18px !important;
+    border: 1px solid rgba(63, 11, 17, .11) !important;
+    border-radius: 17px !important;
+    background: #fff !important;
+    box-shadow: 0 8px 22px rgba(74, 35, 20, .10) !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card p {
+    font-size: 18px !important;
+    line-height: 1.38 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-dots {
+    display: flex !important;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0;
+  }
+
+  html body.page-id-13 #avis .tajx-review-dot {
+    width: 7px;
+    height: 7px;
+    min-width: 7px;
+    min-height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(63, 11, 17, .20);
+    transition: width .18s ease, background .18s ease;
+  }
+
+  html body.page-id-13 #avis .tajx-review-dot[aria-current="true"] {
+    width: 20px;
+    background: var(--taj-orange-600);
+  }
+
+  /* FAQ and concierge support. */
+  html body.page-id-13 #faq.taj-final-faq {
+    padding: 50px var(--taj-mobile-x) !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-faq__inner {
+    width: min(100%, 820px) !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-faq__head {
+    margin-bottom: 23px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-faq__head h2 {
+    font-size: clamp(35px, 7vw, 48px) !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-faq__layout,
+  html body.page-id-13 #faq .taj-final-faq__list {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  html body.page-id-13 #faq details {
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13 #faq summary {
+    min-height: 56px !important;
+    grid-template-columns: 28px minmax(0, 1fr) 30px !important;
+    gap: 9px !important;
+    padding: 12px 13px !important;
+    font-size: 12.5px !important;
+  }
+
+  html body.page-id-13 #faq summary::before {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 8px !important;
+  }
+
+  html body.page-id-13 #faq summary::after {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 19px !important;
+  }
+
+  html body.page-id-13 #faq details p {
+    margin: 0 13px 13px 50px !important;
+    padding-top: 10px !important;
+    font-size: 12px !important;
+    line-height: 1.58 !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+    margin-top: 8px !important;
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__label,
+  html body.page-id-13 #faq .taj-final-support__icon,
+  html body.page-id-13 #faq .taj-final-support h3,
+  html body.page-id-13 #faq .taj-final-support strong,
+  html body.page-id-13 #faq .taj-final-support p,
+  html body.page-id-13 #faq .taj-final-support__trust {
+    grid-column: 1 / -1;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__label {
+    margin-bottom: 2px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__icon {
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 2px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support h3 {
+    margin: 0 !important;
+    font-size: 24px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support strong {
+    font-size: 12.5px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support p {
+    margin: 0 0 5px !important;
+    font-size: 11.5px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__wa,
+  html body.page-id-13 #faq .taj-final-support__email {
+    min-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    border-radius: 13px !important;
+    font-size: 11px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__trust {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    margin-top: 5px !important;
+    padding-top: 12px !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__trust span {
+    justify-content: center !important;
+    gap: 5px !important;
+    font-size: 8.5px !important;
+  }
+
+  /* Compact mobile footer. */
+  html body.page-id-13 .tajx-footer {
+    padding: 42px var(--taj-mobile-x) calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+    background: linear-gradient(145deg, #1d1512, #110b09) !important;
+  }
+
+  html body.page-id-13 .tajx-footer-grid {
+    width: min(100%, 820px) !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px 16px !important;
+  }
+
+  html body.page-id-13 .tajx-footer-brand {
+    grid-column: 1 / -1 !important;
+  }
+
+  html body.page-id-13 .tajx-footer-brand h3 {
+    font-size: 26px !important;
+  }
+
+  html body.page-id-13 .tajx-footer-brand p,
+  html body.page-id-13 .tajx-footer-brand small,
+  html body.page-id-13 .tajx-footer p,
+  html body.page-id-13 .tajx-footer a {
+    font-size: 10.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  html body.page-id-13 .tajx-footer-nav {
+    display: grid !important;
+    align-content: start !important;
+    gap: 7px !important;
+  }
+
+  html body.page-id-13 .tajx-footer-nav a {
+    min-height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  html body.page-id-13 .tajx-footer-contact {
+    display: none !important;
+  }
+
+  html body.page-id-13 .tajx-footer-mobile-contact {
+    width: min(100%, 820px);
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin: 20px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, .10);
+    color: rgba(255, 255, 255, .76);
+  }
+
+  html body.page-id-13 .tajx-footer-mobile-contact strong {
+    width: 100%;
+    color: #e9c46f;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  /* Two small observer-controlled mobile actions. */
+  html body.page-id-13.has-tajx-page .taj-whatsapp-float {
+    display: none !important;
+  }
+
+  html body.page-id-13 .taj-mobile-actions {
+    position: fixed;
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 998;
+    display: flex !important;
+    gap: 9px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+
+  html body.page-id-13 .taj-mobile-actions.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  html body.page-id-13 .taj-mobile-action {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none !important;
+    box-shadow: 0 12px 28px rgba(20, 8, 5, .24);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+
+  html body.page-id-13 .taj-mobile-action:hover,
+  html body.page-id-13 .taj-mobile-action:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(20, 8, 5, .30);
+  }
+
+  html body.page-id-13 .taj-mobile-action:focus-visible {
+    outline: 3px solid rgba(255, 236, 205, .80);
+    outline-offset: 2px;
+  }
+
+  html body.page-id-13 .taj-mobile-action svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  html body.page-id-13 .taj-mobile-action--shop {
+    background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600));
+  }
+
+  html body.page-id-13 .taj-mobile-action--shop svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 .taj-mobile-action--whatsapp {
+    background: #25d366;
+  }
+
+  html body.page-id-13 .taj-mobile-action--whatsapp svg {
+    fill: currentColor;
+  }
+}
+
+@media (max-width: 782px) {
+  html body.admin-bar.page-id-13 .tajx-navbar {
+    top: 46px !important;
+  }
+
+  html body.admin-bar.page-id-13 .tajx-navbar-menu {
+    top: 46px !important;
+    min-height: calc(100dvh - 46px);
+  }
+
+  html body.admin-bar.page-id-13 .tajx-navbar-close {
+    top: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13 {
+    --taj-mobile-x: clamp(18px, 4.6vw, 20px);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero {
+    padding: 19px 0 28px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__inner {
+    width: calc(100% - (var(--taj-mobile-x) * 2)) !important;
+    grid-template-columns: minmax(0, 55fr) minmax(0, 45fr) !important;
+    grid-template-rows: auto auto auto auto auto auto !important;
+    gap: 10px 8px !important;
+    align-items: center !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy {
+    display: contents !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__eyebrow {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 !important;
+    font-size: 9px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy h1 {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    font-size: clamp(30px, 8.6vw, 34px) !important;
+    line-height: .89 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy h1::after {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__lead {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    max-width: 38rem !important;
+    margin: 1px 0 0 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 2px 0 0 !important;
+    padding: 10px 11px !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-main {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: baseline !important;
+    gap: 3px 7px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-main strong {
+    font-size: 28px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-main > span {
+    padding: 4px 6px !important;
+    font-size: 9px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-offer {
+    min-height: 0 !important;
+    display: grid !important;
+    justify-items: end !important;
+    gap: 2px !important;
+    padding: 0 0 0 10px !important;
+    border-top: 0 !important;
+    border-left: 1px solid rgba(255, 218, 144, .24) !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-offer em {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-offer strong {
+    font-size: 15px !important;
+    line-height: 1 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__price-offer > span {
+    max-width: 70px;
+    font-size: 7px !important;
+    line-height: 1.2 !important;
+    text-align: right;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__actions {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    width: 100%;
+    margin: 2px 0 0 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__primary {
+    width: 100% !important;
+    min-height: 52px !important;
+    padding-inline: 14px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__secondary {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__visual {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    min-height: 202px !important;
+    height: 100% !important;
+    align-self: stretch !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__orange-panel {
+    inset: 0 !important;
+    border-radius: 22px !important;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__product-wrap {
+    inset: 0 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__product {
+    width: min(176px, 45vw) !important;
+    max-height: 198px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    margin: 4px 0 0 !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust span {
+    min-height: 58px !important;
+    display: grid !important;
+    justify-items: center !important;
+    align-content: center !important;
+    gap: 5px !important;
+    padding: 6px 5px !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-mobile {
+    display: grid !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust span::before {
+    position: static !important;
+    width: 27px !important;
+    height: 27px !important;
+    margin: 0 !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-split,
+  html body.page-id-13 #produit .tajx-offer__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-artisan {
+    min-height: 205px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy {
+    padding: 2px 4px 5px !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy h2 {
+    font-size: clamp(31px, 9vw, 38px) !important;
+  }
+
+  html body.page-id-13 #heritage .tajx-story-copy p + p {
+    display: none !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__quote,
+  html body.page-id-13 #benefices .taj-benefits-orange__divider {
+    display: none !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-sep {
+    display: none !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item {
+    width: auto !important;
+    display: grid !important;
+    justify-items: center !important;
+    gap: 3px !important;
+    padding: 7px 3px !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-dot {
+    margin: 0 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item strong,
+  html body.page-id-13 #benefices .taj-benefits-orange__trust-item span {
+    display: block !important;
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body.page-id-13 #benefices .taj-benefits-orange__card,
+  html body.page-id-13 #benefices .taj-benefits-orange__card:first-child {
+    min-height: 78px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__grid {
+    gap: 16px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__visual {
+    min-height: 230px !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__product {
+    width: min(260px, 70vw) !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-copy h2 {
+    font-size: clamp(33px, 9vw, 40px) !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-craft-badge {
+    display: none !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  html body.page-id-13 #avis .tajx-testimonials-stat {
+    padding: 9px 6px !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card {
+    flex-basis: 86% !important;
+    width: 86% !important;
+    min-height: 220px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-faq__head h2 {
+    font-size: clamp(34px, 10vw, 43px) !important;
+  }
+}
+
+@media (max-width: 479px) {
+  html body.page-id-13 .tajx-navbar-brand::before {
+    font-size: clamp(28px, 7.5vw, 30px) !important;
+  }
+
+  html body.page-id-13 #heritage.tajx-story,
+  html body.page-id-13 #benefices.taj-benefits-orange,
+  html body.page-id-13 #produit.tajx-offer,
+  html body.page-id-13 #avis.tajx-testimonials,
+  html body.page-id-13 #faq.taj-final-faq {
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__trust span::before {
+    display: none !important;
+  }
+
+  html body.page-id-13 .tajx-footer {
+    padding-inline: var(--taj-mobile-x) !important;
+  }
+}
+
+@media (max-width: 370px) {
+  html body.page-id-13 {
+    --taj-mobile-x: 15px;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__inner {
+    grid-template-columns: minmax(0, 56fr) minmax(0, 44fr) !important;
+    gap: 9px 7px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__copy h1 {
+    font-size: 30px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__visual {
+    min-height: 190px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__product {
+    width: 150px !important;
+    max-height: 186px !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  html body.page-id-13 #accueil .taj-clean-hero__trust-guarantee {
+    grid-column: 1 / -1;
+    width: calc(50% - 4px);
+    justify-self: center;
+  }
+
+  html body.page-id-13 #faq .taj-final-support {
+    grid-template-columns: 1fr !important;
+  }
+
+  html body.page-id-13 #faq .taj-final-support__wa,
+  html body.page-id-13 #faq .taj-final-support__email,
+  html body.page-id-13 #faq .taj-final-support__trust {
+    grid-column: 1 !important;
+  }
+
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  html body.page-id-13 .tajx-navbar-menu,
+  html body.page-id-13 .tajx-navbar-backdrop,
+  html body.page-id-13 .taj-mobile-actions,
+  html body.page-id-13 .taj-mobile-action,
+  html body.page-id-13 #avis .tajx-review-dot,
+  html body.page-id-13 #faq details,
+  html body.page-id-13 #faq details::details-content,
+  html body.page-id-13 #faq summary::after,
+  html body.page-id-13 #benefices .taj-benefits-orange__card {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================================================
+   Mobile navbar + hero authoritative rebuild
+   Scope: Page 13, below 1024px. No lower landing-page sections.
+   ================================================================ */
+@media (max-width: 1023px) {
+  html body.page-id-13.tajx-mobile-menu-open {
+    overflow: hidden !important;
+    overscroll-behavior: none;
+    touch-action: none;
+  }
+
+  /* Viewport-safe mobile navbar. */
+  html body.page-id-13 .tajx-navbar,
+  html body.page-id-13 .entry-content .tajx-navbar {
+    position: sticky !important;
+    inset: auto !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 62px !important;
+    height: 62px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(239, 90, 24, .24) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(135deg, #35050a, #4a080f) !important;
+    box-shadow: 0 10px 28px rgba(25, 2, 5, .34) !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  html body.admin-bar.page-id-13 .tajx-navbar {
+    top: 32px !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    max-width: calc(100% - 64px) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 50px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 0 6px !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand img {
+    display: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand::before {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(28px, 7.2vw, 30px) !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    letter-spacing: .105em !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-brand::after {
+    right: auto !important;
+    bottom: 4px !important;
+    left: 0 !important;
+    width: 48px !important;
+    height: 2px !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+    width: 46px !important;
+    max-width: 46px !important;
+    min-width: 46px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    flex: 0 0 46px !important;
+    display: grid !important;
+    place-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, .16) !important;
+    border-radius: 13px !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .045)) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 8px 20px rgba(20, 0, 4, .2) !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle > span {
+    position: relative !important;
+    width: 23px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 2px !important;
+    background: #fff !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle > span::before,
+  html body.page-id-13 .tajx-navbar-toggle > span::after {
+    content: "" !important;
+    position: absolute !important;
+    right: auto !important;
+    left: 0 !important;
+    width: 23px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 2px !important;
+    background: #fff !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle > span::before {
+    top: -7px !important;
+  }
+
+  html body.page-id-13 .tajx-navbar-toggle > span::after {
+    top: 7px !important;
+  }
+
+  /* The menu is portaled to body by JavaScript on mobile. */
+  html body.page-id-13 > .tajx-navbar-menu {
+    position: fixed !important;
+    inset: 0 0 0 auto !important;
+    z-index: 10002 !important;
+    box-sizing: border-box !important;
+    width: min(86vw, 340px) !important;
+    max-width: none !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 20px calc(22px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #35050a !important;
+    box-shadow: -24px 0 54px rgba(0, 0, 0, .42) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    translate: none !important;
+    transform: translate3d(101%, 0, 0) !important;
+    transition: transform .2s ease !important;
+  }
+
+  html body.page-id-13.tajx-mobile-menu-open > .tajx-navbar-menu {
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu .tajx-navbar-drawer-header {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 78px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .12) !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu .tajx-navbar-drawer-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #fff8ef !important;
+    font: 700 27px/1 "Cormorant Garamond", Georgia, serif !important;
+    letter-spacing: .1em !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu .tajx-navbar-close {
+    position: relative !important;
+    inset: auto !important;
+    width: 46px !important;
+    min-width: 46px !important;
+    height: 46px !important;
+    display: grid !important;
+    flex: 0 0 46px !important;
+    place-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, .16) !important;
+    border-radius: 13px !important;
+    background: rgba(255, 255, 255, .08) !important;
+    color: #fff !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu .tajx-navbar-close > span,
+  html body.page-id-13 > .tajx-navbar-menu .tajx-navbar-close > span::before {
+    width: 22px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 2px !important;
+    background: currentColor !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu > a,
+  html body.page-id-13 > .tajx-navbar-menu > a:not(.tajx-navbar-cta),
+  html body.page-id-13 > .tajx-navbar-menu > .tajx-navbar-cta {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 2px !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .1) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #fff4e7 !important;
+    box-shadow: none !important;
+    font: 700 15px/1.2 Manrope, sans-serif !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu > a::after {
+    display: none !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu > .tajx-navbar-mobile-only {
+    display: flex !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-menu > .tajx-navbar-cta {
+    min-height: 54px !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+    padding: 0 18px !important;
+    border: 1px solid rgba(255, 132, 66, .52) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600)) !important;
+    color: #fff !important;
+    box-shadow: 0 14px 28px rgba(16, 1, 3, .3) !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 10001 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    display: block !important;
+    margin: 0 !important;
+    background: rgba(15, 1, 4, .62) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+    transition: opacity .18s ease, visibility 0s linear .18s !important;
+  }
+
+  html body.page-id-13 > .tajx-navbar-backdrop.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  /* Stable normal-flow mobile hero. */
+  html body.page-id-13 #accueil.taj-clean-hero {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 22px 18px 34px !important;
+    overflow: visible !important;
+    contain: none !important;
+    background:
+      radial-gradient(circle at 82% 18%, rgba(217, 74, 22, .18), transparent 32%),
+      linear-gradient(145deg, #2b0308 0%, #42070d 58%, #36050a 100%) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero::before {
+    background-color: transparent !important;
+    background-image: url("/wp-content/uploads/2026/07/pattern1.png") !important;
+    background-repeat: repeat !important;
+    background-position: center top !important;
+    background-size: 238px auto !important;
+    opacity: .11 !important;
+    mix-blend-mode: screen !important;
+    -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .55), #000 62%, rgba(0, 0, 0, .88)) !important;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, .55), #000 62%, rgba(0, 0, 0, .88)) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero::after {
+    background:
+      radial-gradient(circle at 76% 24%, rgba(255, 106, 32, .09), transparent 30%),
+      linear-gradient(90deg, rgba(43, 3, 8, .18), transparent 72%) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__inner {
+    box-sizing: border-box !important;
+    width: min(100%, 900px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr) !important;
+    grid-template-rows: auto auto auto auto auto auto !important;
+    align-items: center !important;
+    gap: 14px 16px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__copy {
+    display: contents !important;
+    width: auto !important;
+    max-width: none !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__eyebrow {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    min-height: 18px !important;
+    justify-content: flex-start !important;
+    align-self: end !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    letter-spacing: .12em !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__eyebrow::before {
+    width: 24px !important;
+    height: 24px !important;
+    flex: 0 0 24px !important;
+    background: var(--taj-orange-400) !important;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m12 1.8 2.3 4.7 5.2.7-3.8 3.7.9 5.2-4.6-2.4-4.6 2.4.9-5.2-3.8-3.7 5.2-.7L12 1.8Zm0 4.6-1 2-2.2.3 1.6 1.6-.4 2.2 2-1 2 1-.4-2.2 1.6-1.6-2.2-.3-1-2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m12 1.8 2.3 4.7 5.2.7-3.8 3.7.9 5.2-4.6-2.4-4.6 2.4.9-5.2-3.8-3.7 5.2-.7L12 1.8Zm0 4.6-1 2-2.2.3 1.6 1.6-.4 2.2 2-1 2 1-.4-2.2 1.6-1.6-2.2-.3-1-2Z'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__eyebrow::after {
+    width: 28px !important;
+    height: 1px !important;
+    display: block !important;
+    background: rgba(255, 106, 32, .72) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero h1 {
+    position: relative !important;
+    z-index: 2 !important;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    align-self: start !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(42px, 6vw, 54px) !important;
+    font-weight: 700 !important;
+    line-height: .94 !important;
+    letter-spacing: -.025em !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero h1::after {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 1 !important;
+    grid-column: 2 !important;
+    grid-row: 1 / 3 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 310px !important;
+    height: auto !important;
+    display: grid !important;
+    place-items: center !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+    padding: 10px 2px 8px 10px !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__orange-panel {
+    position: absolute !important;
+    inset: 0 0 0 auto !important;
+    z-index: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 160, 91, .62) !important;
+    border-radius: 28px 18px 28px 16px !important;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%) !important;
+    background:
+      radial-gradient(circle at 62% 40%, rgba(255, 205, 142, .3), transparent 43%),
+      linear-gradient(148deg, #f86b22 0%, #e45118 58%, #b73512 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .3),
+      inset 0 -20px 34px rgba(104, 20, 4, .12),
+      0 20px 38px rgba(25, 1, 4, .26) !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__orange-panel::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: url("/wp-content/uploads/2026/07/pattern1.png") center / 190px auto repeat !important;
+    mix-blend-mode: screen !important;
+    opacity: .2 !important;
+    pointer-events: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__orange-panel::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+      linear-gradient(125deg, rgba(255, 255, 255, .16), transparent 27% 72%, rgba(104, 18, 5, .1)),
+      radial-gradient(circle at 73% 31%, rgba(255, 229, 181, .18), transparent 34%) !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 225, 188, .06) !important;
+    pointer-events: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__ground-shadow {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__glow {
+    position: absolute !important;
+    inset: 7% 0 5% 6% !important;
+    z-index: 1 !important;
+    display: block !important;
+    border-radius: 48% !important;
+    background: radial-gradient(circle at 54% 50%, rgba(255, 222, 166, .38), rgba(255, 106, 32, .09) 48%, transparent 72%) !important;
+    filter: blur(9px) !important;
+    opacity: .82 !important;
+    pointer-events: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product-wrap {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    display: block !important;
+    place-items: initial !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    animation: none !important;
+    translate: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product-motion {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    animation: none !important;
+    translate: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 310px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    filter:
+      drop-shadow(0 15px 10px rgba(38, 4, 3, .32))
+      drop-shadow(0 5px 10px rgba(77, 16, 5, .2)) !important;
+    clip-path: none !important;
+    translate: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__lead {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    max-width: 680px !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding-top: 26px !important;
+    color: rgba(255, 255, 255, .88) !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__lead::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 4px !important;
+    left: 0 !important;
+    width: 116px !important;
+    height: 9px !important;
+    background:
+      linear-gradient(var(--taj-orange-500), var(--taj-orange-500)) left 50% / 48px 1px no-repeat,
+      linear-gradient(var(--taj-orange-500), var(--taj-orange-500)) right 50% / 48px 1px no-repeat,
+      linear-gradient(45deg, transparent 42%, var(--taj-orange-400) 43% 57%, transparent 58%) center / 9px 9px no-repeat !important;
+    opacity: .82 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 122px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.42fr) minmax(96px, .58fr) !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin: 2px 0 0 !important;
+    padding: 18px 20px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 117, 43, .82) !important;
+    border-radius: 22px !important;
+    background:
+      radial-gradient(circle at 13% -8%, rgba(255, 135, 58, .28), transparent 46%),
+      radial-gradient(circle at 92% 10%, rgba(190, 70, 29, .14), transparent 34%),
+      linear-gradient(135deg, #78111b 0%, #5a0a12 54%, #350309 100%) !important;
+    box-shadow:
+      0 22px 44px rgba(18, 0, 4, .4),
+      0 0 32px rgba(239, 90, 24, .13),
+      inset 0 1px 0 rgba(255, 246, 232, .15),
+      inset 0 -1px 0 rgba(255, 106, 32, .14) !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price::before {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 9px !important;
+    z-index: 2 !important;
+    opacity: .42 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: grid !important;
+    align-items: start !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main strong {
+    width: 100% !important;
+    min-height: 62px !important;
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: flex-start !important;
+    color: #fff8ef !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(58px, 16vw, 66px) !important;
+    font-weight: 700 !important;
+    line-height: .92 !important;
+    letter-spacing: -.045em !important;
+    font-variant-numeric: lining-nums tabular-nums !important;
+    text-shadow:
+      0 2px 0 rgba(63, 8, 12, .28),
+      0 8px 18px rgba(20, 0, 4, .3) !important;
+    transform: none;
+    transform-origin: left center;
+    animation: tajx-mobile-price-arrival .58s cubic-bezier(.22, .72, .22, 1) both;
+    transition:
+      color .2s ease,
+      text-shadow .2s ease,
+      transform .2s ease;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__currency {
+    top: .02em !important;
+    margin-left: 6px !important;
+    color: #ff9a50 !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: clamp(17px, 4.8vw, 20px) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price:hover .taj-clean-hero__price-main strong,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price:focus-within .taj-clean-hero__price-main strong {
+    color: #fffdf7 !important;
+    text-shadow:
+      0 2px 0 rgba(63, 8, 12, .24),
+      0 10px 24px rgba(255, 106, 32, .2) !important;
+    transform: translateY(-1px) scale(1.035);
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main > span {
+    width: max-content !important;
+    padding: 3px 9px !important;
+    border: 1px solid rgba(255, 231, 198, .1) !important;
+    border-radius: 999px !important;
+    background: rgba(28, 1, 5, .22) !important;
+    color: rgba(255, 236, 216, .72) !important;
+    font-size: clamp(12px, 3.25vw, 13.5px) !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+    min-width: 0 !important;
+    min-height: 82px !important;
+    display: grid !important;
+    align-content: center !important;
+    justify-items: end !important;
+    gap: 5px !important;
+    padding: 0 0 0 17px !important;
+    border-top: 0 !important;
+    border-left: 1px solid rgba(255, 143, 79, .64) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer em {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer strong {
+    color: #f1a568 !important;
+    font-size: clamp(18px, 5.2vw, 22px) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -.015em !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer > span {
+    color: rgba(255, 171, 109, .72) !important;
+    font-size: 8.5px !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .06em !important;
+    text-align: right !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__actions {
+    grid-column: 1 / -1 !important;
+    grid-row: 5 !important;
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__primary {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 60px !important;
+    display: flex !important;
+    padding: 0 14px !important;
+    border-radius: 19px !important;
+    font-size: 12.5px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    transform: none !important;
+    box-shadow:
+      0 16px 30px rgba(239, 90, 24, .26),
+      0 0 24px rgba(239, 90, 24, .12),
+      inset 0 1px 0 rgba(255, 255, 255, .22) !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__secondary {
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust {
+    grid-column: 1 / -1 !important;
+    grid-row: 6 !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 18px 8px !important;
+    margin: 6px 0 0 !important;
+    color: #fff4e7 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span {
+    position: relative !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 88px !important;
+    grid-column: span 2;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 9px !important;
+    margin: 0 !important;
+    padding: 0 2px !important;
+    color: #fff4e7 !important;
+    font: 700 11px/1.32 Manrope, sans-serif !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-delivery,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-payment,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-confirmation,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-guarantee,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-mobile {
+    display: flex !important;
+    order: initial !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span::before,
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust-icon {
+    box-sizing: border-box !important;
+    width: 50px !important;
+    height: 50px !important;
+    display: block !important;
+    flex: 0 0 50px !important;
+    padding: 13px !important;
+    overflow: visible !important;
+    border: 1px solid rgba(255, 106, 32, .76) !important;
+    border-radius: 50% !important;
+    background: rgba(43, 3, 8, .7) !important;
+    color: var(--taj-orange-400) !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 782px) {
+  html body.admin-bar.page-id-13 .tajx-navbar {
+    top: 46px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13 #accueil.taj-clean-hero {
+    padding: 22px 18px 32px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__inner {
+    grid-template-columns: minmax(0, 1.18fr) minmax(140px, .82fr) !important;
+    row-gap: 14px !important;
+    column-gap: 8px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero h1 {
+    max-width: 100% !important;
+    overflow: visible !important;
+    font-size: clamp(30px, 8.15vw, 33.5px) !important;
+    line-height: .96 !important;
+    letter-spacing: -.03em !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
+    min-height: 218px !important;
+    justify-self: end !important;
+    padding: 6px 0 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product-wrap {
+    width: 112% !important;
+    max-width: 226px !important;
+    justify-self: center !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__lead {
+    padding-top: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__lead::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price::after {
+    z-index: 0 !important;
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, .12), transparent 32% 70%, rgba(255, 106, 32, .08)),
+      url("/wp-content/uploads/2026/07/pattern1.png") center / 172px auto repeat !important;
+    mix-blend-mode: screen !important;
+    opacity: .09 !important;
+  }
+}
+
+@media (max-width: 374px) {
+  html body.page-id-13 .tajx-navbar,
+  html body.page-id-13 .entry-content .tajx-navbar {
+    padding-inline: 15px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__inner {
+    grid-template-columns: minmax(0, 1.18fr) minmax(136px, .82fr) !important;
+    row-gap: 12px !important;
+    column-gap: 7px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero h1 {
+    font-size: 30px !important;
+    letter-spacing: -.03em !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__visual {
+    min-height: 210px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__product-wrap {
+    width: 112% !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__eyebrow {
+    font-size: 8.5px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__primary {
+    font-size: 10.5px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__trust > span {
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price {
+    min-height: 116px !important;
+    padding: 16px !important;
+    gap: 12px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main strong {
+    font-size: 58px !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+    min-width: 0 !important;
+    padding-left: 13px !important;
+  }
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  html body.page-id-13 > .tajx-navbar-menu,
+  html body.page-id-13 > .tajx-navbar-backdrop {
+    transition: none !important;
+  }
+
+  html body.page-id-13 #accueil.taj-clean-hero .taj-clean-hero__price-main strong {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes tajx-mobile-price-arrival {
+  0% {
+    opacity: .72;
+    transform: translateY(7px) scale(.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+html body.page-id-13 #commande.tajcmd .tajcmd-product__price {
+  display: none;
+}
+
+html body.page-id-13 #commande.tajcmd .tajcmd-product__mobile-kicker,
+html body.page-id-13 #commande.tajcmd .tajcmd-product__microbenefits,
+html body.page-id-13 #commande.tajcmd .tajcmd-form__heading-copy > small,
+html body.page-id-13 #commande.tajcmd .tajcmd-reassurance__mobile,
+html body.page-id-13 #commande.tajcmd .tajcmd-reassurance__mobile-label {
+  display: none;
+}
+
+html body.page-id-13 #commande.tajcmd .tajcmd-form__heading-copy,
+html body.page-id-13 #commande.tajcmd .tajcmd-action {
+  display: contents;
+}
+
+/* ================================================================
+   Authoritative mobile checkout presentation.
+   Targets the runtime premium classes added by tajinoos-premium.js.
+   ================================================================ */
+@media (max-width: 1023px) {
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(244, 103, 38, .28), transparent 34%),
+      radial-gradient(circle at 8% 86%, rgba(255, 146, 68, .15), transparent 38%),
+      linear-gradient(155deg, #3b0810 0%, #791810 48%, #dc4816 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 226, 198, .14),
+      inset 0 -1px 0 rgba(55, 4, 9, .30) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd::before,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd::before {
+    background: url("/wp-content/uploads/2026/07/pattern1.png") center top / 210px auto repeat !important;
+    mix-blend-mode: screen !important;
+    opacity: .065 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd::after {
+    background:
+      linear-gradient(180deg, rgba(28, 1, 5, .20), transparent 20% 76%, rgba(48, 5, 9, .28)),
+      radial-gradient(circle at 52% 48%, rgba(255, 205, 150, .11), transparent 46%) !important;
+    opacity: 1 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
+    position: relative !important;
+    z-index: 1 !important;
+    width: min(100%, 760px) !important;
+    max-width: 760px !important;
+    display: grid !important;
+    gap: 9px !important;
+    margin: 0 auto !important;
+    padding: 20px clamp(14px, 3.8vw, 18px) calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__header {
+    display: grid !important;
+    justify-items: center !important;
+    gap: 2px !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__badge {
+    min-height: 22px !important;
+    padding: 3px 9px !important;
+    border: 1px solid rgba(255, 179, 114, .40) !important;
+    background: rgba(55, 5, 11, .62) !important;
+    color: #ffb06f !important;
+    box-shadow:
+      0 10px 22px rgba(31, 1, 5, .20),
+      inset 0 1px 0 rgba(255, 238, 220, .10) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__header h2 {
+    max-width: 100% !important;
+    color: #fff7ea !important;
+    font-size: clamp(25px, 6.8vw, 30px) !important;
+    line-height: .96 !important;
+    text-align: center !important;
+    text-shadow: 0 5px 20px rgba(34, 1, 5, .28) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__header p {
+    max-width: 560px !important;
+    margin: 0 !important;
+    color: rgba(255, 242, 226, .86) !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__grid {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 9px !important;
+    align-items: start !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
+    width: 100% !important;
+    min-width: 0 !important;
+    border: 1px solid rgba(255, 214, 170, .52) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(155deg, rgba(255, 252, 246, .98), rgba(255, 237, 216, .96)) !important;
+    box-shadow:
+      0 20px 42px rgba(43, 2, 8, .25),
+      inset 0 1px 0 rgba(255, 255, 255, .92) !important;
+    backdrop-filter: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: clamp(88px, 24vw, 98px) minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    max-height: 128px !important;
+    overflow: hidden !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 124px !important;
+    max-height: 128px !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 6px 4px !important;
+    overflow: hidden !important;
+    border-radius: 17px 0 0 17px !important;
+    background:
+      linear-gradient(180deg, rgba(255, 186, 104, .15), rgba(89, 11, 18, .18)),
+      url("/wp-content/uploads/2026/07/pattern1.png") center / 170px auto repeat,
+      linear-gradient(155deg, #f07a31 0%, #d64a1b 58%, #7e1816 100%) !important;
+    background-blend-mode: screen, soft-light, normal !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__visual::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 8px !important;
+    border-radius: 14px !important;
+    background: radial-gradient(circle at 50% 58%, rgba(255, 231, 193, .34), transparent 62%) !important;
+    pointer-events: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__pattern {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__image {
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: min(88px, 100%) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+    filter: drop-shadow(0 12px 11px rgba(52, 5, 10, .26)) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__content {
+    min-width: 0 !important;
+    display: grid !important;
+    align-content: center !important;
+    gap: 4px !important;
+    padding: 10px 11px !important;
+    background: linear-gradient(155deg, rgba(255, 253, 248, .98), rgba(255, 239, 220, .94)) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__badge,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__description,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-trust {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product h3 {
+    margin: 0 !important;
+    color: #37120f !important;
+    font-size: clamp(18px, 4.8vw, 21px) !important;
+    line-height: .96 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__mobile-kicker {
+    display: block !important;
+    margin: 0 !important;
+    color: #79554a !important;
+    font-size: 9.5px !important;
+    font-weight: 650 !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__price {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    color: #8e2116 !important;
+    line-height: 1 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__price strong {
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(27px, 7vw, 32px) !important;
+    font-weight: 700 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__price span {
+    color: #d94a16 !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__price small {
+    margin-left: 2px !important;
+    color: #826257 !important;
+    font-size: 8px !important;
+    font-weight: 700 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__microbenefits {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 3px 9px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #693c30 !important;
+    font-size: 8.5px !important;
+    font-weight: 750 !important;
+    line-height: 1.2 !important;
+    list-style: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__microbenefits li {
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 0 0 8px !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__microbenefits li::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    width: 4px !important;
+    height: 4px !important;
+    border-radius: 50% !important;
+    background: #e65318 !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
+    display: grid !important;
+    align-content: start !important;
+    gap: 8px !important;
+    padding: 14px !important;
+    border-radius: 20px !important;
+    box-shadow:
+      0 22px 48px rgba(43, 2, 8, .27),
+      inset 0 1px 0 rgba(255, 255, 255, .96) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__head {
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    margin: 0 !important;
+    padding: 0 0 8px !important;
+    border-bottom: 1px solid rgba(146, 52, 26, .16) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__head .tajcmd-icon {
+    width: 30px !important;
+    height: 30px !important;
+    flex: 0 0 30px !important;
+    border-color: rgba(207, 91, 32, .28) !important;
+    background: linear-gradient(145deg, #ffe7c8, #f8c986) !important;
+    color: #c74b18 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__heading-copy {
+    display: grid !important;
+    gap: 1px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__head h3 {
+    margin: 0 !important;
+    color: #3b1712 !important;
+    font-size: clamp(18px, 4.8vw, 21px) !important;
+    line-height: .98 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__heading-copy > small {
+    display: block !important;
+    color: #8a5e51 !important;
+    font-size: 8.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__body {
+    display: grid !important;
+    gap: 8px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__row--compact {
+    grid-template-columns: minmax(96px, .42fr) minmax(0, .58fr) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field {
+    min-width: 0 !important;
+    display: grid !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    color: #5a2d23 !important;
+    font-size: 9.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: .02em !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field input,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field select,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 43px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    border: 1px solid rgba(104, 37, 25, .17) !important;
+    border-radius: 12px !important;
+    background: rgba(255, 252, 247, .94) !important;
+    color: #351712 !important;
+    box-shadow: inset 0 1px 2px rgba(73, 25, 17, .035) !important;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field textarea {
+    min-height: 58px !important;
+    padding-block: 8px !important;
+    resize: vertical !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field input:focus,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field select:focus,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field textarea:focus {
+    border-color: #e65318 !important;
+    outline: none !important;
+    box-shadow:
+      0 0 0 3px rgba(230, 83, 24, .14),
+      inset 0 1px 2px rgba(73, 25, 17, .03) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field small {
+    color: #8a6659 !important;
+    font-size: 8.5px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form__row--compact .tajcmd-field small {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-action {
+    display: grid !important;
+    grid-template-columns: minmax(105px, .75fr) minmax(0, 1.6fr) !important;
+    gap: 7px !important;
+    min-height: 64px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total {
+    position: relative !important;
+    min-height: 64px !important;
+    display: grid !important;
+    align-content: center !important;
+    justify-items: start !important;
+    gap: 3px !important;
+    overflow: hidden !important;
+    padding: 7px 10px !important;
+    border: 1px solid rgba(219, 119, 45, .34) !important;
+    border-radius: 14px !important;
+    background:
+      radial-gradient(circle at 87% 18%, rgba(255, 255, 255, .34), transparent 38%),
+      linear-gradient(135deg, #fff1cc 0%, #ffd89f 52%, #ffc586 100%) !important;
+    box-shadow:
+      0 12px 24px rgba(117, 45, 20, .11),
+      inset 0 1px 0 rgba(255, 255, 255, .72) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total::before {
+    opacity: .18 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__meta {
+    min-width: 0 !important;
+    display: grid !important;
+    gap: 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__meta strong {
+    color: #7e2919 !important;
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__meta small {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__price {
+    flex: 0 0 auto !important;
+    color: #4b1511 !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(24px, 6.5vw, 31px) !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__currency {
+    color: #a43b1a !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    width: 100% !important;
+    min-height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    border: 1px solid rgba(255, 186, 119, .42) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg, #f8782c 0%, #e65318 48%, #b93415 100%) !important;
+    color: #fff !important;
+    box-shadow:
+      0 16px 28px rgba(178, 55, 18, .26),
+      inset 0 1px 0 rgba(255, 255, 255, .24) !important;
+    font-size: clamp(10px, 2.75vw, 12px) !important;
+    line-height: 1.15 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit__separator,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit__price {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit:hover,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit:focus-visible {
+    transform: translateY(-1px) !important;
+    box-shadow:
+      0 19px 32px rgba(178, 55, 18, .31),
+      inset 0 1px 0 rgba(255, 255, 255, .28) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    margin: 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > span {
+    min-width: 0 !important;
+    min-height: 34px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 2px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #603228 !important;
+    box-shadow: none !important;
+    font-size: 8.5px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon {
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance__desktop-label {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance__mobile,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance__mobile-label {
+    display: inline-flex !important;
+  }
+
+  html body.page-id-13 .tajx-mobile-sticky {
+    transition: opacity .18s ease, visibility .18s ease, transform .18s ease !important;
+  }
+
+  html body.page-id-13 .tajx-mobile-sticky.is-order-visible {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(100%) !important;
+  }
+}
+
+@media (max-width: 370px) {
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__inner {
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
+    grid-template-columns: 84px minmax(0, 1fr) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__content {
+    padding: 9px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    padding-inline: 8px !important;
+    font-size: 10.5px !important;
+  }
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    transition: none !important;
   }
 }
