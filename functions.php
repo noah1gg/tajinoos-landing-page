@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.5.0');
+define('TAJINOOS_CHILD_VERSION', '1.6.16');
 
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
@@ -535,7 +535,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
     }
 
     $product = <<<'HTML'
-<section id="produit" class="tajx-section tajx-offer" aria-labelledby="tajx-offer-title">
+<section id="produit" class="tajx-section tajx-offer" aria-label="Tajine artisanal Tajinoos Premium">
   <div class="tajx-wrap tajx-offer__grid">
     <figure class="tajx-offer__visual" aria-label="Tajine artisanal Tajinoos Premium">
       <img class="tajx-offer__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium" width="1024" height="1024" loading="lazy" decoding="async">
@@ -636,6 +636,123 @@ function tajinoos_child_render_reference_product_section(string $content): strin
 
       <p class="tajx-offer__reassurance">Satisfait ou remboursé • Assistance rapide</p>
     </div>
+  </div>
+
+  <div class="tajp-mobile">
+    <header class="tajp-mobile__intro">
+      <span class="tajp-mobile__eyebrow">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8c.8 4.4 3.4 7 7.8 7.8-4.4.8-7 3.4-7.8 7.8-.8-4.4-3.4-7-7.8-7.8 4.4-.8 7-3.4 7.8-7.8Z"/></svg>
+        LE TAJINE SIGNATURE
+      </span>
+      <h2 class="tajp-mobile__title"><span>TAJINE ARTISANAL</span><span>TAJINOOS PREMIUM</span></h2>
+      <p class="tajp-mobile__lead">Une cuisson lente, homog&egrave;ne et pleine de saveurs.</p>
+    </header>
+
+    <figure class="tajp-mobile__media" aria-label="Tajine artisanal Tajinoos Premium fait main au Maroc">
+      <span class="tajp-mobile__handmade">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m12 3 1.1 3.2L16 7.5l-2.9 1.3L12 12l-1.1-3.2L8 7.5l2.9-1.3L12 3Z"/><path d="M5 12.5v4.2c0 2.4 1.9 4.3 4.3 4.3H12M19 12.5v4.2c0 2.4-1.9 4.3-4.3 4.3H12"/><path d="M5 13.5 3.8 12a1.4 1.4 0 0 1 2.1-1.8L9 13M19 13.5l1.2-1.5a1.4 1.4 0 0 0-2.1-1.8L15 13"/></svg>
+        <span>FAIT MAIN<br>AU MAROC</span>
+      </span>
+
+      <div class="tajp-mobile__product-stage">
+        <img class="tajp-mobile__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium" width="1024" height="1024" loading="lazy" decoding="async">
+      </div>
+
+      <div class="tajp-mobile__specs" aria-label="Caract&eacute;ristiques principales">
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="7.5"/><path d="M5.5 18.5 18.5 5.5M4 20l2.5-.5L4.5 17.5 4 20ZM20 4l-2.5.5 2 2L20 4Z"/></svg>
+          </span>
+          <span class="tajp-mobile__spec-copy"><small>DIAM&Egrave;TRE</small><strong>&Oslash; 30 CM</strong></span>
+        </div>
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="7" r="2.5"/><circle cx="5.5" cy="9" r="2"/><circle cx="18.5" cy="9" r="2"/><path d="M7.5 19v-4.2a4.5 4.5 0 0 1 9 0V19M2.5 18v-3.1a3 3 0 0 1 4.5-2.6M21.5 18v-3.1a3 3 0 0 0-4.5-2.6"/></svg>
+          </span>
+          <span class="tajp-mobile__spec-copy"><small>CAPACIT&Eacute;</small><strong>4&ndash;6 <em>PERSONNES</em></strong></span>
+        </div>
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M20 4C12 4 6.5 8.7 6.5 15.3c0 2.3 1.7 4.2 4 4.2C17 19.5 20 12 20 4Z"/><path d="M4 21c3.2-5.2 7.1-8.7 12.2-11.2"/></svg>
+          </span>
+          <span class="tajp-mobile__spec-copy"><small>MATI&Egrave;RE</small><strong>ARGILE <em>NATURELLE</em></strong></span>
+        </div>
+      </div>
+    </figure>
+
+    <div class="tajp-mobile__benefits" aria-label="Avantages du Tajinoos Premium">
+      <article class="tajp-mobile__benefit">
+        <span class="tajp-mobile__benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M8 15.5c-2.2-3.7.1-6.2 2.2-8.9.3 2.1 1.2 3.1 2.1 4.1.7-3.6 2.6-5.4 3.9-7.2.6 3.5 3.3 5.8 3.3 9.5a7.5 7.5 0 0 1-15 0c0-1.6.4-3 1.2-4.3.2 2.7 1 4.8 2.3 6.8Z"/><path d="M7 21h10M8.5 18.5h7"/></svg>
+        </span>
+        <h3>CUISSON HOMOG&Egrave;NE</h3>
+        <p>La chaleur se diffuse lentement pour une cuisson r&eacute;guli&egrave;re et ma&icirc;tris&eacute;e.</p>
+      </article>
+
+      <article class="tajp-mobile__benefit">
+        <span class="tajp-mobile__benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M20 4c-6.9 0-11.5 3.7-11.5 8.4 0 2.2 1.7 4 4 4C17 16.4 20 11.3 20 4Z"/><path d="M4 20c3.4-5.3 7.2-8.5 12.4-10.8M9.2 16.1C7 13.9 4.8 13 2.5 13c0 4 2.1 6.5 5.1 6.5"/></svg>
+        </span>
+        <h3>SAVEURS PR&Eacute;SERV&Eacute;ES</h3>
+        <p>Les aliments restent tendres, parfum&eacute;s et riches en saveurs naturelles.</p>
+      </article>
+
+      <article class="tajp-mobile__benefit">
+        <span class="tajp-mobile__benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M8.5 11V5.5a1.5 1.5 0 0 1 3 0V10M11.5 10V4a1.5 1.5 0 0 1 3 0v6M14.5 10V5.5a1.5 1.5 0 0 1 3 0V12M8.5 9.5a1.5 1.5 0 0 0-3 0V14c0 4.4 2.7 7 7 7h.5c4.1 0 6.5-2.6 6.5-6.5V10a1.5 1.5 0 0 0-3 0v2"/><path d="m12.5 13 .6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6.6-1.7Z"/></svg>
+        </span>
+        <h3>FABRICATION ARTISANALE</h3>
+        <p>Chaque tajine est fa&ccedil;onn&eacute; et d&eacute;cor&eacute; &agrave; la main par des artisans marocains.</p>
+      </article>
+
+      <article class="tajp-mobile__benefit">
+        <span class="tajp-mobile__benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 8.5 8h7L12 3ZM5 11h14l-1 9H6l-1-9Z"/><path d="M3.5 8h17M3.5 11h17M8 15h8"/></svg>
+        </span>
+        <h3>ID&Eacute;AL AU QUOTIDIEN</h3>
+        <p>Parfait pour les tajines, l&eacute;gumes, viandes et plats familiaux.</p>
+      </article>
+    </div>
+
+    <div class="tajp-mobile__reassurance" aria-label="Garanties de commande">
+      <div class="tajp-mobile__reassurance-item">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+        <span>PAIEMENT &Agrave;<br>LA LIVRAISON</span>
+      </div>
+      <div class="tajp-mobile__reassurance-item">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M7.2 3.5 10 8 7.8 9.8a15.2 15.2 0 0 0 6.4 6.4L16 14l4.5 2.8-1.3 3.1c-.4.9-1.3 1.5-2.3 1.3C9.6 20 4 14.4 2.8 7.1c-.2-1 .4-1.9 1.3-2.3l3.1-1.3Z"/></svg>
+        <span>CONFIRMATION<br>T&Eacute;L&Eacute;PHONIQUE</span>
+      </div>
+      <div class="tajp-mobile__reassurance-item">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 3 19 6v5.2c0 4.5-2.8 7.5-7 9.8-4.2-2.3-7-5.3-7-9.8V6l7-3Z"/><path d="m8.8 12 2.1 2.1 4.5-4.5"/></svg>
+        <span>GARANTIE<br>7 JOURS</span>
+      </div>
+    </div>
+
+    <div class="tajp-mobile__offer" aria-label="Offre Tajinoos Premium">
+      <div class="tajp-mobile__prices">
+        <div class="tajp-mobile__old-price">
+          <span>PRIX HABITUEL</span>
+          <del>520 MAD</del>
+        </div>
+        <div class="tajp-mobile__current-price">
+          <span>AUJOURD&rsquo;HUI</span>
+          <strong>390 <small>MAD</small></strong>
+        </div>
+        <span class="tajp-mobile__urgency">OFFRE LIMIT&Eacute;E</span>
+      </div>
+
+      <a class="tajp-mobile__cta" href="#commande">
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 7H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span>COMMANDER MON TAJINOOS</span>
+      </a>
+      <p class="tajp-mobile__payment-note">Paiement &agrave; la r&eacute;ception</p>
+    </div>
+
+    <p class="tajp-mobile__quality">
+      <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 3 19 6v5.2c0 4.5-2.8 7.5-7 9.8-4.2-2.3-7-5.3-7-9.8V6l7-3Z"/><path d="m8.8 12 2.1 2.1 4.5-4.5"/></svg>
+      <span>QUALIT&Eacute; AUTHENTIQUE, CON&Ccedil;UE POUR DURER.</span>
+    </p>
   </div>
 </section>
 HTML;
@@ -1164,9 +1281,9 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
           </div>
 
           <div class="tajcmd-reassurance" aria-label="Garanties de commande">
-            <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span><span class="tajcmd-reassurance__desktop-label">Cash on delivery</span><span class="tajcmd-reassurance__mobile-label">Paiement &agrave; la livraison</span></span>
-            <span><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-3l-4 3v-3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 10h8"/><path d="M8 13h5"/></svg></span> Confirmation t&eacute;l&eacute;phonique</span>
-            <span class="tajcmd-reassurance__mobile"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span> Livraison au Maroc</span>
+            <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span><span class="tajcmd-reassurance__label tajcmd-reassurance__desktop-label">Cash on delivery</span><span class="tajcmd-reassurance__label tajcmd-reassurance__mobile-label">Paiement &agrave; la livraison</span></span>
+            <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-3l-4 3v-3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 10h8"/><path d="M8 13h5"/></svg></span><span class="tajcmd-reassurance__label">Confirmation t&eacute;l&eacute;phonique</span></span>
+            <span class="tajcmd-reassurance__item tajcmd-reassurance__mobile"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><span class="tajcmd-reassurance__label">Livraison au Maroc</span></span>
           </div>
         </div>
       </form>

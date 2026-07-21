@@ -2247,7 +2247,7 @@ body:has(.tajx) .tajx span {
   color: #6f5748 !important;
 }
 
-body:has(.tajx) .tajx a:not(.tajx-btn):not(.tajx-mobile-sticky a) {
+body:has(.tajx) .tajx a:not(.tajx-btn) {
   color: #8a341d !important;
 }
 
@@ -2439,8 +2439,7 @@ body:has(.tajx) .tajx-form button[type="submit"] {
   text-decoration: none !important;
 }
 
-body:has(.tajx) .tajx-btn.primary,
-body:has(.tajx) .tajx-mobile-sticky a {
+body:has(.tajx) .tajx-btn.primary {
   color: #ffffff !important;
 }
 
@@ -8247,8 +8246,7 @@ body.page-id-13 .tajx-navbar-menu a {
 
 body.page-id-13 .tajx-btn,
 body.page-id-13 .tajx-submit,
-body.page-id-13 .tajx-navbar-cta,
-body.page-id-13 .tajx-mobile-sticky a {
+body.page-id-13 .tajx-navbar-cta {
   font-family: "Manrope", "Segoe UI", system-ui, sans-serif !important;
   font-size: 14px !important;
   font-weight: 700 !important;
@@ -18030,11 +18028,11 @@ html body.page-id-13 .taj-final-support__email svg {
   stroke: currentColor;
 }
 
-html body.page-id-13.has-tajx-page:has(.tajx) .tajx .taj-final-support a.taj-final-support__wa:not(.tajx-btn):not(.tajx-mobile-sticky a) {
+html body.page-id-13.has-tajx-page:has(.tajx) .tajx .taj-final-support a.taj-final-support__wa:not(.tajx-btn) {
   color: #fff7ed !important;
 }
 
-html body.page-id-13.has-tajx-page:has(.tajx) .tajx .taj-final-support a.taj-final-support__email:not(.tajx-btn):not(.tajx-mobile-sticky a) {
+html body.page-id-13.has-tajx-page:has(.tajx) .tajx .taj-final-support a.taj-final-support__email:not(.tajx-btn) {
   color: #b94724 !important;
 }
 
@@ -25388,7 +25386,7 @@ body.taj-thanks-page-body #ast-scroll-top {
   .taj-thanks-page__menu-toggle {
     min-width: 70px;
     min-height: 44px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
@@ -26103,7 +26101,6 @@ html body.page-id-13 .tajx-navbar-backdrop,
 html body.page-id-13 .tajx-navbar-close,
 html body.page-id-13 .tajx-navbar-drawer-header,
 html body.page-id-13 .tajx-navbar-mobile-only,
-html body.page-id-13 .taj-mobile-actions,
 html body.page-id-13 .tajx-review-dots,
 html body.page-id-13 .tajx-footer-mobile-contact,
 html body.page-id-13 .taj-clean-hero__trust-mobile,
@@ -27208,7 +27205,7 @@ html body.page-id-13 #accueil .taj-clean-hero__trust-icon {
 
   /* Compact mobile footer. */
   html body.page-id-13 .tajx-footer {
-    padding: 42px var(--taj-mobile-x) calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+    padding: 42px var(--taj-mobile-x) calc(28px + env(safe-area-inset-bottom, 0px)) !important;
     background: linear-gradient(145deg, #1d1512, #110b09) !important;
   }
 
@@ -27270,80 +27267,6 @@ html body.page-id-13 #accueil .taj-clean-hero__trust-icon {
     letter-spacing: .08em;
   }
 
-  /* Two small observer-controlled mobile actions. */
-  html body.page-id-13.has-tajx-page .taj-whatsapp-float {
-    display: none !important;
-  }
-
-  html body.page-id-13 .taj-mobile-actions {
-    position: fixed;
-    right: max(16px, env(safe-area-inset-right, 0px));
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    z-index: 998;
-    display: flex !important;
-    gap: 9px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(12px);
-    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
-  }
-
-  html body.page-id-13 .taj-mobile-actions.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  html body.page-id-13 .taj-mobile-action {
-    width: 50px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    border: 0;
-    border-radius: 16px;
-    color: #fff;
-    text-decoration: none !important;
-    box-shadow: 0 12px 28px rgba(20, 8, 5, .24);
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-
-  html body.page-id-13 .taj-mobile-action:hover,
-  html body.page-id-13 .taj-mobile-action:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 32px rgba(20, 8, 5, .30);
-  }
-
-  html body.page-id-13 .taj-mobile-action:focus-visible {
-    outline: 3px solid rgba(255, 236, 205, .80);
-    outline-offset: 2px;
-  }
-
-  html body.page-id-13 .taj-mobile-action svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  html body.page-id-13 .taj-mobile-action--shop {
-    background: linear-gradient(135deg, var(--taj-orange-500), var(--taj-orange-600));
-  }
-
-  html body.page-id-13 .taj-mobile-action--shop svg {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  html body.page-id-13 .taj-mobile-action--whatsapp {
-    background: #25d366;
-  }
-
-  html body.page-id-13 .taj-mobile-action--whatsapp svg {
-    fill: currentColor;
-  }
 }
 
 @media (max-width: 782px) {
@@ -27713,8 +27636,6 @@ html body.page-id-13 #accueil .taj-clean-hero__trust-icon {
 @media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
   html body.page-id-13 .tajx-navbar-menu,
   html body.page-id-13 .tajx-navbar-backdrop,
-  html body.page-id-13 .taj-mobile-actions,
-  html body.page-id-13 .taj-mobile-action,
   html body.page-id-13 #avis .tajx-review-dot,
   html body.page-id-13 #faq details,
   html body.page-id-13 #faq details::details-content,
@@ -29200,16 +29121,6 @@ html body.page-id-13 #commande.tajcmd .tajcmd-action {
     display: inline-flex !important;
   }
 
-  html body.page-id-13 .tajx-mobile-sticky {
-    transition: opacity .18s ease, visibility .18s ease, transform .18s ease !important;
-  }
-
-  html body.page-id-13 .tajx-mobile-sticky.is-order-visible {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transform: translateY(100%) !important;
-  }
 }
 
 @media (max-width: 370px) {
@@ -29235,5 +29146,1431 @@ html body.page-id-13 #commande.tajcmd .tajcmd-action {
 @media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
   html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
     transition: none !important;
+  }
+}
+
+/* Mobile checkout: the product summary is intentionally omitted. */
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-action {
+    grid-template-columns: minmax(116px, .9fr) minmax(0, 1.25fr) !important;
+    gap: 8px !important;
+    min-height: 70px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    min-height: 70px !important;
+    padding: 9px 11px !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total {
+    gap: 4px !important;
+    border-color: rgba(220, 109, 34, .46) !important;
+    background:
+      radial-gradient(circle at 88% 16%, rgba(255, 255, 255, .42), transparent 36%),
+      linear-gradient(135deg, #fff0c4 0%, #ffd58f 52%, #ffbd72 100%) !important;
+    box-shadow:
+      0 13px 26px rgba(117, 45, 20, .14),
+      inset 0 1px 0 rgba(255, 255, 255, .82) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__meta strong {
+    color: #742315 !important;
+    font-family: Manrope, "Segoe UI", sans-serif !important;
+    font-size: 9.5px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    letter-spacing: .035em !important;
+    white-space: nowrap !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__price {
+    color: #4a120d !important;
+    font-family: Manrope, "Segoe UI", sans-serif !important;
+    font-size: clamp(27px, 7.4vw, 34px) !important;
+    font-weight: 900 !important;
+    line-height: .9 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-total__currency {
+    margin-left: 1px !important;
+    color: #9b3018 !important;
+    font-size: 10px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    font-weight: 850 !important;
+    letter-spacing: -.01em !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > span {
+    min-height: 40px !important;
+    height: 40px !important;
+    max-height: 40px !important;
+    display: grid !important;
+    grid-template-columns: 16px minmax(0, 1fr) !important;
+    grid-template-rows: 1fr !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    gap: 5px !important;
+    overflow: hidden !important;
+    padding: 5px 6px !important;
+    border: 1px solid rgba(190, 92, 42, .18) !important;
+    border-radius: 10px !important;
+    background: rgba(255, 248, 238, .94) !important;
+    color: #593027 !important;
+    box-shadow: 0 5px 12px rgba(89, 37, 20, .055), inset 0 1px 0 rgba(255, 255, 255, .86) !important;
+    font-size: 7.8px !important;
+    font-weight: 800 !important;
+    line-height: 1.08 !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon {
+    width: 16px !important;
+    min-width: 16px !important;
+    height: 16px !important;
+    min-height: 16px !important;
+    flex: 0 0 16px !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(218, 111, 47, .24) !important;
+    border-radius: 50% !important;
+    background: #fff2dc !important;
+    color: #d95720 !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance__label:not(.tajcmd-reassurance__desktop-label) {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 18px !important;
+    display: -webkit-box !important;
+    align-self: center !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #593027 !important;
+    box-shadow: none !important;
+    font-size: 7.8px !important;
+    font-weight: 800 !important;
+    line-height: 1.08 !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    white-space: normal !important;
+    text-align: left !important;
+  }
+}
+/* ================================================================
+   Mobile product decision section
+   Scope: Page 13 / #produit only / 767px and below
+   Desktop and tablet keep the existing .tajx-offer presentation.
+   ================================================================ */
+
+html body.page-id-13 #produit .tajp-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13 #produit.tajx-offer {
+    scroll-margin-top: 64px;
+    padding: 26px 0 28px !important;
+    overflow: hidden !important;
+    background: #fff8ef !important;
+    color: #351710 !important;
+  }
+
+  html body.page-id-13 #produit.tajx-offer::before {
+    opacity: .12 !important;
+    background: url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center top / 420px auto repeat !important;
+    mix-blend-mode: multiply !important;
+  }
+
+  html body.page-id-13 #produit .tajx-offer__grid {
+    display: none !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile,
+  html body.page-id-13 #produit .tajp-mobile * {
+    box-sizing: border-box;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: min(calc(100% - 24px), 430px);
+    margin: 0 auto;
+    font-family: Manrope, sans-serif;
+    --tajp-gap: 12px;
+    --tajp-stack-gap: 14px;
+    --tajp-card-pad: 12px;
+    --tajp-radius: 14px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__intro {
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__eyebrow {
+    min-height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 auto 6px;
+    padding: 4px 11px;
+    border: 1px solid rgba(184, 87, 37, .62);
+    border-radius: 999px;
+    background: rgba(255, 252, 246, .84);
+    color: #8e371f !important;
+    font-size: 9.5px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 14px rgba(105, 45, 22, .06);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__eyebrow svg {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+    fill: #c86728;
+    stroke: none;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__title {
+    max-width: 100% !important;
+    margin: 0 !important;
+    color: #431812 !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(26px, 7vw, 31px) !important;
+    font-weight: 700 !important;
+    line-height: .98 !important;
+    letter-spacing: .012em !important;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__title span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__lead {
+    max-width: 390px !important;
+    margin: 6px auto 0 !important;
+    color: #543a31 !important;
+    font-size: 13.5px !important;
+    font-weight: 600;
+    line-height: 1.4 !important;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__media {
+    position: relative;
+    margin: var(--tajp-gap) 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(203, 139, 57, .62);
+    border-radius: 17px;
+    background:
+      radial-gradient(circle at 50% 32%, rgba(227, 126, 53, .28), transparent 38%),
+      linear-gradient(rgba(20, 12, 8, .84), rgba(20, 12, 8, .93)),
+      url("/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp") center / 390px auto repeat;
+    box-shadow: 0 14px 30px rgba(67, 27, 12, .17);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__media::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 72px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 83%, rgba(0, 0, 0, .48), transparent 48%);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__handmade {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    left: 8px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 7px;
+    border: 1px solid rgba(240, 181, 77, .78);
+    border-radius: 11px;
+    background: rgba(24, 14, 10, .84);
+    color: #f1c978 !important;
+    font-size: 8.2px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: .06em;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__handmade svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__product-stage {
+    position: relative;
+    z-index: 1;
+    height: clamp(180px, 48vw, 206px);
+    display: grid;
+    align-items: end;
+    justify-items: center;
+    padding: 28px 8px 10px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__product {
+    position: relative;
+    z-index: 2;
+    width: min(52vw, 202px) !important;
+    max-width: 78% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    display: block;
+    margin: 0 auto !important;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 13px 15px rgba(0, 0, 0, .48));
+    transform: translateZ(0);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__specs {
+    position: relative;
+    z-index: 3;
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    margin: 0 8px 8px;
+    overflow: hidden;
+    border: 1px solid rgba(224, 159, 74, .58);
+    border-radius: 12px;
+    background: rgba(25, 15, 11, .92);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .04);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 7px 4px;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec + .tajp-mobile__spec {
+    border-left: 1px solid rgba(224, 159, 74, .28);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-icon {
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    color: #ec6a25 !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy small,
+  html body.page-id-13 #produit .tajp-mobile__spec-copy strong,
+  html body.page-id-13 #produit .tajp-mobile__spec-copy em {
+    display: block;
+    min-width: 0;
+    font-family: Manrope, sans-serif;
+    font-style: normal;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy small {
+    color: #e9ba6a !important;
+    font-size: 8.1px;
+    font-weight: 800;
+    letter-spacing: .04em;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy strong {
+    color: #fff8ef !important;
+    font-size: 10.2px;
+    font-weight: 800;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy em {
+    margin-top: 1px;
+    color: rgba(255, 248, 239, .82) !important;
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefits {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+    margin: var(--tajp-stack-gap) auto 0;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 10px 12px 12px 15px;
+    border: 1px solid rgba(190, 106, 48, .22);
+    border-radius: 15px;
+    background:
+      radial-gradient(circle at 0 0, rgba(234, 104, 38, .075), transparent 44%),
+      rgba(255, 252, 247, .96);
+    box-shadow: 0 5px 15px rgba(85, 39, 18, .055);
+    overflow: hidden;
+    text-align: center;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 0;
+    width: 3px;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(180deg, #f47b33 0%, #b94622 100%);
+    box-shadow: 0 0 9px rgba(222, 86, 29, .16);
+    opacity: .62;
+    transition: opacity .25s ease, box-shadow .25s ease;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: grid;
+    place-items: center;
+    align-self: center;
+    border: 1px solid rgba(219, 103, 32, .20);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #fffaf2, #ffecda);
+    color: #e35619 !important;
+    box-shadow: 0 4px 11px rgba(112, 48, 20, .085), inset 0 1px rgba(255, 255, 255, .9);
+    transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit h3 {
+    width: 100%;
+    min-height: 2.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    color: #3c1d17 !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: 11.2px !important;
+    font-weight: 850 !important;
+    line-height: 1.25 !important;
+    letter-spacing: .002em;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit p {
+    width: 100%;
+    max-width: 24ch !important;
+    flex: 1 1 auto;
+    margin: 0 auto !important;
+    color: #654a3f !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    line-height: 1.4 !important;
+    text-align: center;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance {
+    min-height: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    margin-top: var(--tajp-stack-gap);
+    overflow: hidden;
+    border: 1px solid rgba(178, 92, 42, .16);
+    border-radius: 12px;
+    background: rgba(255, 249, 240, .88);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item {
+    min-width: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 4px;
+    padding: 8px 4px;
+    color: #5b2d20 !important;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item + .tajp-mobile__reassurance-item {
+    border-left: 1px solid rgba(178, 92, 42, .18);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #bd5a24;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .18s cubic-bezier(.22, .65, .3, 1), stroke .18s ease;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item span {
+    color: #5b2d20 !important;
+    font-size: 9.5px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__offer {
+    display: grid;
+    grid-template-columns: minmax(0, .82fr) minmax(150px, 1.18fr);
+    align-items: center;
+    gap: 7px 12px;
+    margin-top: var(--tajp-stack-gap);
+    padding: 14px;
+    border: 1px solid rgba(255, 162, 77, .30);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(239, 92, 29, .22), transparent 38%),
+      linear-gradient(135deg, #71170f 0%, #4a0d0c 55%, #2b0808 100%);
+    color: #fff7ed !important;
+    box-shadow: 0 12px 27px rgba(75, 16, 11, .19);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__prices {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    align-items: start;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__old-price,
+  html body.page-id-13 #produit .tajp-mobile__current-price {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__old-price {
+    display: grid;
+    align-items: start;
+    gap: 3px;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__old-price span,
+  html body.page-id-13 #produit .tajp-mobile__current-price span {
+    color: #ffd7a7 !important;
+    font-size: 9.2px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .05em;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__old-price del {
+    width: fit-content;
+    color: rgba(255, 239, 221, .70) !important;
+    font-size: clamp(15px, 4.1vw, 18px);
+    font-weight: 650;
+    line-height: 1;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #ef6a2b;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__current-price strong {
+    color: #fff8ef !important;
+    font-family: "Cormorant Garamond", Georgia, serif !important;
+    font-size: clamp(38px, 10.4vw, 44px) !important;
+    font-weight: 700;
+    line-height: .86;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__current-price small {
+    color: #f8dcc4 !important;
+    font-family: Manrope, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .02em;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__urgency {
+    width: fit-content;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    min-height: 20px;
+    padding: 3px 7px;
+    border: 1px solid rgba(255, 141, 55, .42);
+    border-radius: 999px;
+    background: rgba(27, 4, 5, .30);
+    color: #ffb45f !important;
+    font-size: 8.5px;
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: .08em;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta {
+    width: 100%;
+    min-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 210, 158, .46);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #ff792d, #df4516) !important;
+    color: #fff !important;
+    box-shadow: 0 12px 24px rgba(30, 2, 2, .28), inset 0 1px rgba(255, 255, 255, .26);
+    font-size: 12.5px;
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: .025em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: -70%;
+    left: -35%;
+    width: 24%;
+    height: 240%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .24), transparent);
+    pointer-events: none;
+    transform: rotate(18deg) translateX(-230%);
+    transition: transform .42s cubic-bezier(.22, .65, .3, 1);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta span {
+    color: #fff !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta:hover,
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible {
+    background: linear-gradient(135deg, #ff8840, #e54c19) !important;
+    color: #fff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 15px 28px rgba(30, 2, 2, .34), inset 0 1px rgba(255, 255, 255, .30);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta:hover::after,
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible::after {
+    transform: rotate(18deg) translateX(650%);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta svg {
+    transition: transform .18s cubic-bezier(.22, .65, .3, 1);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta:hover svg,
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible svg {
+    transform: translateX(2px) rotate(-3deg);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible {
+    outline: 3px solid #ffd08b;
+    outline-offset: 3px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta:active {
+    transform: translateY(1px);
+    filter: brightness(.96);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__payment-note {
+    grid-column: 2;
+    margin: 1px 0 0 !important;
+    color: rgba(255, 241, 225, .80) !important;
+    font-size: 10px !important;
+    font-weight: 650;
+    line-height: 1.35 !important;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__quality {
+    width: fit-content;
+    max-width: calc(100% - 20px);
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px auto 0 !important;
+    padding: 6px 10px;
+    border: 1px solid rgba(179, 94, 41, .16);
+    border-radius: 999px;
+    background: #fffaf3;
+    color: #583127 !important;
+    box-shadow: 0 7px 16px rgba(91, 40, 19, .06);
+    font-size: 8.5px !important;
+    font-weight: 800;
+    line-height: 1.3 !important;
+    letter-spacing: .055em;
+    text-align: center;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__quality svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    fill: none;
+    stroke: #c35e25;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile .tajx-reveal {
+    opacity: 0 !important;
+    transform: translateY(10px) scale(.99) !important;
+    transition: opacity .28s ease, transform .34s cubic-bezier(.22, .65, .3, 1) !important;
+    will-change: opacity, transform;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile .tajx-reveal.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__media.tajx-reveal.is-visible .tajp-mobile__product {
+    animation: tajp-mobile-product-in .46s .04s cubic-bezier(.2, .75, .25, 1) both;
+  }
+}
+
+@keyframes tajp-mobile-product-in {
+  from {
+    opacity: .45;
+    transform: translateY(8px) scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 767px) and (hover: hover) {
+  html body.page-id-13 #produit .tajp-mobile__benefit.tajx-reveal.is-visible:hover {
+    border-color: rgba(200, 91, 34, .38);
+    box-shadow: 0 10px 23px rgba(87, 38, 17, .105);
+    transform: translateY(-2px) scale(1) !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit:hover::before {
+    opacity: 1;
+    box-shadow: 0 0 13px rgba(222, 86, 29, .24);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit:hover .tajp-mobile__benefit-icon {
+    border-color: rgba(224, 95, 29, .34);
+    background: linear-gradient(145deg, #fff9ef, #ffe3c8);
+    box-shadow: 0 6px 14px rgba(112, 48, 20, .12), inset 0 1px rgba(255, 255, 255, .94);
+    transform: scale(1.04);
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item:hover svg {
+    stroke: #e46120;
+    transform: translateY(-1px) scale(1.06);
+  }
+}
+
+@media (max-width: 349px) {
+  html body.page-id-13 #produit .tajp-mobile__title {
+    font-size: 25px !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec {
+    gap: 2px;
+    padding-inline: 2px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-icon,
+  html body.page-id-13 #produit .tajp-mobile__spec-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy small,
+  html body.page-id-13 #produit .tajp-mobile__spec-copy em {
+    font-size: 7px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__spec-copy strong {
+    font-size: 9.2px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefits {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit {
+    min-height: 0;
+    padding: 10px 12px 12px 15px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit h3 {
+    min-height: 0;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__offer {
+    grid-template-columns: 1fr;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__prices {
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    align-items: end;
+    gap: 8px 10px;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__urgency {
+    grid-column: 1 / -1;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__cta,
+  html body.page-id-13 #produit .tajp-mobile__payment-note {
+    grid-column: 1;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__payment-note {
+    margin-top: 0 !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__current-price strong {
+    font-size: 38px !important;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  html body.page-id-13 #produit .tajp-mobile .tajx-reveal,
+  html body.page-id-13 #produit .tajp-mobile .tajx-reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__media.tajx-reveal.is-visible .tajp-mobile__product {
+    animation: none;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit,
+  html body.page-id-13 #produit .tajp-mobile__benefit::before,
+  html body.page-id-13 #produit .tajp-mobile__benefit-icon,
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item svg,
+  html body.page-id-13 #produit .tajp-mobile__cta,
+  html body.page-id-13 #produit .tajp-mobile__cta::after,
+  html body.page-id-13 #produit .tajp-mobile__cta svg {
+    transition: none !important;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__benefit:hover,
+  html body.page-id-13 #produit .tajp-mobile__benefit:hover .tajp-mobile__benefit-icon,
+  html body.page-id-13 #produit .tajp-mobile__reassurance-item:hover svg,
+  html body.page-id-13 #produit .tajp-mobile__cta:hover,
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible,
+  html body.page-id-13 #produit .tajp-mobile__cta:hover svg,
+  html body.page-id-13 #produit .tajp-mobile__cta:focus-visible svg {
+    transform: none !important;
+  }
+}
+
+/* ========================================================================
+   Thank-you page: compact mobile scale and rhythm
+   Scope: page 79 only; desktop/tablet and commerce logic remain untouched.
+   ======================================================================== */
+@media (max-width: 767px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page {
+    --taj-thanks-mobile-gutter: clamp(12px, 4vw, 16px);
+    --taj-thanks-mobile-section-gap: 18px;
+    --taj-thanks-mobile-card-radius: 16px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__main {
+    width: min(
+      calc(100% - var(--taj-thanks-mobile-gutter) - var(--taj-thanks-mobile-gutter)),
+      420px
+    ) !important;
+    margin-inline: auto !important;
+    padding: 18px 0 calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+    display: grid;
+    gap: var(--taj-thanks-mobile-section-gap);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy {
+    padding: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__eyebrow {
+    min-height: 26px;
+    gap: 6px;
+    padding: 4px 9px;
+    font-size: 9px;
+    letter-spacing: .11em;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__eyebrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy h1 {
+    max-width: 100%;
+    margin-top: 12px;
+    font-size: clamp(2.5rem, 11vw, 3rem);
+    line-height: .94;
+    letter-spacing: -.038em;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > h2 {
+    margin: 12px 0 4px;
+    font-size: clamp(18px, 5.1vw, 21px);
+    line-height: 1.12;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy > p:not(.taj-thanks-page__microcopy) {
+    max-width: 46ch;
+    margin: 0;
+    font-size: clamp(13.5px, 3.7vw, 14.5px);
+    line-height: 1.52;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin-top: 14px;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    border-radius: 12px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference span {
+    min-width: 0;
+    flex: 1 1 42%;
+    max-width: 42%;
+    font-size: 9.5px;
+    line-height: 1.35;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reference strong {
+    min-width: 0;
+    flex: 1 1 58%;
+    max-width: 58%;
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.2;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__actions {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button,
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--primary,
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--secondary {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 14px;
+    font-size: 10.5px;
+    line-height: 1.2;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__button--secondary svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__microcopy,
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__hero-copy .taj-thanks-page__microcopy {
+    margin-top: 8px;
+    gap: 6px;
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__microcopy svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual {
+    width: 100%;
+    height: clamp(340px, 92vw, 382px);
+    min-height: 0;
+    margin: 0;
+    border-radius: 18px;
+    box-shadow: 0 14px 32px rgba(76, 33, 20, .11), inset 0 1px rgba(255, 255, 255, .8);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__product {
+    top: 52%;
+    width: min(92%, 330px);
+    height: auto;
+    max-height: 76%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 20px rgba(71, 32, 17, .2));
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal {
+    top: 12px;
+    right: 12px;
+    min-height: 40px;
+    gap: 6px;
+    padding: 6px 9px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal span {
+    font-size: 7px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__success-seal strong {
+    font-size: 8.5px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__visual figcaption {
+    right: 14px;
+    bottom: 11px;
+    left: 14px;
+    padding-top: 8px;
+    font-size: 9.5px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey {
+    margin-top: 0;
+    padding: 16px;
+    border-radius: var(--taj-thanks-mobile-card-radius);
+    box-shadow: 0 12px 28px rgba(79, 35, 22, .07), inset 0 1px rgba(255, 255, 255, .82);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header {
+    display: block;
+    padding-bottom: 11px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header > span {
+    font-size: 8.5px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey > header h2 {
+    margin-top: 4px;
+    font-size: clamp(26px, 7vw, 30px);
+    line-height: 1.02;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey ol {
+    gap: 0;
+    margin: 14px 0 0;
+    padding: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey ol::before {
+    top: 20px;
+    bottom: 20px;
+    left: 21px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li {
+    grid-template-columns: 42px minmax(0, 1fr);
+    min-height: 64px;
+    gap: 10px;
+    padding: 0 0 12px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li:last-child {
+    min-height: 42px;
+    padding-bottom: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__step-number {
+    top: -4px;
+    left: -5px;
+    width: 15px;
+    height: 15px;
+    font-size: 7px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__step-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__step-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li strong {
+    margin-top: 1px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__journey li p {
+    margin-top: 2px;
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+    min-height: 0;
+    margin-top: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: var(--taj-thanks-mobile-card-radius);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div {
+    min-width: 0;
+    min-height: 82px;
+    justify-content: flex-start;
+    gap: 9px;
+    padding: 11px 12px;
+    border: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(2),
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(4) {
+    border-left: 1px solid rgba(255, 224, 196, .16);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 224, 196, .16);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div > span {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance strong {
+    min-width: 0;
+    font-size: 10.5px;
+    line-height: 1.3;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice {
+    margin-top: 0;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: start;
+    gap: 11px;
+    padding: 14px;
+    border-radius: var(--taj-thanks-mobile-card-radius);
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice-icon {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 13px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice h2 {
+    font-size: clamp(20px, 5.7vw, 23px);
+    line-height: 1.05;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice p {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__advice a {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    margin-top: 1px;
+    padding: 8px 12px;
+    font-size: 9.5px;
+  }
+}
+
+@media (max-width: 339px) {
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance {
+    grid-template-columns: 1fr;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div {
+    min-height: 50px;
+    border-left: 0;
+  }
+
+  html body.page-id-79.taj-thanks-page-body .taj-thanks-page__reassurance > div:nth-child(n + 2) {
+    border-top: 1px solid rgba(255, 224, 196, .16);
+  }
+}
+
+/* ================================================================
+   Mobile floating order action
+   Replaces the retired sticky order bar without reserving page space.
+   ================================================================ */
+html body.page-id-13 .taj-order-float {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13 {
+    --taj-mobile-float-size: 48px;
+    --taj-mobile-float-edge: 14px;
+    --taj-mobile-float-bottom: 18px;
+    --taj-mobile-float-gap: 12px;
+  }
+
+  /* Stored page markup: suppress immediately, then JavaScript removes the node. */
+  html body.page-id-13 .tajx-mobile-sticky {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .taj-whatsapp-float,
+  html body.page-id-13.has-tajx-page .taj-whatsapp-float.is-footer-visible,
+  html body.page-id-13 .taj-order-float {
+    position: fixed !important;
+    right: max(var(--taj-mobile-float-edge), env(safe-area-inset-right, 0px)) !important;
+    left: auto !important;
+    z-index: 1000 !important;
+    box-sizing: border-box !important;
+    width: var(--taj-mobile-float-size) !important;
+    min-width: var(--taj-mobile-float-size) !important;
+    height: var(--taj-mobile-float-size) !important;
+    min-height: var(--taj-mobile-float-size) !important;
+    display: grid !important;
+    place-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page .taj-whatsapp-float,
+  html body.page-id-13.has-tajx-page .taj-whatsapp-float.is-footer-visible {
+    bottom: calc(var(--taj-mobile-float-bottom) + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  html body.page-id-13 .taj-order-float {
+    bottom: calc(
+      var(--taj-mobile-float-bottom) +
+      env(safe-area-inset-bottom, 0px) +
+      var(--taj-mobile-float-size) +
+      var(--taj-mobile-float-gap)
+    ) !important;
+    border: 1px solid rgba(255, 220, 187, .48) !important;
+    background: linear-gradient(145deg, #f4772d 0%, #dc4b1c 55%, #b63218 100%) !important;
+    color: #fff !important;
+    box-shadow:
+      0 13px 28px rgba(152, 45, 18, .32),
+      0 4px 10px rgba(48, 10, 5, .16),
+      inset 0 1px 0 rgba(255, 255, 255, .25) !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition:
+      opacity .18s ease,
+      visibility .18s ease,
+      transform .18s ease,
+      background .18s ease,
+      box-shadow .18s ease !important;
+  }
+
+  html body.page-id-13 .taj-order-float svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+  }
+
+  html body.page-id-13 .taj-order-float:hover {
+    background: linear-gradient(145deg, #df5b20 0%, #c63d18 58%, #972615 100%) !important;
+    box-shadow:
+      0 16px 32px rgba(152, 45, 18, .38),
+      0 6px 13px rgba(48, 10, 5, .18),
+      inset 0 1px 0 rgba(255, 255, 255, .28) !important;
+    transform: translateY(-2px) scale(1);
+  }
+
+  html body.page-id-13 .taj-order-float:active {
+    transform: translateY(0) scale(.96);
+  }
+
+  html body.page-id-13 .taj-order-float:focus-visible {
+    outline: 3px solid rgba(255, 184, 117, .60);
+    outline-offset: 4px;
+  }
+
+  html body.page-id-13 .taj-order-float.is-context-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px) scale(.96);
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  html body.page-id-13 .taj-order-float {
+    transition: none !important;
+  }
+
+  html body.page-id-13 .taj-order-float:hover,
+  html body.page-id-13 .taj-order-float:active,
+  html body.page-id-13 .taj-order-float.is-context-hidden {
+    transform: none;
   }
 }
