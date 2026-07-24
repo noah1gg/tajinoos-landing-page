@@ -4,10 +4,18 @@ node_modules/
 vendor/
 .env
 .env.local
+.env.*
 *.log
 .cache/
 dist/
 build/
+tmp/
+temp/
+
+# Local audits and visual captures
+TAJINOOS-CLEANUP-AUDIT.md
+audit/
+screenshots/
 
 # WordPress local/temp
 wp-config.php
@@ -18,4 +26,5 @@ backup*/
 backups/
 *.sql
 *.zip
+*.bak
 *.tar.gz
