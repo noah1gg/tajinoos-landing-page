@@ -323,28 +323,39 @@ function tajinoos_store_order_meta(int $post_id, array $order_data): void
  */
 function tajinoos_send_order_notifications(array $order_data): array
 {
-    $message = tajinoos_format_order_notification($order_data);
+    $email_body = tajinoos_format_order_email($order_data);
     $subject = sprintf(
-        '[Tajinoos] Nouvelle commande %s — %d MAD',
+        '[Tajinoos] طلب جديد / Nouvelle commande %s — %d MAD',
         $order_data['reference'],
         $order_data['total']
     );
+    $recipient = tajinoos_get_order_notification_email();
+    $smtp_is_valid = function_exists('tajinoos_smtp_configuration_is_valid')
+        && tajinoos_smtp_configuration_is_valid();
+    $email_sent = false;
 
-    $email_sent = wp_mail(
-        sanitize_email((string) get_option('admin_email')),
-        $subject,
-        $message,
-        ['Content-Type: text/plain; charset=UTF-8']
-    );
+    if ($recipient === '') {
+        tajinoos_mail_safe_log('Order email recipient configuration is missing or invalid.');
+    } elseif (!$smtp_is_valid) {
+        tajinoos_mail_safe_log('Order Gmail SMTP configuration is missing or invalid.');
+    } else {
+        $email_sent = wp_mail(
+            $recipient,
+            $subject,
+            $email_body,
+            ['Content-Type: text/plain; charset=UTF-8']
+        );
+    }
 
     if (!$email_sent) {
-        tajinoos_debug_log('Administration email notification failed for ' . $order_data['reference']);
+        tajinoos_mail_safe_log('Order email notification failed.');
     }
 
     $whatsapp_status = 'disabled';
 
     if (defined('TAJINOOS_WA_ENABLED') && TAJINOOS_WA_ENABLED) {
-        $whatsapp_result = tajinoos_send_whatsapp_cloud_notification($order_data, $message);
+        $whatsapp_message = tajinoos_format_order_notification($order_data);
+        $whatsapp_result = tajinoos_send_whatsapp_cloud_notification($order_data, $whatsapp_message);
         $whatsapp_status = is_wp_error($whatsapp_result) ? 'failed' : 'sent';
 
         if (is_wp_error($whatsapp_result)) {
@@ -361,7 +372,66 @@ function tajinoos_send_order_notifications(array $order_data): array
 }
 
 /**
- * Format the commercial notification shared by WhatsApp and email.
+ * Resolve the explicitly configured order-notification recipient.
+ */
+function tajinoos_get_order_notification_email(): string
+{
+    if (!defined('TAJINOOS_ORDER_EMAIL')) {
+        return '';
+    }
+
+    $recipient = sanitize_email(trim((string) TAJINOOS_ORDER_EMAIL));
+
+    return $recipient !== '' && is_email($recipient) ? $recipient : '';
+}
+
+/**
+ * Format the bilingual plain-text order email.
+ *
+ * @param array<string, mixed> $order_data
+ */
+function tajinoos_format_order_email(array $order_data): string
+{
+    $customer_message = trim((string) $order_data['message']);
+    $customer_message = $customer_message !== ''
+        ? $customer_message
+        : 'لا توجد رسالة / Aucun message';
+
+    return implode("\n", [
+        'طلب جديد — TAJINOOS',
+        '====================',
+        '',
+        'مرجع الطلب: ' . $order_data['reference'],
+        'اسم العميل: ' . $order_data['name'],
+        'رقم الهاتف: ' . $order_data['phone_display'],
+        'العنوان: ' . $order_data['address'],
+        'المنتج: ' . $order_data['product'],
+        'الكمية: ' . $order_data['quantity'],
+        'السعر للوحدة: ' . $order_data['unit_price'] . ' MAD',
+        'المبلغ الإجمالي: ' . $order_data['total'] . ' MAD',
+        'رسالة العميل: ' . $customer_message,
+        'تاريخ الطلب: ' . $order_data['submitted_display'],
+        'طريقة الدفع: الدفع عند الاستلام',
+        '',
+        'Nouvelle commande — TAJINOOS',
+        '============================',
+        '',
+        'Référence: ' . $order_data['reference'],
+        'Client: ' . $order_data['name'],
+        'Téléphone: ' . $order_data['phone_display'],
+        'Adresse: ' . $order_data['address'],
+        'Produit: ' . $order_data['product'],
+        'Quantité: ' . $order_data['quantity'],
+        'Prix unitaire: ' . $order_data['unit_price'] . ' MAD',
+        'Total: ' . $order_data['total'] . ' MAD',
+        'Message du client: ' . $customer_message,
+        'Date: ' . $order_data['submitted_display'],
+        'Paiement: paiement à la livraison',
+    ]);
+}
+
+/**
+ * Format the existing commercial WhatsApp notification.
  *
  * @param array<string, mixed> $order_data
  */

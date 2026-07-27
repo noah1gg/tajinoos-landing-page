@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
 
 define('TAJINOOS_CHILD_VERSION', '1.6.16');
 
+require_once get_stylesheet_directory() . '/inc/tajinoos-mail.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
 
