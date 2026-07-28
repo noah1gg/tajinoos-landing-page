@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Tajinoos premium visual polish.
  * Scope: Tajinoos landing classes only (.tajv2-* and .tajx-*), plus Astra footer credit.
  */
@@ -30572,5 +30572,2738 @@ html body.page-id-13 .taj-order-float {
   html body.page-id-13 .taj-order-float:active,
   html body.page-id-13 .taj-order-float.is-context-hidden {
     transform: none;
+  }
+}
+
+/* =========================================================
+   TAJINOOS THANK-YOU PAGE V2
+   ========================================================= */
+html body.taj-thanks-page-body {
+  margin: 0 !important;
+  overflow-x: clip;
+  background: #4f0f14 !important;
+}
+
+html body.taj-thanks-page-body .site-header,
+html body.taj-thanks-page-body .site-footer,
+html body.taj-thanks-page-body #ast-scroll-top {
+  display: none !important;
+}
+
+html body.taj-thanks-page-body .site-content,
+html body.taj-thanks-page-body .ast-container,
+html body.taj-thanks-page-body #primary,
+html body.taj-thanks-page-body .site-main,
+html body.taj-thanks-page-body .entry-content,
+html body.taj-thanks-page-body .elementor,
+html body.taj-thanks-page-body .elementor-section,
+html body.taj-thanks-page-body .elementor-container,
+html body.taj-thanks-page-body .elementor-widget-wrap,
+html body.taj-thanks-page-body .elementor-widget,
+html body.taj-thanks-page-body .elementor-widget-container,
+html body.taj-thanks-page-body .elementor-shortcode {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.taj-thanks-v2,
+.taj-thanks-v2 * {
+  box-sizing: border-box;
+}
+
+.taj-thanks-v2 {
+  --taj-thanks-maroon: #4f0f14;
+  --taj-thanks-maroon-deep: #30070b;
+  --taj-thanks-maroon-soft: #68171c;
+  --taj-thanks-orange: #e95117;
+  --taj-thanks-orange-soft: #f06a2a;
+  --taj-thanks-orange-dark: #c83d12;
+  --taj-thanks-cream: #f7ecdc;
+  --taj-thanks-cream-light: #fff8ef;
+  --taj-thanks-white: #fff;
+  --taj-thanks-black: #17110f;
+  --taj-thanks-brown: #5b3027;
+  --taj-thanks-muted: #7b6258;
+  --taj-thanks-border: rgba(239, 177, 120, .3);
+  --taj-thanks-container: 1340px;
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 79% 12%, rgba(158, 41, 33, .34), transparent 30rem),
+    radial-gradient(circle at 4% 38%, rgba(242, 100, 38, .09), transparent 25rem),
+    linear-gradient(145deg, #3a090d 0%, var(--taj-thanks-maroon) 44%, #39080d 100%);
+  color: var(--taj-thanks-cream-light);
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+.taj-thanks-v2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(30deg, rgba(255, 248, 239, .018) 12%, transparent 12.5%, transparent 87%, rgba(255, 248, 239, .018) 87.5%),
+    linear-gradient(150deg, rgba(255, 248, 239, .018) 12%, transparent 12.5%, transparent 87%, rgba(255, 248, 239, .018) 87.5%);
+  background-size: 48px 84px;
+  pointer-events: none;
+}
+
+.taj-thanks-v2 a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.taj-thanks-v2 :where(a, button):focus-visible {
+  outline: 3px solid #ffad74;
+  outline-offset: 4px;
+}
+
+.taj-thanks-v2 svg {
+  display: block;
+}
+
+.taj-thanks-v2__brand-header,
+.taj-thanks-v2__main {
+  position: relative;
+  z-index: 1;
+  width: min(var(--taj-thanks-container), calc(100% - clamp(32px, 5vw, 80px)));
+  margin-inline: auto;
+}
+
+.taj-thanks-v2__brand-header {
+  min-height: clamp(78px, 7vw, 102px);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 226, 198, .12);
+}
+
+.taj-thanks-v2__brand {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--taj-thanks-cream-light) !important;
+}
+
+.taj-thanks-v2__brand-symbol {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  overflow: hidden;
+}
+
+.taj-thanks-v2__brand-symbol img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 190px;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.taj-thanks-v2__brand-copy {
+  display: grid;
+  gap: 2px;
+  color: #dcb67e;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__wordmark {
+  color: #f0d29f;
+  font: 600 25px/1 "Cormorant Garamond", Georgia, serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__main {
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
+  padding-block: clamp(34px, 4vw, 58px) clamp(38px, 5vw, 72px);
+}
+
+.taj-thanks-v2__hero {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(500px, 1.08fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 76px);
+}
+
+.taj-thanks-v2__hero-copy {
+  min-width: 0;
+  padding-block: 12px;
+}
+
+.taj-thanks-v2__eyebrow {
+  min-height: 37px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border: 1px solid rgba(240, 106, 42, .55);
+  border-radius: 999px;
+  background: rgba(53, 6, 10, .3);
+  color: #ff8b42;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__eyebrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__hero h1 {
+  max-width: 720px;
+  margin: clamp(18px, 2vw, 26px) 0 0;
+  color: var(--taj-thanks-cream-light);
+  font: 600 clamp(60px, 5.6vw, 84px)/.9 "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+
+.taj-thanks-v2__hero h1 em {
+  color: var(--taj-thanks-orange);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.taj-thanks-v2__lede {
+  margin: clamp(22px, 2vw, 30px) 0 0;
+  color: var(--taj-thanks-cream-light);
+  font: 600 clamp(18px, 1.5vw, 21px)/1.35 "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-thanks-v2__intro {
+  max-width: 59ch;
+  margin: 7px 0 0;
+  color: rgba(255, 244, 231, .82);
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.7;
+}
+
+.taj-thanks-v2__reference {
+  width: min(100%, 420px);
+  min-height: 94px;
+  margin-top: clamp(20px, 2vw, 28px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 226, 194, .64);
+  border-radius: 14px;
+  background: linear-gradient(115deg, var(--taj-thanks-cream-light), #f5e4d1);
+  color: var(--taj-thanks-black);
+  box-shadow: 0 18px 40px rgba(30, 2, 5, .24), inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+.taj-thanks-v2__reference-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(201, 82, 28, .16);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe9d3, #f3cba7);
+  color: #c74418;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .76), 0 7px 16px rgba(105, 43, 18, .08);
+}
+
+.taj-thanks-v2__reference-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__reference-copy {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.taj-thanks-v2__reference-copy > span {
+  color: #5e4037;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__reference strong {
+  min-width: 0;
+  color: #6c1718;
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .04em;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.taj-thanks-v2__actions {
+  margin-top: clamp(20px, 2vw, 28px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.taj-thanks-v2__button {
+  position: relative;
+  isolation: isolate;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .035em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.taj-thanks-v2__button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+  transform: skewX(-18deg);
+  transition: left .45s ease;
+}
+
+.taj-thanks-v2__button svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__button--primary {
+  min-width: 215px;
+  border-color: rgba(255, 174, 113, .34);
+  background: var(--taj-thanks-orange-dark);
+  color: var(--taj-thanks-white) !important;
+  box-shadow: 0 13px 28px rgba(25, 1, 4, .22), inset 0 1px rgba(255, 255, 255, .25);
+}
+
+.taj-thanks-v2__button--secondary {
+  min-width: 285px;
+  border-color: rgba(255, 229, 204, .48);
+  background: var(--taj-thanks-cream-light);
+  color: #6a1919 !important;
+}
+
+.taj-thanks-v2__button--secondary svg {
+  color: #168c52;
+}
+
+.taj-thanks-v2__button--secondary .taj-icon--whatsapp {
+  width: 28px;
+  height: 28px;
+  flex-basis: 28px;
+  padding: 5px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  fill: currentColor;
+  stroke: none;
+  box-shadow: 0 5px 12px rgba(18, 140, 82, .22);
+}
+
+.taj-thanks-v2__button:hover,
+.taj-thanks-v2__button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.taj-thanks-v2__button--primary:hover,
+.taj-thanks-v2__button--primary:focus-visible {
+  background: #ad3010;
+  box-shadow: 0 17px 34px rgba(25, 1, 4, .29), inset 0 1px rgba(255, 255, 255, .25);
+}
+
+.taj-thanks-v2__button--secondary:hover,
+.taj-thanks-v2__button--secondary:focus-visible {
+  border-color: #ffb379;
+  background: #fff;
+}
+
+.taj-thanks-v2__microcopy {
+  margin: 13px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 244, 231, .72);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.taj-thanks-v2__microcopy svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  fill: none;
+  stroke: #f1793b;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__showcase {
+  position: relative;
+  min-width: 0;
+  min-height: clamp(470px, 38vw, 570px);
+  margin: 0;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid rgba(239, 177, 120, .56);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, .95), transparent 34%),
+    linear-gradient(135deg, #f2ddc3, #fff7eb);
+  box-shadow: 0 26px 64px rgba(26, 1, 4, .3), inset 0 1px rgba(255, 255, 255, .9);
+}
+
+.taj-thanks-v2__showcase > * {
+  grid-area: 1 / 1;
+}
+
+.taj-thanks-v2__pattern {
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+  object-fit: cover;
+  opacity: .12;
+  mix-blend-mode: multiply;
+}
+
+.taj-thanks-v2__showcase-arch {
+  z-index: 1;
+  width: min(64%, 420px);
+  height: 78%;
+  align-self: end;
+  margin-bottom: 44px;
+  border: 2px solid rgba(157, 85, 50, .21);
+  border-bottom: 0;
+  border-radius: 48% 48% 0 0 / 28% 28% 0 0;
+  background: linear-gradient(180deg, rgba(255, 252, 246, .76), rgba(238, 211, 181, .42));
+  box-shadow: inset 0 0 32px rgba(117, 55, 31, .08);
+}
+
+.taj-thanks-v2__product {
+  z-index: 3;
+  width: min(78%, 520px);
+  max-height: 83%;
+  object-fit: contain;
+  align-self: center;
+  margin-top: 15px;
+  filter: drop-shadow(0 26px 24px rgba(73, 33, 16, .24));
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.taj-thanks-v2__success-seal {
+  position: relative;
+  z-index: 5;
+  width: 116px;
+  aspect-ratio: 1;
+  align-self: start;
+  justify-self: end;
+  margin: 24px 24px 0 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 189, 128, .5);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #71131a, #4b090f);
+  color: var(--taj-thanks-cream-light);
+  box-shadow: 0 12px 26px rgba(64, 8, 13, .25), inset 0 0 0 6px rgba(255, 255, 255, .045);
+  text-align: center;
+}
+
+.taj-thanks-v2__success-seal::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 190, 130, .22);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.taj-thanks-v2__success-seal svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: var(--taj-thanks-orange-soft);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__success-seal span {
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__success-seal strong {
+  font-size: 10px;
+}
+
+.taj-thanks-v2__showcase figcaption {
+  z-index: 6;
+  min-height: 45px;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 9px 24px;
+  border: 1px solid rgba(125, 72, 46, .22);
+  border-radius: 999px;
+  background: rgba(255, 248, 239, .92);
+  color: #56352b;
+  box-shadow: 0 8px 20px rgba(74, 33, 17, .1);
+  backdrop-filter: blur(8px);
+}
+
+.taj-thanks-v2__showcase figcaption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.taj-thanks-v2__showcase figcaption svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--taj-thanks-orange);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__journey {
+  margin-top: clamp(12px, 2vw, 24px);
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid rgba(255, 222, 192, .72);
+  border-radius: 23px;
+  background:
+    linear-gradient(rgba(255, 248, 239, .95), rgba(247, 236, 220, .96)),
+    var(--taj-thanks-cream);
+  color: var(--taj-thanks-black);
+  box-shadow: 0 22px 52px rgba(28, 1, 4, .23), inset 0 1px rgba(255, 255, 255, .9);
+}
+
+.taj-thanks-v2__journey > h2 {
+  margin: 0 0 clamp(22px, 2vw, 30px);
+  color: #4b1817;
+  font: 700 clamp(26px, 2.4vw, 36px)/1.08 "Cormorant Garamond", Georgia, serif;
+  text-align: center;
+}
+
+.taj-thanks-v2__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 68px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taj-thanks-v2__steps::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 33px;
+  right: 16%;
+  left: 16%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--taj-thanks-orange) 0 34%, #dec9b6 34% 100%);
+}
+
+.taj-thanks-v2__steps li {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.taj-thanks-v2__step-number {
+  position: absolute;
+  z-index: 3;
+  top: -5px;
+  left: -6px;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff4e8;
+  border-radius: 50%;
+  background: var(--taj-thanks-orange);
+  color: var(--taj-thanks-white);
+  box-shadow: 0 6px 13px rgba(156, 48, 17, .25);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.taj-thanks-v2__step-icon {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8c1ac;
+  border-radius: 50%;
+  background: #fff8ef;
+  color: #9a583d;
+  box-shadow: 0 10px 22px rgba(89, 42, 24, .09);
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.taj-thanks-v2__step-icon svg {
+  width: 31px;
+  height: 31px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__steps .is-complete .taj-thanks-v2__step-icon {
+  border-color: #e4652b;
+  background: #fff1e3;
+  color: #bf4219;
+}
+
+.taj-thanks-v2__step-icon--whatsapp {
+  border-color: rgba(18, 140, 82, .22);
+  background: #f0faf4;
+  color: #128c52;
+}
+
+.taj-thanks-v2__step-icon .taj-icon--whatsapp {
+  width: 29px;
+  height: 29px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.taj-thanks-v2__steps h3 {
+  margin: 0;
+  color: #351310;
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 800;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__steps p {
+  margin: 5px 0 0;
+  color: #725a51;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.taj-thanks-v2__reassurance {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(239, 177, 120, .42);
+  border-radius: 20px;
+  background: linear-gradient(110deg, #5b1117, #70191c 48%, #501015);
+  box-shadow: 0 18px 42px rgba(26, 1, 4, .22);
+}
+
+.taj-thanks-v2__reassurance article {
+  min-width: 0;
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 13px;
+  padding: 20px 21px;
+}
+
+.taj-thanks-v2__reassurance article + article {
+  border-left: 1px solid rgba(255, 224, 196, .17);
+}
+
+.taj-thanks-v2__trust-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 177, 111, .3);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, .13), transparent 42%),
+    rgba(255, 247, 235, .06);
+  color: #f5904c;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .08);
+}
+
+.taj-thanks-v2__trust-icon svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.taj-thanks-v2__reassurance h3 {
+  margin: 0;
+  color: #f8c783;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.taj-thanks-v2__reassurance p {
+  margin: 4px 0 0;
+  color: rgba(255, 245, 232, .8);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.taj-thanks-v2__advice {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(18px, 2vw, 28px);
+  overflow: hidden;
+  padding: 17px 22px;
+  border: 1px solid rgba(255, 222, 192, .76);
+  border-radius: 20px;
+  background: linear-gradient(102deg, #f2d8b9, var(--taj-thanks-cream-light) 18%, #f7e9d8);
+  color: var(--taj-thanks-black);
+  box-shadow: 0 18px 42px rgba(26, 1, 4, .2), inset 0 1px rgba(255, 255, 255, .85);
+}
+
+.taj-thanks-v2__advice-icon {
+  width: 90px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, .8), transparent 65%),
+    #ecd1b3;
+}
+
+.taj-thanks-v2__advice-icon img {
+  width: 88px;
+  max-width: none;
+  height: 88px;
+  object-fit: contain;
+  transform: translateY(5px);
+  transition: transform .3s ease;
+}
+
+.taj-thanks-v2__advice h2 {
+  margin: 0;
+  color: #4a1716;
+  font: 700 clamp(21px, 2vw, 29px)/1.1 "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-thanks-v2__advice p {
+  max-width: 72ch;
+  margin: 4px 0 0;
+  color: #72564d;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.taj-thanks-v2__advice > a {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 21px;
+  border: 1px solid rgba(167, 66, 30, .48);
+  border-radius: 999px;
+  color: #b33b17 !important;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .035em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.taj-thanks-v2__advice > a:hover,
+.taj-thanks-v2__advice > a:focus-visible {
+  border-color: var(--taj-thanks-orange);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.taj-thanks-v2__advice > a:focus-visible {
+  outline-color: #8f2716;
+}
+
+@media (max-width: 1180px) {
+  .taj-thanks-v2__hero {
+    grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+    gap: 34px;
+  }
+
+  .taj-thanks-v2__hero h1 {
+    font-size: clamp(54px, 5.8vw, 70px);
+  }
+
+  .taj-thanks-v2__actions {
+    display: grid;
+  }
+
+  .taj-thanks-v2__button {
+    width: min(100%, 390px);
+  }
+
+  .taj-thanks-v2__reassurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .taj-thanks-v2__reassurance article:nth-child(3) {
+    border-left: 0;
+  }
+
+  .taj-thanks-v2__reassurance article:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 224, 196, .17);
+  }
+}
+
+@media (max-width: 1040px) {
+  .taj-thanks-v2__brand-header,
+  .taj-thanks-v2__main {
+    width: min(720px, calc(100% - 36px));
+  }
+
+  .taj-thanks-v2__hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .taj-thanks-v2__hero-copy {
+    max-width: 680px;
+  }
+
+  .taj-thanks-v2__showcase {
+    min-height: clamp(450px, 74vw, 560px);
+  }
+
+  .taj-thanks-v2__steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .taj-thanks-v2__steps::before {
+    top: 32px;
+    right: auto;
+    bottom: 34px;
+    left: 32px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--taj-thanks-orange) 0 34%, #dec9b6 34% 100%);
+  }
+
+  .taj-thanks-v2__steps li {
+    min-height: 94px;
+    padding-bottom: 22px;
+  }
+
+  .taj-thanks-v2__steps li:last-child {
+    min-height: 66px;
+    padding-bottom: 0;
+  }
+
+  .taj-thanks-v2__advice {
+    grid-template-columns: 82px minmax(0, 1fr);
+  }
+
+  .taj-thanks-v2__advice > a {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .taj-thanks-v2__brand-header,
+  .taj-thanks-v2__main {
+    width: min(100% - 28px, 500px);
+  }
+
+  .taj-thanks-v2__brand-header {
+    min-height: 76px;
+  }
+
+  .taj-thanks-v2__brand-symbol {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .taj-thanks-v2__brand-symbol img {
+    width: 172px;
+  }
+
+  .taj-thanks-v2__wordmark {
+    font-size: 21px;
+  }
+
+  .taj-thanks-v2__brand-copy {
+    font-size: 7px;
+  }
+
+  .taj-thanks-v2__main {
+    gap: 16px;
+    padding-block: 24px calc(32px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .taj-thanks-v2__hero {
+    gap: 22px;
+  }
+
+  .taj-thanks-v2__hero-copy {
+    padding-block: 0;
+  }
+
+  .taj-thanks-v2__eyebrow {
+    min-height: 33px;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .taj-thanks-v2__hero h1 {
+    margin-top: 16px;
+    font-size: clamp(47px, 14vw, 64px);
+    line-height: .91;
+  }
+
+  .taj-thanks-v2__lede {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .taj-thanks-v2__intro {
+    font-size: 13.5px;
+    line-height: 1.62;
+  }
+
+  .taj-thanks-v2__reference {
+    min-height: 82px;
+    gap: 13px;
+    padding: 13px 14px;
+  }
+
+  .taj-thanks-v2__reference-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .taj-thanks-v2__reference-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .taj-thanks-v2__reference-copy > span {
+    font-size: 10px;
+  }
+
+  .taj-thanks-v2__reference strong {
+    font-size: clamp(17px, 5vw, 21px);
+  }
+
+  .taj-thanks-v2__actions {
+    margin-top: 18px;
+    gap: 9px;
+  }
+
+  .taj-thanks-v2__button {
+    width: 100%;
+    min-width: 0;
+    min-height: 50px;
+    padding-inline: 16px;
+    font-size: 10px;
+  }
+
+  .taj-thanks-v2__microcopy {
+    align-items: flex-start;
+    margin-top: 10px;
+    font-size: 10.5px;
+  }
+
+  .taj-thanks-v2__showcase {
+    min-height: clamp(350px, 102vw, 470px);
+    border-radius: 22px;
+  }
+
+  .taj-thanks-v2__showcase-arch {
+    width: 70%;
+    height: 76%;
+    margin-bottom: 39px;
+  }
+
+  .taj-thanks-v2__product {
+    width: min(86%, 410px);
+    max-height: 78%;
+    margin-top: 17px;
+  }
+
+  .taj-thanks-v2__success-seal {
+    width: 82px;
+    margin: 13px 13px 0 0;
+    gap: 2px;
+  }
+
+  .taj-thanks-v2__success-seal svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .taj-thanks-v2__success-seal span {
+    font-size: 6px;
+  }
+
+  .taj-thanks-v2__success-seal strong {
+    font-size: 7.5px;
+  }
+
+  .taj-thanks-v2__showcase figcaption {
+    width: calc(100% - 26px);
+    min-height: 38px;
+    margin-bottom: 10px;
+    gap: 12px;
+    padding: 8px 12px;
+  }
+
+  .taj-thanks-v2__showcase figcaption span {
+    gap: 5px;
+    font-size: clamp(8.5px, 2.25vw, 9.5px);
+    letter-spacing: .02em;
+  }
+
+  .taj-thanks-v2__showcase figcaption svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .taj-thanks-v2__journey {
+    margin-top: 2px;
+    padding: 20px 17px;
+    border-radius: 18px;
+  }
+
+  .taj-thanks-v2__journey > h2 {
+    margin-bottom: 20px;
+    font-size: clamp(26px, 8vw, 32px);
+    text-align: left;
+  }
+
+  .taj-thanks-v2__steps::before {
+    left: 27px;
+  }
+
+  .taj-thanks-v2__steps li {
+    min-height: 84px;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 18px;
+  }
+
+  .taj-thanks-v2__steps li:last-child {
+    min-height: 56px;
+  }
+
+  .taj-thanks-v2__step-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .taj-thanks-v2__step-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .taj-thanks-v2__step-number {
+    width: 23px;
+    height: 23px;
+    font-size: 9px;
+  }
+
+  .taj-thanks-v2__steps h3 {
+    font-size: 12px;
+  }
+
+  .taj-thanks-v2__steps p {
+    font-size: 11.5px;
+  }
+
+  .taj-thanks-v2__reassurance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 18px;
+  }
+
+  .taj-thanks-v2__reassurance article {
+    min-height: 116px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 9px;
+    padding: 14px 11px;
+  }
+
+  .taj-thanks-v2__reassurance article:nth-child(3) {
+    border-left: 0;
+  }
+
+  .taj-thanks-v2__reassurance article:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 224, 196, .17);
+  }
+
+  .taj-thanks-v2__trust-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .taj-thanks-v2__trust-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .taj-thanks-v2__reassurance h3 {
+    font-size: 10px;
+  }
+
+  .taj-thanks-v2__reassurance p {
+    font-size: 10.5px;
+  }
+
+  .taj-thanks-v2__advice {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .taj-thanks-v2__advice-icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .taj-thanks-v2__advice-icon img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .taj-thanks-v2__advice h2 {
+    font-size: 21px;
+  }
+
+  .taj-thanks-v2__advice p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .taj-thanks-v2__advice > a {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    font-size: 9.5px;
+  }
+}
+
+@media (max-width: 374px) {
+  .taj-thanks-v2__reassurance {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .taj-thanks-v2__reassurance article {
+    min-height: 82px;
+    padding: 12px 14px;
+    border-left: 0 !important;
+  }
+
+  .taj-thanks-v2__reassurance article + article {
+    border-top: 1px solid rgba(255, 224, 196, .17);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .taj-thanks-v2__button:hover::after {
+    left: 112%;
+  }
+
+  .taj-thanks-v2__showcase:hover .taj-thanks-v2__product {
+    transform: translateY(-3px) scale(1.008);
+    filter: drop-shadow(0 30px 28px rgba(73, 33, 16, .28));
+  }
+
+  .taj-thanks-v2__steps li:hover .taj-thanks-v2__step-icon {
+    transform: translateY(-2px);
+  }
+
+  .taj-thanks-v2__advice:hover .taj-thanks-v2__advice-icon img {
+    transform: translateY(2px) scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taj-thanks-v2 *,
+  .taj-thanks-v2 *::before,
+  .taj-thanks-v2 *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   TAJINOOS LANDING PAGE — FINAL COMMERCIAL CARD & ICON POLISH
+   ========================================================= */
+html body.page-id-13.has-tajx-page {
+  --taj-commerce-card: linear-gradient(145deg, #fffdf9 0%, #fff7ed 100%);
+  --taj-commerce-card-strong: #fffaf3;
+  --taj-commerce-ink: #351811;
+  --taj-commerce-muted: #735548;
+  --taj-commerce-accent: #dc4b1c;
+  --taj-commerce-accent-deep: #ad3518;
+  --taj-commerce-icon-bg: #fff0e2;
+  --taj-commerce-border: rgba(157, 82, 43, .18);
+  --taj-commerce-border-hover: rgba(220, 75, 28, .34);
+  --taj-commerce-shadow: 0 10px 26px rgba(78, 35, 18, .075), inset 0 1px rgba(255, 255, 255, .9);
+  --taj-commerce-shadow-hover: 0 16px 34px rgba(78, 35, 18, .12), inset 0 1px rgba(255, 255, 255, .94);
+  --taj-commerce-radius: 16px;
+}
+
+/* Marked heritage benefits: calm editorial proof list. */
+html body.page-id-13.has-tajx-page #heritage .tajx-checks {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  column-gap: clamp(26px, 3vw, 44px) !important;
+  row-gap: 0 !important;
+  margin-top: 22px !important;
+}
+
+html body.page-id-13.has-tajx-page #heritage .tajx-checks > span {
+  position: relative !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 68px !important;
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 12px !important;
+  overflow: visible !important;
+  padding: 14px 0 16px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--taj-commerce-ink) !important;
+  box-shadow: none !important;
+  font-size: clamp(12px, .95vw, 13.5px) !important;
+  font-weight: 800 !important;
+  line-height: 1.32 !important;
+  letter-spacing: -.01em !important;
+  text-align: left !important;
+  white-space: normal !important;
+  transition: color .2s ease !important;
+}
+
+html body.page-id-13.has-tajx-page #heritage .tajx-checks > span::before {
+  content: "\2726" !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  align-self: center !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--taj-commerce-accent) !important;
+  box-shadow: none !important;
+  font: 800 15px/1 "Manrope", sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+html body.page-id-13.has-tajx-page #heritage .tajx-checks > span::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(220, 75, 28, .42), rgba(91, 49, 34, .15) 38%, rgba(91, 49, 34, .05));
+  pointer-events: none;
+}
+
+/* Shared cream-card language across conversion sections. */
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__panel,
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__card,
+html body.page-id-13.has-tajx-page #avis .tajx-review-card,
+html body.page-id-13.has-tajx-page #faq.taj-final-faq details,
+html body.page-id-13.has-tajx-page #commande .tajcmd-trust > li,
+html body.page-id-13.has-tajx-page #commande .tajcmd-product,
+html body.page-id-13.has-tajx-page #commande .tajcmd-form-card {
+  border-color: var(--taj-commerce-border) !important;
+  background: var(--taj-commerce-card) !important;
+  box-shadow: var(--taj-commerce-shadow) !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__panel {
+  overflow: hidden;
+  border: 1px solid rgba(255, 227, 205, .6) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 22px 50px rgba(91, 31, 15, .16), inset 0 1px rgba(255, 255, 255, .9) !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__card {
+  border-radius: 14px !important;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__num {
+  color: #8a4934 !important;
+  font-weight: 800 !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__badge,
+html body.page-id-13.has-tajx-page #avis .tajx-review-badge {
+  border: 1px solid rgba(220, 75, 28, .16) !important;
+  border-radius: 999px !important;
+  background: #fff0e3 !important;
+  color: #a93619 !important;
+}
+
+html body.page-id-13.has-tajx-page #avis .tajx-review-card {
+  border-radius: 18px !important;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+}
+
+html body.page-id-13.has-tajx-page #avis .tajx-review-avatar {
+  border: 1px solid rgba(220, 75, 28, .16) !important;
+  background: linear-gradient(145deg, #fff0e2, #f6ceb0) !important;
+  color: #9b3219 !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .86) !important;
+}
+
+html body.page-id-13.has-tajx-page #faq.taj-final-faq details {
+  border-radius: 14px !important;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease !important;
+}
+
+html body.page-id-13.has-tajx-page #faq.taj-final-faq details[open] {
+  border-color: rgba(220, 75, 28, .27) !important;
+  background: #fffaf3 !important;
+  box-shadow: var(--taj-commerce-shadow-hover) !important;
+}
+
+/* Dark offer cards keep their contrast while sharing the same geometry. */
+html body.page-id-13.has-tajx-page #produit .tajx-offer__feature,
+html body.page-id-13.has-tajx-page #produit .tajx-offer__trust-item {
+  border: 1px solid rgba(239, 181, 116, .13) !important;
+  border-radius: 12px !important;
+  background:
+    linear-gradient(110deg, rgba(255, 248, 239, .055), rgba(255, 248, 239, .018)),
+    rgba(17, 9, 6, .2) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .035) !important;
+}
+
+html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-icon,
+html body.page-id-13.has-tajx-page #produit .tajx-offer__trust-item > span:first-child {
+  border: 1px solid rgba(240, 168, 94, .24) !important;
+  border-radius: 50% !important;
+  background: rgba(240, 134, 62, .1) !important;
+  color: #f0a15f !important;
+}
+
+/* Product and form trust icons use one recognizable medallion system. */
+html body.page-id-13.has-tajx-page #commande .tajcmd-trust > li {
+  border-radius: 14px !important;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+}
+
+html body.page-id-13.has-tajx-page #commande .tajcmd-icon {
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(220, 75, 28, .2) !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, .9), transparent 40%),
+    var(--taj-commerce-icon-bg) !important;
+  color: var(--taj-commerce-accent) !important;
+  box-shadow: 0 5px 12px rgba(112, 45, 20, .07), inset 0 1px rgba(255, 255, 255, .86) !important;
+}
+
+html body.page-id-13.has-tajx-page #commande .tajcmd-icon svg {
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.7 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* Marked checkout reassurance: readable three-part trust bar. */
+html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  height: auto !important;
+  margin-top: 10px !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > .tajcmd-reassurance__item {
+  min-width: 0 !important;
+  min-height: 54px !important;
+  height: auto !important;
+  max-height: none !important;
+  display: grid !important;
+  grid-template-columns: 30px minmax(0, 1fr) !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  justify-content: stretch !important;
+  justify-items: stretch !important;
+  gap: 8px !important;
+  overflow: hidden !important;
+  padding: 8px 10px !important;
+  border: 1px solid var(--taj-commerce-border) !important;
+  border-radius: 13px !important;
+  background: var(--taj-commerce-card) !important;
+  color: var(--taj-commerce-ink) !important;
+  box-shadow: 0 7px 18px rgba(78, 35, 18, .065), inset 0 1px rgba(255, 255, 255, .9) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon {
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  flex: 0 0 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-reassurance__label {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  display: block !important;
+  align-self: center !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #4f2a20 !important;
+  box-shadow: none !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  text-align: left !important;
+  white-space: normal !important;
+  text-wrap: balance;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__card:hover,
+  html body.page-id-13.has-tajx-page #avis .tajx-review-card:hover,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-trust > li:hover,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > .tajcmd-reassurance__item:hover {
+    border-color: var(--taj-commerce-border-hover) !important;
+    box-shadow: var(--taj-commerce-shadow-hover) !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #heritage .tajx-checks {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-top: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-checks > span {
+    min-height: 60px !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 13px 0 15px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-checks > span::before {
+    width: auto !important;
+    height: auto !important;
+    font-size: 13px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > .tajcmd-reassurance__item {
+    min-height: 76px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 28px minmax(0, auto) !important;
+    align-content: center !important;
+    justify-items: center !important;
+    gap: 5px !important;
+    padding: 7px 5px !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    justify-self: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-icon svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance .tajcmd-reassurance__label {
+    display: -webkit-box !important;
+    align-self: start !important;
+    overflow: hidden !important;
+    font-size: clamp(8.8px, 2.45vw, 10px) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance {
+    gap: 5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > .tajcmd-reassurance__item {
+    min-height: 72px !important;
+    padding-inline: 4px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__card,
+  html body.page-id-13.has-tajx-page #avis .tajx-review-card,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-trust > li,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-reassurance > .tajcmd-reassurance__item {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   TAJINOOS WHY SECTION — COMMERCIAL V3
+   ========================================================= */
+
+html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3 {
+  --taj-why-maroon: #3b090f;
+  --taj-why-maroon-deep: #230407;
+  --taj-why-orange: #dc4b1c;
+  --taj-why-orange-soft: #f28a48;
+  --taj-why-cream: #fff8ef;
+  --taj-why-cream-muted: #e7cfbd;
+  --taj-why-line: rgba(220, 75, 28, .42);
+  --taj-why-text-dark: #210d0d;
+  --taj-why-line-soft: rgba(220, 75, 28, .24);
+  --taj-why-shadow: rgba(9, 0, 2, .34);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 0;
+  padding: clamp(60px, 4.9vw, 78px) 0 clamp(42px, 3.8vw, 58px) !important;
+  color: var(--taj-why-cream);
+  background:
+    radial-gradient(circle at 17% 18%, rgba(126, 27, 31, .42), transparent 37%),
+    radial-gradient(circle at 82% 48%, rgba(104, 18, 23, .32), transparent 41%),
+    linear-gradient(135deg, var(--taj-why-maroon-deep) 0%, var(--taj-why-maroon) 51%, #2a0509 100%) !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: -2 !important;
+  inset: 0 0 auto 58% !important;
+  width: auto !important;
+  height: 56% !important;
+  pointer-events: none;
+  opacity: .095 !important;
+  mix-blend-mode: normal !important;
+  background:
+    linear-gradient(30deg, transparent 24%, rgba(233, 90, 23, .52) 25%, rgba(233, 90, 23, .52) 26%, transparent 27%, transparent 74%, rgba(233, 90, 23, .52) 75%, rgba(233, 90, 23, .52) 76%, transparent 77%),
+    linear-gradient(150deg, transparent 24%, rgba(233, 90, 23, .44) 25%, rgba(233, 90, 23, .44) 26%, transparent 27%, transparent 74%, rgba(233, 90, 23, .44) 75%, rgba(233, 90, 23, .44) 76%, transparent 77%),
+    linear-gradient(30deg, transparent 24%, rgba(233, 90, 23, .38) 25%, rgba(233, 90, 23, .38) 26%, transparent 27%, transparent 74%, rgba(233, 90, 23, .38) 75%, rgba(233, 90, 23, .38) 76%, transparent 77%),
+    linear-gradient(150deg, transparent 24%, rgba(233, 90, 23, .32) 25%, rgba(233, 90, 23, .32) 26%, transparent 27%, transparent 74%, rgba(233, 90, 23, .32) 75%, rgba(233, 90, 23, .32) 76%, transparent 77%) !important;
+  background-position: 0 0, 0 0, 36px 63px, 36px 63px !important;
+  background-size: 72px 126px !important;
+  transform: none !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: -3 !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  pointer-events: none;
+  opacity: 1 !important;
+  border-radius: 0 !important;
+  background:
+    radial-gradient(circle at 42% 38%, rgba(255, 120, 49, .055), transparent 28%),
+    linear-gradient(180deg, rgba(0, 0, 0, .23), transparent 14%, transparent 84%, rgba(0, 0, 0, .18)) !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3,
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 * {
+  box-sizing: border-box;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__arch {
+  position: absolute;
+  z-index: -1;
+  top: -12px;
+  right: clamp(-110px, -3vw, -28px);
+  width: min(49vw, 690px);
+  color: rgba(238, 122, 56, .38);
+  pointer-events: none;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__arch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__arch path + path {
+  opacity: .13;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__inner {
+  position: relative;
+  z-index: 2;
+  width: min(1440px, calc(100% - clamp(40px, 6vw, 96px)));
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro {
+  width: min(700px, 60%);
+  min-height: clamp(230px, 17vw, 280px);
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 clamp(17px, 1.45vw, 22px) !important;
+  color: var(--taj-why-orange-soft);
+  font-family: Manrope, sans-serif;
+  font-size: clamp(12px, .92vw, 14px) !important;
+  font-weight: 750 !important;
+  line-height: 1.35 !important;
+  letter-spacing: .27em !important;
+  text-transform: uppercase;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__eyebrow span {
+  color: var(--taj-why-orange);
+  font-size: .8em;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro h2 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--taj-why-cream) !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(50px, 4.45vw, 66px) !important;
+  font-weight: 600 !important;
+  line-height: .91 !important;
+  letter-spacing: -.024em !important;
+  text-wrap: balance;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__heading-rule {
+  position: relative;
+  display: block;
+  width: 72px;
+  height: 1px;
+  margin: clamp(20px, 1.65vw, 24px) 0 clamp(18px, 1.45vw, 22px);
+  background: var(--taj-why-orange-soft);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__heading-rule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--taj-why-orange-soft);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__lede {
+  margin: 0;
+  color: rgba(255, 248, 239, .94) !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(16px, 1.1vw, 18px) !important;
+  font-weight: 450 !important;
+  line-height: 1.58 !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  margin: clamp(6px, .7vw, 10px) 0 0;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0 clamp(24px, 2.9vw, 46px);
+  color: var(--taj-why-cream);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar + .taj-why-v3__pillar {
+  border-left: 1px solid var(--taj-why-line-soft);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon {
+  width: clamp(68px, 5vw, 72px);
+  height: clamp(68px, 5vw, 72px);
+  display: grid;
+  place-items: center;
+  margin-bottom: clamp(15px, 1.25vw, 18px);
+  color: var(--taj-why-orange-soft);
+  border: 1px solid var(--taj-why-orange-soft);
+  border-radius: 50%;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon svg {
+  width: clamp(39px, 2.9vw, 42px);
+  height: clamp(39px, 2.9vw, 42px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-label {
+  margin: 0 0 8px !important;
+  color: var(--taj-why-orange-soft) !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(11.5px, .88vw, 13px) !important;
+  font-weight: 800 !important;
+  line-height: 1.4 !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar h3 {
+  max-width: 390px;
+  margin: 0;
+  color: var(--taj-why-cream) !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(25px, 1.9vw, 29px) !important;
+  font-weight: 600 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -.014em !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-text {
+  max-width: 410px !important;
+  margin: 11px 0 0 !important;
+  color: rgba(255, 248, 239, .86) !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(13.5px, .96vw, 14.5px) !important;
+  font-weight: 450 !important;
+  line-height: 1.58 !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-proof {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: auto 0 0 !important;
+  padding-top: 14px;
+  color: #f28a45 !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(12px, .9vw, 13.5px) !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-proof svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+  display: grid;
+  grid-template-columns: minmax(235px, .82fr) minmax(0, 3.18fr);
+  align-items: stretch;
+  margin-top: clamp(28px, 2.6vw, 38px);
+  padding: clamp(17px, 1.45vw, 22px) clamp(24px, 2.5vw, 38px);
+  border: 1px solid rgba(220, 75, 28, .62);
+  border-radius: 16px;
+  background: linear-gradient(105deg, rgba(29, 2, 5, .25), rgba(74, 10, 15, .16));
+  box-shadow: inset 0 1px rgba(255, 255, 255, .018);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3 {
+  position: relative;
+  align-self: center;
+  margin: 0;
+  padding-right: 28px;
+  color: var(--taj-why-cream) !important;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(26px, 2.05vw, 31px) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: -.015em !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 48px;
+  height: 1px;
+  background: var(--taj-why-orange-soft);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li {
+  min-width: 0;
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 11px;
+  align-items: center;
+  margin: 0;
+  padding: 6px clamp(14px, 1.6vw, 24px);
+  color: var(--taj-why-cream);
+  font-family: Manrope, sans-serif;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li + li {
+  border-left: 1px dotted rgba(240, 122, 44, .4);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li > span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--taj-why-orange-soft);
+  border: 1px solid rgba(240, 122, 44, .74);
+  border-radius: 50%;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li strong {
+  color: inherit;
+  font-size: clamp(13px, .98vw, 15px);
+  font-weight: 650;
+  line-height: 1.42;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(590px, 1.12fr);
+  gap: clamp(28px, 3vw, 44px);
+  align-items: stretch;
+  margin-top: clamp(20px, 1.9vw, 28px);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 6px 10px;
+  color: var(--taj-why-cream) !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(13px, .96vw, 14px) !important;
+  font-weight: 550 !important;
+  line-height: 1.45 !important;
+  text-align: center;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li + li {
+  border-left: 1px solid var(--taj-why-line-soft);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--taj-why-orange-soft);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__cta {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(220px, .74fr) minmax(340px, 1.26fr);
+  align-items: center;
+  padding: clamp(18px, 1.55vw, 24px) clamp(22px, 2.2vw, 34px);
+  border: 1px solid rgba(220, 75, 28, .52);
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(51, 4, 8, .78), rgba(69, 8, 12, .56));
+  box-shadow: 0 20px 48px var(--taj-why-shadow), inset 0 1px rgba(255, 255, 255, .025);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price {
+  min-width: 0;
+  padding-right: clamp(20px, 2.4vw, 34px);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price span,
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price strong,
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price a {
+  display: block;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price span {
+  color: var(--taj-why-cream);
+  font-family: Manrope, sans-serif;
+  font-size: clamp(12px, .92vw, 13.5px);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: .025em;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price strong {
+  margin-top: 5px;
+  color: #ef7a38;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(46px, 3.9vw, 58px);
+  font-weight: 600;
+  line-height: .95;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price a {
+  width: fit-content;
+  margin-top: 10px;
+  padding-bottom: 2px;
+  color: #f08a4a;
+  border-bottom: 1px dotted currentColor;
+  font-family: Manrope, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action {
+  min-width: 0;
+  padding-left: clamp(20px, 2.4vw, 34px);
+  border-left: 1px solid var(--taj-why-line);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  width: 100%;
+  padding: 14px 22px;
+  color: #fff8ef;
+  border: 1px solid rgba(255, 170, 104, .34);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e25520 0%, var(--taj-why-orange) 55%, #c83d12 100%);
+  box-shadow: 0 14px 30px rgba(126, 25, 5, .36), inset 0 1px rgba(255, 255, 255, .2);
+  font-family: Manrope, sans-serif;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button svg {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button:hover {
+  color: #fff;
+  border-color: rgba(255, 196, 147, .65);
+  background: linear-gradient(135deg, #ed642d 0%, #e0521d 55%, #d54414 100%);
+  box-shadow: 0 17px 34px rgba(126, 25, 5, .42), inset 0 1px rgba(255, 255, 255, .22);
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button:focus-visible,
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price a:focus-visible {
+  outline: 3px solid rgba(246, 234, 219, .95);
+  outline-offset: 4px;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 0 !important;
+  color: rgba(255, 248, 239, .84) !important;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(11.5px, .86vw, 13px) !important;
+  font-weight: 450 !important;
+  line-height: 1.55 !important;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action p svg {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+  fill: none;
+  stroke: var(--taj-why-orange-soft);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__footer-rule {
+  position: relative;
+  display: block;
+  height: 1px;
+  margin-top: clamp(22px, 2.05vw, 30px);
+  background: linear-gradient(90deg, var(--taj-why-line-soft), var(--taj-why-line) 48%, var(--taj-why-line-soft));
+}
+
+html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__footer-rule::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--taj-why-orange-soft);
+  background: var(--taj-why-maroon);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/*
+ * Desktop single-viewport density:
+ * keeps the complete commercial story visible without browser scrolling.
+ */
+@media (min-width: 1181px) {
+  html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3 {
+    padding: clamp(20px, 2.5vh, 28px) 0 clamp(16px, 2vh, 22px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro {
+    min-height: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__eyebrow {
+    gap: 10px;
+    margin-bottom: 10px !important;
+    font-size: 11.5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro h2 {
+    font-size: clamp(42px, 3.45vw, 50px) !important;
+    line-height: .87 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__heading-rule {
+    width: 62px;
+    margin: 12px 0 10px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__lede {
+    font-size: clamp(15px, 1.03vw, 16px) !important;
+    line-height: 1.42 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillars {
+    margin-top: 8px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar {
+    padding-inline: clamp(22px, 2.5vw, 38px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-label {
+    margin-bottom: 5px !important;
+    font-size: 11px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar h3 {
+    font-size: clamp(22px, 1.7vw, 25px) !important;
+    line-height: 1.04 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-text {
+    margin-top: 7px !important;
+    font-size: clamp(12.5px, .9vw, 13px) !important;
+    line-height: 1.42 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-proof {
+    gap: 6px;
+    padding-top: 8px;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-proof svg {
+    width: 15px;
+    height: 15px;
+    flex-basis: 15px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+    grid-template-columns: minmax(205px, .72fr) minmax(0, 3.28fr);
+    margin-top: 14px;
+    padding: 7px 22px;
+    border-radius: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3 {
+    padding-right: 20px;
+    font-size: 24px !important;
+    line-height: .94 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3::after {
+    bottom: -8px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li {
+    min-height: 44px;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 9px;
+    padding: 4px clamp(11px, 1.3vw, 18px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li > span {
+    width: 28px;
+    height: 28px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li strong {
+    font-size: clamp(12px, .88vw, 13px);
+    line-height: 1.3;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__bottom {
+    gap: clamp(24px, 2.4vw, 34px);
+    margin-top: 12px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust {
+    padding-block: 2px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li {
+    gap: 5px;
+    padding: 3px 8px;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__cta {
+    grid-template-columns: minmax(190px, .7fr) minmax(320px, 1.3fr);
+    padding: 12px 20px;
+    border-radius: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price {
+    padding-right: 18px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price span {
+    font-size: 11.5px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price strong {
+    margin-top: 2px;
+    font-size: clamp(38px, 3vw, 44px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price a {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action {
+    padding-left: 18px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button {
+    min-height: 46px;
+    gap: 14px;
+    padding: 11px 18px;
+    font-size: 12.5px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action p {
+    gap: 7px;
+    margin-top: 6px !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action p svg {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__footer-rule {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1180px) {
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__inner {
+    width: min(1080px, calc(100% - 58px));
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar {
+    padding-inline: 24px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+    grid-template-columns: 205px minmax(0, 1fr);
+    padding-inline: 24px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 9px;
+    padding-inline: 13px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li > span {
+    width: 30px;
+    height: 30px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__bottom {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust {
+    width: min(700px, 100%);
+    margin-inline: auto;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__cta {
+    width: min(780px, 100%);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3 {
+    padding-top: 60px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__arch {
+    right: -85px;
+    width: 58vw;
+    opacity: .72;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro {
+    width: min(650px, 72%);
+    min-height: 220px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar {
+    padding-inline: clamp(28px, 5vw, 48px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-self: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--taj-why-line-soft);
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 20px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3 {
+    padding-right: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li {
+    padding: 12px 20px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li:nth-child(3) {
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li:nth-child(n + 3) {
+    border-top: 1px dotted rgba(240, 122, 44, .32);
+  }
+}
+
+@media (max-width: 768px) {
+  html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3 {
+    padding: 54px 0 48px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3::before {
+    inset-inline-start: 28% !important;
+    height: 32% !important;
+    opacity: .08 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__inner {
+    width: min(680px, calc(100% - 38px));
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__arch {
+    top: 7px;
+    right: -130px;
+    width: 82vw;
+    opacity: .36;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro {
+    width: 100%;
+    min-height: 0;
+    padding-right: 5%;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro h2 {
+    font-size: clamp(44px, 7vw, 52px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__lede br {
+    display: none;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__lede {
+    max-width: 550px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillars {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    margin-top: 40px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar,
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
+    padding: 26px clamp(4px, 4vw, 28px);
+    border: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar:first-child {
+    padding-top: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar + .taj-why-v3__pillar,
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar:nth-child(3) {
+    border-top: 1px solid var(--taj-why-line-soft);
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar h3 {
+    font-size: clamp(27px, 5vw, 31px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-text {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+    margin-top: 12px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference h3 {
+    font-size: 30px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li strong {
+    font-size: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li {
+    min-height: 98px;
+    padding: 10px;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li:nth-child(3) {
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li:nth-child(n + 3) {
+    border-top: 1px solid var(--taj-why-line-soft);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__cta {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price {
+    padding: 0 0 17px;
+    border-bottom: 1px solid var(--taj-why-line);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action {
+    padding: 0;
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price strong {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  html body.page-id-13.has-tajx-page #benefices.tajx-section.taj-why-v3 {
+    padding: 48px 0 44px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__inner {
+    width: calc(100% - 34px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__eyebrow {
+    gap: 9px;
+    margin-bottom: 18px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    letter-spacing: .18em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro h2 {
+    font-size: clamp(38px, 10.2vw, 45px) !important;
+    line-height: .94 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__heading-rule {
+    margin: 20px 0 18px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__lede {
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillars {
+    margin-top: 34px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar,
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar:nth-child(3) {
+    padding-block: 24px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__pillar-proof {
+    font-size: 13px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference {
+    gap: 18px;
+    padding: 18px 16px;
+    border-radius: 15px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference ul {
+    grid-template-columns: 1fr;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li,
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li:nth-child(3) {
+    min-height: 58px;
+    padding: 10px 4px;
+    border-left: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li + li,
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li:nth-child(n + 3) {
+    border-top: 1px dotted rgba(240, 122, 44, .32);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__difference li strong {
+    font-size: 14px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__cta {
+    padding: 19px 18px;
+    border-radius: 15px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__price strong {
+    font-size: clamp(46px, 14vw, 56px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button {
+    min-height: 54px;
+    gap: 11px;
+    padding-inline: 15px;
+    font-size: 13px;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__action p {
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 370px) {
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__inner {
+    width: calc(100% - 28px);
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__intro h2 {
+    font-size: 38px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__trust li {
+    min-height: 100px;
+    padding-inline: 7px;
+    font-size: 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices.taj-why-v3 .taj-why-v3__button {
+    font-size: 12px;
   }
 }
