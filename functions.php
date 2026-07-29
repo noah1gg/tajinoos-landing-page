@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.6.31');
+define('TAJINOOS_CHILD_VERSION', '1.6.33');
 
 require_once get_stylesheet_directory() . '/inc/tajinoos-mail.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
@@ -27,7 +27,9 @@ add_filter('the_content', 'tajinoos_child_render_editorial_benefits_section', 24
 add_filter('the_content', 'tajinoos_child_render_final_hero_faq_sections', 99);
 add_filter('the_content', 'tajinoos_child_render_reference_match_hero', 100);
 add_filter('the_content', 'tajinoos_child_render_command_rebuild_section', 120);
+add_filter('the_content', 'tajinoos_child_add_landing_motion_attributes', 130);
 add_action('wp_head', 'tajinoos_child_print_final_hero_faq_css', 100);
+add_action('wp_footer', 'tajinoos_child_render_floating_actions', 5);
 
 /**
  * Keep the Page 13 premium assets on the active preview host.
@@ -146,8 +148,8 @@ function tajinoos_child_render_testimonials(string $content): string
 
     $testimonials = <<<'HTML'
 <section id="avis" class="tajx-section tajx-testimonials" aria-labelledby="tajx-testimonials-title">
-  <div class="tajx-wrap tajx-testimonials-inner">
-    <div class="tajx-testimonials-copy">
+  <div class="tajx-wrap tajx-testimonials-inner" data-motion-group>
+    <div class="tajx-testimonials-copy" data-motion="fade-up" data-motion-index="0">
       <div class="tajx-testimonials-labels">
         <span class="tajx-eyebrow">AVIS CLIENTS</span>
         <span class="tajx-testimonials-craft-badge"><span aria-hidden="true">✓</span> FAIT MAIN AU MAROC</span>
@@ -174,7 +176,7 @@ function tajinoos_child_render_testimonials(string $content): string
       <p class="tajx-testimonials-reassurance">Livraison partout au Maroc <span>·</span> Paiement à la livraison <span>·</span> Garantie 7 jours</p>
     </div>
 
-    <div class="tajx-testimonials-showcase">
+    <div class="tajx-testimonials-showcase" data-motion="slide-left" data-motion-index="1">
       <div class="tajx-reviews-marquee" aria-label="Avis de nos clients">
         <div class="tajx-reviews-track">
         <article class="tajx-review-card tajx-review-featured">
@@ -335,8 +337,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
 
     $product = <<<'HTML'
 <section id="produit" class="tajx-section tajx-offer" aria-label="Tajine artisanal Tajinoos Premium">
-  <div class="tajx-wrap tajx-offer__grid">
-    <figure class="tajx-offer__visual" aria-label="Tajine artisanal Tajinoos Premium">
+  <div class="tajx-wrap tajx-offer__grid" data-motion-group>
+    <figure class="tajx-offer__visual" aria-label="Tajine artisanal Tajinoos Premium" data-motion="slide-right" data-motion-index="0">
       <img class="tajx-offer__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium" width="1024" height="1024" loading="lazy" decoding="async">
 
       <div class="tajx-offer__trust" aria-label="Garanties principales">
@@ -355,7 +357,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       </div>
     </figure>
 
-    <div class="tajx-offer__content">
+    <div class="tajx-offer__content" data-motion="slide-left" data-motion-index="1">
       <span class="tajx-offer__eyebrow">OFFRE SIGNATURE</span>
       <h2 id="tajx-offer-title" class="tajx-offer__title"><span>TAJINE ARTISANAL</span><em>TAJINOOS PREMIUM</em></h2>
       <p class="tajx-offer__subtitle">Un tajine en terre cuite façonné à la main pour une cuisson lente, une table élégante et des repas qui rassemblent.</p>
@@ -437,8 +439,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
     </div>
   </div>
 
-  <div class="tajp-mobile">
-    <header class="tajp-mobile__intro">
+  <div class="tajp-mobile" data-motion-group>
+    <header class="tajp-mobile__intro" data-motion="fade-up" data-motion-index="0">
       <span class="tajp-mobile__eyebrow">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8c.8 4.4 3.4 7 7.8 7.8-4.4.8-7 3.4-7.8 7.8-.8-4.4-3.4-7-7.8-7.8 4.4-.8 7-3.4 7.8-7.8Z"/></svg>
         LE TAJINE SIGNATURE
@@ -447,7 +449,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       <p class="tajp-mobile__lead">Une cuisson lente, homog&egrave;ne et pleine de saveurs.</p>
     </header>
 
-    <figure class="tajp-mobile__media" aria-label="Tajine artisanal Tajinoos Premium fait main au Maroc">
+    <figure class="tajp-mobile__media" aria-label="Tajine artisanal Tajinoos Premium fait main au Maroc" data-motion="scale-soft" data-motion-index="1">
       <span class="tajp-mobile__handmade">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m12 3 1.1 3.2L16 7.5l-2.9 1.3L12 12l-1.1-3.2L8 7.5l2.9-1.3L12 3Z"/><path d="M5 12.5v4.2c0 2.4 1.9 4.3 4.3 4.3H12M19 12.5v4.2c0 2.4-1.9 4.3-4.3 4.3H12"/><path d="M5 13.5 3.8 12a1.4 1.4 0 0 1 2.1-1.8L9 13M19 13.5l1.2-1.5a1.4 1.4 0 0 0-2.1-1.8L15 13"/></svg>
         <span>FAIT MAIN<br>AU MAROC</span>
@@ -479,7 +481,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       </div>
     </figure>
 
-    <div class="tajp-mobile__benefits" aria-label="Avantages du Tajinoos Premium">
+    <div class="tajp-mobile__benefits" aria-label="Avantages du Tajinoos Premium" data-motion="fade-up" data-motion-index="2">
       <article class="tajp-mobile__benefit">
         <span class="tajp-mobile__benefit-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false"><path d="M8 15.5c-2.2-3.7.1-6.2 2.2-8.9.3 2.1 1.2 3.1 2.1 4.1.7-3.6 2.6-5.4 3.9-7.2.6 3.5 3.3 5.8 3.3 9.5a7.5 7.5 0 0 1-15 0c0-1.6.4-3 1.2-4.3.2 2.7 1 4.8 2.3 6.8Z"/><path d="M7 21h10M8.5 18.5h7"/></svg>
@@ -513,7 +515,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       </article>
     </div>
 
-    <div class="tajp-mobile__reassurance" aria-label="Garanties de commande">
+    <div class="tajp-mobile__reassurance" aria-label="Garanties de commande" data-motion="fade" data-motion-index="3">
       <div class="tajp-mobile__reassurance-item">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
         <span>PAIEMENT &Agrave;<br>LA LIVRAISON</span>
@@ -528,7 +530,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       </div>
     </div>
 
-    <div class="tajp-mobile__offer" aria-label="Offre Tajinoos Premium">
+    <div class="tajp-mobile__offer" aria-label="Offre Tajinoos Premium" data-motion="fade-up" data-motion-index="4">
       <div class="tajp-mobile__prices">
         <div class="tajp-mobile__old-price">
           <span>PRIX HABITUEL</span>
@@ -548,7 +550,7 @@ function tajinoos_child_render_reference_product_section(string $content): strin
       <p class="tajp-mobile__payment-note">Paiement &agrave; la r&eacute;ception</p>
     </div>
 
-    <p class="tajp-mobile__quality">
+    <p class="tajp-mobile__quality" data-motion="fade" data-motion-index="5">
       <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 3 19 6v5.2c0 4.5-2.8 7.5-7 9.8-4.2-2.3-7-5.3-7-9.8V6l7-3Z"/><path d="m8.8 12 2.1 2.1 4.5-4.5"/></svg>
       <span>QUALIT&Eacute; AUTHENTIQUE, CON&Ccedil;UE POUR DURER.</span>
     </p>
@@ -581,7 +583,7 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
   <span class="taj-benefices-final__arch" aria-hidden="true"></span>
 
   <div class="taj-benefices-final__inner">
-    <header class="taj-benefices-final__head">
+    <header class="taj-benefices-final__head" data-motion="fade-up">
       <div class="taj-benefices-final__heading">
         <p class="taj-benefices-final__eyebrow"><span aria-hidden="true"></span>POURQUOI TAJINOOS</p>
         <h2 id="taj-benefices-final-title">CE QUI REND<br>TAJINOOS DIFF&Eacute;RENT</h2>
@@ -589,29 +591,29 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
       <p class="taj-benefices-final__intro">Un tajine artisanal pens&eacute; pour mieux cuisiner,<br>embellir la table et offrir une commande<br>simple et rassurante.</p>
     </header>
 
-    <div class="taj-benefices-final__grid" aria-label="Les avantages Tajinoos">
-      <article class="taj-benefices-final__item">
+    <div class="taj-benefices-final__grid" aria-label="Les avantages Tajinoos" data-motion-group>
+      <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="0">
         <p class="taj-benefices-final__label">AUTHENTICIT&Eacute;</p>
         <h3>Fa&ccedil;onn&eacute; &agrave; la main<br>au Maroc</h3>
         <p class="taj-benefices-final__copy">Chaque pi&egrave;ce poss&egrave;de ses propres<br>nuances et son caract&egrave;re.</p>
         <p class="taj-benefices-final__proof">Petites s&eacute;ries artisanales</p>
       </article>
 
-      <article class="taj-benefices-final__item">
+      <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="1">
         <p class="taj-benefices-final__label">CUISSON MA&Icirc;TRIS&Eacute;E</p>
         <h3>Une chaleur douce<br>et r&eacute;guli&egrave;re</h3>
         <p class="taj-benefices-final__copy">La terre cuite concentre les ar&ocirc;mes<br>et pr&eacute;serve la tendret&eacute;.</p>
         <p class="taj-benefices-final__proof">Terre cuite naturelle</p>
       </article>
 
-      <article class="taj-benefices-final__item">
+      <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="2">
         <p class="taj-benefices-final__label">UTILE &amp; D&Eacute;CORATIF</p>
         <h3>Pens&eacute; pour cuisiner<br>et servir</h3>
         <p class="taj-benefices-final__copy">Une pi&egrave;ce qui passe naturellement<br>de la cuisine &agrave; la table.</p>
         <p class="taj-benefices-final__proof">Beau au quotidien</p>
       </article>
 
-      <article class="taj-benefices-final__item">
+      <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="3">
         <p class="taj-benefices-final__label">ACHAT RASSURANT</p>
         <h3>Commande simple<br>et humaine</h3>
         <p class="taj-benefices-final__copy">Confirmation avant exp&eacute;dition et<br>paiement &agrave; la livraison.</p>
@@ -620,7 +622,7 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     </div>
   </div>
 
-  <div class="taj-benefices-final__trust-wrap">
+  <div class="taj-benefices-final__trust-wrap" data-motion="fade">
     <ul class="taj-benefices-final__trust" aria-label="Garanties de commande">
       <li><span aria-hidden="true">&#10003;</span>Paiement &agrave; la livraison</li>
       <li><span aria-hidden="true">&#10003;</span>Confirmation WhatsApp</li>
@@ -630,7 +632,7 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
   </div>
 
   <div class="taj-benefices-final__inner">
-    <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal">
+    <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal" data-motion="fade-up">
       <div class="taj-benefices-final__experience">
         <p class="taj-benefices-final__cta-label">L&rsquo;EXP&Eacute;RIENCE TAJINOOS</p>
         <p>Achat en toute confiance, de la commande &agrave; la r&eacute;ception.<br>Chaque tajine est v&eacute;rifi&eacute; avec soin et emball&eacute; avec attention.<br>Satisfait ou rembours&eacute; sous 7 jours.</p>
@@ -661,13 +663,13 @@ function tajinoos_child_render_final_hero_faq_sections(string $content): string
     $faq = <<<'HTML'
 <section id="faq" class="taj-final-faq" aria-labelledby="taj-final-faq-title">
   <div class="taj-final-faq__inner">
-    <header class="taj-final-faq__head">
+    <header class="taj-final-faq__head" data-motion="fade-up">
       <span class="taj-final-eyebrow">Questions fréquentes</span>
       <h2 id="taj-final-faq-title">Les réponses avant de commander.</h2>
     </header>
 
-    <div class="taj-final-faq__layout">
-      <div class="taj-final-faq__list">
+    <div class="taj-final-faq__layout" data-motion-group>
+      <div class="taj-final-faq__list" data-motion="fade-up" data-motion-index="0">
         <details><summary>Comment entretenir mon tajine avant la première utilisation ?</summary><p>Rincez-le doucement, laissez-le sécher complètement, puis huilez légèrement l'intérieur avant la première cuisson.</p></details>
         <details><summary>Combien de temps prend la livraison ?</summary><p>La livraison est généralement effectuée sous 48H après confirmation de votre commande par téléphone.</p></details>
         <details><summary>Le tajine peut-il aller au lave-vaisselle ?</summary><p>Nous recommandons un lavage à la main avec une éponge douce afin de préserver la terre cuite et la finition artisanale.</p></details>
@@ -676,7 +678,7 @@ function tajinoos_child_render_final_hero_faq_sections(string $content): string
         <details><summary>Le produit est-il garanti ?</summary><p>Oui, chaque pièce est vérifiée avant expédition et couverte par notre garantie satisfaction de 7 jours.</p></details>
       </div>
 
-      <aside class="taj-final-support" aria-label="Support Tajinoos">
+      <aside class="taj-final-support" aria-label="Support Tajinoos" data-motion="fade-up" data-motion-index="1">
         <span class="taj-final-support__label">ASSISTANCE TAJINOOS</span>
         <span class="taj-final-support__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11a9 9 0 0 1 18 0"/><path d="M21 12v4a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M3 12v4a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg></span>
         <h3>Besoin d'aide ?</h3>
@@ -801,14 +803,14 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
     $order = <<<'HTML'
 <section id="commande" class="tajx-section tajx-order tajcmd" aria-labelledby="tajcmd-title">
   <div class="tajcmd__inner">
-    <header class="tajcmd__header">
+    <header class="tajcmd__header" data-motion="fade-up">
       <span class="tajcmd__badge"><span aria-hidden="true">&#9671;</span> COMMANDE S&Eacute;CURIS&Eacute;E</span>
       <h2 id="tajcmd-title">FINALISER VOTRE COMMANDE</h2>
       <p>L&rsquo;excellence de l&rsquo;artisanat marocain, pr&ecirc;te &agrave; rejoindre votre table.</p>
     </header>
 
-    <div class="tajx-order-grid tajcmd__grid">
-      <article class="tajcmd-product" aria-labelledby="tajcmd-product-title">
+    <div class="tajx-order-grid tajcmd__grid" data-motion-group>
+      <article class="tajcmd-product" aria-labelledby="tajcmd-product-title" data-motion="slide-right" data-motion-index="0">
         <div class="tajcmd-product__visual" aria-label="Tajine artisanal Tajinoos Premium">
           <img class="tajcmd-product__pattern" src="/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp" alt="" loading="lazy" decoding="async" aria-hidden="true">
           <img class="tajcmd-product__image" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium" width="1024" height="1024" loading="lazy" decoding="async">
@@ -836,7 +838,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         </div>
       </article>
 
-      <form class="tajx-form-card tajx-order-form tajcmd-form" action="%%TAJINOOS_ORDER_ACTION%%" method="post">
+      <form class="tajx-form-card tajx-order-form tajcmd-form" action="%%TAJINOOS_ORDER_ACTION%%" method="post" data-motion="slide-left" data-motion-index="1">
         %%TAJINOOS_ORDER_NONCE%%
         <input type="hidden" name="action" value="tajinoos_submit_order">
         <input type="hidden" name="Source" value="%%TAJINOOS_ORDER_SOURCE%%">
@@ -919,6 +921,64 @@ HTML;
         $content,
         1
     ) ?: $content;
+}
+
+/**
+ * Add section-level motion hooks to landing sections retained from Elementor.
+ *
+ * Rebuilt theme sections declare their logical groups directly in their
+ * semantic markup. Heritage and process remain stored in the page content, so
+ * the final content pass gives each section one no-JS-safe reveal hook.
+ */
+function tajinoos_child_add_landing_motion_attributes(string $content): string
+{
+    if (!is_page(13) || !in_the_loop() || !is_main_query()) {
+        return $content;
+    }
+
+    foreach (['heritage', 'artisanat'] as $section_id) {
+        $pattern = sprintf(
+            '~<([a-z][a-z0-9]*)\b(?=[^>]*\bid=(["\'])%s\2)[^>]*>~i',
+            preg_quote($section_id, '~')
+        );
+
+        $content = preg_replace_callback(
+            $pattern,
+            static function (array $match): string {
+                if (strpos($match[0], 'data-motion=') !== false) {
+                    return $match[0];
+                }
+
+                return substr($match[0], 0, -1) . ' data-motion="fade-up">';
+            },
+            $content,
+            1
+        ) ?: $content;
+    }
+
+    return $content;
+}
+
+/**
+ * Render permanent floating actions with the document instead of injecting
+ * them after paint in JavaScript.
+ */
+function tajinoos_child_render_floating_actions(): void
+{
+    if (!is_page(13) || isset($_GET['elementor-preview'])) {
+        return;
+    }
+    ?>
+    <a class="taj-order-float" href="#commande" title="Commander" aria-label="Commander mon Tajinoos">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    </a>
+    <a class="taj-whatsapp-float" href="https://wa.me/212627424509?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Tajine%20Tajinoos%20Premium." target="_blank" rel="noopener noreferrer" aria-label="Ouvrir une conversation WhatsApp">
+      <span class="taj-whatsapp-float__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .15 5.34.15 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.85 11.85 0 0 0 5.76 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.46-8.43Zm-8.45 18.33h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.74.98 1-3.65-.24-.37a9.88 9.88 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.91-9.89 2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.46-4.44 9.91-9.88 9.91Zm5.43-7.42c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49a9.13 9.13 0 0 1-1.68-2.08c-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.05 3.13 4.97 4.39.7.3 1.24.47 1.66.6.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>
+      </span>
+      <span class="taj-whatsapp-float__label">WhatsApp</span>
+    </a>
+    <?php
 }
 
 function tajinoos_child_print_final_hero_faq_css(): void
