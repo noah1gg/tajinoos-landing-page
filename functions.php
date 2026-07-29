@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.6.24');
+define('TAJINOOS_CHILD_VERSION', '1.6.31');
 
 require_once get_stylesheet_directory() . '/inc/tajinoos-mail.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
@@ -577,95 +577,67 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     }
 
     $benefits = <<<'HTML'
-<section id="benefices" class="tajx-section taj-why-v3" aria-labelledby="taj-why-v3-title">
-  <span class="taj-why-v3__arch" aria-hidden="true">
-    <svg viewBox="0 0 640 720" focusable="false"><path d="M20 700V360C20 225 108 124 208 73 259 47 298 23 320 4c22 19 61 43 112 69 100 51 188 152 188 287v340"/><path d="M70 700V378c0-112 72-195 158-239 43-22 74-42 92-58 18 16 49 36 92 58 86 44 158 127 158 239v322"/></svg>
-  </span>
+<section id="benefices" class="tajx-section taj-benefices-final" aria-labelledby="taj-benefices-final-title">
+  <span class="taj-benefices-final__arch" aria-hidden="true"></span>
 
-  <div class="taj-why-v3__inner">
-    <header class="taj-why-v3__intro">
-      <p class="taj-why-v3__eyebrow"><span aria-hidden="true">&#9670;</span> POURQUOI TAJINOOS</p>
-      <h2 id="taj-why-v3-title">CE QUI REND<br>TAJINOOS DIFF&Eacute;RENT</h2>
-      <span class="taj-why-v3__heading-rule" aria-hidden="true"></span>
-      <p class="taj-why-v3__lede">Un tajine artisanal pens&eacute; pour mieux cuisiner,<br>embellir la table et offrir une commande<br>simple et rassurante.</p>
+  <div class="taj-benefices-final__inner">
+    <header class="taj-benefices-final__head">
+      <div class="taj-benefices-final__heading">
+        <p class="taj-benefices-final__eyebrow"><span aria-hidden="true"></span>POURQUOI TAJINOOS</p>
+        <h2 id="taj-benefices-final-title">CE QUI REND<br>TAJINOOS DIFF&Eacute;RENT</h2>
+      </div>
+      <p class="taj-benefices-final__intro">Un tajine artisanal pens&eacute; pour mieux cuisiner,<br>embellir la table et offrir une commande<br>simple et rassurante.</p>
     </header>
 
-    <div class="taj-why-v3__pillars">
-      <article class="taj-why-v3__pillar">
-        <span class="taj-why-v3__pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false"><path d="M12 28.5c4.2-2.4 7.7-2.7 11.3-.7l3.4 1.9c1.7.9 1.9 3.2.4 4.4-1 .8-2.4.9-3.5.3l-5.4-2.8"/><path d="m26.8 30.1 8.7-4.9c2.5-1.4 4.7 2.2 2.4 3.9L26.6 37c-2.2 1.5-5 1.8-7.4.7l-7.2-3.2"/><path d="M12 26v11"/><path d="M26.5 11.2 28 8.5l1.6 2.7 3.1-.6-.4 3.1 2.7 1.6-2.7 1.6.4 3.1-3.1-.6-1.6 2.7-1.5-2.7-3.1.6.4-3.1-2.7-1.6 2.7-1.6-.4-3.1 3.1.6Z"/><circle cx="28" cy="15.3" r="2.7"/></svg>
-        </span>
-        <p class="taj-why-v3__pillar-label">AUTHENTICIT&Eacute;</p>
-        <h3>Terre cuite fa&ccedil;onn&eacute;e &agrave; la main</h3>
-        <p class="taj-why-v3__pillar-text">Chaque pi&egrave;ce est model&eacute;e par des artisans marocains. De l&eacute;g&egrave;res nuances, un caract&egrave;re unique, aucune pi&egrave;ce identique.</p>
-        <p class="taj-why-v3__pillar-proof"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m4.5 10.2 3.3 3.3 7.7-8"/></svg>Fa&ccedil;onn&eacute; en petites s&eacute;ries</p>
+    <div class="taj-benefices-final__grid" aria-label="Les avantages Tajinoos">
+      <article class="taj-benefices-final__item">
+        <p class="taj-benefices-final__label">AUTHENTICIT&Eacute;</p>
+        <h3>Fa&ccedil;onn&eacute; &agrave; la main<br>au Maroc</h3>
+        <p class="taj-benefices-final__copy">Chaque pi&egrave;ce poss&egrave;de ses propres<br>nuances et son caract&egrave;re.</p>
+        <p class="taj-benefices-final__proof">Petites s&eacute;ries artisanales</p>
       </article>
 
-      <article class="taj-why-v3__pillar">
-        <span class="taj-why-v3__pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false"><path d="M16 27h16c0 7-3.1 11-8 11s-8-4-8-11Z"/><path d="M13 27h22"/><path d="M20.5 22.5c-2.3-3-.9-5.5 1.2-7.8 1.7-1.9 2.6-3.3 2.3-5.2 4.4 3.5 7 7.4 3.6 12.6"/><path d="M23.4 23c-.8-1.8-.2-3.3 1.2-4.8"/></svg>
-        </span>
-        <p class="taj-why-v3__pillar-label">CUISSON &amp; USAGE</p>
-        <h3>Une chaleur douce et ma&icirc;tris&eacute;e</h3>
-        <p class="taj-why-v3__pillar-text">La terre cuite diffuse lentement la chaleur, concentre les ar&ocirc;mes et pr&eacute;serve la tendret&eacute; des aliments.</p>
-        <p class="taj-why-v3__pillar-proof"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m4.5 10.2 3.3 3.3 7.7-8"/></svg>Terre cuite naturelle</p>
+      <article class="taj-benefices-final__item">
+        <p class="taj-benefices-final__label">CUISSON MA&Icirc;TRIS&Eacute;E</p>
+        <h3>Une chaleur douce<br>et r&eacute;guli&egrave;re</h3>
+        <p class="taj-benefices-final__copy">La terre cuite concentre les ar&ocirc;mes<br>et pr&eacute;serve la tendret&eacute;.</p>
+        <p class="taj-benefices-final__proof">Terre cuite naturelle</p>
       </article>
 
-      <article class="taj-why-v3__pillar">
-        <span class="taj-why-v3__pillar-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false"><path d="M24 7.5 37 13v9.2c0 8.3-5.1 14.6-13 18.3-7.9-3.7-13-10-13-18.3V13l13-5.5Z"/><path d="m17.8 23.6 4.1 4.1 8.7-9.1"/></svg>
-        </span>
-        <p class="taj-why-v3__pillar-label">ACHAT RASSURANT</p>
-        <h3>Commande simple et humaine</h3>
-        <p class="taj-why-v3__pillar-text">Nous confirmons chaque commande avant l&rsquo;envoi. Vous payez &agrave; la livraison, sans paiement en ligne.</p>
-        <p class="taj-why-v3__pillar-proof"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m4.5 10.2 3.3 3.3 7.7-8"/></svg>Accompagnement jusqu&rsquo;&agrave; r&eacute;ception</p>
+      <article class="taj-benefices-final__item">
+        <p class="taj-benefices-final__label">UTILE &amp; D&Eacute;CORATIF</p>
+        <h3>Pens&eacute; pour cuisiner<br>et servir</h3>
+        <p class="taj-benefices-final__copy">Une pi&egrave;ce qui passe naturellement<br>de la cuisine &agrave; la table.</p>
+        <p class="taj-benefices-final__proof">Beau au quotidien</p>
+      </article>
+
+      <article class="taj-benefices-final__item">
+        <p class="taj-benefices-final__label">ACHAT RASSURANT</p>
+        <h3>Commande simple<br>et humaine</h3>
+        <p class="taj-benefices-final__copy">Confirmation avant exp&eacute;dition et<br>paiement &agrave; la livraison.</p>
+        <p class="taj-benefices-final__proof">Accompagn&eacute; jusqu&rsquo;&agrave; r&eacute;ception</p>
       </article>
     </div>
+  </div>
 
-    <section class="taj-why-v3__difference" aria-labelledby="taj-why-v3-difference-title">
-      <h3 id="taj-why-v3-difference-title">CE QUI FAIT<br>LA DIFF&Eacute;RENCE</h3>
-      <ul>
-        <li><span aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5 10.2 3 3 7-7"/></svg></span><strong>Fait main,<br>pas produit &agrave; la cha&icirc;ne</strong></li>
-        <li><span aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5 10.2 3 3 7-7"/></svg></span><strong>Terre cuite<br>naturelle et durable</strong></li>
-        <li><span aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5 10.2 3 3 7-7"/></svg></span><strong>Pi&egrave;ce utile<br>et d&eacute;corative</strong></li>
-        <li><span aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5 10.2 3 3 7-7"/></svg></span><strong>Confirmation humaine avant exp&eacute;dition</strong></li>
-      </ul>
-    </section>
+  <div class="taj-benefices-final__trust-wrap">
+    <ul class="taj-benefices-final__trust" aria-label="Garanties de commande">
+      <li><span aria-hidden="true">&#10003;</span>Paiement &agrave; la livraison</li>
+      <li><span aria-hidden="true">&#10003;</span>Confirmation WhatsApp</li>
+      <li><span aria-hidden="true">&#10003;</span>Livraison partout au Maroc</li>
+      <li><span aria-hidden="true">&#10003;</span>Garantie 7 jours</li>
+    </ul>
+  </div>
 
-    <div class="taj-why-v3__bottom">
-      <ul class="taj-why-v3__trust" aria-label="Garanties Tajinoos">
-        <li>
-          <span class="taj-why-v3__trust-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M4 9h19a3 3 0 0 1 3 3v14H7a3 3 0 0 1-3-3V9Z"/><path d="M7 9V6h16v6"/><path d="M21 15h8v7h-8a3.5 3.5 0 0 1 0-7Z"/><circle cx="22" cy="18.5" r=".8"/></svg></span>
-          <span>Paiement &agrave;<br>la livraison</span>
-        </li>
-        <li>
-          <span class="taj-why-v3__trust-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M16 4.5a11 11 0 0 0-9.4 16.7L5 27l5.9-1.5A11 11 0 1 0 16 4.5Z"/><path d="M12 10.5c.5 4.6 4.2 8.3 8.7 8.9"/><path d="m12 10.5 2.2-.8 1.6 3-1.5 1.2M20.7 19.4l.7-2.1-2.8-1.4-1.2 1.5"/></svg></span>
-          <span>Confirmation<br>WhatsApp</span>
-        </li>
-        <li>
-          <span class="taj-why-v3__trust-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M3 8h17v15H3zM20 13h5l4 5v5h-9z"/><circle cx="9" cy="25" r="2.5"/><circle cx="24.5" cy="25" r="2.5"/></svg></span>
-          <span>Livraison partout<br>au Maroc</span>
-        </li>
-        <li>
-          <span class="taj-why-v3__trust-icon" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="m16 3.5 10 4.2v7.1c0 6.4-3.9 11.3-10 14.2-6.1-2.9-10-7.8-10-14.2V7.7L16 3.5Z"/><path d="M12.7 11.5h6.6l-4.2 10"/></svg></span>
-          <span>Garantie<br>7 jours</span>
-        </li>
-      </ul>
-
-      <aside class="taj-why-v3__cta" aria-label="Commander le Tajinoos artisanal">
-        <div class="taj-why-v3__price">
-          <span>TAJINOOS ARTISANAL</span>
-          <strong>390 MAD</strong>
-          <a href="#produit">D&eacute;couvrir le produit</a>
-        </div>
-        <div class="taj-why-v3__action">
-          <a class="taj-why-v3__button" href="#commande" aria-label="Commander mon Tajinoos pour 390 MAD">COMMANDER MON TAJINOOS <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
-          <p><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Aucun paiement en ligne.<br>Nous vous contactons avant l&rsquo;exp&eacute;dition.</span></p>
-        </div>
-      </aside>
-    </div>
-
-    <span class="taj-why-v3__footer-rule" aria-hidden="true"></span>
+  <div class="taj-benefices-final__inner">
+    <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal">
+      <div class="taj-benefices-final__experience">
+        <p class="taj-benefices-final__cta-label">L&rsquo;EXP&Eacute;RIENCE TAJINOOS</p>
+        <p>Achat en toute confiance, de la commande &agrave; la r&eacute;ception.<br>Chaque tajine est v&eacute;rifi&eacute; avec soin et emball&eacute; avec attention.<br>Satisfait ou rembours&eacute; sous 7 jours.</p>
+      </div>
+      <span class="taj-benefices-final__cta-divider" aria-hidden="true"></span>
+      <a href="#commande" aria-label="Commander mon Tajinoos pour 390 MAD">COMMANDER MON TAJINOOS <strong>&mdash; 390 MAD</strong></a>
+    </aside>
   </div>
 </section>
 HTML;

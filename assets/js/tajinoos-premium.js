@@ -847,6 +847,53 @@
 (function () {
   'use strict';
 
+  var section = document.querySelector('#benefices.taj-benefices-final');
+
+  if (!section || document.body.classList.contains('elementor-editor-active')) {
+    return;
+  }
+
+  var targets = section.querySelectorAll([
+    '.taj-benefices-final__head > *',
+    '.taj-benefices-final__item',
+    '.taj-benefices-final__trust-wrap',
+    '.taj-benefices-final__cta > *'
+  ].join(','));
+
+  targets.forEach(function (element, index) {
+    element.classList.add('taj-benefices-reveal');
+    element.style.transitionDelay = Math.min(index * 42, 168) + 'ms';
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    targets.forEach(function (element) {
+      element.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -5% 0px',
+    threshold: 0.08
+  });
+
+  targets.forEach(function (element) {
+    observer.observe(element);
+  });
+})();
+
+(function () {
+  'use strict';
+
   var page = document.querySelector('.tajx');
 
   if (!page || document.body.classList.contains('elementor-editor-active')) {
