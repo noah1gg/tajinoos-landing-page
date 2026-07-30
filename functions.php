@@ -21,6 +21,7 @@ add_filter('wp_list_pages_excludes', 'tajinoos_child_exclude_thank_you_from_page
 add_filter('body_class', 'tajinoos_child_thank_you_body_class');
 add_filter('style_loader_src', 'tajinoos_child_page_13_relative_premium_css', 10, 2);
 add_filter('script_loader_src', 'tajinoos_child_page_13_relative_premium_js', 10, 2);
+add_filter('the_content', 'tajinoos_child_update_landing_navigation_labels', 20);
 add_filter('the_content', 'tajinoos_child_render_testimonials', 21);
 add_filter('the_content', 'tajinoos_child_render_reference_product_section', 23);
 add_filter('the_content', 'tajinoos_child_render_editorial_benefits_section', 24);
@@ -58,6 +59,11 @@ function tajinoos_child_page_13_relative_premium_js(string $src, string $handle)
 
 function tajinoos_child_enqueue_assets(): void
 {
+    $premium_css_path = get_stylesheet_directory() . '/assets/css/tajinoos-premium.css';
+    $premium_js_path = get_stylesheet_directory() . '/assets/js/tajinoos-premium.js';
+    $premium_css_version = is_file($premium_css_path) ? (string) filemtime($premium_css_path) : TAJINOOS_CHILD_VERSION;
+    $premium_js_version = is_file($premium_js_path) ? (string) filemtime($premium_js_path) : TAJINOOS_CHILD_VERSION;
+
     wp_enqueue_style(
         'tajinoos-fonts',
         'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap',
@@ -76,20 +82,22 @@ function tajinoos_child_enqueue_assets(): void
         'tajinoos-premium',
         get_stylesheet_directory_uri() . '/assets/css/tajinoos-premium.css',
         ['tajinoos-child-style', 'tajinoos-fonts'],
-        TAJINOOS_CHILD_VERSION
+        $premium_css_version
     );
 
     wp_enqueue_script(
         'tajinoos-premium',
         get_stylesheet_directory_uri() . '/assets/js/tajinoos-premium.js',
         [],
-        TAJINOOS_CHILD_VERSION,
+        $premium_js_version,
         true
     );
 
     wp_localize_script('tajinoos-premium', 'tajinoosOrder', [
         'ajaxUrl' => wp_make_link_relative(admin_url('admin-ajax.php')),
         'unitPrice' => tajinoos_get_order_unit_price(),
+        'marrakechDeliveryFee' => TAJINOOS_ORDER_MARRAKECH_DELIVERY_FEE,
+        'otherCityDeliveryFee' => TAJINOOS_ORDER_OTHER_CITY_DELIVERY_FEE,
         'processingLabel' => 'Traitement de votre commande…',
         'networkError' => 'Une erreur de connexion est survenue. Vérifiez votre connexion puis réessayez.',
         'genericError' => 'Nous n’avons pas pu enregistrer votre commande. Veuillez réessayer.',
@@ -137,12 +145,43 @@ function tajinoos_child_thank_you_body_class(array $classes): array
     return $classes;
 }
 
+function tajinoos_child_should_filter_landing_content(): bool
+{
+    if (is_page(13) && in_the_loop() && is_main_query()) {
+        return true;
+    }
+
+    return defined('REST_REQUEST')
+        && REST_REQUEST
+        && (int) get_the_ID() === 13;
+}
+
+function tajinoos_child_update_landing_navigation_labels(string $content): string
+{
+    if (!tajinoos_child_should_filter_landing_content()) {
+        return $content;
+    }
+
+    $content = preg_replace(
+        '~(<a\b[^>]*href=(["\'])#avis\2[^>]*>).*?(</a>)~si',
+        '$1Nos engagements$3',
+        $content
+    ) ?: $content;
+
+    return preg_replace(
+        '~<div\b[^>]*class=(["\'])[^"\']*\btajx-mobile-sticky\b[^"\']*\1[^>]*>.*?</div>~si',
+        '',
+        $content,
+        1
+    ) ?: $content;
+}
+
 /**
  * Replace only the landing page testimonials section while keeping its anchor.
  */
 function tajinoos_child_render_testimonials(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query() || strpos($content, 'id="avis"') === false) {
+    if (!tajinoos_child_should_filter_landing_content() || strpos($content, 'id="avis"') === false) {
         return $content;
     }
 
@@ -151,20 +190,20 @@ function tajinoos_child_render_testimonials(string $content): string
   <div class="tajx-wrap tajx-testimonials-inner" data-motion-group>
     <div class="tajx-testimonials-copy" data-motion="fade-up" data-motion-index="0">
       <div class="tajx-testimonials-labels">
-        <span class="tajx-eyebrow">AVIS CLIENTS</span>
-        <span class="tajx-testimonials-craft-badge"><span aria-hidden="true">✓</span> FAIT MAIN AU MAROC</span>
+        <span class="tajx-eyebrow">NOS ENGAGEMENTS</span>
+        <span class="tajx-testimonials-craft-badge"><span aria-hidden="true">✓</span> TRANSPARENCE TAJINOOS</span>
       </div>
-      <h2 id="tajx-testimonials-title">ILS ONT CHOISI LE TAJINE TAJINOOS</h2>
-      <p class="tajx-testimonials-lede">Des clients partout au Maroc découvrent une cuisson plus authentique, une table plus élégante et un tajine fait main qui dure dans le temps.</p>
+      <h2 id="tajx-testimonials-title">UNE COMMANDE SIMPLE, TRANSPARENTE ET ACCOMPAGNÉE.</h2>
+      <p class="tajx-testimonials-lede">De la vérification de chaque pièce à l’assistance après réception, nous vous expliquons clairement comment votre commande est préparée, livrée et suivie.</p>
 
-      <div class="tajx-testimonials-stats" aria-label="Chiffres clés">
-        <div class="tajx-testimonials-stat tajx-testimonials-rating">
-          <span class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</span>
-          <strong>4.9/5 <small>basé sur 120 avis</small></strong>
+      <div class="tajx-testimonials-stats" aria-label="Prix et paiement">
+        <div class="tajx-testimonials-stat">
+          <strong>249 MAD</strong>
+          <span>livré à Marrakech</span>
         </div>
         <div class="tajx-testimonials-stat">
-          <strong>120+</strong>
-          <span>Clients satisfaits</span>
+          <strong>269 MAD</strong>
+          <span>livré dans les autres villes</span>
         </div>
         <div class="tajx-testimonials-stat">
           <strong>Paiement</strong>
@@ -172,144 +211,113 @@ function tajinoos_child_render_testimonials(string $content): string
         </div>
       </div>
 
-      <a class="tajx-btn primary tajx-testimonials-cta" href="#commande">Commander mon Tajine — 390 MAD</a>
-      <p class="tajx-testimonials-reassurance">Livraison partout au Maroc <span>·</span> Paiement à la livraison <span>·</span> Garantie 7 jours</p>
+      <a class="tajx-btn primary tajx-testimonials-cta" href="#commande">COMMANDER MON TAJINOOS — 249 MAD</a>
+      <p class="tajx-testimonials-reassurance">Prix de lancement <span>·</span> Paiement à la livraison <span>·</span> Garantie 7 jours encadrée</p>
     </div>
 
     <div class="tajx-testimonials-showcase" data-motion="slide-left" data-motion-index="1">
-      <div class="tajx-reviews-marquee" aria-label="Avis de nos clients">
+      <div class="tajx-reviews-marquee" aria-label="Les engagements Tajinoos">
         <div class="tajx-reviews-track">
         <article class="tajx-review-card tajx-review-featured">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">SB</div>
-            <div class="tajx-review-person"><h3>Salma B.</h3><span>Marrakech</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>VÉRIFIÉ AVANT EXPÉDITION</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Contrôle qualité</span>
           </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>Le tajine est magnifique, lourd, bien fini et il donne tout de suite une présence premium sur la table.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Chaque pièce est contrôlée avant son emballage.</p>
         </article>
 
         <article class="tajx-review-card">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">YA</div>
-            <div class="tajx-review-person"><h3>Yassine A.</h3><span>Casablanca</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>EMBALLAGE RENFORCÉ</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Protection séparée</span>
           </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>Livraison rapide, confirmation par téléphone, et le produit est encore plus beau en vrai.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>La base et le couvercle sont protégés séparément.</p>
         </article>
 
         <article class="tajx-review-card">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">NL</div>
-            <div class="tajx-review-person"><h3>Nadia L.</h3><span>Marrakech</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>CONFIRMATION HUMAINE</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Avant expédition</span>
           </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>Je l’ai offert pour une nouvelle maison. La personne l’a gardé exposé dans la cuisine avant même de l’utiliser.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Nous confirmons votre commande avant l’expédition.</p>
         </article>
 
         <article class="tajx-review-card">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">HA</div>
-            <div class="tajx-review-person"><h3>Hicham A.</h3><span>Rabat</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>PAIEMENT À LA LIVRAISON</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Aucun paiement en ligne</span>
           </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>J’avais peur qu’un tajine décoratif soit fragile. La pièce est stable, lourde et bien finie.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Vous ne payez rien en ligne.</p>
         </article>
 
         <article class="tajx-review-card">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">IR</div>
-            <div class="tajx-review-person"><h3>Imane R.</h3><span>Fès</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>ASSISTANCE APRÈS RÉCEPTION</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Équipe disponible</span>
           </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>La cuisson lente donne vraiment un goût différent. On sent la différence avec un tajine industriel.</p>
-        </article>
-
-        <article class="tajx-review-card">
-          <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">MT</div>
-            <div class="tajx-review-person"><h3>Mehdi T.</h3><span>Agadir</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
-          </header>
-          <div class="tajx-review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p>Très bon rapport qualité/prix. Le paiement à la livraison m’a rassuré avant de commander.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Nous restons disponibles en cas de problème.</p>
         </article>
 
         <article class="tajx-review-card tajx-review-featured" aria-hidden="true">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">SB</div>
-            <div class="tajx-review-person"><h3>Salma B.</h3><span>Marrakech</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>VÉRIFIÉ AVANT EXPÉDITION</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Contrôle qualité</span>
           </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>Le tajine est magnifique, lourd, bien fini et il donne tout de suite une présence premium sur la table.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Chaque pièce est contrôlée avant son emballage.</p>
         </article>
 
         <article class="tajx-review-card" aria-hidden="true">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">YA</div>
-            <div class="tajx-review-person"><h3>Yassine A.</h3><span>Casablanca</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>EMBALLAGE RENFORCÉ</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Protection séparée</span>
           </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>Livraison rapide, confirmation par téléphone, et le produit est encore plus beau en vrai.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>La base et le couvercle sont protégés séparément.</p>
         </article>
 
         <article class="tajx-review-card" aria-hidden="true">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">NL</div>
-            <div class="tajx-review-person"><h3>Nadia L.</h3><span>Marrakech</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>CONFIRMATION HUMAINE</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Avant expédition</span>
           </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>Je l’ai offert pour une nouvelle maison. La personne l’a gardé exposé dans la cuisine avant même de l’utiliser.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Nous confirmons votre commande avant l’expédition.</p>
         </article>
 
         <article class="tajx-review-card" aria-hidden="true">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">HA</div>
-            <div class="tajx-review-person"><h3>Hicham A.</h3><span>Rabat</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>PAIEMENT À LA LIVRAISON</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Aucun paiement en ligne</span>
           </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>J’avais peur qu’un tajine décoratif soit fragile. La pièce est stable, lourde et bien finie.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Vous ne payez rien en ligne.</p>
         </article>
 
         <article class="tajx-review-card" aria-hidden="true">
           <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">IR</div>
-            <div class="tajx-review-person"><h3>Imane R.</h3><span>Fès</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
+            <div class="tajx-review-avatar" aria-hidden="true">✓</div>
+            <div class="tajx-review-person"><h3>ASSISTANCE APRÈS RÉCEPTION</h3><span>Engagement Tajinoos</span></div>
+            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Équipe disponible</span>
           </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>La cuisson lente donne vraiment un goût différent. On sent la différence avec un tajine industriel.</p>
+          <div class="tajx-review-stars" aria-hidden="true">◆</div>
+          <p>Nous restons disponibles en cas de problème.</p>
         </article>
 
-        <article class="tajx-review-card" aria-hidden="true">
-          <header class="tajx-review-card-header">
-            <!-- Replace with WordPress Media Library image -->
-            <div class="tajx-review-avatar" aria-hidden="true">MT</div>
-            <div class="tajx-review-person"><h3>Mehdi T.</h3><span>Agadir</span></div>
-            <span class="tajx-review-badge"><span aria-hidden="true">✓</span> Acheteur vérifié</span>
-          </header>
-          <div class="tajx-review-stars">★★★★★</div>
-          <p>Très bon rapport qualité/prix. Le paiement à la livraison m’a rassuré avant de commander.</p>
-        </article>
         </div>
       </div>
     </div>
@@ -331,7 +339,7 @@ HTML;
  */
 function tajinoos_child_render_reference_product_section(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query() || strpos($content, 'id="produit"') === false) {
+    if (!tajinoos_child_should_filter_landing_content() || strpos($content, 'id="produit"') === false) {
         return $content;
     }
 
@@ -364,14 +372,25 @@ function tajinoos_child_render_reference_product_section(string $content): strin
 
       <div class="tajx-offer__price" aria-label="Prix de l'offre">
         <div class="tajx-offer__price-main">
-          <strong>390 MAD</strong>
-          <del>520 MAD</del>
+          <strong>249 MAD</strong>
+          <span>livré à Marrakech</span>
         </div>
         <div class="tajx-offer__price-meta">
-          <span>Offre limitée</span>
-          <em>Stock disponible cette semaine</em>
+          <span>PRIX DE LANCEMENT</span>
+          <strong>269 MAD</strong>
+          <em>livré dans les autres villes</em>
         </div>
       </div>
+
+      <dl class="tajx-product-facts" aria-label="Caractéristiques du Tajinoos Premium">
+        <div><dt>Diamètre</dt><dd>30 cm</dd></div>
+        <div><dt>Hauteur</dt><dd>Environ 25 cm</dd></div>
+        <div><dt>Poids</dt><dd>Environ 3 kg</dd></div>
+        <div><dt>Capacité</dt><dd>Environ 3,5 litres</dd></div>
+        <div><dt>Portions</dt><dd>4 à 6 personnes</dd></div>
+        <div><dt>Matière</dt><dd>Terre cuite artisanale</dd></div>
+        <div><dt>Usage</dt><dd>Cuisson lente et service à table</dd></div>
+      </dl>
 
       <div class="tajx-offer__features" aria-label="Avantages du produit">
         <article class="tajx-offer__feature">
@@ -379,8 +398,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7v4.5l-2 2V19h18v-2.5l-2-2V10a7 7 0 0 0-7-7Z"/><path d="M9 18V12a3 3 0 0 1 6 0v6"/></svg>
           </span>
           <div class="tajx-offer__feature-copy">
-            <h3>Fait main</h3>
-            <p>Chaque pièce est unique, réalisée avec soin par nos artisans.</p>
+            <h3>Gaz et four</h3>
+            <p>Montée progressive en température.</p>
           </div>
           <span class="tajx-offer__feature-chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
@@ -392,8 +411,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M7 12c0-3 2.5-5 5-5s5 2 5 5-2.5 5-5 5-5-2-5-5Z"/><path d="M12 2v4M12 18v4M4.2 4.2 7 7M17 17l2.8 2.8M2 12h4M18 12h4"/></svg>
           </span>
           <div class="tajx-offer__feature-copy">
-            <h3>Cuisson lente</h3>
-            <p>Le couvercle conique aide à préserver les saveurs.</p>
+            <h3>Plaque électrique</h3>
+            <p>Diffuseur recommandé.</p>
           </div>
           <span class="tajx-offer__feature-chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
@@ -405,8 +424,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7h16M6 7v10h12V7"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
           </span>
           <div class="tajx-offer__feature-copy">
-            <h3>Format familial</h3>
-            <p>Idéal pour les repas du quotidien et du week-end.</p>
+            <h3>Induction</h3>
+            <p>Adaptateur nécessaire.</p>
           </div>
           <span class="tajx-offer__feature-chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
@@ -418,8 +437,8 @@ function tajinoos_child_render_reference_product_section(string $content): strin
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7h16v10H4z"/><path d="m4 9 8 5 8-5"/></svg>
           </span>
           <div class="tajx-offer__feature-copy">
-            <h3>Livraison au Maroc</h3>
-            <p>Expédition suivie sous 2 à 4 jours.</p>
+            <h3>Entretien</h3>
+            <p>Lavage à la main recommandé.</p>
           </div>
           <span class="tajx-offer__feature-chevron" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
@@ -431,11 +450,11 @@ function tajinoos_child_render_reference_product_section(string $content): strin
         <span class="tajx-offer__cta-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M6 8h12l-1 10H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
         </span>
-        <span>RÉSERVER MON TAJINOOS</span>
+        <span>COMMANDER MON TAJINOOS &mdash; 249 MAD</span>
         <span class="tajx-offer__cta-arrow" aria-hidden="true">→</span>
       </a>
 
-      <p class="tajx-offer__reassurance">Satisfait ou remboursé • Assistance rapide</p>
+      <p class="tajx-offer__reassurance">Produit contrôlé avant expédition • Assistance après réception</p>
     </div>
   </div>
 
@@ -470,13 +489,25 @@ function tajinoos_child_render_reference_product_section(string $content): strin
           <span class="tajp-mobile__spec-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="7" r="2.5"/><circle cx="5.5" cy="9" r="2"/><circle cx="18.5" cy="9" r="2"/><path d="M7.5 19v-4.2a4.5 4.5 0 0 1 9 0V19M2.5 18v-3.1a3 3 0 0 1 4.5-2.6M21.5 18v-3.1a3 3 0 0 0-4.5-2.6"/></svg>
           </span>
-          <span class="tajp-mobile__spec-copy"><small>CAPACIT&Eacute;</small><strong>4&ndash;6 <em>PERSONNES</em></strong></span>
+          <span class="tajp-mobile__spec-copy"><small>PORTIONS</small><strong>4&ndash;6 <em>PERSONNES</em></strong></span>
         </div>
         <div class="tajp-mobile__spec">
           <span class="tajp-mobile__spec-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false"><path d="M20 4C12 4 6.5 8.7 6.5 15.3c0 2.3 1.7 4.2 4 4.2C17 19.5 20 12 20 4Z"/><path d="M4 21c3.2-5.2 7.1-8.7 12.2-11.2"/></svg>
           </span>
-          <span class="tajp-mobile__spec-copy"><small>MATI&Egrave;RE</small><strong>ARGILE <em>NATURELLE</em></strong></span>
+          <span class="tajp-mobile__spec-copy"><small>MATI&Egrave;RE</small><strong>TERRE CUITE <em>ARTISANALE</em></strong></span>
+        </div>
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">↕</span>
+          <span class="tajp-mobile__spec-copy"><small>HAUTEUR</small><strong>ENVIRON 25 CM</strong></span>
+        </div>
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">≈</span>
+          <span class="tajp-mobile__spec-copy"><small>POIDS</small><strong>ENVIRON 3 KG</strong></span>
+        </div>
+        <div class="tajp-mobile__spec">
+          <span class="tajp-mobile__spec-icon" aria-hidden="true">◇</span>
+          <span class="tajp-mobile__spec-copy"><small>CAPACIT&Eacute;</small><strong>ENVIRON 3,5 L</strong></span>
         </div>
       </div>
     </figure>
@@ -533,19 +564,19 @@ function tajinoos_child_render_reference_product_section(string $content): strin
     <div class="tajp-mobile__offer" aria-label="Offre Tajinoos Premium" data-motion="fade-up" data-motion-index="4">
       <div class="tajp-mobile__prices">
         <div class="tajp-mobile__old-price">
-          <span>PRIX HABITUEL</span>
-          <del>520 MAD</del>
+          <span>MARRAKECH</span>
+          <strong>249 <small>MAD</small></strong>
         </div>
         <div class="tajp-mobile__current-price">
-          <span>AUJOURD&rsquo;HUI</span>
-          <strong>390 <small>MAD</small></strong>
+          <span>AUTRES VILLES</span>
+          <strong>269 <small>MAD</small></strong>
         </div>
-        <span class="tajp-mobile__urgency">OFFRE LIMIT&Eacute;E</span>
+        <span class="tajp-mobile__urgency">PRIX DE LANCEMENT</span>
       </div>
 
       <a class="tajp-mobile__cta" href="#commande">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 7H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
-        <span>COMMANDER MON TAJINOOS</span>
+        <span>COMMANDER MON TAJINOOS — 249 MAD</span>
       </a>
       <p class="tajp-mobile__payment-note">Paiement &agrave; la r&eacute;ception</p>
     </div>
@@ -574,7 +605,7 @@ HTML;
 
 function tajinoos_child_render_editorial_benefits_section(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query() || strpos($content, 'id="benefices"') === false) {
+    if (!tajinoos_child_should_filter_landing_content() || strpos($content, 'id="benefices"') === false) {
         return $content;
     }
 
@@ -626,7 +657,7 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     <ul class="taj-benefices-final__trust" aria-label="Garanties de commande">
       <li><span aria-hidden="true">&#10003;</span>Paiement &agrave; la livraison</li>
       <li><span aria-hidden="true">&#10003;</span>Confirmation WhatsApp</li>
-      <li><span aria-hidden="true">&#10003;</span>Livraison partout au Maroc</li>
+      <li><span aria-hidden="true">&#10003;</span>Marrakech gratuite · autres villes 20 MAD</li>
       <li><span aria-hidden="true">&#10003;</span>Garantie 7 jours</li>
     </ul>
   </div>
@@ -635,10 +666,10 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal" data-motion="fade-up">
       <div class="taj-benefices-final__experience">
         <p class="taj-benefices-final__cta-label">L&rsquo;EXP&Eacute;RIENCE TAJINOOS</p>
-        <p>Achat en toute confiance, de la commande &agrave; la r&eacute;ception.<br>Chaque tajine est v&eacute;rifi&eacute; avec soin et emball&eacute; avec attention.<br>Satisfait ou rembours&eacute; sous 7 jours.</p>
+        <p>Achat en toute confiance, de la commande &agrave; la r&eacute;ception.<br>Chaque tajine est v&eacute;rifi&eacute; avec soin et emball&eacute; avec attention.<br>Garantie 7 jours selon les conditions indiqu&eacute;es dans la FAQ.</p>
       </div>
       <span class="taj-benefices-final__cta-divider" aria-hidden="true"></span>
-      <a href="#commande" aria-label="Commander mon Tajinoos pour 390 MAD">COMMANDER MON TAJINOOS <strong>&mdash; 390 MAD</strong></a>
+      <a href="#commande" aria-label="Commander mon Tajinoos à partir de 249 MAD">COMMANDER MON TAJINOOS <strong>&mdash; 249 MAD</strong></a>
     </aside>
   </div>
 </section>
@@ -655,7 +686,7 @@ HTML;
 
 function tajinoos_child_render_final_hero_faq_sections(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query()) {
+    if (!tajinoos_child_should_filter_landing_content()) {
         return $content;
     }
 
@@ -670,12 +701,14 @@ function tajinoos_child_render_final_hero_faq_sections(string $content): string
 
     <div class="taj-final-faq__layout" data-motion-group>
       <div class="taj-final-faq__list" data-motion="fade-up" data-motion-index="0">
-        <details><summary>Comment entretenir mon tajine avant la première utilisation ?</summary><p>Rincez-le doucement, laissez-le sécher complètement, puis huilez légèrement l'intérieur avant la première cuisson.</p></details>
-        <details><summary>Combien de temps prend la livraison ?</summary><p>La livraison est généralement effectuée sous 48H après confirmation de votre commande par téléphone.</p></details>
-        <details><summary>Le tajine peut-il aller au lave-vaisselle ?</summary><p>Nous recommandons un lavage à la main avec une éponge douce afin de préserver la terre cuite et la finition artisanale.</p></details>
-        <details><summary>Puis-je retourner le produit s'il ne me convient pas ?</summary><p>Oui, vous bénéficiez d'une garantie de 7 jours. Notre équipe vous accompagne si le produit ne correspond pas à vos attentes.</p></details>
-        <details><summary>Quels types de feux sont compatibles ?</summary><p>Le tajine peut être utilisé sur gaz, au four et au charbon avec une chauffe progressive et adaptée à la terre cuite.</p></details>
-        <details><summary>Le produit est-il garanti ?</summary><p>Oui, chaque pièce est vérifiée avant expédition et couverte par notre garantie satisfaction de 7 jours.</p></details>
+        <details><summary>Comment préparer le tajine avant la première utilisation ?</summary><p>1. Faites tremper la base et le couvercle dans l’eau pendant une nuit.<br>2. Laissez sécher naturellement.<br>3. Appliquez une fine couche d’huile alimentaire à l’intérieur.<br>4. Chauffez progressivement à basse température.<br>5. Laissez refroidir complètement avant le nettoyage.</p></details>
+        <details><summary>Quelles sources de chaleur sont compatibles ?</summary><p>Compatible avec le gaz à feu doux ; un diffuseur de chaleur est recommandé.<br><br>Compatible avec le four avec une montée progressive en température : placez le tajine dans un four froid avant de commencer la cuisson.<br><br>Compatible avec une plaque électrique classique uniquement à faible puissance et avec un diffuseur.<br><br>Non compatible directement avec l’induction : un disque adaptateur compatible est nécessaire.</p></details>
+        <details><summary>Quels sont les prix et délais de livraison ?</summary><p><strong>Marrakech :</strong> 249 MAD livré, livraison gratuite sous 24 heures maximum.<br><br><strong>Autres villes du Maroc :</strong> 269 MAD livré, dont 20 MAD de livraison. Délai estimé de 3 à 6 jours ouvrables.</p></details>
+        <details><summary>Que faire si le produit arrive cassé ou endommagé ?</summary><p>Contactez-nous dans les 24 heures suivant la réception. Envoyez des photos claires du produit, du carton, des protections intérieures et de l’étiquette de livraison. Après vérification, Tajinoos prend en charge gratuitement le remplacement du produit ou son remboursement.</p></details>
+        <details><summary>Que couvre la garantie 7 jours ?</summary><p><strong>La garantie couvre :</strong> un défaut de fabrication, un produit non conforme à la commande ou un dommage constaté à la réception.<br><br><strong>Elle ne couvre pas :</strong> une chute ou un choc après réception, une mauvaise utilisation, un choc thermique, une source de chaleur incompatible, ni les variations naturelles de couleur ou de finition liées au travail artisanal.</p></details>
+        <details><summary>Qui prend en charge les frais de retour ?</summary><p><strong>Produit cassé, défectueux ou incorrect :</strong> les frais sont pris en charge par Tajinoos.<br><br><strong>Changement d’avis :</strong> les frais de retour sont à la charge du client, à condition que le produit soit inutilisé, intact et conservé dans son emballage d’origine.</p></details>
+        <details><summary>Comment le Tajinoos est-il emballé ?</summary><p>Emballage renforcé avec carton rigide, protection séparée de la base et du couvercle, calage intérieur pour limiter les mouvements et indication « Fragile ».</p></details>
+        <details><summary>Comment nettoyer le Tajinoos ?</summary><p>Lavage à la main recommandé afin de préserver la terre cuite et la finition artisanale. Évitez les chocs thermiques et laissez le tajine refroidir complètement avant le nettoyage.</p></details>
       </div>
 
       <aside class="taj-final-support" aria-label="Support Tajinoos" data-motion="fade-up" data-motion-index="1">
@@ -705,7 +738,7 @@ HTML;
 
 function tajinoos_child_render_reference_match_hero(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query()) {
+    if (!tajinoos_child_should_filter_landing_content()) {
         return $content;
     }
 
@@ -719,25 +752,25 @@ function tajinoos_child_render_reference_match_hero(string $content): string
 
       <div class="taj-clean-hero__price" aria-label="Prix de l'offre Tajinoos">
         <div class="taj-clean-hero__price-main">
-          <strong>390 <span class="taj-clean-hero__currency">MAD</span></strong>
-          <span>au lieu de <del>520 MAD</del></span>
+          <strong>249 <span class="taj-clean-hero__currency">MAD</span></strong>
+          <span>livré à Marrakech</span>
         </div>
         <div class="taj-clean-hero__price-offer">
-          <em>OFFRE LIMIT&Eacute;E</em>
-          <strong>130 MAD</strong>
-          <span>DE R&Eacute;DUCTION</span>
+          <em>PRIX DE LANCEMENT</em>
+          <strong>269 <span class="taj-clean-hero__currency">MAD</span></strong>
+          <span>LIVRÉ DANS LES AUTRES VILLES</span>
         </div>
       </div>
 
       <div class="taj-clean-hero__actions">
-        <a class="taj-clean-hero__primary" href="#commande">COMMANDER MAINTENANT &mdash; 390 MAD</a>
+        <a class="taj-clean-hero__primary" href="#commande">COMMANDER MON TAJINOOS &mdash; 249 MAD</a>
         <a class="taj-clean-hero__secondary" href="#produit">EN SAVOIR PLUS</a>
       </div>
 
       <div class="taj-clean-hero__trust" aria-label="Les garanties Tajinoos">
         <span class="taj-clean-hero__trust-delivery">
           <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3 6h10v9h1.2a3 3 0 0 1 5.6 0H21v-4.1L18.4 8H15V6h4.3L23 10.1V17h-3.2a3 3 0 0 1-5.6 0H9.8a3 3 0 0 1-5.6 0H1V6h2Zm3 10.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0Zm10 0a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0ZM3 8v7h1.2a3 3 0 0 1 5.6 0H11V8H3Z"/></svg>
-          Livraison partout au Maroc
+          Marrakech gratuite · autres villes 20 MAD
         </span>
         <span class="taj-clean-hero__trust-payment">
           <svg class="taj-clean-hero__trust-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 4h14V7H5v2Zm0 2v6h14v-6H5Zm2 3h5v2H7v-2Z"/></svg>
@@ -791,7 +824,7 @@ HTML;
  */
 function tajinoos_child_render_command_rebuild_section(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query() || strpos($content, 'id="commande"') === false) {
+    if (!tajinoos_child_should_filter_landing_content() || strpos($content, 'id="commande"') === false) {
         return $content;
     }
 
@@ -817,7 +850,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         </div>
 
         <div class="tajcmd-product__content">
-          <span class="tajcmd-product__badge">OFFRE LIMIT&Eacute;E</span>
+          <span class="tajcmd-product__badge">PRIX DE LANCEMENT</span>
           <h3 id="tajcmd-product-title">TAJINOOS PREMIUM</h3>
           <p class="tajcmd-product__mobile-kicker">Tajine artisanal</p>
           <p class="tajcmd-product__price"><strong>%%TAJINOOS_UNIT_PRICE%%</strong><span>MAD</span><small>Prix unitaire</small></p>
@@ -833,7 +866,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
             <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11.5V8a2 2 0 0 1 4 0v3"/><path d="M11 10V6.5a2 2 0 0 1 4 0V12"/><path d="M15 11V8.5a2 2 0 0 1 4 0v5.2c0 4.3-2.8 7.3-7.1 7.3H10a6 6 0 0 1-4.8-2.4L3 15.5a1.9 1.9 0 0 1 3-2.3l1.6 1.9"/></svg></span><strong>Fait main</strong><small>Chaque pi&egrave;ce est unique, r&eacute;alis&eacute;e avec soin.</small></li>
             <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 9h10l-1 9H8L7 9Z"/><path d="M5 9h14"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/><path d="M9 4c-.8-.8-.8-1.6 0-2.4"/><path d="M13 4c-.8-.8-.8-1.6 0-2.4"/></svg></span><strong>Cuisson lente</strong><small>Le couvercle conique aide &agrave; pr&eacute;server les saveurs.</small></li>
             <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h14.5A2.5 2.5 0 0 1 21 10v7a2.5 2.5 0 0 1-2.5 2.5h-12A2.5 2.5 0 0 1 4 17V7.5Z"/><path d="M4 8l10.5-3.5A2 2 0 0 1 17 6.4V8"/><path d="M16 13.5h5"/><path d="M17.5 13.5h.1"/></svg></span><strong>Paiement &agrave; la livraison</strong><small>R&eacute;glez en toute s&eacute;r&eacute;nit&eacute; &agrave; la r&eacute;ception.</small></li>
-            <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><strong>Livraison au Maroc</strong><small>Rapide, s&eacute;curis&eacute;e et suivie partout au Maroc.</small></li>
+            <li><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><strong>Livraison claire</strong><small>Gratuite à Marrakech ; 20 MAD dans les autres villes.</small></li>
           </ul>
         </div>
       </article>
@@ -843,6 +876,8 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         <input type="hidden" name="action" value="tajinoos_submit_order">
         <input type="hidden" name="Source" value="%%TAJINOOS_ORDER_SOURCE%%">
         <input type="hidden" name="Prix_unitaire" value="%%TAJINOOS_UNIT_PRICE%%">
+        <input type="hidden" name="Sous_total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-subtotal-input>
+        <input type="hidden" name="Frais_livraison" value="0" data-tajcmd-delivery-input>
         <input type="hidden" name="Total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-total-input>
 
         <header class="tajcmd-form__head">
@@ -862,9 +897,15 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
             </label>
           </div>
 
-          <label class="tajcmd-field tajcmd-field--full">VILLE &amp; ADRESSE DE LIVRAISON
-            <input name="Adresse" required type="text" maxlength="300" placeholder="Votre ville et adresse compl&egrave;te..." autocomplete="street-address">
-          </label>
+          <div class="tajcmd-form__row">
+            <label class="tajcmd-field">VILLE DE LIVRAISON
+              <input name="Ville" required type="text" maxlength="80" placeholder="Ex: Marrakech, Rabat..." autocomplete="address-level2" data-tajcmd-city>
+              <small>Marrakech : livraison gratuite · autres villes : 20 MAD</small>
+            </label>
+            <label class="tajcmd-field">ADRESSE DE LIVRAISON
+              <input name="Adresse" required type="text" maxlength="300" placeholder="Quartier, rue, résidence..." autocomplete="street-address">
+            </label>
+          </div>
 
           <div class="tajcmd-form__row tajcmd-form__row--compact">
             <label class="tajcmd-field">QUANTIT&Eacute;
@@ -888,19 +929,29 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
             <textarea name="Message" rows="3" maxlength="1000" placeholder="Pr&eacute;cisez un horaire de rappel, un d&eacute;tail de livraison..."></textarea>
           </label>
 
+          <div class="tajcmd-pricing-guide" aria-label="Détail des prix">
+            <span>Prix du Tajinoos <strong>%%TAJINOOS_UNIT_PRICE%% MAD</strong></span>
+            <span>Livraison à Marrakech <strong>Gratuite</strong></span>
+            <span>Livraison autres villes <strong>20 MAD</strong></span>
+          </div>
+
           <div class="tajcmd-action">
-            <div class="tajcmd-total" aria-label="Total &agrave; payer">
-              <span class="tajcmd-total__meta"><strong>TOTAL &Agrave; PAYER</strong><small>Frais de livraison inclus</small></span>
+            <div class="tajcmd-total" aria-label="Total &agrave; payer" aria-live="polite" aria-atomic="true">
+              <span class="tajcmd-total__meta">
+                <strong>TOTAL &Agrave; PAYER</strong>
+                <small>Sous-total : <span data-tajcmd-product-subtotal>%%TAJINOOS_UNIT_PRICE%%</span> MAD · Livraison : <span data-tajcmd-delivery-fee>Gratuite</span></small>
+              </span>
               <strong class="tajcmd-total__price"><span data-tajcmd-form-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-total__currency"> MAD</span></strong>
             </div>
 
-            <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINE</span> <span class="tajcmd-submit__separator" aria-hidden="true">&mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
+            <button class="tajx-submit tajcmd-submit" type="submit"><span class="tajcmd-submit__label">COMMANDER MON TAJINOOS</span> <span class="tajcmd-submit__separator" aria-hidden="true">&mdash;</span> <span class="tajcmd-submit__price"><span data-tajcmd-cta-total>%%TAJINOOS_UNIT_PRICE%%</span><span class="tajcmd-submit__currency"> MAD</span></span> <span class="tajcmd-submit__arrow" aria-hidden="true">&rarr;</span></button>
+            <p class="screen-reader-text" data-tajcmd-price-live aria-live="polite" aria-atomic="true"></p>
           </div>
 
           <div class="tajcmd-reassurance" aria-label="Garanties de commande">
             <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span><span class="tajcmd-reassurance__label">Paiement &agrave; la livraison</span></span>
             <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-3l-4 3v-3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 10h8"/><path d="M8 13h5"/></svg></span><span class="tajcmd-reassurance__label">Confirmation t&eacute;l&eacute;phonique</span></span>
-            <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><span class="tajcmd-reassurance__label">Livraison au Maroc</span></span>
+            <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><span class="tajcmd-reassurance__label">Marrakech 0 MAD · autres villes 20 MAD</span></span>
           </div>
         </div>
       </form>
@@ -932,7 +983,7 @@ HTML;
  */
 function tajinoos_child_add_landing_motion_attributes(string $content): string
 {
-    if (!is_page(13) || !in_the_loop() || !is_main_query()) {
+    if (!tajinoos_child_should_filter_landing_content()) {
         return $content;
     }
 

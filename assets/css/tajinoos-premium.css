@@ -15444,7 +15444,7 @@ html body.page-id-13 #produit .tajx-product-premium__price strong {
 }
 
 html body.page-id-13 #produit .tajx-product-premium__price strong::before {
-  content: "390" !important;
+  content: "249" !important;
   color: #f4d38a !important;
   font: 760 clamp(70px, 6vw, 96px)/.84 "Cormorant Garamond", Georgia, serif !important;
   letter-spacing: -0.045em !important;
@@ -16742,7 +16742,7 @@ html body.page-id-13 #produit .tajx-product-premium__trust-item:nth-child(1)::af
 }
 
 html body.page-id-13 #produit .tajx-product-premium__trust-item:nth-child(2)::after {
-  content: "Satisfait ou rembours\00E9  / \00E9 chang\00E9  sans complication." !important;
+  content: "Garantie 7 jours selon les conditions indiqu\00E9 es dans la FAQ." !important;
 }
 
 html body.page-id-13 #produit .tajx-product-premium__trust-item:has(p)::after {
@@ -31580,9 +31580,19 @@ html body.page-id-13.has-tajx-page {
   --taj-commerce-icon-bg: #fff0e2;
   --taj-commerce-border: rgba(157, 82, 43, .18);
   --taj-commerce-border-hover: rgba(220, 75, 28, .34);
-  --taj-commerce-shadow: 0 10px 26px rgba(78, 35, 18, .075), inset 0 1px rgba(255, 255, 255, .9);
-  --taj-commerce-shadow-hover: 0 16px 34px rgba(78, 35, 18, .12), inset 0 1px rgba(255, 255, 255, .94);
-  --taj-commerce-radius: 16px;
+  --taj-commerce-shadow-soft: 0 8px 22px rgba(78, 35, 18, .065), inset 0 1px rgba(255, 255, 255, .9);
+  --taj-commerce-shadow: 0 14px 34px rgba(78, 35, 18, .09), inset 0 1px rgba(255, 255, 255, .92);
+  --taj-commerce-shadow-hover: 0 18px 42px rgba(78, 35, 18, .13), inset 0 1px rgba(255, 255, 255, .94);
+  --taj-commerce-radius: 18px;
+  --taj-commerce-button-radius: 12px;
+  --taj-commerce-section-space: clamp(68px, 5.6vw, 88px);
+  --taj-commerce-section-space-compact: clamp(52px, 4.2vw, 68px);
+  --taj-commerce-content-gap: clamp(28px, 3.4vw, 52px);
+  --taj-commerce-heading-leading: .96;
+  --taj-commerce-body-leading: 1.62;
+  --taj-commerce-label-size: clamp(10.5px, .76vw, 12px);
+  --taj-commerce-body-size: clamp(14px, .96vw, 15.5px);
+  --taj-commerce-small-size: clamp(11px, .78vw, 12.5px);
 }
 
 /* Marked heritage benefits: calm editorial proof list. */
@@ -31826,12 +31836,909 @@ html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--pr
   background: transparent !important;
   color: #4f2a20 !important;
   box-shadow: none !important;
-  font-size: 10px !important;
+  font-size: 10.5px !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;
   text-align: left !important;
   white-space: normal !important;
   text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  html body.page-id-13.has-tajx-page {
+    --tajx-space-section: var(--taj-commerce-section-space);
+    --tajx-space-dense: var(--taj-commerce-section-space-compact);
+    --tajx-space-large: var(--taj-commerce-section-space-compact);
+  }
+
+  /* Shared desktop rhythm and quiet section transitions. */
+  html body.page-id-13.has-tajx-page #heritage,
+  html body.page-id-13.has-tajx-page #artisanat,
+  html body.page-id-13.has-tajx-page #produit,
+  html body.page-id-13.has-tajx-page #avis,
+  html body.page-id-13.has-tajx-page #faq,
+  html body.page-id-13.has-tajx-page #commande,
+  html body.page-id-13.has-tajx-page .tajx-footer {
+    scroll-margin-top: 82px;
+    border-top: 1px solid rgba(126, 72, 42, .13);
+  }
+
+  html body.page-id-13.has-tajx-page #heritage,
+  html body.page-id-13.has-tajx-page #artisanat,
+  html body.page-id-13.has-tajx-page #avis {
+    padding-top: var(--taj-commerce-section-space);
+    padding-bottom: var(--taj-commerce-section-space);
+  }
+
+  /* Navbar: clearer navigation density and a calmer hero handoff. */
+  html body.page-id-13.has-tajx-page .tajx-navbar,
+  html body.page-id-13.has-tajx-page .entry-content .tajx-navbar {
+    min-height: 78px !important;
+    height: 78px !important;
+    gap: clamp(22px, 2.2vw, 34px) !important;
+    padding: 9px clamp(34px, 4vw, 64px) !important;
+    border-bottom-color: rgba(255, 126, 55, .18) !important;
+    box-shadow: 0 10px 28px rgba(43, 3, 8, .24), inset 0 -1px rgba(255, 135, 64, .1) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-navbar-brand {
+    height: 54px !important;
+    padding: 1px 8px 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu {
+    gap: clamp(13px, 1.2vw, 19px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu > a:not(.tajx-navbar-cta) {
+    min-height: 52px !important;
+    padding: 9px 3px !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    font-weight: 720 !important;
+    line-height: 1.25 !important;
+    letter-spacing: .006em !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu > a:not(.tajx-navbar-cta):hover,
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu > a:not(.tajx-navbar-cta):focus-visible,
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu > a.is-active:not(.tajx-navbar-cta) {
+    background: rgba(255, 255, 255, .045) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-navbar-cta,
+  html body.page-id-13.has-tajx-page .tajx-navbar-menu .tajx-navbar-cta {
+    min-height: 48px !important;
+    height: 48px !important;
+    padding-inline: 25px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+    font-size: 13px !important;
+    box-shadow: 0 10px 24px rgba(217, 74, 22, .26), inset 0 1px rgba(255, 255, 255, .2) !important;
+  }
+
+  /* Hero: preserve the split composition while opening the text rhythm. */
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__inner {
+    gap: clamp(42px, 4.4vw, 64px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__copy {
+    max-width: 560px !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__eyebrow {
+    margin-bottom: 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero h1 {
+    margin-bottom: 14px !important;
+    font-size: clamp(66px, 5vw, 74px) !important;
+    line-height: .91 !important;
+    letter-spacing: -.024em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__lead {
+    max-width: 490px !important;
+    margin-top: 0 !important;
+    font-size: var(--taj-commerce-body-size) !important;
+    line-height: 1.58 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price {
+    width: min(100%, 480px) !important;
+    min-height: 116px !important;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important;
+    gap: 0 !important;
+    margin-top: 18px !important;
+    padding: 16px 18px !important;
+    border-color: rgba(255, 220, 154, .3) !important;
+    border-radius: var(--taj-commerce-radius) !important;
+    background:
+      radial-gradient(240px 105px at 12% 0%, rgba(255, 220, 148, .22), transparent 70%),
+      linear-gradient(135deg, #8f2b17 0%, #6f1e16 52%, #54131a 100%) !important;
+    box-shadow:
+      0 14px 30px rgba(47, 8, 12, .2),
+      inset 0 1px rgba(255, 235, 190, .2) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-main,
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+    min-height: 82px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-main {
+    padding: 0 18px 0 4px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer {
+    padding: 0 4px 0 18px !important;
+    border-left-color: rgba(255, 222, 160, .25) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-main strong {
+    font-family: Manrope, sans-serif !important;
+    font-size: clamp(42px, 3.25vw, 48px) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -.035em !important;
+    text-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer strong {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: clamp(36px, 2.75vw, 42px) !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -.035em !important;
+    text-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__currency {
+    position: static !important;
+    margin-left: 5px !important;
+    color: #efc47b !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: .38em !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: .01em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-main > span,
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer > span {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255, 241, 220, .82) !important;
+    font: 700 11.5px/1.3 Manrope, sans-serif !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer em {
+    min-height: 0 !important;
+    margin: 0 0 1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(242, 196, 121, .9) !important;
+    box-shadow: none !important;
+    font: 800 9px/1.2 Manrope, sans-serif !important;
+    letter-spacing: .14em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__price-offer em::before {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.42fr) minmax(176px, .72fr) !important;
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__primary,
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__secondary {
+    min-height: 54px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__trust {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1.35fr 1fr 1.1fr .85fr !important;
+    gap: 8px !important;
+    margin-top: 18px !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__trust span {
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    align-items: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__trust span::before {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__trust span::after {
+    left: 8px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #accueil.taj-clean-hero .taj-clean-hero__trust span.taj-clean-hero__trust-mobile {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #benefices .taj-benefits-orange__head {
+    padding-top: 18px !important;
+  }
+
+  /* Heritage: align the editorial columns and lighten the proof rows. */
+  html body.page-id-13.has-tajx-page #heritage .tajx-split {
+    gap: clamp(56px, 5.2vw, 76px) !important;
+    align-items: start !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-artisan {
+    overflow: hidden !important;
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: var(--taj-commerce-shadow) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-story-copy {
+    padding-top: 2px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-story-copy h2 {
+    max-width: 620px !important;
+    margin-bottom: 18px !important;
+    line-height: var(--taj-commerce-heading-leading) !important;
+    letter-spacing: -.022em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-story-copy p {
+    max-width: 61ch !important;
+    font-size: var(--taj-commerce-body-size) !important;
+    line-height: var(--taj-commerce-body-leading) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-checks {
+    margin-top: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #heritage .tajx-checks > span {
+    min-height: 58px !important;
+    grid-template-columns: 28px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 11px 0 13px !important;
+    font-size: 12.5px !important;
+    line-height: 1.38 !important;
+  }
+
+  /* Process: a shorter, more readable five-step timeline. */
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey {
+    padding-top: var(--taj-commerce-section-space-compact) !important;
+    padding-bottom: var(--taj-commerce-section-space-compact) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey::before,
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey::after {
+    opacity: .28 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title {
+    margin-bottom: 46px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title h2 {
+    line-height: var(--taj-commerce-heading-leading) !important;
+    letter-spacing: -.022em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey {
+    height: 430px !important;
+    min-height: 430px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    margin-bottom: 7px !important;
+    font-size: clamp(25px, 1.75vw, 28px) !important;
+    line-height: 1.08 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    max-width: 200px !important;
+    margin-inline: auto !important;
+    color: #685047 !important;
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Product: match image and content weight without hiding approved facts. */
+  html body.page-id-13.has-tajx-page #produit.tajx-offer {
+    padding-top: clamp(24px, 3vh, 36px) !important;
+    padding-bottom: clamp(24px, 3vh, 36px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__grid {
+    width: min(1200px, calc(100% - 48px)) !important;
+    grid-template-columns: minmax(420px, .44fr) minmax(560px, .56fr) !important;
+    gap: clamp(30px, 3vw, 42px) !important;
+    align-items: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__visual {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: clamp(560px, 68vh, 640px) !important;
+    align-self: center !important;
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .24) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__product {
+    width: min(72%, 380px) !important;
+    max-height: calc(100% - 104px) !important;
+    margin-top: 22px !important;
+    transform: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__trust {
+    right: 14px !important;
+    bottom: 12px !important;
+    left: 14px !important;
+    height: 54px !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__trust-item strong {
+    font-size: 11px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__trust-item span {
+    font-size: 11.5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__content {
+    width: 100% !important;
+    max-width: 650px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__eyebrow {
+    min-height: 28px !important;
+    margin-bottom: 6px !important;
+    padding: 4px 12px !important;
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__title {
+    margin-bottom: 6px !important;
+    font-size: clamp(34px, 2.7vw, 40px) !important;
+    line-height: .9 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__subtitle {
+    max-width: 64ch !important;
+    margin-top: 6px !important;
+    font-size: 15.5px !important;
+    line-height: 1.42 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price {
+    min-height: 70px !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
+    gap: 0 !important;
+    margin-top: 12px !important;
+    padding: 10px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price::before {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-main,
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta {
+    min-height: 48px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-main {
+    padding-right: 16px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta {
+    grid-column: 2 !important;
+    padding-left: 16px !important;
+    border-left: 1px solid rgba(58, 35, 15, .22) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-main strong,
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta strong {
+    color: #1f1009 !important;
+    font-family: Manrope, sans-serif !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    letter-spacing: -.025em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-main strong {
+    font-size: 29px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta strong {
+    font-size: 26px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-main > span,
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta > em {
+    margin: 0 !important;
+    color: rgba(35, 19, 9, .76) !important;
+    font: 700 15px/1.25 Manrope, sans-serif !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__price-meta > span {
+    margin-bottom: 1px !important;
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .11em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts {
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    margin: 10px 0 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts > div:nth-child(-n+5) {
+    grid-column: span 3 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts > div:nth-child(6) {
+    grid-column: span 4 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts > div {
+    min-height: 49px !important;
+    display: grid !important;
+    align-content: center !important;
+    padding: 6px 8px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts > div:nth-child(7) {
+    grid-column: span 5 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts dt {
+    font-size: 9.5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-product-facts dd {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature {
+    min-height: 54px !important;
+    grid-template-columns: 9px minmax(0, 1fr) !important;
+    gap: 9px !important;
+    padding: 5px 10px !important;
+    border-radius: 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-icon {
+    width: 9px !important;
+    height: 9px !important;
+    border: 0 !important;
+    background: #d99954 !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-icon svg {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-copy h3,
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature p {
+    display: inline !important;
+    font-family: Manrope, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.25 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-copy h3 {
+    font-weight: 800 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-copy h3::after {
+    content: " :";
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__feature-copy p {
+    margin-left: 3px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__cta {
+    min-height: 54px !important;
+    height: 54px !important;
+    margin-top: 12px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+    font-size: 13px !important;
+    box-shadow: 0 11px 24px rgba(184, 57, 17, .22) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #produit .tajx-offer__reassurance {
+    margin-top: 5px !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+    letter-spacing: .045em !important;
+  }
+
+  /* Engagements: compact intro plus a balanced 3 + 2 commitment grid. */
+  html body.page-id-13.has-tajx-page #avis.tajx-testimonials {
+    padding-top: var(--taj-commerce-section-space) !important;
+    padding-bottom: var(--taj-commerce-section-space) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis.tajx-testimonials::before {
+    opacity: .2 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-inner {
+    grid-template-columns: 1fr !important;
+    gap: 38px !important;
+    align-items: start !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-copy {
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.12fr) minmax(410px, .88fr) !important;
+    grid-template-rows: auto auto auto auto !important;
+    gap: 10px clamp(38px, 4.5vw, 64px) !important;
+    align-items: start !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-labels {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    margin: 0 0 4px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-eyebrow,
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-craft-badge,
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-stat > span,
+  html body.page-id-13.has-tajx-page #avis .tajx-review-person > span {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-copy h2 {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: auto !important;
+    max-width: 690px !important;
+    margin: 0 !important;
+    font-size: clamp(50px, 4.25vw, 62px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.028em !important;
+    text-wrap: balance !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis.tajx-section.tajx-testimonials .tajx-wrap.tajx-testimonials-inner .tajx-testimonials-copy h2#tajx-testimonials-title {
+    font-size: clamp(50px, 3.9vw, 56px) !important;
+    line-height: .94 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-lede {
+    grid-column: 1 !important;
+    grid-row: 3 / span 2 !important;
+    max-width: 61ch !important;
+    margin: 5px 0 0 !important;
+    font-size: var(--taj-commerce-body-size) !important;
+    line-height: var(--taj-commerce-body-leading) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-stats {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    align-self: end !important;
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: var(--taj-commerce-shadow-soft) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-cta {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    min-height: 54px !important;
+    margin: 8px 0 0 !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-reassurance {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+    margin: 0 !important;
+    font-size: var(--taj-commerce-small-size) !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-showcase,
+  html body.page-id-13.has-tajx-page #avis .tajx-reviews-marquee {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-showcase::before,
+  html body.page-id-13.has-tajx-page #avis .tajx-testimonials-showcase::after,
+  html body.page-id-13.has-tajx-page #avis .tajx-review-stars {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-review-card-header {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    gap: 11px !important;
+    margin-bottom: 13px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-review-avatar {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #avis .tajx-review-card > p {
+    margin-top: 8px !important;
+    font-size: clamp(16.5px, 1.2vw, 18.5px) !important;
+    line-height: 1.42 !important;
+  }
+
+  /* FAQ: soften the orange field and improve action-card breathing room. */
+  html body.page-id-13.has-tajx-page #faq.taj-final-faq {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+    background:
+      radial-gradient(circle at 82% 24%, rgba(255, 223, 176, .16), transparent 27%),
+      radial-gradient(circle at 16% 92%, rgba(86, 17, 19, .16), transparent 34%),
+      linear-gradient(135deg, #d85f2d 0%, #bd4b25 62%, #70202a 132%) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-faq__head {
+    margin-bottom: 26px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-faq__head h2 {
+    line-height: var(--taj-commerce-heading-leading) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-support__label {
+    font-size: 10px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-faq__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(330px, .42fr) !important;
+    gap: 34px !important;
+    align-items: stretch !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-faq__list {
+    gap: 14px 12px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq.taj-final-faq details {
+    min-height: 70px !important;
+    border-radius: 16px !important;
+    box-shadow: var(--taj-commerce-shadow-soft) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq.taj-final-faq summary {
+    min-height: 70px !important;
+    font-size: 13.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-support {
+    min-height: 100% !important;
+    padding: 28px 24px !important;
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: var(--taj-commerce-shadow) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #faq .taj-final-support__wa,
+  html body.page-id-13.has-tajx-page #faq .taj-final-support__email {
+    min-height: 52px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+  }
+
+  /* Order: slightly favor the form and clarify the payable-total stack. */
+  html body.page-id-13.has-tajx-page #commande.tajcmd {
+    padding-top: var(--taj-commerce-section-space-compact) !important;
+    padding-bottom: var(--taj-commerce-section-space-compact) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd__inner {
+    gap: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd__header {
+    gap: 6px !important;
+    margin-bottom: 2px !important;
+    padding-top: 24px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd__grid {
+    grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr) !important;
+    gap: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-product,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-form {
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: var(--taj-commerce-shadow) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-form {
+    padding: 16px 16px 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-field {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-product__badge,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-trust small,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-field small,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-reassurance__label {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product__badge,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-trust small,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-field small {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-field input,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-field select,
+  html body.page-id-13.has-tajx-page #commande .tajcmd-field textarea {
+    min-height: 44px !important;
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-pricing-guide > span {
+    min-height: 48px !important;
+    padding: 8px 10px !important;
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-pricing-guide strong {
+    font-size: 11.5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-total {
+    min-height: 68px !important;
+    padding: 11px 15px !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-total__meta strong {
+    font-size: 12px !important;
+    letter-spacing: .07em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-total__price {
+    font-size: clamp(31px, 2.35vw, 37px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #commande .tajcmd-submit {
+    min-height: 54px !important;
+    margin-top: 14px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+    font-size: 13px !important;
+    box-shadow: 0 12px 26px rgba(177, 62, 18, .25), inset 0 1px rgba(255, 255, 255, .22) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd__grid {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr) !important;
+    gap: 18px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-product,
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
+    border-radius: var(--taj-commerce-radius) !important;
+    box-shadow: var(--taj-commerce-shadow) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-form {
+    padding: 16px 16px 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-bottom-premium #commande.tajx-order--premium.tajcmd .tajcmd-submit {
+    min-height: 54px !important;
+    margin-top: 14px !important;
+    border-radius: var(--taj-commerce-button-radius) !important;
+    font-size: 13px !important;
+    box-shadow: 0 12px 26px rgba(177, 62, 18, .25), inset 0 1px rgba(255, 255, 255, .22) !important;
+  }
+
+  /* Footer: stronger legibility with less unused vertical space. */
+  html body.page-id-13.has-tajx-page .tajx-footer {
+    padding: 58px 0 64px !important;
+    border-top-color: rgba(219, 163, 88, .22) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-footer-grid {
+    gap: clamp(42px, 4.4vw, 66px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-footer-brand p,
+  html body.page-id-13.has-tajx-page .tajx-footer-brand small,
+  html body.page-id-13.has-tajx-page .tajx-footer p,
+  html body.page-id-13.has-tajx-page .tajx-footer a {
+    color: rgba(247, 236, 223, .72) !important;
+    font-size: 13px !important;
+    line-height: 1.68 !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-footer h4 {
+    margin-bottom: 16px !important;
+    font-size: 13px !important;
+    letter-spacing: .035em !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-footer-nav {
+    gap: 8px !important;
+  }
+
+  html body.page-id-13.has-tajx-page .tajx-footer a:hover,
+  html body.page-id-13.has-tajx-page .tajx-footer a:focus-visible {
+    color: #ef7541 !important;
+    text-decoration-color: currentColor !important;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -31971,7 +32878,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final::before {
   width: auto !important;
   height: auto !important;
   pointer-events: none;
-  opacity: .075 !important;
+  opacity: .05 !important;
   border: 0 !important;
   border-radius: 0 !important;
   background:
@@ -32023,7 +32930,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   width: clamp(245px, 19vw, 320px);
   height: clamp(205px, 17vw, 270px);
   pointer-events: none;
-  opacity: .32;
+  opacity: .22;
   border: 1px solid rgba(206, 81, 31, .42);
   border-bottom: 0;
   border-radius: 50% 50% 0 0 / 62% 62% 0 0;
@@ -32046,7 +32953,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   grid-template-columns: minmax(0, 1.15fr) minmax(390px, .85fr);
   gap: clamp(48px, 6vw, 92px);
   align-items: center;
-  margin: 0 0 clamp(26px, 3.4vh, 34px);
+  margin: 0 0 clamp(22px, 2.8vh, 28px);
   padding: 0 clamp(12px, 1.4vw, 22px);
 }
 
@@ -32090,7 +32997,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   font-family: Manrope, sans-serif;
   font-size: clamp(15px, 1.2vw, 18px) !important;
   font-weight: 450 !important;
-  line-height: 1.58 !important;
+  line-height: 1.62 !important;
 }
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__grid {
@@ -32103,12 +33010,12 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__item {
   min-width: 0;
-  min-height: clamp(176px, 21vh, 196px);
+  min-height: clamp(158px, 18vh, 176px);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: clamp(8px, 1.1vh, 12px) clamp(24px, 2.2vw, 36px);
+  padding: clamp(8px, 1vh, 10px) clamp(22px, 2vw, 32px);
   color: var(--benefices-cream);
   background: transparent;
   text-align: center;
@@ -32147,7 +33054,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   font-family: Manrope, sans-serif;
   font-size: clamp(13px, .9vw, 14.5px) !important;
   font-weight: 430 !important;
-  line-height: 1.52 !important;
+  line-height: 1.58 !important;
 }
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__proof {
@@ -32181,7 +33088,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   margin-top: clamp(20px, 2.6vh, 26px);
   border-top: 1px solid rgba(233, 90, 24, .42);
   border-bottom: 1px solid rgba(233, 90, 24, .3);
-  background: rgba(59, 7, 11, .38);
+  background: rgba(59, 7, 11, .52);
 }
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__trust {
@@ -32195,7 +33102,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__trust li {
   min-width: 0;
-  min-height: clamp(58px, 7.5vh, 68px);
+  min-height: clamp(56px, 6.8vh, 64px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32232,11 +33139,11 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__cta {
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, .9fr) 1px minmax(440px, 1.1fr);
+  grid-template-columns: minmax(0, .82fr) 1px minmax(440px, 1.18fr);
   gap: clamp(28px, 3.5vw, 54px);
   align-items: center;
-  margin-top: clamp(17px, 2.2vh, 22px);
-  padding: clamp(18px, 2.3vh, 23px) clamp(28px, 3.2vw, 48px);
+  margin-top: clamp(15px, 1.9vh, 19px);
+  padding: clamp(16px, 2vh, 20px) clamp(28px, 3.2vw, 48px);
   color: var(--benefices-cream);
   border: 1px solid rgba(233, 90, 24, .62);
   border-radius: 13px;
@@ -32269,7 +33176,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
 }
 
 html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices-final__cta > a {
-  min-height: clamp(58px, 7.6vh, 72px);
+  min-height: clamp(56px, 6.6vh, 64px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32278,7 +33185,7 @@ html body.page-id-13.has-tajx-page #benefices.taj-benefices-final .taj-benefices
   padding: 13px 22px;
   color: var(--benefices-white) !important;
   border: 1px solid rgba(255, 174, 102, .48);
-  border-radius: 10px;
+  border-radius: var(--taj-commerce-button-radius);
   background: linear-gradient(135deg, var(--benefices-orange), var(--benefices-orange-deep));
   box-shadow: inset 0 1px rgba(255, 255, 255, .16);
   font-family: Manrope, sans-serif;
@@ -32750,5 +33657,170 @@ html body.page-id-13 #avis .tajx-reviews-track > .tajx-review-card[aria-hidden="
   html body.page-id-13 #avis .tajx-reviews-track {
     animation: none !important;
     transform: none !important;
+  }
+}
+
+/* Launch pricing and factual product information. */
+html body.page-id-13 #produit .tajx-product-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px 12px;
+  margin: 15px 0 17px;
+}
+
+html body.page-id-13 #produit .tajx-product-facts > div {
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 238, 211, .13);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .045);
+}
+
+html body.page-id-13 #produit .tajx-product-facts dt,
+html body.page-id-13 #produit .tajx-product-facts dd {
+  margin: 0;
+}
+
+html body.page-id-13 #produit .tajx-product-facts dt {
+  color: rgba(255, 238, 211, .64);
+  font: 750 10px/1.25 Manrope, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+html body.page-id-13 #produit .tajx-product-facts dd {
+  margin-top: 2px;
+  color: #fff4df;
+  font: 700 11.5px/1.35 Manrope, sans-serif;
+}
+
+@media (min-width: 1024px) {
+  html body.page-id-13 #avis .tajx-reviews-marquee {
+    overflow: visible;
+  }
+
+  html body.page-id-13 #avis .tajx-reviews-track {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(188px, auto) !important;
+    gap: 16px !important;
+    padding: 0 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card {
+    width: auto !important;
+    min-height: 188px !important;
+    flex-basis: auto !important;
+    grid-column: span 2 !important;
+    padding: 22px !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card:nth-child(4) {
+    grid-column: 2 / span 2 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card:nth-child(5) {
+    grid-column: 4 / span 2 !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card-header {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    margin-bottom: 13px !important;
+  }
+
+  html body.page-id-13 #avis .tajx-review-badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  html body.page-id-13 #avis .tajx-review-card > p {
+    margin-top: 8px !important;
+    font-size: clamp(16.5px, 1.2vw, 18.5px) !important;
+    line-height: 1.42 !important;
+  }
+}
+
+html body.page-id-13 #commande .tajcmd-pricing-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin: 2px 0 10px;
+}
+
+html body.page-id-13 #commande .tajcmd-pricing-guide > span {
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid rgba(178, 105, 55, .18);
+  border-radius: 10px;
+  background: rgba(255, 249, 240, .75);
+  color: #71544a;
+  font: 650 8px/1.35 Manrope, sans-serif;
+}
+
+html body.page-id-13 #commande .tajcmd-pricing-guide strong {
+  display: block;
+  margin-top: 3px;
+  color: #2a0d0b;
+  font-size: 10px;
+}
+
+@media (max-width: 767px) {
+  html body.page-id-13 #produit .tajp-mobile__old-price strong {
+    color: #371912;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(31px, 9vw, 42px);
+    line-height: .9;
+  }
+
+  html body.page-id-13 #produit .tajp-mobile__old-price strong small {
+    font-family: Manrope, sans-serif;
+    font-size: 10px;
+  }
+
+  html body.page-id-13 #avis.tajx-section.tajx-testimonials .tajx-wrap.tajx-testimonials-inner .tajx-testimonials-copy h2#tajx-testimonials-title {
+    font-size: clamp(34px, 10vw, 40px) !important;
+    line-height: .96 !important;
+  }
+
+  html body.page-id-13 #commande .tajcmd-pricing-guide {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.taj-thanks-v2__order-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+
+.taj-thanks-v2__order-summary > div {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .07);
+}
+
+.taj-thanks-v2__order-summary span,
+.taj-thanks-v2__order-summary strong {
+  display: block;
+}
+
+.taj-thanks-v2__order-summary span {
+  color: rgba(255, 247, 235, .7);
+  font: 650 9px/1.35 Manrope, sans-serif;
+}
+
+.taj-thanks-v2__order-summary strong {
+  margin-top: 4px;
+  color: #fff8ec;
+  font: 800 12px/1.35 Manrope, sans-serif;
+}
+
+@media (max-width: 640px) {
+  .taj-thanks-v2__order-summary {
+    grid-template-columns: 1fr;
   }
 }

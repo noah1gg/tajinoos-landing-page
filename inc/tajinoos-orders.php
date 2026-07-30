@@ -8,7 +8,9 @@ if (!defined('ABSPATH')) {
 }
 
 const TAJINOOS_ORDER_POST_TYPE = 'tajinoos_order';
-const TAJINOOS_ORDER_UNIT_PRICE = 390;
+const TAJINOOS_ORDER_UNIT_PRICE = 249;
+const TAJINOOS_ORDER_MARRAKECH_DELIVERY_FEE = 0;
+const TAJINOOS_ORDER_OTHER_CITY_DELIVERY_FEE = 20;
 const TAJINOOS_ORDER_PRODUCT = 'Tajine artisanal Tajinoos Premium';
 const TAJINOOS_ORDER_DUPLICATE_TTL = 180;
 const TAJINOOS_ORDER_RECEIPT_TTL = 1800;
@@ -81,6 +83,71 @@ function tajinoos_register_order_post_type(): void
 function tajinoos_get_order_unit_price(): int
 {
     return (int) apply_filters('tajinoos_order_unit_price', TAJINOOS_ORDER_UNIT_PRICE);
+}
+
+/**
+ * Normalize a submitted delivery city without using loose substring matching.
+ */
+function tajinoos_normalize_delivery_city(string $city): string
+{
+    $city = trim($city);
+    $city = preg_replace('/[^\p{L}\p{N}\s]+/u', ' ', $city);
+    $city = is_string($city) ? preg_replace('/\s+/u', ' ', $city) : '';
+    $city = is_string($city) ? trim($city) : '';
+
+    if (function_exists('remove_accents')) {
+        $city = remove_accents($city);
+    }
+
+    return function_exists('mb_strtolower')
+        ? mb_strtolower($city, 'UTF-8')
+        : strtolower($city);
+}
+
+function tajinoos_delivery_city_is_valid(string $city): bool
+{
+    $normalized = tajinoos_normalize_delivery_city($city);
+
+    return $normalized !== ''
+        && tajinoos_string_length($normalized) <= 80
+        && preg_match('/\p{L}/u', $normalized) === 1;
+}
+
+function tajinoos_is_marrakech_delivery(string $city): bool
+{
+    $normalized = tajinoos_normalize_delivery_city($city);
+    $marrakech_variants = [
+        'marrakech',
+        'marrakesh',
+        'marrakech city',
+        'marrakesh city',
+        'ville de marrakech',
+        'ville de marrakesh',
+        'marrakech ville',
+        'marrakesh ville',
+        'مراكش',
+    ];
+
+    return in_array($normalized, $marrakech_variants, true);
+}
+
+function tajinoos_get_delivery_fee(string $city): int
+{
+    $fee = tajinoos_is_marrakech_delivery($city)
+        ? TAJINOOS_ORDER_MARRAKECH_DELIVERY_FEE
+        : TAJINOOS_ORDER_OTHER_CITY_DELIVERY_FEE;
+
+    return max(0, (int) apply_filters('tajinoos_order_delivery_fee', $fee, $city));
+}
+
+function tajinoos_calculate_product_subtotal(int $quantity): int
+{
+    return max(0, $quantity) * tajinoos_get_order_unit_price();
+}
+
+function tajinoos_calculate_order_total(int $quantity, string $city): int
+{
+    return tajinoos_calculate_product_subtotal($quantity) + tajinoos_get_delivery_fee($city);
 }
 
 /**
@@ -180,6 +247,7 @@ function tajinoos_validate_order_submission(array $request)
 {
     $name = tajinoos_request_text($request, 'Nom');
     $raw_phone = tajinoos_request_text($request, 'Telephone');
+    $city = tajinoos_request_text($request, 'Ville');
     $address = tajinoos_request_text($request, 'Adresse');
     $product = tajinoos_request_text($request, 'Produit');
     $message = isset($request['Message'])
@@ -205,8 +273,12 @@ function tajinoos_validate_order_submission(array $request)
         );
     }
 
+    if (!tajinoos_delivery_city_is_valid($city)) {
+        return new WP_Error('invalid_city', 'Veuillez indiquer une ville de livraison valide.', 'Ville');
+    }
+
     if ($address === '' || tajinoos_string_length($address) < 4) {
-        return new WP_Error('invalid_address', 'Veuillez indiquer votre ville et votre adresse de livraison.', 'Adresse');
+        return new WP_Error('invalid_address', 'Veuillez indiquer votre adresse de livraison.', 'Adresse');
     }
 
     if (tajinoos_string_length($address) > 300) {
@@ -226,6 +298,9 @@ function tajinoos_validate_order_submission(array $request)
     }
 
     $unit_price = tajinoos_get_order_unit_price();
+    $product_subtotal = tajinoos_calculate_product_subtotal($quantity);
+    $delivery_fee = tajinoos_get_delivery_fee($city);
+    $final_total = tajinoos_calculate_order_total($quantity, $city);
     $submitted_timestamp = current_time('timestamp');
 
     return [
@@ -233,11 +308,16 @@ function tajinoos_validate_order_submission(array $request)
         'phone' => $phone,
         'phone_display' => tajinoos_format_phone_number($phone),
         'address' => $address,
-        'city' => tajinoos_extract_city($address),
+        'city' => $city,
+        'delivery_city' => $city,
+        'is_marrakech_delivery' => tajinoos_is_marrakech_delivery($city),
         'quantity' => $quantity,
         'product' => TAJINOOS_ORDER_PRODUCT,
         'unit_price' => $unit_price,
-        'total' => $quantity * $unit_price,
+        'product_subtotal' => $product_subtotal,
+        'delivery_fee' => $delivery_fee,
+        'final_total' => $final_total,
+        'total' => $final_total,
         'message' => $message,
         'submitted_at' => current_time('mysql'),
         'submitted_display' => wp_date('d/m/Y à H:i', $submitted_timestamp, wp_timezone()),
@@ -301,9 +381,13 @@ function tajinoos_store_order_meta(int $post_id, array $order_data): void
         '_tajinoos_phone_display' => $order_data['phone_display'],
         '_tajinoos_address' => $order_data['address'],
         '_tajinoos_city' => $order_data['city'],
+        '_tajinoos_delivery_city' => $order_data['delivery_city'],
         '_tajinoos_quantity' => $order_data['quantity'],
         '_tajinoos_product' => $order_data['product'],
         '_tajinoos_unit_price' => $order_data['unit_price'],
+        '_tajinoos_product_subtotal' => $order_data['product_subtotal'],
+        '_tajinoos_delivery_fee' => $order_data['delivery_fee'],
+        '_tajinoos_final_total' => $order_data['final_total'],
         '_tajinoos_total' => $order_data['total'],
         '_tajinoos_message' => $order_data['message'],
         '_tajinoos_submitted_at' => $order_data['submitted_at'],
@@ -396,6 +480,12 @@ function tajinoos_format_order_email(array $order_data): string
     $customer_message = $customer_message !== ''
         ? $customer_message
         : 'لا توجد رسالة / Aucun message';
+    $delivery_label_fr = $order_data['delivery_fee'] === 0
+        ? 'Gratuite — ' . $order_data['delivery_city']
+        : $order_data['delivery_fee'] . ' MAD — ' . $order_data['delivery_city'];
+    $delivery_label_ar = $order_data['delivery_fee'] === 0
+        ? 'مجانية — ' . $order_data['delivery_city']
+        : $order_data['delivery_fee'] . ' MAD — ' . $order_data['delivery_city'];
 
     return implode("\n", [
         'طلب جديد — TAJINOOS',
@@ -405,10 +495,13 @@ function tajinoos_format_order_email(array $order_data): string
         'اسم العميل: ' . $order_data['name'],
         'رقم الهاتف: ' . $order_data['phone_display'],
         'العنوان: ' . $order_data['address'],
+        'مدينة التوصيل: ' . $order_data['delivery_city'],
         'المنتج: ' . $order_data['product'],
         'الكمية: ' . $order_data['quantity'],
         'السعر للوحدة: ' . $order_data['unit_price'] . ' MAD',
-        'المبلغ الإجمالي: ' . $order_data['total'] . ' MAD',
+        'المجموع الفرعي للمنتج: ' . $order_data['product_subtotal'] . ' MAD',
+        'التوصيل: ' . $delivery_label_ar,
+        'المبلغ الإجمالي: ' . $order_data['final_total'] . ' MAD',
         'رسالة العميل: ' . $customer_message,
         'تاريخ الطلب: ' . $order_data['submitted_display'],
         'طريقة الدفع: الدفع عند الاستلام',
@@ -420,10 +513,13 @@ function tajinoos_format_order_email(array $order_data): string
         'Client: ' . $order_data['name'],
         'Téléphone: ' . $order_data['phone_display'],
         'Adresse: ' . $order_data['address'],
+        'Ville de livraison: ' . $order_data['delivery_city'],
         'Produit: ' . $order_data['product'],
         'Quantité: ' . $order_data['quantity'],
         'Prix unitaire: ' . $order_data['unit_price'] . ' MAD',
-        'Total: ' . $order_data['total'] . ' MAD',
+        'Sous-total produit: ' . $order_data['product_subtotal'] . ' MAD',
+        'Livraison: ' . $delivery_label_fr,
+        'Total: ' . $order_data['final_total'] . ' MAD',
         'Message du client: ' . $customer_message,
         'Date: ' . $order_data['submitted_display'],
         'Paiement: paiement à la livraison',
@@ -439,6 +535,9 @@ function tajinoos_format_order_notification(array $order_data): string
 {
     $customer_message = trim((string) $order_data['message']);
     $customer_message = $customer_message !== '' ? $customer_message : 'Aucun message';
+    $delivery_label = $order_data['delivery_fee'] === 0
+        ? 'Gratuite — ' . $order_data['delivery_city']
+        : $order_data['delivery_fee'] . ' MAD — ' . $order_data['delivery_city'];
 
     return implode("\n", [
         '🛒 *NOUVELLE COMMANDE TAJINOOS*',
@@ -448,11 +547,14 @@ function tajinoos_format_order_notification(array $order_data): string
         '👤 *Client :* ' . $order_data['name'],
         '📞 *Téléphone :* ' . $order_data['phone_display'],
         '📍 *Adresse :* ' . $order_data['address'],
+        '🏙️ *Ville de livraison :* ' . $order_data['delivery_city'],
         '━━━━━━━━━━━━━━━━━━',
         '🏺 *Produit :* ' . $order_data['product'],
         '📦 *Quantité :* ' . $order_data['quantity'] . ($order_data['quantity'] > 1 ? ' pièces' : ' pièce'),
         '💵 *Prix unitaire :* ' . $order_data['unit_price'] . ' MAD',
-        '💰 *Total :* ' . $order_data['total'] . ' MAD',
+        '🧾 *Sous-total produit :* ' . $order_data['product_subtotal'] . ' MAD',
+        '🚚 *Livraison :* ' . $delivery_label,
+        '💰 *Total :* ' . $order_data['final_total'] . ' MAD',
         '━━━━━━━━━━━━━━━━━━',
         '📝 *Message client :*',
         $customer_message,
@@ -617,6 +719,76 @@ function tajinoos_get_recent_order_reference(): string
 }
 
 /**
+ * Read current pricing metadata while preserving historical-order fallbacks.
+ *
+ * @return array<string, int|string|null>
+ */
+function tajinoos_get_order_pricing_summary(int $post_id): array
+{
+    $unit_price_raw = get_post_meta($post_id, '_tajinoos_unit_price', true);
+    $quantity_raw = get_post_meta($post_id, '_tajinoos_quantity', true);
+    $subtotal_raw = get_post_meta($post_id, '_tajinoos_product_subtotal', true);
+    $delivery_fee_raw = get_post_meta($post_id, '_tajinoos_delivery_fee', true);
+    $final_total_raw = get_post_meta($post_id, '_tajinoos_final_total', true);
+    $legacy_total_raw = get_post_meta($post_id, '_tajinoos_total', true);
+    $delivery_city = (string) get_post_meta($post_id, '_tajinoos_delivery_city', true);
+
+    if ($delivery_city === '') {
+        $delivery_city = (string) get_post_meta($post_id, '_tajinoos_city', true);
+    }
+
+    $unit_price = $unit_price_raw !== '' ? (int) $unit_price_raw : null;
+    $quantity = $quantity_raw !== '' ? (int) $quantity_raw : null;
+    $product_subtotal = $subtotal_raw !== '' ? (int) $subtotal_raw : null;
+    $delivery_fee = $delivery_fee_raw !== '' ? (int) $delivery_fee_raw : null;
+    $final_total = $final_total_raw !== ''
+        ? (int) $final_total_raw
+        : ($legacy_total_raw !== '' ? (int) $legacy_total_raw : null);
+
+    if ($product_subtotal === null && $unit_price !== null && $quantity !== null) {
+        $product_subtotal = $unit_price * $quantity;
+    }
+
+    return [
+        'unit_price' => $unit_price,
+        'quantity' => $quantity,
+        'product_subtotal' => $product_subtotal,
+        'delivery_fee' => $delivery_fee,
+        'delivery_city' => $delivery_city,
+        'final_total' => $final_total,
+    ];
+}
+
+/**
+ * Resolve a private order only after a valid receipt token supplied its reference.
+ *
+ * @return array<string, int|string|null>
+ */
+function tajinoos_get_order_summary_by_reference(string $reference): array
+{
+    if (!preg_match('/^TJ-[0-9]{8}-[0-9]+$/', $reference)) {
+        return [];
+    }
+
+    $order_ids = get_posts([
+        'post_type' => TAJINOOS_ORDER_POST_TYPE,
+        'post_status' => 'private',
+        'posts_per_page' => 1,
+        'fields' => 'ids',
+        'meta_key' => '_tajinoos_reference',
+        'meta_value' => $reference,
+        'no_found_rows' => true,
+        'suppress_filters' => true,
+    ]);
+
+    if (!is_array($order_ids) || empty($order_ids[0])) {
+        return [];
+    }
+
+    return tajinoos_get_order_pricing_summary((int) $order_ids[0]);
+}
+
+/**
  * @param array<string, mixed> $order_data
  */
 function tajinoos_order_fingerprint(array $order_data): string
@@ -726,7 +898,9 @@ function tajinoos_order_admin_columns(array $columns): array
         'tajinoos_phone' => 'Téléphone',
         'tajinoos_city' => 'Ville',
         'tajinoos_quantity' => 'Quantité',
-        'tajinoos_total' => 'Total',
+        'tajinoos_subtotal' => 'Sous-total',
+        'tajinoos_delivery_fee' => 'Livraison',
+        'tajinoos_total' => 'Total final',
         'tajinoos_status' => 'Statut',
         'date' => 'Date',
     ];
@@ -734,6 +908,8 @@ function tajinoos_order_admin_columns(array $columns): array
 
 function tajinoos_order_admin_column_value(string $column, int $post_id): void
 {
+    $pricing = tajinoos_get_order_pricing_summary($post_id);
+
     switch ($column) {
         case 'tajinoos_reference':
             echo '<strong>' . esc_html((string) get_post_meta($post_id, '_tajinoos_reference', true)) . '</strong>';
@@ -742,13 +918,24 @@ function tajinoos_order_admin_column_value(string $column, int $post_id): void
             echo esc_html((string) get_post_meta($post_id, '_tajinoos_phone_display', true));
             break;
         case 'tajinoos_city':
-            echo esc_html((string) get_post_meta($post_id, '_tajinoos_city', true));
+            echo esc_html($pricing['delivery_city'] !== '' ? (string) $pricing['delivery_city'] : '—');
             break;
         case 'tajinoos_quantity':
-            echo esc_html((string) get_post_meta($post_id, '_tajinoos_quantity', true));
+            echo esc_html($pricing['quantity'] !== null ? (string) $pricing['quantity'] : '—');
+            break;
+        case 'tajinoos_subtotal':
+            echo esc_html($pricing['product_subtotal'] !== null ? $pricing['product_subtotal'] . ' MAD' : '—');
+            break;
+        case 'tajinoos_delivery_fee':
+            if ($pricing['delivery_fee'] === null) {
+                echo '<span title="Commande historique">—</span>';
+            } else {
+                echo esc_html($pricing['delivery_fee'] === 0 ? 'Gratuite' : $pricing['delivery_fee'] . ' MAD');
+            }
             break;
         case 'tajinoos_total':
-            echo '<strong>' . esc_html((string) get_post_meta($post_id, '_tajinoos_total', true)) . ' MAD</strong>';
+            $total = $pricing['final_total'] !== null ? $pricing['final_total'] . ' MAD' : '—';
+            echo '<strong>' . esc_html($total) . '</strong>';
             break;
         case 'tajinoos_status':
             echo '<span class="tajinoos-order-status">' .
@@ -772,16 +959,23 @@ function tajinoos_order_add_details_meta_box(): void
 
 function tajinoos_order_render_details_meta_box(WP_Post $post): void
 {
+    $pricing = tajinoos_get_order_pricing_summary($post->ID);
+    $delivery_fee = $pricing['delivery_fee'] === null
+        ? '— (commande historique)'
+        : ($pricing['delivery_fee'] === 0 ? 'Gratuite' : $pricing['delivery_fee'] . ' MAD');
+
     $rows = [
         'Référence' => get_post_meta($post->ID, '_tajinoos_reference', true),
         'Client' => get_post_meta($post->ID, '_tajinoos_customer_name', true),
         'Téléphone' => get_post_meta($post->ID, '_tajinoos_phone_display', true),
-        'Ville' => get_post_meta($post->ID, '_tajinoos_city', true),
+        'Ville' => $pricing['delivery_city'] !== '' ? $pricing['delivery_city'] : '—',
         'Adresse complète' => get_post_meta($post->ID, '_tajinoos_address', true),
         'Produit' => get_post_meta($post->ID, '_tajinoos_product', true),
-        'Quantité' => get_post_meta($post->ID, '_tajinoos_quantity', true),
-        'Prix unitaire' => get_post_meta($post->ID, '_tajinoos_unit_price', true) . ' MAD',
-        'Total' => get_post_meta($post->ID, '_tajinoos_total', true) . ' MAD',
+        'Quantité' => $pricing['quantity'] !== null ? $pricing['quantity'] : '—',
+        'Prix unitaire' => $pricing['unit_price'] !== null ? $pricing['unit_price'] . ' MAD' : '—',
+        'Sous-total produit' => $pricing['product_subtotal'] !== null ? $pricing['product_subtotal'] . ' MAD' : '—',
+        'Frais de livraison' => $delivery_fee,
+        'Total final' => $pricing['final_total'] !== null ? $pricing['final_total'] . ' MAD' : '—',
         'Statut' => get_post_meta($post->ID, '_tajinoos_status', true),
         'Date de soumission' => get_post_meta($post->ID, '_tajinoos_submitted_at', true),
         'Notification email' => get_post_meta($post->ID, '_tajinoos_email_status', true),
@@ -812,6 +1006,8 @@ function tajinoos_order_admin_styles(): void
     echo '<style>
       .post-type-tajinoos_order .column-tajinoos_reference{width:155px}
       .post-type-tajinoos_order .column-tajinoos_quantity{width:80px}
+      .post-type-tajinoos_order .column-tajinoos_subtotal{width:105px}
+      .post-type-tajinoos_order .column-tajinoos_delivery_fee{width:95px}
       .post-type-tajinoos_order .column-tajinoos_total{width:105px}
       .post-type-tajinoos_order .column-tajinoos_status{width:145px}
       .tajinoos-order-status{display:inline-block;padding:5px 9px;border-radius:999px;background:#fff1df;color:#9a351d;font-weight:700}

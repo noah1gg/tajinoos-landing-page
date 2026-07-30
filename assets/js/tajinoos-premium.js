@@ -502,10 +502,10 @@
     addMediaListener(finePointerQuery, reset);
   }
 
-  /* Reviews */
+  /* Legacy review carousel support (inactive for the commitments section) */
 
   function initializeReviews() {
-    var section = document.querySelector('#avis.tajx-testimonials');
+    var section = document.querySelector('#avis.tajx-testimonials[data-tajinoos-reviews]');
     var track = section ? section.querySelector('.tajx-reviews-track') : null;
     var scroller = section ? section.querySelector('.tajx-reviews-marquee') : null;
     var showcase = section ? section.querySelector('.tajx-testimonials-showcase') : null;
@@ -554,14 +554,14 @@
 
       dots = document.createElement('div');
       dots.className = 'tajx-review-dots';
-      dots.setAttribute('aria-label', 'Choisir un avis client');
+      dots.setAttribute('aria-label', 'Choisir un engagement');
 
       cards.forEach(function (card, index) {
         var dot = document.createElement('button');
 
         dot.type = 'button';
         dot.className = 'tajx-review-dot';
-        dot.setAttribute('aria-label', 'Afficher l\u2019avis ' + (index + 1));
+        dot.setAttribute('aria-label', 'Afficher l\u2019engagement ' + (index + 1));
         dot.setAttribute('aria-current', index === 0 ? 'true' : 'false');
         dot.addEventListener('click', function () {
           card.scrollIntoView({
@@ -714,18 +714,43 @@
 
     var configuredUnitPrice = window.tajinoosOrder
       ? parseInt(window.tajinoosOrder.unitPrice, 10)
-      : 390;
-    var unitPrice = Number.isNaN(configuredUnitPrice) ? 390 : configuredUnitPrice;
+      : 249;
+    var configuredMarrakechFee = window.tajinoosOrder
+      ? parseInt(window.tajinoosOrder.marrakechDeliveryFee, 10)
+      : 0;
+    var configuredOtherCityFee = window.tajinoosOrder
+      ? parseInt(window.tajinoosOrder.otherCityDeliveryFee, 10)
+      : 20;
+    var unitPrice = Number.isNaN(configuredUnitPrice) ? 249 : configuredUnitPrice;
+    var marrakechDeliveryFee = Number.isNaN(configuredMarrakechFee) ? 0 : configuredMarrakechFee;
+    var otherCityDeliveryFee = Number.isNaN(configuredOtherCityFee) ? 20 : configuredOtherCityFee;
     var minQuantity = 1;
     var maxQuantity = 5;
     var quantity = minQuantity;
+    var cityInput = order.querySelector('[data-tajcmd-city]');
     var quantityText = order.querySelector('[data-tajcmd-quantity]');
     var quantitySelect = order.querySelector('[data-tajcmd-quantity-select]');
     var totalText = order.querySelector('[data-tajcmd-total]');
+    var productSubtotalText = order.querySelector('[data-tajcmd-product-subtotal]');
+    var deliveryFeeText = order.querySelector('[data-tajcmd-delivery-fee]');
     var formTotalText = order.querySelector('[data-tajcmd-form-total]');
     var ctaTotalText = order.querySelector('[data-tajcmd-cta-total]');
+    var subtotalInput = order.querySelector('[data-tajcmd-subtotal-input]');
+    var deliveryInput = order.querySelector('[data-tajcmd-delivery-input]');
     var totalInput = order.querySelector('[data-tajcmd-total-input]');
+    var priceLiveRegion = order.querySelector('[data-tajcmd-price-live]');
     var buttons = order.querySelectorAll('[data-tajcmd-qty]');
+    var marrakechVariants = new Set([
+      'marrakech',
+      'marrakesh',
+      'marrakech city',
+      'marrakesh city',
+      'ville de marrakech',
+      'ville de marrakesh',
+      'marrakech ville',
+      'marrakesh ville',
+      '\u0645\u0631\u0627\u0643\u0634'
+    ]);
 
     function clampQuantity(value) {
       var parsed = parseInt(value, 10);
@@ -737,10 +762,35 @@
       return Math.max(minQuantity, Math.min(maxQuantity, parsed));
     }
 
-    function syncOrder(nextQuantity) {
+    function normalizeDeliveryCity(value) {
+      var normalized = String(value || '').trim().toLowerCase();
+
+      if (normalized.normalize) {
+        normalized = normalized.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      }
+
+      return normalized
+        .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function syncOrder(nextQuantity, announce) {
       quantity = clampQuantity(nextQuantity);
 
-      var totalLabel = String(quantity * unitPrice);
+      var normalizedCity = normalizeDeliveryCity(cityInput ? cityInput.value : '');
+      var hasCity = normalizedCity !== '';
+      var isMarrakech = marrakechVariants.has(normalizedCity);
+      var deliveryFee = hasCity
+        ? (isMarrakech ? marrakechDeliveryFee : otherCityDeliveryFee)
+        : 0;
+      var productSubtotal = quantity * unitPrice;
+      var finalTotal = productSubtotal + deliveryFee;
+      var subtotalLabel = String(productSubtotal);
+      var totalLabel = String(finalTotal);
+      var deliveryLabel = !hasCity
+        ? '\u00c0 s\u00e9lectionner'
+        : (deliveryFee === 0 ? 'Gratuite' : String(deliveryFee) + ' MAD');
 
       if (quantityText) {
         quantityText.textContent = String(quantity);
@@ -754,6 +804,14 @@
         totalText.textContent = totalLabel;
       }
 
+      if (productSubtotalText) {
+        productSubtotalText.textContent = subtotalLabel;
+      }
+
+      if (deliveryFeeText) {
+        deliveryFeeText.textContent = deliveryLabel;
+      }
+
       if (formTotalText) {
         formTotalText.textContent = totalLabel;
       }
@@ -762,8 +820,24 @@
         ctaTotalText.textContent = totalLabel;
       }
 
+      if (subtotalInput) {
+        subtotalInput.value = subtotalLabel;
+      }
+
+      if (deliveryInput) {
+        deliveryInput.value = String(deliveryFee);
+      }
+
       if (totalInput) {
         totalInput.value = totalLabel;
+      }
+
+      if (priceLiveRegion && announce) {
+        priceLiveRegion.textContent = hasCity
+          ? 'Sous-total produit ' + subtotalLabel + ' MAD. Livraison ' + deliveryLabel +
+            '. Total \u00e0 payer ' + totalLabel + ' MAD.'
+          : 'Sous-total produit ' + subtotalLabel +
+            ' MAD. Indiquez votre ville pour calculer la livraison.';
       }
 
       buttons.forEach(function (button) {
@@ -786,17 +860,26 @@
           button.classList.remove('is-active');
         }, FAST);
 
-        syncOrder(nextQuantity);
+        syncOrder(nextQuantity, true);
       });
     });
 
     if (quantitySelect) {
       quantitySelect.addEventListener('change', function () {
-        syncOrder(quantitySelect.value);
+        syncOrder(quantitySelect.value, true);
       });
     }
 
-    syncOrder(quantitySelect ? quantitySelect.value : quantity);
+    if (cityInput) {
+      cityInput.addEventListener('input', function () {
+        syncOrder(quantitySelect ? quantitySelect.value : quantity, true);
+      });
+      cityInput.addEventListener('change', function () {
+        syncOrder(quantitySelect ? quantitySelect.value : quantity, true);
+      });
+    }
+
+    syncOrder(quantitySelect ? quantitySelect.value : quantity, false);
   }
 
   function initializeOrderForm() {
@@ -979,7 +1062,7 @@
         '<a href="#heritage">H\u00e9ritage</a>',
         '<a href="#benefices">Pourquoi Tajinoos</a>',
         '<a href="#produit">Produit</a>',
-        '<a href="#avis">Avis clients</a>',
+        '<a href="#avis">Nos engagements</a>',
         '<a href="#commande">Commander</a>'
       ].join('');
 

@@ -16,6 +16,7 @@ function tajinoos_child_render_thank_you_shortcode(): string
     $home_url = esc_url(home_url('/'));
     $reference = tajinoos_get_recent_order_reference();
     $reference_markup = '';
+    $summary_markup = '';
 
     if ($reference !== '') {
         $reference_markup = sprintf(
@@ -30,6 +31,31 @@ function tajinoos_child_render_thank_you_shortcode(): string
             </div>',
             esc_html($reference)
         );
+
+        $order_summary = tajinoos_get_order_summary_by_reference($reference);
+
+        if (!empty($order_summary) && $order_summary['final_total'] !== null) {
+            $delivery_fee = $order_summary['delivery_fee'];
+            $delivery_city = (string) $order_summary['delivery_city'];
+            $delivery_label = $delivery_fee === null
+                ? 'À confirmer'
+                : ($delivery_fee === 0 ? 'Gratuite' : $delivery_fee . ' MAD');
+            $delivery_delay = $delivery_fee === null
+                ? 'À confirmer'
+                : ($delivery_fee === 0 ? 'Sous 24 heures maximum' : '3 à 6 jours ouvrables');
+
+            $summary_markup = sprintf(
+                '<div class="taj-thanks-v2__order-summary" aria-label="Récapitulatif de livraison">
+                  <div><span>Total à payer</span><strong>%s MAD</strong></div>
+                  <div><span>Livraison%s</span><strong>%s</strong></div>
+                  <div><span>Délai estimé</span><strong>%s</strong></div>
+                </div>',
+                esc_html((string) $order_summary['final_total']),
+                $delivery_city !== '' ? ' — ' . esc_html($delivery_city) : '',
+                esc_html($delivery_label),
+                esc_html($delivery_delay)
+            );
+        }
     }
 
     $whatsapp_url = esc_url(
@@ -68,6 +94,7 @@ function tajinoos_child_render_thank_you_shortcode(): string
         <p class="taj-thanks-v2__intro">Notre équipe vous contactera sur WhatsApp dans moins de 24 heures afin de confirmer vos informations et préparer la livraison.</p>
 
         {$reference_markup}
+        {$summary_markup}
 
         <div class="taj-thanks-v2__actions">
           <a class="taj-thanks-v2__button taj-thanks-v2__button--primary" href="{$home_url}">
@@ -123,9 +150,9 @@ function tajinoos_child_render_thank_you_shortcode(): string
 
     <section class="taj-thanks-v2__reassurance" aria-label="Les garanties Tajinoos">
       <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h14.5A2.5 2.5 0 0 1 21 10v7a2.5 2.5 0 0 1-2.5 2.5h-12A2.5 2.5 0 0 1 4 17V7.5Z"/><path d="M4 8l10.5-3.5A2 2 0 0 1 17 6.4V8M16 13.5h5"/></svg></span><div><h3>Paiement à la livraison</h3><p>Payez uniquement à la réception.</p></div></article>
-      <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 4v3h-7z"/><circle cx="6.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg></span><div><h3>Livraison partout au Maroc</h3><p>Livraison dans toutes les villes.</p></div></article>
+      <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 4v3h-7z"/><circle cx="6.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg></span><div><h3>Livraison partout au Maroc</h3><p>Gratuite à Marrakech, 20 MAD dans les autres villes.</p></div></article>
       <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10V8a5 5 0 0 1 10 0v2M5 11.5h2.5v6H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2ZM19 11.5h-2.5v6H19a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2ZM16.5 17.5c0 2-1.3 3-3.5 3"/></svg></span><div><h3>Confirmation humaine</h3><p>Notre équipe vous accompagne.</p></div></article>
-      <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m8.8 12 2.1 2.2 4.5-4.7"/></svg></span><div><h3>Garantie 7 jours</h3><p>Une commande simple et rassurante.</p></div></article>
+      <article><span class="taj-thanks-v2__trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m8.8 12 2.1 2.2 4.5-4.7"/></svg></span><div><h3>Garantie 7 jours</h3><p>Selon les conditions détaillées dans la FAQ.</p></div></article>
     </section>
 
     <section class="taj-thanks-v2__advice" aria-labelledby="taj-thanks-advice-title">

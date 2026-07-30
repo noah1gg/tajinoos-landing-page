@@ -61,7 +61,8 @@ This repository contains the custom child theme only, not the full WordPress ins
 
 Orders submitted from the Tajinoos form are stored privately in WordPress as
 `tajinoos_order` posts. The server recalculates the total from the validated
-quantity and the 390 MAD unit price.
+quantity, the 249 MAD unit price, and a delivery fee applied once per order:
+0 MAD for Marrakech or 20 MAD for other Moroccan cities.
 
 
 
