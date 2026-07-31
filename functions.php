@@ -9,8 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TAJINOOS_CHILD_VERSION', '1.6.33');
+define('TAJINOOS_CHILD_VERSION', '1.7.0');
 
+require_once get_stylesheet_directory() . '/inc/tajinoos-i18n.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-mail.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
@@ -28,6 +29,7 @@ add_filter('the_content', 'tajinoos_child_render_editorial_benefits_section', 24
 add_filter('the_content', 'tajinoos_child_render_final_hero_faq_sections', 99);
 add_filter('the_content', 'tajinoos_child_render_reference_match_hero', 100);
 add_filter('the_content', 'tajinoos_child_render_command_rebuild_section', 120);
+add_filter('the_content', 'tajinoos_child_localize_landing_content', 125);
 add_filter('the_content', 'tajinoos_child_add_landing_motion_attributes', 130);
 add_action('wp_head', 'tajinoos_child_print_final_hero_faq_css', 100);
 add_action('wp_footer', 'tajinoos_child_render_floating_actions', 5);
@@ -98,9 +100,31 @@ function tajinoos_child_enqueue_assets(): void
         'unitPrice' => tajinoos_get_order_unit_price(),
         'marrakechDeliveryFee' => TAJINOOS_ORDER_MARRAKECH_DELIVERY_FEE,
         'otherCityDeliveryFee' => TAJINOOS_ORDER_OTHER_CITY_DELIVERY_FEE,
-        'processingLabel' => 'Traitement de votre commande…',
-        'networkError' => 'Une erreur de connexion est survenue. Vérifiez votre connexion puis réessayez.',
-        'genericError' => 'Nous n’avons pas pu enregistrer votre commande. Veuillez réessayer.',
+        'language' => tajinoos_get_current_language(),
+        'processingLabel' => tajinoos_translate('js.processing'),
+        'networkError' => tajinoos_translate('js.network_error'),
+        'genericError' => tajinoos_translate('js.generic_error'),
+        'validationError' => tajinoos_translate('js.validation_error'),
+        'deliveryPendingLabel' => tajinoos_translate('js.delivery_pending'),
+        'freeDeliveryLabel' => tajinoos_translate('js.delivery_free'),
+        'liveTotalLabel' => tajinoos_translate('js.live_total'),
+        'liveCityNeededLabel' => tajinoos_translate('js.live_city_needed'),
+        'menuOpenLabel' => tajinoos_translate('nav.open'),
+        'menuCloseLabel' => tajinoos_translate('nav.close'),
+        'homeLabel' => tajinoos_translate('nav.home'),
+        'brandHomeLabel' => tajinoos_translate('nav.brand_home'),
+        'processLabel' => tajinoos_translate('nav.process'),
+        'footerNavigationLabel' => tajinoos_translate('footer.aria'),
+        'footerNavigationHeading' => tajinoos_translate('footer.navigation'),
+        'footerLinks' => [
+            'home' => tajinoos_translate('nav.home'),
+            'heritage' => tajinoos_translate('nav.heritage'),
+            'benefits' => tajinoos_translate('nav.benefits'),
+            'process' => tajinoos_translate('nav.process'),
+            'product' => tajinoos_translate('nav.product'),
+            'commitments' => tajinoos_translate('nav.commitments'),
+            'order' => tajinoos_translate('nav.order'),
+        ],
     ]);
 }
 
@@ -174,6 +198,53 @@ function tajinoos_child_update_landing_navigation_labels(string $content): strin
         $content,
         1
     ) ?: $content;
+}
+
+/**
+ * Localize the final hybrid markup after every PHP section renderer has run.
+ */
+function tajinoos_child_localize_landing_content(string $content): string
+{
+    if (!tajinoos_child_should_filter_landing_content()) {
+        return $content;
+    }
+
+    $content = tajinoos_localize_markup($content, 'landing');
+
+    if (strpos($content, 'href="#artisanat"') === false) {
+        $process_link = sprintf(
+            '<a href="#artisanat">%s</a> ',
+            esc_html(tajinoos_translate('nav.process'))
+        );
+        $content = preg_replace(
+            '~(<a\b[^>]*href=("|\')#produit\2[^>]*>)~i',
+            $process_link . '$1',
+            $content,
+            1
+        ) ?: $content;
+    }
+
+    if (strpos($content, 'href="#faq"') === false) {
+        $faq_link = sprintf('<a href="#faq">%s</a> ', esc_html(tajinoos_translate('nav.faq')));
+        $content = preg_replace(
+            '~(<a\b[^>]*class=("|\')[^"\']*\btajx-navbar-cta\b[^"\']*\2[^>]*>)~i',
+            $faq_link . '$1',
+            $content,
+            1
+        ) ?: $content;
+    }
+
+    if (strpos($content, 'data-taj-language-switcher') === false) {
+        $switcher = tajinoos_language_switcher_html();
+        $content = preg_replace(
+            '~(<a\b[^>]*class=("|\')[^"\']*\btajx-navbar-cta\b[^"\']*\2[^>]*>)~i',
+            $switcher . '$1',
+            $content,
+            1
+        ) ?: $content;
+    }
+
+    return $content;
 }
 
 /**
@@ -668,6 +739,7 @@ function tajinoos_child_render_final_hero_faq_sections(string $content): string
 
     <div class="taj-final-faq__layout" data-motion-group>
       <div class="taj-final-faq__list" data-motion="fade-up" data-motion-index="0">
+        <details><summary>Le tajine peut-il &ecirc;tre utilis&eacute; pour cuisiner ?</summary><p>Oui. Il est con&ccedil;u pour une cuisson lente &agrave; basse temp&eacute;rature, en respectant les conseils de premi&egrave;re utilisation et de compatibilit&eacute; ci-dessous.</p></details>
         <details><summary>Comment préparer le tajine avant la première utilisation ?</summary><p>1. Faites tremper la base et le couvercle dans l’eau pendant une nuit.<br>2. Laissez sécher naturellement.<br>3. Appliquez une fine couche d’huile alimentaire à l’intérieur.<br>4. Chauffez progressivement à basse température.<br>5. Laissez refroidir complètement avant le nettoyage.</p></details>
         <details><summary>Quelles sources de chaleur sont compatibles ?</summary><p>Compatible avec le gaz à feu doux ; un diffuseur de chaleur est recommandé.<br><br>Compatible avec le four avec une montée progressive en température : placez le tajine dans un four froid avant de commencer la cuisson.<br><br>Compatible avec une plaque électrique classique uniquement à faible puissance et avec un diffuseur.<br><br>Non compatible directement avec l’induction : un disque adaptateur compatible est nécessaire.</p></details>
         <details><summary>Quels sont les prix et délais de livraison ?</summary><p><strong>Marrakech :</strong> 249 MAD livré, livraison gratuite sous 24 heures maximum.<br><br><strong>Autres villes du Maroc :</strong> 269 MAD livré, dont 20 MAD de livraison. Délai estimé de 3 à 6 jours ouvrables.</p></details>
@@ -797,8 +869,9 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
 
     $form_action = esc_url(wp_make_link_relative(admin_url('admin-post.php')));
     $nonce_field = wp_nonce_field('tajinoos_order_submit', '_tajinoos_order_nonce', true, false);
-    $source_url = esc_url(get_permalink() ?: home_url('/#commande'));
+    $source_url = esc_url(tajinoos_language_url(tajinoos_get_current_language(), '#commande'));
     $unit_price = (string) tajinoos_get_order_unit_price();
+    $language = esc_attr(tajinoos_get_current_language());
 
     $order = <<<'HTML'
 <section id="commande" class="tajx-section tajx-order tajcmd" aria-labelledby="tajcmd-title">
@@ -841,6 +914,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
       <form class="tajx-form-card tajx-order-form tajcmd-form" action="%%TAJINOOS_ORDER_ACTION%%" method="post" data-motion="slide-left" data-motion-index="1">
         %%TAJINOOS_ORDER_NONCE%%
         <input type="hidden" name="action" value="tajinoos_submit_order">
+        <input type="hidden" name="tajinoos_language" value="%%TAJINOOS_LANGUAGE%%">
         <input type="hidden" name="Source" value="%%TAJINOOS_ORDER_SOURCE%%">
         <input type="hidden" name="Prix_unitaire" value="%%TAJINOOS_UNIT_PRICE%%">
         <input type="hidden" name="Sous_total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-subtotal-input>
@@ -928,8 +1002,8 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
 HTML;
 
     $order = str_replace(
-        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%', '%%TAJINOOS_UNIT_PRICE%%'],
-        [$form_action, $nonce_field, $source_url, $unit_price],
+        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%', '%%TAJINOOS_UNIT_PRICE%%', '%%TAJINOOS_LANGUAGE%%'],
+        [$form_action, $nonce_field, $source_url, $unit_price, $language],
         $order
     );
 
@@ -987,10 +1061,10 @@ function tajinoos_child_render_floating_actions(): void
         return;
     }
     ?>
-    <a class="taj-order-float" href="#commande" title="Commander" aria-label="Commander mon Tajinoos">
+    <a class="taj-order-float" href="#commande" title="<?php echo esc_attr(tajinoos_translate('floating.order_title')); ?>" aria-label="<?php echo esc_attr(tajinoos_translate('floating.order_aria')); ?>">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
     </a>
-    <a class="taj-whatsapp-float" href="https://wa.me/212627424509?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Tajine%20Tajinoos%20Premium." target="_blank" rel="noopener noreferrer" aria-label="Ouvrir une conversation WhatsApp">
+    <a class="taj-whatsapp-float" href="<?php echo esc_url('https://wa.me/212627424509?text=' . rawurlencode(tajinoos_translate('floating.whatsapp_message'))); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr(tajinoos_translate('floating.whatsapp_aria')); ?>">
       <span class="taj-whatsapp-float__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" role="img" focusable="false"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .15 5.34.15 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.85 11.85 0 0 0 5.76 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.46-8.43Zm-8.45 18.33h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-3.74.98 1-3.65-.24-.37a9.88 9.88 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.91-9.89 2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.46-4.44 9.91-9.88 9.91Zm5.43-7.42c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49a9.13 9.13 0 0 1-1.68-2.08c-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.05 3.13 4.97 4.39.7.3 1.24.47 1.66.6.7.22 1.34.19 1.84.12.56-.08 1.76-.72 2-1.41.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35Z"/></svg>
       </span>

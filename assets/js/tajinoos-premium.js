@@ -22,6 +22,19 @@
   var floatingObserver = null;
   var observedMotionTargets = new WeakSet();
   var faqControllers = [];
+  var orderConfig = window.tajinoosOrder || {};
+
+  function configText(key, fallback) {
+    return typeof orderConfig[key] === 'string' && orderConfig[key]
+      ? orderConfig[key]
+      : fallback;
+  }
+
+  function interpolate(template, values) {
+    return String(template || '').replace(/\{([a-z_]+)\}/g, function (match, key) {
+      return Object.prototype.hasOwnProperty.call(values, key) ? values[key] : match;
+    });
+  }
 
   function addMediaListener(query, listener) {
     if (query.addEventListener) {
@@ -227,7 +240,7 @@
 
       var link = event.target.closest('a[href]');
 
-      if (!link) {
+      if (!link || link.classList.contains('taj-language-switcher__link')) {
         return;
       }
 
@@ -286,7 +299,7 @@
       toggle = document.createElement('button');
       toggle.className = 'tajx-navbar-toggle';
       toggle.type = 'button';
-      toggle.setAttribute('aria-label', 'Ouvrir le menu');
+      toggle.setAttribute('aria-label', configText('menuOpenLabel', 'Ouvrir le menu'));
       toggle.setAttribute('aria-expanded', 'false');
       toggle.innerHTML = '<span aria-hidden="true"></span>';
       navbar.insertBefore(toggle, menu);
@@ -306,7 +319,7 @@
       var productLink = menu.querySelector('a[href="#produit"]');
 
       processLink.href = '#artisanat';
-      processLink.textContent = 'Processus';
+      processLink.textContent = configText('processLabel', 'Processus');
       processLink.className = 'tajx-navbar-mobile-only';
       menu.insertBefore(processLink, productLink || menu.querySelector('.tajx-navbar-cta') || null);
     }
@@ -322,7 +335,7 @@
       closeButton = document.createElement('button');
       closeButton.className = 'tajx-navbar-close';
       closeButton.type = 'button';
-      closeButton.setAttribute('aria-label', 'Fermer le menu');
+      closeButton.setAttribute('aria-label', configText('menuCloseLabel', 'Fermer le menu'));
       closeButton.innerHTML = '<span aria-hidden="true"></span>';
       menu.insertBefore(closeButton, menu.firstChild);
     }
@@ -337,7 +350,7 @@
       drawerBrand.className = 'tajx-navbar-drawer-brand';
       drawerBrand.href = '#accueil';
       drawerBrand.textContent = 'TAJINOOS';
-      drawerBrand.setAttribute('aria-label', 'Tajinoos \u2014 Accueil');
+      drawerBrand.setAttribute('aria-label', configText('brandHomeLabel', 'Tajinoos \u2014 Accueil'));
 
       drawerHeader.appendChild(drawerBrand);
       drawerHeader.appendChild(closeButton);
@@ -377,7 +390,12 @@
       backdrop.classList.toggle('is-open', shouldOpen);
       document.body.classList.toggle('tajx-mobile-menu-open', shouldOpen);
       toggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-      toggle.setAttribute('aria-label', shouldOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+      toggle.setAttribute(
+        'aria-label',
+        shouldOpen
+          ? configText('menuCloseLabel', 'Fermer le menu')
+          : configText('menuOpenLabel', 'Ouvrir le menu')
+      );
       backdrop.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
 
       if (tabletQuery.matches) {
@@ -449,6 +467,63 @@
     addMediaListener(tabletQuery, function () {
       setMenu(false, false);
       syncMenuLocation();
+    });
+  }
+
+  /* Language navigation and same-tab form preservation */
+
+  function initializeLanguageSwitcher() {
+    var links = document.querySelectorAll('.taj-language-switcher__link');
+    var form = document.querySelector('#commande.tajcmd .tajcmd-form');
+    var storageKey = 'tajinoosLanguageFormState';
+    var fieldNames = ['Nom', 'Telephone', 'Ville', 'Adresse', 'Quantite', 'Produit', 'Message'];
+
+    if (!links.length) {
+      return;
+    }
+
+    if (form) {
+      try {
+        var saved = window.sessionStorage.getItem(storageKey);
+
+        if (saved) {
+          var values = JSON.parse(saved);
+          fieldNames.forEach(function (name) {
+            var field = form.elements.namedItem(name);
+            if (field && Object.prototype.hasOwnProperty.call(values, name)) {
+              field.value = values[name];
+            }
+          });
+          window.sessionStorage.removeItem(storageKey);
+        }
+      } catch (error) {
+        // Storage is an optional enhancement; normal language links still work.
+      }
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (form) {
+          try {
+            var values = {};
+            fieldNames.forEach(function (name) {
+              var field = form.elements.namedItem(name);
+              if (field) {
+                values[name] = field.value;
+              }
+            });
+            window.sessionStorage.setItem(storageKey, JSON.stringify(values));
+          } catch (error) {
+            // Preserve navigation even when storage is disabled.
+          }
+        }
+
+        if (landingAnchors.has(window.location.hash)) {
+          var url = new URL(link.href, window.location.href);
+          url.hash = window.location.hash;
+          link.href = url.toString();
+        }
+      });
     });
   }
 
@@ -789,8 +864,8 @@
       var subtotalLabel = String(productSubtotal);
       var totalLabel = String(finalTotal);
       var deliveryLabel = !hasCity
-        ? '\u00c0 s\u00e9lectionner'
-        : (deliveryFee === 0 ? 'Gratuite' : String(deliveryFee) + ' MAD');
+        ? configText('deliveryPendingLabel', '\u00c0 s\u00e9lectionner')
+        : (deliveryFee === 0 ? configText('freeDeliveryLabel', 'Gratuite') : String(deliveryFee) + ' MAD');
 
       if (quantityText) {
         quantityText.textContent = String(quantity);
@@ -834,10 +909,14 @@
 
       if (priceLiveRegion && announce) {
         priceLiveRegion.textContent = hasCity
-          ? 'Sous-total produit ' + subtotalLabel + ' MAD. Livraison ' + deliveryLabel +
-            '. Total \u00e0 payer ' + totalLabel + ' MAD.'
-          : 'Sous-total produit ' + subtotalLabel +
-            ' MAD. Indiquez votre ville pour calculer la livraison.';
+          ? interpolate(configText(
+            'liveTotalLabel',
+            'Sous-total produit {subtotal} MAD. Livraison {delivery}. Total \u00e0 payer {total} MAD.'
+          ), { subtotal: subtotalLabel, delivery: deliveryLabel, total: totalLabel })
+          : interpolate(configText(
+            'liveCityNeededLabel',
+            'Sous-total produit {subtotal} MAD. Indiquez votre ville pour calculer la livraison.'
+          ), { subtotal: subtotalLabel });
       }
 
       buttons.forEach(function (button) {
@@ -954,7 +1033,7 @@
         var firstInvalidField = form.querySelector(':invalid');
 
         showError(
-          'Veuillez v\u00e9rifier les champs indiqu\u00e9s avant de continuer.',
+          configText('validationError', 'Veuillez v\u00e9rifier les champs indiqu\u00e9s avant de continuer.'),
           firstInvalidField ? firstInvalidField.name : ''
         );
         return;
@@ -1055,15 +1134,19 @@
       var navigation = document.createElement('nav');
 
       navigation.className = 'tajx-footer-nav';
-      navigation.setAttribute('aria-label', 'Navigation du pied de page');
+      var footerLinks = orderConfig.footerLinks || {};
+
+      navigation.setAttribute('aria-label', configText('footerNavigationLabel', 'Navigation du pied de page'));
       navigation.innerHTML = [
-        '<strong>Navigation</strong>',
-        '<a href="#accueil">Accueil</a>',
-        '<a href="#heritage">H\u00e9ritage</a>',
-        '<a href="#benefices">Pourquoi Tajinoos</a>',
-        '<a href="#produit">Produit</a>',
-        '<a href="#avis">Nos engagements</a>',
-        '<a href="#commande">Commander</a>'
+        '<strong>' + configText('footerNavigationHeading', 'Navigation') + '</strong>',
+        '<a href="#accueil">' + (footerLinks.home || 'Accueil') + '</a>',
+        '<a href="#heritage">' + (footerLinks.heritage || 'H\u00e9ritage') + '</a>',
+        '<a href="#benefices">' + (footerLinks.benefits || 'Pourquoi Tajinoos') + '</a>',
+        '<a href="#artisanat">' + (footerLinks.process || 'Processus') + '</a>',
+        '<a href="#produit">' + (footerLinks.product || 'Produit') + '</a>',
+        '<a href="#avis">' + (footerLinks.commitments || 'Nos engagements') + '</a>',
+        '<a href="#faq">FAQ</a>',
+        '<a href="#commande">' + (footerLinks.order || 'Commander') + '</a>'
       ].join('');
 
       footerGrid.insertBefore(navigation, footerColumns[1] || null);
@@ -1202,6 +1285,7 @@
 
   root.classList.toggle('motion-reduced', prefersReducedMotion());
   initializeNavbar();
+  initializeLanguageSwitcher();
   initializeAnchorNavigation();
   initializeHeroParallax();
   initializeReviews();

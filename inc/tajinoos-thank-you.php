@@ -9,12 +9,17 @@ if (!defined('ABSPATH')) {
 
 add_shortcode('tajinoos_thank_you', 'tajinoos_child_render_thank_you_shortcode');
 add_filter('wp_robots', 'tajinoos_child_thank_you_robots');
+add_filter('redirect_canonical', 'tajinoos_child_thank_you_canonical_redirect', 10, 2);
 add_action('send_headers', 'tajinoos_child_thank_you_noindex_header');
 
 function tajinoos_child_render_thank_you_shortcode(): string
 {
-    $home_url = esc_url(home_url('/'));
     $reference = tajinoos_get_recent_order_reference();
+    $order_summary = $reference !== '' ? tajinoos_get_order_summary_by_reference($reference) : [];
+    $language = !empty($order_summary['language'])
+        ? tajinoos_normalize_language((string) $order_summary['language'])
+        : tajinoos_get_current_language();
+    $home_url = esc_url(wp_make_link_relative(tajinoos_language_url($language)));
     $reference_markup = '';
     $summary_markup = '';
 
@@ -25,50 +30,63 @@ function tajinoos_child_render_thank_you_shortcode(): string
                   <svg viewBox="0 0 24 24"><path d="M7 3.5h10a2 2 0 0 1 2 2v15l-3-1.8-2 1.8-2-1.8-2 1.8-2-1.8-3 1.8v-15a2 2 0 0 1 2-2Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
                 </span>
                 <span class="taj-thanks-v2__reference-copy">
-                  <span>Référence de commande</span>
+                  <span>%s</span>
                   <strong>%s</strong>
                 </span>
             </div>',
+            esc_html(tajinoos_translate('thank.reference', [], $language)),
             esc_html($reference)
         );
-
-        $order_summary = tajinoos_get_order_summary_by_reference($reference);
 
         if (!empty($order_summary) && $order_summary['final_total'] !== null) {
             $delivery_fee = $order_summary['delivery_fee'];
             $delivery_city = (string) $order_summary['delivery_city'];
             $delivery_label = $delivery_fee === null
-                ? 'À confirmer'
-                : ($delivery_fee === 0 ? 'Gratuite' : $delivery_fee . ' MAD');
+                ? tajinoos_translate('thank.confirm', [], $language)
+                : ($delivery_fee === 0 ? tajinoos_translate('thank.free', [], $language) : $delivery_fee . ' MAD');
             $delivery_delay = $delivery_fee === null
-                ? 'À confirmer'
-                : ($delivery_fee === 0 ? 'Sous 24 heures maximum' : '3 à 6 jours ouvrables');
+                ? tajinoos_translate('thank.confirm', [], $language)
+                : ($delivery_fee === 0
+                    ? tajinoos_translate('thank.marrakech_delay', [], $language)
+                    : tajinoos_translate('thank.other_delay', [], $language));
 
             $summary_markup = sprintf(
-                '<div class="taj-thanks-v2__order-summary" aria-label="Récapitulatif de livraison">
-                  <div><span>Total à payer</span><strong>%s MAD</strong></div>
-                  <div><span>Livraison%s</span><strong>%s</strong></div>
-                  <div><span>Délai estimé</span><strong>%s</strong></div>
+                '<div class="taj-thanks-v2__order-summary" aria-label="%s">
+                  <div><span>%s</span><strong>%s</strong></div>
+                  <div><span>%s</span><strong>%s MAD</strong></div>
+                  <div><span>%s</span><strong>%s</strong></div>
+                  <div><span>%s</span><strong>%s</strong></div>
+                  <div><span>%s</span><strong>%s</strong></div>
+                  <div><span>%s</span><strong>%s MAD</strong></div>
                 </div>',
-                esc_html((string) $order_summary['final_total']),
-                $delivery_city !== '' ? ' — ' . esc_html($delivery_city) : '',
+                esc_attr(tajinoos_translate('thank.summary_aria', [], $language)),
+                esc_html(tajinoos_translate('thank.quantity', [], $language)),
+                esc_html((string) ($order_summary['quantity'] ?? '—')),
+                esc_html(tajinoos_translate('thank.subtotal', [], $language)),
+                esc_html((string) ($order_summary['product_subtotal'] ?? '—')),
+                esc_html(tajinoos_translate('thank.city', [], $language)),
+                esc_html($delivery_city !== '' ? $delivery_city : tajinoos_translate('thank.confirm', [], $language)),
+                esc_html(tajinoos_translate('thank.delivery', [], $language)),
                 esc_html($delivery_label),
-                esc_html($delivery_delay)
+                esc_html(tajinoos_translate('thank.delay', [], $language)),
+                esc_html($delivery_delay),
+                esc_html(tajinoos_translate('thank.total', [], $language)),
+                esc_html((string) $order_summary['final_total'])
             );
         }
     }
 
     $whatsapp_url = esc_url(
         'https://wa.me/212627424509?text=' .
-        rawurlencode('Bonjour, je souhaite contacter l’équipe Tajinoos au sujet de ma commande.')
+        rawurlencode(tajinoos_translate('thank.whatsapp_message', [], $language))
     );
 
-    $advice_url = esc_url(home_url('/#faq'));
+    $advice_url = esc_url(wp_make_link_relative(tajinoos_language_url($language, '#faq')));
     $product_image = esc_url(home_url('/wp-content/uploads/2026/06/tajinoos-hero-product.webp'));
     $pattern_image = esc_url(home_url('/wp-content/uploads/2026/06/tajinoos-pattern-bg.webp'));
     $logo_image = esc_url(home_url('/wp-content/uploads/2026/06/tajinoos-logo-icon.webp'));
 
-    return <<<HTML
+    $html = <<<HTML
 <div class="taj-thanks-v2">
   <header class="taj-thanks-v2__brand-header">
     <a class="taj-thanks-v2__brand" href="{$home_url}" aria-label="Tajinoos — retour à l’accueil">
@@ -168,6 +186,8 @@ function tajinoos_child_render_thank_you_shortcode(): string
   </main>
 </div>
 HTML;
+
+    return tajinoos_localize_markup($html, 'thank_you', $language);
 }
 
 /**
@@ -191,4 +211,13 @@ function tajinoos_child_thank_you_noindex_header(): void
     if (is_page('merci') && !headers_sent()) {
         header('X-Robots-Tag: noindex, nofollow', true);
     }
+}
+
+/**
+ * Keep the private receipt URL on the active proxy host. WordPress otherwise
+ * rebuilds it from the local development port before the receipt is rendered.
+ */
+function tajinoos_child_thank_you_canonical_redirect($redirect_url, string $requested_url)
+{
+    return is_page('merci') ? false : $redirect_url;
 }

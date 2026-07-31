@@ -55,6 +55,38 @@ WordPress child theme customization.
 This repository contains the custom child theme only, not the full WordPress installation.
 
 
+\## French/English localization
+
+
+French is the canonical default at `/`. English uses the explicit cache-safe
+URL `/?lang=en`. The server accepts only `fr` and `en`, with resolution in this
+order: an explicit `lang` query value, the `tajinoos_language` preference
+cookie, then French. Invalid explicit values always fall back to French.
+
+
+Translations live in `inc/languages/fr.php` and `inc/languages/en.php`; the
+resolver and helpers live in `inc/tajinoos-i18n.php`. The page is translated
+while WordPress renders it. JavaScript does not scan or replace page copy. New
+orders store `_tajinoos_order_language`, and the secure receipt page uses that
+stored value so its language cannot drift from the order.
+
+
+The language preference cookie contains only `fr` or `en`, is scoped to `/`,
+uses `SameSite=Lax`, is Secure on HTTPS, and expires after one year. English
+cookie visits to the clean landing URL are redirected to `/?lang=en` before
+rendering.
+
+
+\### Cache/CDN requirement
+
+
+Page caching must vary the landing page by the full query string and must keep
+`/?lang=en` separate from `/`. Do not configure a CDN to ignore the `lang`
+query parameter. The theme emits `Vary: Cookie` and prefers an explicit English
+URL; nevertheless, a cache that serves one query variant for every URL will mix
+languages and is unsupported. Purge both variants after changing translations.
+
+
 \## Order notifications
 
 

@@ -155,12 +155,13 @@ function tajinoos_calculate_order_total(int $quantity, string $city): int
  */
 function tajinoos_child_handle_order_submit(): void
 {
+    $language = tajinoos_get_submission_language($_POST);
     $nonce = isset($_POST['_tajinoos_order_nonce'])
         ? sanitize_text_field(wp_unslash($_POST['_tajinoos_order_nonce']))
         : '';
 
     if (!wp_verify_nonce($nonce, 'tajinoos_order_submit')) {
-        tajinoos_order_fail('Votre session a expiré. Actualisez la page puis réessayez.', '', 403);
+        tajinoos_order_fail(tajinoos_translate('validation.session_expired', [], $language), '', 403);
     }
 
     $validated = tajinoos_validate_order_submission($_POST);
@@ -176,7 +177,10 @@ function tajinoos_child_handle_order_submit(): void
 
     if (is_array($duplicate) && !empty($duplicate['reference'])) {
         tajinoos_set_order_receipt((string) $duplicate['reference']);
-        tajinoos_order_succeed((string) $duplicate['reference'], true);
+        $duplicate_language = !empty($duplicate['post_id'])
+            ? tajinoos_get_order_language((int) $duplicate['post_id'])
+            : $order_data['language'];
+        tajinoos_order_succeed((string) $duplicate['reference'], true, $duplicate_language);
     }
 
     $post_id = wp_insert_post([
@@ -190,7 +194,7 @@ function tajinoos_child_handle_order_submit(): void
     if (is_wp_error($post_id) || !$post_id) {
         tajinoos_debug_log('Order storage failed', $post_id);
         tajinoos_order_fail(
-            'Nous n’avons pas pu enregistrer votre commande. Veuillez réessayer dans quelques instants.',
+            tajinoos_translate('validation.storage_failed', [], $order_data['language']),
             '',
             500
         );
@@ -209,7 +213,7 @@ function tajinoos_child_handle_order_submit(): void
         wp_delete_post((int) $post_id, true);
         tajinoos_debug_log('Order title update failed', $updated);
         tajinoos_order_fail(
-            'Nous n’avons pas pu finaliser votre commande. Veuillez réessayer.',
+            tajinoos_translate('validation.finalize_failed', [], $order_data['language']),
             '',
             500
         );
@@ -234,7 +238,7 @@ function tajinoos_child_handle_order_submit(): void
      */
     do_action('tajinoos_order_created', $order_data, (int) $post_id);
 
-    tajinoos_order_succeed($reference, false);
+    tajinoos_order_succeed($reference, false, $order_data['language']);
 }
 
 /**
@@ -245,6 +249,7 @@ function tajinoos_child_handle_order_submit(): void
  */
 function tajinoos_validate_order_submission(array $request)
 {
+    $language = tajinoos_get_submission_language($request);
     $name = tajinoos_request_text($request, 'Nom');
     $raw_phone = tajinoos_request_text($request, 'Telephone');
     $city = tajinoos_request_text($request, 'Ville');
@@ -256,11 +261,11 @@ function tajinoos_validate_order_submission(array $request)
     $quantity = isset($request['Quantite']) ? absint(wp_unslash((string) $request['Quantite'])) : 0;
 
     if ($name === '' || tajinoos_string_length($name) < 2) {
-        return new WP_Error('invalid_name', 'Veuillez indiquer votre nom complet.', 'Nom');
+        return new WP_Error('invalid_name', tajinoos_translate('validation.name_required', [], $language), 'Nom');
     }
 
     if (tajinoos_string_length($name) > 120) {
-        return new WP_Error('invalid_name', 'Le nom indiqué est trop long.', 'Nom');
+        return new WP_Error('invalid_name', tajinoos_translate('validation.name_long', [], $language), 'Nom');
     }
 
     $phone = tajinoos_normalize_phone_number($raw_phone);
@@ -268,33 +273,33 @@ function tajinoos_validate_order_submission(array $request)
     if ($phone === '') {
         return new WP_Error(
             'invalid_phone',
-            'Veuillez saisir un numéro WhatsApp valide, par exemple 06 12 34 56 78.',
+            tajinoos_translate('validation.phone', [], $language),
             'Telephone'
         );
     }
 
     if (!tajinoos_delivery_city_is_valid($city)) {
-        return new WP_Error('invalid_city', 'Veuillez indiquer une ville de livraison valide.', 'Ville');
+        return new WP_Error('invalid_city', tajinoos_translate('validation.city', [], $language), 'Ville');
     }
 
     if ($address === '' || tajinoos_string_length($address) < 4) {
-        return new WP_Error('invalid_address', 'Veuillez indiquer votre adresse de livraison.', 'Adresse');
+        return new WP_Error('invalid_address', tajinoos_translate('validation.address', [], $language), 'Adresse');
     }
 
     if (tajinoos_string_length($address) > 300) {
-        return new WP_Error('invalid_address', 'L’adresse indiquée est trop longue.', 'Adresse');
+        return new WP_Error('invalid_address', tajinoos_translate('validation.address_long', [], $language), 'Adresse');
     }
 
     if (!in_array($quantity, [1, 2, 3, 4, 5], true)) {
-        return new WP_Error('invalid_quantity', 'Veuillez choisir une quantité disponible.', 'Quantite');
+        return new WP_Error('invalid_quantity', tajinoos_translate('validation.quantity', [], $language), 'Quantite');
     }
 
     if ($product !== TAJINOOS_ORDER_PRODUCT) {
-        return new WP_Error('invalid_product', 'Le modèle sélectionné n’est pas disponible.', 'Produit');
+        return new WP_Error('invalid_product', tajinoos_translate('validation.product', [], $language), 'Produit');
     }
 
     if (tajinoos_string_length($message) > 1000) {
-        return new WP_Error('invalid_message', 'Votre message est trop long (1 000 caractères maximum).', 'Message');
+        return new WP_Error('invalid_message', tajinoos_translate('validation.message_long', [], $language), 'Message');
     }
 
     $unit_price = tajinoos_get_order_unit_price();
@@ -322,7 +327,28 @@ function tajinoos_validate_order_submission(array $request)
         'submitted_at' => current_time('mysql'),
         'submitted_display' => wp_date('d/m/Y à H:i', $submitted_timestamp, wp_timezone()),
         'status' => 'Nouvelle commande',
+        'language' => $language,
     ];
+}
+
+/**
+ * Read the customer-facing language without trusting arbitrary form values.
+ */
+function tajinoos_get_submission_language(array $request): string
+{
+    if (isset($request['tajinoos_language']) && is_string($request['tajinoos_language'])) {
+        return tajinoos_normalize_language(wp_unslash($request['tajinoos_language']));
+    }
+
+    return isset($request['tajinoos_language'])
+        ? TAJINOOS_DEFAULT_LANGUAGE
+        : tajinoos_get_current_language();
+}
+
+function tajinoos_get_order_language(int $post_id): string
+{
+    $stored = (string) get_post_meta($post_id, '_tajinoos_order_language', true);
+    return $stored === '' ? TAJINOOS_DEFAULT_LANGUAGE : tajinoos_normalize_language($stored);
 }
 
 /**
@@ -392,6 +418,7 @@ function tajinoos_store_order_meta(int $post_id, array $order_data): void
         '_tajinoos_message' => $order_data['message'],
         '_tajinoos_submitted_at' => $order_data['submitted_at'],
         '_tajinoos_status' => $order_data['status'],
+        '_tajinoos_order_language' => $order_data['language'],
     ];
 
     foreach ($meta as $key => $value) {
@@ -486,6 +513,10 @@ function tajinoos_format_order_email(array $order_data): string
     $delivery_label_ar = $order_data['delivery_fee'] === 0
         ? 'مجانية — ' . $order_data['delivery_city']
         : $order_data['delivery_fee'] . ' MAD — ' . $order_data['delivery_city'];
+    $customer_language_code = tajinoos_normalize_language(
+        isset($order_data['language']) ? (string) $order_data['language'] : TAJINOOS_DEFAULT_LANGUAGE
+    );
+    $customer_language = tajinoos_language_name($customer_language_code, 'fr');
 
     return implode("\n", [
         'طلب جديد — TAJINOOS',
@@ -510,6 +541,8 @@ function tajinoos_format_order_email(array $order_data): string
         '============================',
         '',
         'Référence: ' . $order_data['reference'],
+        'Langue du client: ' . $customer_language,
+        'Customer language: ' . tajinoos_language_name($customer_language_code, 'en'),
         'Client: ' . $order_data['name'],
         'Téléphone: ' . $order_data['phone_display'],
         'Adresse: ' . $order_data['address'],
@@ -756,6 +789,8 @@ function tajinoos_get_order_pricing_summary(int $post_id): array
         'delivery_fee' => $delivery_fee,
         'delivery_city' => $delivery_city,
         'final_total' => $final_total,
+        'language' => tajinoos_get_order_language($post_id),
+        'product' => (string) get_post_meta($post_id, '_tajinoos_product', true),
     ];
 }
 
@@ -808,9 +843,14 @@ function tajinoos_order_fingerprint(array $order_data): string
 /**
  * Emit a successful AJAX response or the progressive-enhancement redirect.
  */
-function tajinoos_order_succeed(string $reference, bool $duplicate): void
+function tajinoos_order_succeed(string $reference, bool $duplicate, string $language = TAJINOOS_DEFAULT_LANGUAGE): void
 {
     $redirect = add_query_arg('commande', 'success', home_url('/merci/'));
+    $language = tajinoos_normalize_language($language);
+
+    if ($language === 'en') {
+        $redirect = add_query_arg('lang', 'en', $redirect);
+    }
 
     if (wp_doing_ajax()) {
         wp_send_json_success([
@@ -820,7 +860,7 @@ function tajinoos_order_succeed(string $reference, bool $duplicate): void
         ]);
     }
 
-    wp_safe_redirect($redirect);
+    wp_safe_redirect(wp_make_link_relative($redirect));
     exit;
 }
 
@@ -836,7 +876,9 @@ function tajinoos_order_fail(string $message, string $field = '', int $status = 
         ], $status);
     }
 
-    wp_safe_redirect(add_query_arg('tajinoos_order', 'error', home_url('/#commande')));
+    $language = tajinoos_get_submission_language($_POST);
+    $redirect = add_query_arg('tajinoos_order', 'error', tajinoos_language_url($language));
+    wp_safe_redirect(wp_make_link_relative($redirect) . '#commande');
     exit;
 }
 
@@ -966,6 +1008,7 @@ function tajinoos_order_render_details_meta_box(WP_Post $post): void
 
     $rows = [
         'Référence' => get_post_meta($post->ID, '_tajinoos_reference', true),
+        'Langue du client' => tajinoos_language_name(tajinoos_get_order_language($post->ID), 'fr'),
         'Client' => get_post_meta($post->ID, '_tajinoos_customer_name', true),
         'Téléphone' => get_post_meta($post->ID, '_tajinoos_phone_display', true),
         'Ville' => $pricing['delivery_city'] !== '' ? $pricing['delivery_city'] : '—',
