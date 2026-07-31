@@ -1093,11 +1093,13 @@
   function initializeFloatingActions() {
     var order = document.querySelector('#commande');
     var footer = document.querySelector('.tajx-footer');
+    var benefitsSection = document.querySelector('#benefices.taj-benefices-final');
     var orderButton = document.querySelector('.taj-order-float');
     var whatsappButton = document.querySelector('.taj-whatsapp-float');
     var context = {
       order: false,
-      footer: false
+      footer: false,
+      benefits: false
     };
 
     if (!isLandingPage || isEditor || (!orderButton && !whatsappButton)) {
@@ -1108,22 +1110,28 @@
       if (orderButton) {
         orderButton.classList.toggle(
           'is-context-hidden',
-          !mobileQuery.matches || context.order || context.footer
+          !mobileQuery.matches || context.order || context.footer || context.benefits
         );
       }
 
       if (whatsappButton) {
         whatsappButton.classList.toggle('is-footer-visible', context.footer);
+        whatsappButton.classList.toggle(
+          'is-benefits-context',
+          mobileQuery.matches && context.benefits && !context.footer
+        );
       }
     }
 
-    if ('IntersectionObserver' in window && (order || footer)) {
+    if ('IntersectionObserver' in window && (order || footer || benefitsSection)) {
       floatingObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.target === order) {
             context.order = entry.isIntersecting;
           } else if (entry.target === footer) {
             context.footer = entry.isIntersecting;
+          } else if (entry.target === benefitsSection) {
+            context.benefits = entry.isIntersecting;
           }
         });
 
@@ -1140,6 +1148,10 @@
 
       if (footer) {
         floatingObserver.observe(footer);
+      }
+
+      if (benefitsSection) {
+        floatingObserver.observe(benefitsSection);
       }
     }
 

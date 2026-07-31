@@ -344,117 +344,66 @@ function tajinoos_child_render_reference_product_section(string $content): strin
     }
 
     $product = <<<'HTML'
-<section id="produit" class="tajx-section tajx-offer" aria-label="Tajine artisanal Tajinoos Premium">
-  <div class="tajx-wrap tajx-offer__grid" data-motion-group>
-    <figure class="tajx-offer__visual" aria-label="Tajine artisanal Tajinoos Premium" data-motion="slide-right" data-motion-index="0">
-      <img class="tajx-offer__product" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium" width="1024" height="1024" loading="lazy" decoding="async">
-
-      <div class="tajx-offer__trust" aria-label="Garanties principales">
-        <div class="tajx-offer__trust-item">
-          <strong>Paiement</strong>
-          <span>à la livraison</span>
-        </div>
-        <div class="tajx-offer__trust-item">
-          <strong>Confirmation</strong>
-          <span>téléphonique</span>
-        </div>
-        <div class="tajx-offer__trust-item">
-          <strong>Garantie</strong>
-          <span>7 jours</span>
-        </div>
+<section id="produit" class="tajx-section tajx-offer taj-product-final" aria-label="Tajine artisanal Tajinoos Premium">
+  <div class="taj-product-final__desktop" data-motion-group>
+    <figure class="taj-product-final__visual" data-motion="slide-right" data-motion-index="0">
+      <div class="taj-product-final__stage">
+        <img class="taj-product-final__image" src="/wp-content/uploads/2026/06/tajinoos-hero-product.webp" alt="Tajine artisanal Tajinoos Premium sur son socle" width="1024" height="1024" loading="lazy" decoding="async">
       </div>
+      <figcaption class="taj-product-final__trust" aria-label="Garanties principales">
+        <span><strong>PAIEMENT</strong><small>&agrave; la livraison</small></span>
+        <span><strong>CONFIRMATION</strong><small>t&eacute;l&eacute;phonique</small></span>
+        <span><strong>GARANTIE</strong><small>7 jours</small></span>
+      </figcaption>
     </figure>
 
-    <div class="tajx-offer__content" data-motion="slide-left" data-motion-index="1">
-      <span class="tajx-offer__eyebrow">OFFRE SIGNATURE</span>
-      <h2 id="tajx-offer-title" class="tajx-offer__title"><span>TAJINE ARTISANAL</span><em>TAJINOOS PREMIUM</em></h2>
-      <p class="tajx-offer__subtitle">Un tajine en terre cuite façonné à la main pour une cuisson lente, une table élégante et des repas qui rassemblent.</p>
+    <div class="taj-product-final__content" data-motion="slide-left" data-motion-index="1">
+      <header class="taj-product-final__header">
+        <span class="taj-product-final__eyebrow">OFFRE SIGNATURE</span>
+        <h2 id="tajx-offer-title" class="taj-product-final__title"><span>TAJINE ARTISANAL</span><em>TAJINOOS PREMIUM</em></h2>
+        <p class="taj-product-final__intro">Un tajine en terre cuite fa&ccedil;onn&eacute; &agrave; la main pour une cuisson lente,<br>une table &eacute;l&eacute;gante et des repas qui rassemblent.</p>
+      </header>
 
-      <div class="tajx-offer__price" aria-label="Prix de l'offre">
-        <div class="tajx-offer__price-main">
-          <strong>249 MAD</strong>
-          <span>livré à Marrakech</span>
+      <div class="taj-product-final__price" aria-label="249 MAD livr&eacute; &agrave; Marrakech. Prix de lancement 269 MAD livr&eacute; dans les autres villes.">
+        <div class="taj-product-final__price-main">
+          <strong><span>249</span> <small>MAD</small></strong>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>livr&eacute; &agrave; Marrakech</p>
         </div>
-        <div class="tajx-offer__price-meta">
+        <span class="taj-product-final__price-divider" aria-hidden="true"></span>
+        <div class="taj-product-final__price-secondary">
           <span>PRIX DE LANCEMENT</span>
-          <strong>269 MAD</strong>
-          <em>livré dans les autres villes</em>
+          <strong>269 <small>MAD</small></strong>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>livr&eacute; dans les autres villes</p>
         </div>
       </div>
 
-      <dl class="tajx-product-facts" aria-label="Caractéristiques du Tajinoos Premium">
-        <div><dt>Diamètre</dt><dd>30 cm</dd></div>
-        <div><dt>Hauteur</dt><dd>Environ 25 cm</dd></div>
-        <div><dt>Poids</dt><dd>Environ 3 kg</dd></div>
-        <div><dt>Capacité</dt><dd>Environ 3,5 litres</dd></div>
-        <div><dt>Portions</dt><dd>4 à 6 personnes</dd></div>
-        <div><dt>Matière</dt><dd>Terre cuite artisanale</dd></div>
-        <div><dt>Usage</dt><dd>Cuisson lente et service à table</dd></div>
+      <dl class="taj-product-final__specs" aria-label="Caract&eacute;ristiques du Tajinoos Premium">
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M5 17 17 5M5 17l3-.5M5 17l.5-3M19 7l-3 .5M19 7l-.5 3"/></svg></span><span>DIAM&Egrave;TRE</span></dt><dd>30 cm</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4h8M8 20h8M10 4v16M14 4v16M7 7l3-3 3 3M11 17l3 3 3-3"/></svg></span><span>HAUTEUR</span></dt><dd>Environ 25 cm</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 8h10l2 12H5L7 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/><text x="8" y="17">KG</text></svg></span><span>POIDS</span></dt><dd>Environ 3 kg</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 3h4v4l5 8-3 6H8l-3-6 5-8V3ZM7 15h10M9 11h6"/></svg></span><span>CAPACIT&Eacute;</span></dt><dd>Environ 3,5 litres</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3 20v-2a5 5 0 0 1 10 0v2M13 16a4 4 0 0 1 8 2v2"/></svg></span><span>PORTIONS</span></dt><dd>4 &agrave; 6 personnes</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4C12 4 7 8 7 14a5 5 0 0 0 5 5c5 0 8-6 8-15Z"/><path d="M4 21c3-6 7-9 12-12"/></svg></span><span>MATI&Egrave;RE</span></dt><dd>Terre cuite artisanale</dd></div>
+        <div class="taj-product-final__spec"><dt><span class="taj-product-final__spec-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 10h14l-1 9H6l-1-9ZM8 10V8h8v2M9 5c0-1 1-1 1-2M12 5c0-1 1-1 1-2M15 5c0-1 1-1 1-2"/></svg></span><span>USAGE</span></dt><dd>Cuisson lente et service &agrave; table</dd></div>
       </dl>
 
-      <div class="tajx-offer__features" aria-label="Avantages du produit">
-        <article class="tajx-offer__feature">
-          <span class="tajx-offer__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7v4.5l-2 2V19h18v-2.5l-2-2V10a7 7 0 0 0-7-7Z"/><path d="M9 18V12a3 3 0 0 1 6 0v6"/></svg>
-          </span>
-          <div class="tajx-offer__feature-copy">
-            <h3>Gaz et four</h3>
-            <p>Montée progressive en température.</p>
-          </div>
-          <span class="tajx-offer__feature-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-          </span>
-        </article>
-
-        <article class="tajx-offer__feature">
-          <span class="tajx-offer__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M7 12c0-3 2.5-5 5-5s5 2 5 5-2.5 5-5 5-5-2-5-5Z"/><path d="M12 2v4M12 18v4M4.2 4.2 7 7M17 17l2.8 2.8M2 12h4M18 12h4"/></svg>
-          </span>
-          <div class="tajx-offer__feature-copy">
-            <h3>Plaque électrique</h3>
-            <p>Diffuseur recommandé.</p>
-          </div>
-          <span class="tajx-offer__feature-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-          </span>
-        </article>
-
-        <article class="tajx-offer__feature">
-          <span class="tajx-offer__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7h16M6 7v10h12V7"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-          </span>
-          <div class="tajx-offer__feature-copy">
-            <h3>Induction</h3>
-            <p>Adaptateur nécessaire.</p>
-          </div>
-          <span class="tajx-offer__feature-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-          </span>
-        </article>
-
-        <article class="tajx-offer__feature">
-          <span class="tajx-offer__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M4 7h16v10H4z"/><path d="m4 9 8 5 8-5"/></svg>
-          </span>
-          <div class="tajx-offer__feature-copy">
-            <h3>Entretien</h3>
-            <p>Lavage à la main recommandé.</p>
-          </div>
-          <span class="tajx-offer__feature-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
-          </span>
-        </article>
+      <div class="taj-product-final__care" aria-label="Compatibilit&eacute; et entretien">
+        <div class="taj-product-final__care-column">
+          <div><span class="taj-product-final__star" aria-hidden="true">&#10022;</span><p><strong>GAZ ET FOUR</strong><small>Mont&eacute;e progressive en temp&eacute;rature.</small></p></div>
+          <div><span class="taj-product-final__star" aria-hidden="true">&#10022;</span><p><strong>INDUCTION</strong><small>Adaptateur n&eacute;cessaire.</small></p></div>
+        </div>
+        <div class="taj-product-final__care-column">
+          <div><span class="taj-product-final__star" aria-hidden="true">&#10022;</span><p><strong>PLAQUE &Eacute;LECTRIQUE</strong><small>Diffuseur recommand&eacute;.</small></p></div>
+          <div><span class="taj-product-final__star" aria-hidden="true">&#10022;</span><p><strong>ENTRETIEN</strong><small>Lavage &agrave; la main recommand&eacute;.</small></p></div>
+        </div>
       </div>
 
-      <a class="tajx-btn primary tajx-offer__cta" href="#commande">
-        <span class="tajx-offer__cta-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M6 8h12l-1 10H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
-        </span>
+      <a class="taj-product-final__cta" href="#commande">
+        <svg class="taj-product-final__bag" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         <span>COMMANDER MON TAJINOOS &mdash; 249 MAD</span>
-        <span class="tajx-offer__cta-arrow" aria-hidden="true">→</span>
+        <span class="taj-product-final__arrow" aria-hidden="true">&rarr;</span>
       </a>
-
-      <p class="tajx-offer__reassurance">Produit contrôlé avant expédition • Assistance après réception</p>
+      <p class="taj-product-final__reassurance">PRODUIT CONTR&Ocirc;L&Eacute; AVANT EXP&Eacute;DITION <span aria-hidden="true">&bull;</span> ASSISTANCE APR&Egrave;S R&Eacute;CEPTION</p>
     </div>
   </div>
 
@@ -617,59 +566,77 @@ function tajinoos_child_render_editorial_benefits_section(string $content): stri
     <header class="taj-benefices-final__head" data-motion="fade-up">
       <div class="taj-benefices-final__heading">
         <p class="taj-benefices-final__eyebrow"><span aria-hidden="true"></span>POURQUOI TAJINOOS</p>
-        <h2 id="taj-benefices-final-title">CE QUI REND<br>TAJINOOS DIFF&Eacute;RENT</h2>
+        <h2 id="taj-benefices-final-title">CE QUI REND<br><span class="taj-benefices-final__brand">TAJINOOS</span><span class="taj-benefices-final__difference"> DIFF&Eacute;RENT</span></h2>
       </div>
-      <p class="taj-benefices-final__intro">Un tajine artisanal pens&eacute; pour mieux cuisiner,<br>embellir la table et offrir une commande<br>simple et rassurante.</p>
+      <p class="taj-benefices-final__intro">Un tajine artisanal pens&eacute; pour mieux cuisiner,<br>embellir la table et offrir une commande<br>simple<span class="taj-benefices-final__intro-desktop">, rassurante et humaine.</span><span class="taj-benefices-final__intro-mobile">, rassurante et humaine.</span></p>
     </header>
 
     <div class="taj-benefices-final__grid" aria-label="Les avantages Tajinoos" data-motion-group>
       <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="0">
-        <p class="taj-benefices-final__label">AUTHENTICIT&Eacute;</p>
-        <h3>Fa&ccedil;onn&eacute; &agrave; la main<br>au Maroc</h3>
-        <p class="taj-benefices-final__copy">Chaque pi&egrave;ce poss&egrave;de ses propres<br>nuances et son caract&egrave;re.</p>
-        <p class="taj-benefices-final__proof">Petites s&eacute;ries artisanales</p>
+        <span class="taj-benefices-final__item-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M22 44V22a4 4 0 0 1 8 0v13M30 34V16a4 4 0 0 1 8 0v19M38 34V19a4 4 0 0 1 8 0v19M22 31l-4-4a4 4 0 0 0-6 5l10 16c3 5 8 8 14 8h2c9 0 16-7 16-16V27a4 4 0 0 0-8 0v9"/></svg></span>
+        <span class="taj-benefices-final__number" aria-hidden="true"><span>01</span></span>
+        <div class="taj-benefices-final__item-content">
+          <p class="taj-benefices-final__label">AUTHENTICIT&Eacute;</p>
+          <h3>Fa&ccedil;onn&eacute; &agrave; la<br> main au Maroc</h3>
+          <p class="taj-benefices-final__copy">Chaque pi&egrave;ce poss&egrave;de ses propres<br> nuances et son caract&egrave;re.</p>
+          <p class="taj-benefices-final__proof">Petites s&eacute;ries artisanales</p>
+        </div>
       </article>
 
       <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="1">
-        <p class="taj-benefices-final__label">CUISSON MA&Icirc;TRIS&Eacute;E</p>
-        <h3>Une chaleur douce<br>et r&eacute;guli&egrave;re</h3>
-        <p class="taj-benefices-final__copy">La terre cuite concentre les ar&ocirc;mes<br>et pr&eacute;serve la tendret&eacute;.</p>
-        <p class="taj-benefices-final__proof">Terre cuite naturelle</p>
+        <span class="taj-benefices-final__item-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M33 58c-11 0-19-8-19-19 0-8 5-15 13-24 0 8 3 12 7 14 2-8 6-14 10-19 1 9 7 14 7 24 0 5-2 11-7 16 1-9-3-14-8-18 0 8-7 11-7 18 0 4 2 6 4 8Z"/></svg></span>
+        <span class="taj-benefices-final__number" aria-hidden="true"><span>02</span></span>
+        <div class="taj-benefices-final__item-content">
+          <p class="taj-benefices-final__label">CUISSON MA&Icirc;TRIS&Eacute;E</p>
+          <h3>Une chaleur<br> douce et r&eacute;guli&egrave;re</h3>
+          <p class="taj-benefices-final__copy">La terre cuite concentre les ar&ocirc;mes<br> et pr&eacute;serve la tendret&eacute;.</p>
+          <p class="taj-benefices-final__proof">Terre cuite naturelle</p>
+        </div>
       </article>
 
       <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="2">
-        <p class="taj-benefices-final__label">UTILE &amp; D&Eacute;CORATIF</p>
-        <h3>Pens&eacute; pour cuisiner<br>et servir</h3>
-        <p class="taj-benefices-final__copy">Une pi&egrave;ce qui passe naturellement<br>de la cuisine &agrave; la table.</p>
-        <p class="taj-benefices-final__proof">Beau au quotidien</p>
+        <span class="taj-benefices-final__item-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M26 12h12l-2 8 15 25H13l15-25-2-8Zm-10 33h32l5 5-3 5H14l-3-5 5-5Zm7-8h18"/></svg></span>
+        <span class="taj-benefices-final__number" aria-hidden="true"><span>03</span></span>
+        <div class="taj-benefices-final__item-content">
+          <p class="taj-benefices-final__label">UTILE &amp; D&Eacute;CORATIF</p>
+          <h3>Pens&eacute; pour<br> cuisiner et servir</h3>
+          <p class="taj-benefices-final__copy">Une pi&egrave;ce qui passe naturellement<br> de la cuisine &agrave; la table.</p>
+          <p class="taj-benefices-final__proof">Beau au quotidien</p>
+        </div>
       </article>
 
       <article class="taj-benefices-final__item" data-motion="fade-up" data-motion-index="3">
-        <p class="taj-benefices-final__label">ACHAT RASSURANT</p>
-        <h3>Commande simple<br>et humaine</h3>
-        <p class="taj-benefices-final__copy">Confirmation avant exp&eacute;dition et<br>paiement &agrave; la livraison.</p>
-        <p class="taj-benefices-final__proof">Accompagn&eacute; jusqu&rsquo;&agrave; r&eacute;ception</p>
+        <span class="taj-benefices-final__item-icon" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M54 31c0 11-10 20-23 20-4 0-8-1-11-3L9 53l4-11c-3-3-5-7-5-11 0-11 10-20 23-20s23 9 23 20Z"/></svg></span>
+        <span class="taj-benefices-final__number" aria-hidden="true"><span>04</span></span>
+        <div class="taj-benefices-final__item-content">
+          <p class="taj-benefices-final__label">ACHAT RASSURANT</p>
+          <h3>Commande simple<br> et humaine</h3>
+          <p class="taj-benefices-final__copy">Confirmation avant exp&eacute;dition et<br> paiement &agrave; la livraison.</p>
+          <p class="taj-benefices-final__proof">Accompagn&eacute; jusqu&rsquo;&agrave; r&eacute;ception</p>
+        </div>
       </article>
     </div>
   </div>
 
-  <div class="taj-benefices-final__trust-wrap" data-motion="fade">
+  <div class="taj-benefices-final__trust-wrap" data-motion="fade" data-motion-index="4">
     <ul class="taj-benefices-final__trust" aria-label="Garanties de commande">
-      <li><span aria-hidden="true">&#10003;</span>Paiement &agrave; la livraison</li>
-      <li><span aria-hidden="true">&#10003;</span>Confirmation WhatsApp</li>
-      <li><span aria-hidden="true">&#10003;</span>Marrakech gratuite · autres villes 20 MAD</li>
-      <li><span aria-hidden="true">&#10003;</span>Garantie 7 jours</li>
+      <li><span class="taj-benefices-final__trust-check" aria-hidden="true">&#10003;</span><span class="taj-benefices-final__trust-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><rect x="7" y="11" width="30" height="22" rx="3"/><path d="M7 18h30M29 37l4 4 8-10"/></svg></span><span>Paiement &agrave; la livraison</span></li>
+      <li><span class="taj-benefices-final__trust-check" aria-hidden="true">&#10003;</span><span class="taj-benefices-final__trust-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M39 23a15 15 0 0 1-22 13l-9 3 3-9A15 15 0 1 1 39 23Z"/><path d="M18 16c1 8 6 13 14 14l3-4-5-3-2 3c-3-1-5-3-6-6l3-2-3-5-4 3Z"/></svg></span><span>Confirmation WhatsApp</span></li>
+      <li><span class="taj-benefices-final__trust-check" aria-hidden="true">&#10003;</span><span class="taj-benefices-final__trust-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M4 13h24v22H4zM28 21h8l7 8v6H28zM13 40a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm21 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM7 20h14M2 25h14"/></svg></span><span>Marrakech gratuite &middot; autres villes 20 MAD</span></li>
+      <li><span class="taj-benefices-final__trust-check" aria-hidden="true">&#10003;</span><span class="taj-benefices-final__trust-icon" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path d="M24 5c6 5 12 6 17 7v12c0 10-7 16-17 20C14 40 7 34 7 24V12c5-1 11-2 17-7Z"/><path d="m16 24 5 5 11-12"/></svg></span><span>Garantie 7 jours</span></li>
     </ul>
   </div>
 
   <div class="taj-benefices-final__inner">
-    <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal" data-motion="fade-up">
+    <aside class="taj-benefices-final__cta" aria-label="Commander le Tajinoos artisanal" data-motion="fade-up" data-motion-index="5">
       <div class="taj-benefices-final__experience">
+        <span class="taj-benefices-final__cta-shield" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><path d="M32 6c8 6 16 7 23 9v16c0 13-9 22-23 28C18 53 9 44 9 31V15c7-2 15-3 23-9Z"/><path d="m22 32 7 7 14-16"/></svg></span>
         <p class="taj-benefices-final__cta-label">L&rsquo;EXP&Eacute;RIENCE TAJINOOS</p>
         <p>Achat en toute confiance, de la commande &agrave; la r&eacute;ception.<br>Chaque tajine est v&eacute;rifi&eacute; avec soin et emball&eacute; avec attention.<br>Garantie 7 jours selon les conditions indiqu&eacute;es dans la FAQ.</p>
       </div>
       <span class="taj-benefices-final__cta-divider" aria-hidden="true"></span>
-      <a href="#commande" aria-label="Commander mon Tajinoos à partir de 249 MAD">COMMANDER MON TAJINOOS <strong>&mdash; 249 MAD</strong></a>
+      <a href="#commande" aria-label="Commander mon Tajinoos &agrave; partir de 249 MAD"><span>COMMANDER MON TAJINOOS <strong>&mdash; 249 MAD</strong></span><span class="taj-benefices-final__cta-arrow" aria-hidden="true">&rarr;</span></a>
+      <p class="taj-benefices-final__cta-support"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>Paiement &agrave; la livraison &middot; 100% s&eacute;curis&eacute;</p>
     </aside>
   </div>
 </section>
