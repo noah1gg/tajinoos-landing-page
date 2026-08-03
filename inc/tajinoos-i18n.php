@@ -189,7 +189,7 @@ function tajinoos_language_switcher_html(): string
             ? add_query_arg('lang', TAJINOOS_DEFAULT_LANGUAGE, home_url('/'))
             : tajinoos_language_url($language);
         $links[] = sprintf(
-            '<a class="taj-language-switcher__link%s" href="%s" lang="%s" hreflang="%s"%s aria-label="%s"><span aria-hidden="true">%s</span><span class="screen-reader-text">%s</span></a>',
+            '<a class="taj-language-switcher__link%s" href="%s" lang="%s" hreflang="%s"%s aria-label="%s"><span class="taj-language-switcher__code" aria-hidden="true">%s</span><span class="taj-language-switcher__name" aria-hidden="true">%s</span></a>',
             $active ? ' is-active' : '',
             esc_url(wp_make_link_relative($switch_url)),
             esc_attr($language),
@@ -202,7 +202,7 @@ function tajinoos_language_switcher_html(): string
     }
 
     return sprintf(
-        '<nav class="taj-language-switcher" aria-label="%s" data-taj-language-switcher>%s<span class="taj-language-switcher__separator" aria-hidden="true">|</span>%s</nav>',
+        '<nav class="taj-language-switcher" aria-label="%s" data-taj-language-switcher>%s%s</nav>',
         esc_attr($label),
         $links[0],
         $links[1]
