@@ -12,6 +12,7 @@
   var EASE_OUT = 'cubic-bezier(.16, 1, .3, 1)';
   var reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   var tabletQuery = window.matchMedia('(max-width: 1023px)');
+  var navbarQuery = window.matchMedia('(max-width: 1100px)');
   var mobileQuery = window.matchMedia('(max-width: 767px)');
   var finePointerQuery = window.matchMedia('(min-width: 1024px) and (pointer: fine)');
   var root = document.documentElement;
@@ -367,7 +368,7 @@
     }
 
     function syncMenuLocation() {
-      if (tabletQuery.matches) {
+      if (navbarQuery.matches) {
         if (menu.parentNode !== document.body) {
           document.body.appendChild(menu);
         }
@@ -384,7 +385,7 @@
     }
 
     function setMenu(open, restoreFocus) {
-      var shouldOpen = Boolean(open && tabletQuery.matches);
+      var shouldOpen = Boolean(open && navbarQuery.matches);
 
       navbar.classList.toggle('is-open', shouldOpen);
       backdrop.classList.toggle('is-open', shouldOpen);
@@ -398,7 +399,7 @@
       );
       backdrop.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
 
-      if (tabletQuery.matches) {
+      if (navbarQuery.matches) {
         menu.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
       } else {
         menu.removeAttribute('aria-hidden');
@@ -464,7 +465,7 @@
       }
     });
 
-    addMediaListener(tabletQuery, function () {
+    addMediaListener(navbarQuery, function () {
       setMenu(false, false);
       syncMenuLocation();
     });
