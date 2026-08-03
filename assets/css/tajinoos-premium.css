@@ -35105,44 +35105,73 @@ html body.page-id-13 #produit .taj-product-final__desktop {
 
 html body.page-id-13 .taj-language-switcher {
   flex: 0 0 auto;
-  min-width: 82px;
-  height: 36px;
-  display: inline-grid;
-  grid-template-columns: 1fr auto 1fr;
+  width: 88px;
+  height: 42px;
+  display: inline-flex;
   align-items: center;
-  margin-left: 2px;
-  padding: 2px;
-  border: 1px solid rgba(159, 91, 48, .28);
+  gap: 3px;
+  margin-left: 4px;
+  padding: 4px;
+  border: 1px solid rgba(255, 228, 204, .2);
   border-radius: 999px;
-  background: rgba(255, 250, 244, .72);
-  color: #6c4a37;
+  background: rgba(42, 5, 9, .26);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+  isolation: isolate;
 }
 
 html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link {
-  width: 34px !important;
-  height: 30px !important;
-  min-height: 30px !important;
+  position: relative;
+  width: 38px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 0;
   padding: 0 !important;
   border-radius: 999px !important;
-  color: #6c4a37 !important;
-  font: 700 11px/1 Manrope, sans-serif !important;
-  letter-spacing: .04em !important;
+  color: rgba(255, 248, 239, .64) !important;
+  background: transparent !important;
+  font: 750 10px/1 Manrope, sans-serif !important;
+  letter-spacing: .055em !important;
+  text-decoration: none !important;
+  transform: translateZ(0);
+  transition: color .24s ease, background-color .24s ease,
+    box-shadow .24s ease, transform .24s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link:not(.is-active):hover {
+  color: #fff8ef !important;
+  background: rgba(255, 255, 255, .08) !important;
+  transform: translateY(-1px);
 }
 
 html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link.is-active {
   color: #fff8ef !important;
-  background: #a74627 !important;
-  box-shadow: 0 4px 10px rgba(126, 47, 25, .18) !important;
+  background: linear-gradient(145deg, #ef5c1d 0%, #c63f18 100%) !important;
+  box-shadow: 0 5px 14px rgba(83, 15, 10, .3), inset 0 1px rgba(255, 255, 255, .2) !important;
 }
 
-html body.page-id-13 .taj-language-switcher__separator {
-  color: rgba(108, 74, 55, .42);
-  font-size: 10px;
+html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link.is-active:hover {
+  box-shadow: 0 7px 18px rgba(83, 15, 10, .38), inset 0 1px rgba(255, 255, 255, .24) !important;
+  transform: translateY(-1px);
+}
+
+html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link:active {
+  transform: translateY(0) scale(.97);
+}
+
+html body.page-id-13 .taj-language-switcher__code {
+  display: inline-block;
+}
+
+html body.page-id-13 .taj-language-switcher__name {
+  display: none;
 }
 
 html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link:focus-visible {
-  outline: 2px solid #a74627 !important;
-  outline-offset: 3px !important;
+  outline: 2px solid #ffb26b !important;
+  outline-offset: 2px !important;
 }
 
 @media (max-width: 1100px) {
@@ -35151,30 +35180,838 @@ html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link:focus-visibl
   }
 
   html body.page-id-13 .taj-language-switcher {
-    width: 92px;
-    height: 42px;
-    margin: 8px 12px 4px;
-    justify-self: start;
+    width: auto;
+    height: 54px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 8px 24px 14px;
+    padding: 5px;
+    border-color: rgba(255, 230, 206, .14);
+    border-radius: 16px;
+    background: rgba(25, 3, 6, .28);
   }
 
   html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link {
-    width: 38px !important;
-    height: 36px !important;
-    min-height: 36px !important;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
     justify-content: center !important;
+    gap: 7px;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+  }
+
+  html body.page-id-13 .taj-language-switcher__code {
+    min-width: 22px;
+    padding-right: 7px;
+    border-right: 1px solid currentColor;
+    font-size: 9px;
+    letter-spacing: .08em;
+    opacity: .72;
+  }
+
+  html body.page-id-13 .taj-language-switcher__name {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 767px) {
   html body.page-id-13 .taj-language-switcher {
-    height: 44px;
-    margin-block: 6px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   ARTISAN PROCESS — CLEAR MOBILE STEP-BY-STEP FLOW
+   ========================================================= */
+
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey {
+    min-height: 0 !important;
+    padding: 68px 18px 72px !important;
+    scroll-margin-top: 76px;
   }
 
-  html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link {
-    width: 40px !important;
-    height: 40px !important;
-    min-height: 40px !important;
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey > .tajx-wrap {
+    width: min(100%, 520px) !important;
+    max-width: 520px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title {
+    width: 100% !important;
+    margin: 0 auto 38px !important;
+    padding-inline: 6px;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title h2 {
+    max-width: 360px;
+    margin-inline: auto !important;
+    font-size: clamp(34px, 9.6vw, 42px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.025em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-ornament {
+    width: 150px !important;
+    margin-top: 16px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey {
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    gap: 16px !important;
+    counter-reset: tajinoos-process-step;
+    overflow: visible !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-wave {
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd) {
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 132px !important;
+    display: grid !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    grid-template-rows: auto 1fr !important;
+    align-content: center !important;
+    column-gap: 15px !important;
+    row-gap: 7px !important;
+    overflow: visible !important;
+    padding: 20px 48px 20px 18px !important;
+    border: 1px solid rgba(177, 104, 53, .2) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(145deg, rgba(255, 253, 248, .96), rgba(255, 246, 234, .9)) !important;
+    box-shadow: 0 13px 28px rgba(79, 42, 25, .09), inset 0 1px rgba(255, 255, 255, .92) !important;
+    text-align: left !important;
+    transform: none !important;
+    counter-increment: tajinoos-process-step;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::before {
+    content: counter(tajinoos-process-step, decimal-leading-zero) !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: grid !important;
+    place-items: center !important;
+    border: 1px solid rgba(225, 82, 28, .23) !important;
+    border-radius: 50% !important;
+    background: rgba(238, 91, 28, .075) !important;
+    color: #c74319 !important;
+    font: 800 10px/1 Manrope, sans-serif !important;
+    letter-spacing: .04em !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 46px !important;
+    bottom: -17px !important;
+    width: 2px !important;
+    height: 17px !important;
+    display: block !important;
+    background: linear-gradient(180deg, #dc6a38, rgba(220, 106, 56, .24)) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    width: 56px !important;
+    height: 56px !important;
+    display: grid !important;
+    place-items: center !important;
+    margin: 0 !important;
+    border: 1px solid rgba(230, 89, 27, .18);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #fff2df, #ffe5cc);
+    color: #e7531c !important;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .9), 0 8px 18px rgba(173, 69, 25, .1);
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+    max-width: none !important;
+    margin: 0 !important;
+    color: #351812 !important;
+    font-size: clamp(22px, 6vw, 27px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.018em !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    max-width: 31ch !important;
+    margin: 0 !important;
+    color: #695249 !important;
+    font-size: 13.5px !important;
+    font-weight: 520 !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:hover,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:focus-within {
+    border-color: rgba(225, 82, 28, .34) !important;
+    box-shadow: 0 17px 34px rgba(79, 42, 25, .13), inset 0 1px rgba(255, 255, 255, .96) !important;
+    transform: translateY(-2px) !important;
+  }
+}
+
+@media (max-width: 374px) {
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey {
+    padding-inline: 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(n) {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    padding: 18px 42px 18px 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    font-size: 21px !important;
+  }
+}
+
+/* Final mobile art direction: premium editorial timeline. */
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey {
+    padding: 74px 18px 82px !important;
+    background:
+      radial-gradient(circle at 88% 8%, rgba(232, 91, 32, .11), transparent 25%),
+      radial-gradient(circle at 4% 68%, rgba(177, 95, 54, .09), transparent 28%),
+      linear-gradient(165deg, #fffaf1 0%, #f9eddd 52%, #fff8ed 100%) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey::before {
+    top: 118px !important;
+    left: -102px !important;
+    opacity: .055 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey::after {
+    right: -106px !important;
+    bottom: 46px !important;
+    opacity: .04 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title {
+    margin-bottom: 44px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title h2 {
+    color: #32120f !important;
+    font-size: clamp(37px, 10.4vw, 45px) !important;
+    line-height: .98 !important;
+    text-shadow: 0 1px rgba(255, 255, 255, .65);
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-ornament {
+    width: 172px !important;
+    margin-top: 20px !important;
+    color: #d95520 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey {
+    position: relative !important;
+    gap: 18px !important;
+    padding: 2px 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 25px;
+    bottom: 25px;
+    left: 13px;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #eb642c 0%, #c75429 52%, rgba(199, 84, 41, .22) 100%);
+    box-shadow: 0 0 0 4px rgba(223, 89, 34, .055);
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd) {
+    z-index: 1 !important;
+    width: auto !important;
+    min-height: 154px !important;
+    grid-template-columns: 64px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-content: center !important;
+    column-gap: 16px !important;
+    row-gap: 8px !important;
+    margin-left: 38px !important;
+    padding: 22px 18px !important;
+    border: 1px solid rgba(132, 67, 37, .15) !important;
+    border-left: 3px solid #e65b23 !important;
+    border-radius: 6px 22px 22px 6px !important;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, .88), rgba(255, 246, 233, .93)),
+      #fff9f0 !important;
+    box-shadow:
+      0 18px 38px rgba(85, 39, 20, .105),
+      0 3px 8px rgba(85, 39, 20, .055),
+      inset 0 1px rgba(255, 255, 255, .96) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::before {
+    content: counter(tajinoos-process-step, decimal-leading-zero) !important;
+    top: 50% !important;
+    right: auto !important;
+    left: -42px !important;
+    width: 30px !important;
+    height: 30px !important;
+    border: 4px solid #fbf2e5 !important;
+    border-radius: 50% !important;
+    background: linear-gradient(145deg, #681219, #3f080d) !important;
+    color: #fff8ee !important;
+    box-shadow: 0 5px 13px rgba(74, 10, 14, .24) !important;
+    font-size: 9px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 64px !important;
+    height: 64px !important;
+    border: 1px solid rgba(220, 78, 23, .2) !important;
+    border-radius: 50% !important;
+    background:
+      radial-gradient(circle at 34% 28%, #fffdf8 0%, #ffead2 62%, #ffdfc1 100%) !important;
+    color: #df4d18 !important;
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, .95),
+      0 10px 22px rgba(181, 66, 20, .13) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon svg {
+    width: 38px !important;
+    height: 38px !important;
+    stroke-width: 1.7 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    color: #32120f !important;
+    font-size: clamp(24px, 6.55vw, 28px) !important;
+    font-weight: 700 !important;
+    line-height: 1.02 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    max-width: 29ch !important;
+    color: #654b41 !important;
+    font-size: 14px !important;
+    font-weight: 540 !important;
+    line-height: 1.55 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:hover,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:focus-within {
+    border-color: rgba(213, 74, 23, .27) !important;
+    border-left-color: #e65b23 !important;
+    box-shadow:
+      0 20px 42px rgba(85, 39, 20, .13),
+      0 4px 10px rgba(85, 39, 20, .07),
+      inset 0 1px rgba(255, 255, 255, .98) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 374px) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(n) {
+    min-height: 146px !important;
+    grid-template-columns: 56px minmax(0, 1fr) !important;
+    column-gap: 13px !important;
+    margin-left: 34px !important;
+    padding: 19px 14px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey::before {
+    left: 11px;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::before {
+    left: -39px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    font-size: 22px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    font-size: 13px !important;
+  }
+}
+
+/* Concept blend: a handmade winding path with alternating editorial steps. */
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #artisanat.tajx-process-journey {
+    padding: 76px 16px 86px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-title {
+    margin-bottom: 50px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(5, minmax(158px, auto)) !important;
+    gap: 28px 0 !important;
+    padding: 8px 0 !important;
+    isolation: isolate;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 700' preserveAspectRatio='none'%3E%3Cpath d='M38 18 C20 88 64 128 60 180 C56 248 38 272 45 350 C52 420 68 442 62 500 C57 570 28 604 38 682' fill='none' stroke='%23efb08f' stroke-width='7' stroke-linecap='round' opacity='.32' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M38 18 C20 88 64 128 60 180 C56 248 38 272 45 350 C52 420 68 442 62 500 C57 570 28 604 38 682' fill='none' stroke='%23d95823' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+    box-shadow: none !important;
+    pointer-events: none;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd) {
+    width: 100% !important;
+    min-height: 158px !important;
+    grid-template-columns: 50px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-content: center !important;
+    column-gap: 11px !important;
+    row-gap: 11px !important;
+    margin: 0 !important;
+    padding: 18px 14px !important;
+    border: 1px solid rgba(130, 65, 36, .14) !important;
+    border-radius: 19px !important;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(255, 246, 233, .91)),
+      #fff9f0 !important;
+    box-shadow:
+      0 15px 32px rgba(76, 34, 18, .105),
+      inset 0 1px rgba(255, 255, 255, .96) !important;
+    text-align: left !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5) {
+    grid-column: 6 / 13 !important;
+    border-left: 2px solid #df5822 !important;
+    border-radius: 5px 19px 19px 5px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1) { grid-row: 1 !important; }
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3) { grid-row: 3 !important; }
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd) { grid-row: 5 !important; }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4) {
+    grid-column: 1 / 8 !important;
+    border-right: 2px solid #df5822 !important;
+    border-radius: 19px 5px 5px 19px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2) { grid-row: 2 !important; }
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4) { grid-row: 4 !important; }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step::before {
+    top: 50% !important;
+    right: auto !important;
+    left: auto !important;
+    width: 32px !important;
+    height: 32px !important;
+    border: 4px solid #f9ecdc !important;
+    background: linear-gradient(145deg, #ed6228, #bd3e18) !important;
+    color: #fffaf2 !important;
+    box-shadow: 0 6px 15px rgba(137, 45, 17, .27) !important;
+    font-size: 9px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1)::before {
+    left: -30px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2)::before {
+    right: -25px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3)::before {
+    left: -11px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4)::before {
+    right: -31px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5)::before,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd)::before {
+    left: -29px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 50px !important;
+    height: 50px !important;
+    border-color: rgba(218, 77, 23, .18) !important;
+    background: linear-gradient(145deg, #fff8ed, #ffe7ce) !important;
+    box-shadow: inset 0 1px #fff, 0 7px 16px rgba(169, 59, 18, .1) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon svg {
+    width: 31px !important;
+    height: 31px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    align-self: center !important;
+    font-size: clamp(21px, 5.8vw, 25px) !important;
+    line-height: 1.02 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    max-width: none !important;
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+}
+
+@media (max-width: 374px) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(n) {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    padding: 16px 11px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    font-size: 19px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    font-size: 12px !important;
+  }
+}
+
+/* Final interaction and alignment polish for the winding mobile journey. */
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path__shadow {
+    stroke: rgba(224, 105, 57, .2);
+    stroke-width: 9;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path__rail {
+    stroke: #d95520;
+    stroke-width: 3;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    filter: drop-shadow(0 3px 4px rgba(128, 43, 17, .16));
+    transition: stroke-dashoffset 1.45s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path__glow {
+    stroke: #ffb16f;
+    stroke-width: 5;
+    stroke-dasharray: .035 .965;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(255, 135, 62, .58));
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey.is-journey-visible .tajx-journey-mobile-path__rail {
+    stroke-dashoffset: 0;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey.is-journey-visible .tajx-journey-mobile-path__glow {
+    opacity: .78;
+    animation: tajinoos-journey-glow 4.2s 1.15s linear infinite;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:last-child:nth-child(odd) {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 12px !important;
+    padding: 19px 15px !important;
+    transition:
+      opacity .55s cubic-bezier(.22, 1, .36, 1),
+      transform .55s cubic-bezier(.22, 1, .36, 1),
+      border-color .24s ease,
+      box-shadow .24s ease !important;
+    transition-delay: calc(var(--taj-journey-index, 0) * 105ms) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(1),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(3),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(5) {
+    grid-column: 5 / 13 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(2),
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(4) {
+    grid-column: 1 / 9 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 !important;
+    transform: translateZ(0);
+    transition: color .25s ease, transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+    margin: 0 !important;
+    transition: color .24s ease !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step p {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin: 0 !important;
+  }
+
+  html:not(.motion-reduced) body.page-id-13.has-tajx-page #artisanat .tajx-journey:not(.is-journey-visible) .tajx-journey-step {
+    opacity: 0 !important;
+    transform: translateY(22px) scale(.985) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey.is-journey-visible .tajx-journey-step {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 374px) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:nth-of-type(n) {
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    padding: 17px 11px !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-icon {
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:hover {
+    z-index: 3 !important;
+    border-color: rgba(214, 75, 23, .36) !important;
+    box-shadow: 0 22px 46px rgba(76, 34, 18, .16), inset 0 1px rgba(255, 255, 255, .98) !important;
+    transform: translateY(-5px) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:hover .tajx-journey-icon {
+    color: #c63f17 !important;
+    box-shadow: inset 0 1px #fff, 0 12px 23px rgba(169, 59, 18, .18) !important;
+    transform: rotate(-3deg) scale(1.07) !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step:hover h3 {
+    color: #9f3015 !important;
+  }
+}
+
+@keyframes tajinoos-journey-glow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path__rail,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-step {
+    transition: none !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey-mobile-path__glow {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+/* Card five must follow the same right-hand composition as cards one and three. */
+@media (max-width: 767px) {
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 158px !important;
+    grid-column: 5 / 13 !important;
+    grid-row: 5 !important;
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    align-content: center !important;
+    column-gap: 12px !important;
+    row-gap: 11px !important;
+    margin: 0 !important;
+    padding: 19px 15px !important;
+    border: 1px solid rgba(130, 65, 36, .14) !important;
+    border-left: 2px solid #df5822 !important;
+    border-radius: 5px 19px 19px 5px !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .94), rgba(255, 246, 233, .91)), #fff9f0 !important;
+    box-sizing: border-box !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) .tajx-journey-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) h3,
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) p {
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) h3 {
+    grid-row: 1 !important;
+  }
+
+  html body.page-id-13.has-tajx-page #artisanat .tajx-journey > .tajx-journey-step:nth-of-type(5) p {
+    grid-row: 2 !important;
   }
 }
 

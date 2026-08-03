@@ -1281,6 +1281,73 @@
     });
   }
 
+  /* Mobile artisan journey */
+
+  function initializeArtisanJourney() {
+    var journey = document.querySelector('#artisanat .tajx-journey');
+
+    if (!journey || isEditor) {
+      return;
+    }
+
+    var namespace = 'http://www.w3.org/2000/svg';
+    var pathData = 'M38 18 C20 88 64 128 60 180 C56 248 38 272 45 350 C52 420 68 442 62 500 C57 570 28 604 38 682';
+    var mobilePath = document.createElementNS(namespace, 'svg');
+
+    mobilePath.setAttribute('class', 'tajx-journey-mobile-path');
+    mobilePath.setAttribute('viewBox', '0 0 100 700');
+    mobilePath.setAttribute('preserveAspectRatio', 'none');
+    mobilePath.setAttribute('aria-hidden', 'true');
+    mobilePath.setAttribute('focusable', 'false');
+
+    ['shadow', 'rail', 'glow'].forEach(function (className) {
+      var path = document.createElementNS(namespace, 'path');
+
+      path.setAttribute('class', 'tajx-journey-mobile-path__' + className);
+      path.setAttribute('d', pathData);
+      path.setAttribute('pathLength', '1');
+      mobilePath.appendChild(path);
+    });
+
+    // Keep the decorative SVG after the articles so legacy :last-child
+    // fallbacks cannot accidentally restyle the fifth process card.
+    journey.appendChild(mobilePath);
+
+    journey.querySelectorAll('.tajx-journey-step').forEach(function (step, index) {
+      step.style.setProperty('--taj-journey-index', index);
+    });
+
+    function revealJourney() {
+      journey.classList.add('is-journey-visible');
+    }
+
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      revealJourney();
+      return;
+    }
+
+    var rect = journey.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight * .9 && rect.bottom > 0) {
+      window.requestAnimationFrame(revealJourney);
+      return;
+    }
+
+    var journeyObserver = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) {
+        return;
+      }
+
+      revealJourney();
+      journeyObserver.disconnect();
+    }, {
+      rootMargin: '0px 0px -8% 0px',
+      threshold: .12
+    });
+
+    journeyObserver.observe(journey);
+  }
+
   /* Initialization */
 
   root.classList.toggle('motion-reduced', prefersReducedMotion());
@@ -1295,5 +1362,6 @@
   initializeFooter();
   initializeFloatingActions();
   initializeThankYouPage();
+  initializeArtisanJourney();
   refreshMotionTargets();
 })();
