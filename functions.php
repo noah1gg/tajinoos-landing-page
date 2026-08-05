@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 define('TAJINOOS_CHILD_VERSION', '1.7.0');
 
 require_once get_stylesheet_directory() . '/inc/tajinoos-i18n.php';
+require_once get_stylesheet_directory() . '/inc/tajinoos-academic.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-mail.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-orders.php';
 require_once get_stylesheet_directory() . '/inc/tajinoos-thank-you.php';
@@ -756,8 +757,7 @@ function tajinoos_child_render_final_hero_faq_sections(string $content): string
         <h3>Besoin d'aide ?</h3>
         <strong>Notre équipe est là pour vous.</strong>
         <p>Service client réactif 7j/7.</p>
-        <a class="taj-final-support__wa" href="https://wa.me/?text=Bonjour%2C%20je%20souhaite%20commander%20un%20Tajinoos." target="_blank" rel="noopener noreferrer"><span class="taj-final-support__button-icon taj-final-support__button-icon--whatsapp" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.088-.403.087-.087.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.33 1.129.422.475.152.904.129 1.246.08.38-.057 1.17-.479 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg></span><span>WhatsApp</span></a>
-        <a class="taj-final-support__email" href="mailto:orders@tajinoos.com"><span class="taj-final-support__button-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>Envoyer un email</span></a>
+        <a class="taj-final-support__email" href="mailto:elhichemn@gmail.com"><span class="taj-final-support__button-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>Envoyer un email</span></a>
         <div class="taj-final-support__trust" aria-label="Les engagements du service client">
           <span>Réponse rapide</span>
           <span>Service client 7j/7</span>
@@ -872,6 +872,10 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
     $source_url = esc_url(tajinoos_language_url(tajinoos_get_current_language(), '#commande'));
     $unit_price = (string) tajinoos_get_order_unit_price();
     $language = esc_attr(tajinoos_get_current_language());
+    $form_started_at = (string) time();
+    $academic_notice = esc_html(tajinoos_translate('academic.site_notice'));
+    $privacy_notice = esc_html(tajinoos_translate('academic.form_privacy'));
+    $legal_links = tajinoos_academic_legal_links_html('tajcmd-form__legal-links');
 
     $order = <<<'HTML'
 <section id="commande" class="tajx-section tajx-order tajcmd" aria-labelledby="tajcmd-title">
@@ -920,6 +924,10 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         <input type="hidden" name="Sous_total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-subtotal-input>
         <input type="hidden" name="Frais_livraison" value="0" data-tajcmd-delivery-input>
         <input type="hidden" name="Total" value="%%TAJINOOS_UNIT_PRICE%%" data-tajcmd-total-input>
+        <input type="hidden" name="tajinoos_started_at" value="%%TAJINOOS_FORM_STARTED_AT%%">
+        <div class="tajcmd-honeypot" aria-hidden="true">
+          <label>Site web<input type="text" name="tajinoos_website" value="" tabindex="-1" autocomplete="off"></label>
+        </div>
 
         <header class="tajcmd-form__head">
           <span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 7v5c0 4.5-2.8 7.4-7 8.5-4.2-1.1-7-4-7-8.5V7l7-3.5Z"/><path d="m9.5 12 1.7 1.7 3.6-4"/></svg></span>
@@ -927,6 +935,7 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
         </header>
 
         <div class="tajcmd-form__body">
+          <aside class="tajcmd-form__academic-notice" role="note"><span aria-hidden="true">&#9671;</span><p>%%TAJINOOS_ACADEMIC_NOTICE%%</p></aside>
           <div class="tajcmd-form__messages" data-tajcmd-messages role="alert" tabindex="-1" hidden></div>
 
           <div class="tajcmd-form__row">
@@ -994,6 +1003,11 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
             <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-3l-4 3v-3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 10h8"/><path d="M8 13h5"/></svg></span><span class="tajcmd-reassurance__label">Confirmation t&eacute;l&eacute;phonique</span></span>
             <span class="tajcmd-reassurance__item"><span class="tajcmd-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 4v3h-7z"/><path d="M6.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M17.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><span class="tajcmd-reassurance__label">Marrakech 0 MAD · autres villes 20 MAD</span></span>
           </div>
+
+          <div class="tajcmd-form__privacy" role="note">
+            <p>%%TAJINOOS_PRIVACY_NOTICE%%</p>
+            %%TAJINOOS_LEGAL_LINKS%%
+          </div>
         </div>
       </form>
     </div>
@@ -1002,8 +1016,8 @@ function tajinoos_child_render_command_rebuild_section(string $content): string
 HTML;
 
     $order = str_replace(
-        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%', '%%TAJINOOS_UNIT_PRICE%%', '%%TAJINOOS_LANGUAGE%%'],
-        [$form_action, $nonce_field, $source_url, $unit_price, $language],
+        ['%%TAJINOOS_ORDER_ACTION%%', '%%TAJINOOS_ORDER_NONCE%%', '%%TAJINOOS_ORDER_SOURCE%%', '%%TAJINOOS_UNIT_PRICE%%', '%%TAJINOOS_LANGUAGE%%', '%%TAJINOOS_FORM_STARTED_AT%%', '%%TAJINOOS_ACADEMIC_NOTICE%%', '%%TAJINOOS_PRIVACY_NOTICE%%', '%%TAJINOOS_LEGAL_LINKS%%'],
+        [$form_action, $nonce_field, $source_url, $unit_price, $language, $form_started_at, $academic_notice, $privacy_notice, $legal_links],
         $order
     );
 

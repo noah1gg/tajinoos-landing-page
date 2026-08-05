@@ -136,3 +136,41 @@ client, phone, address, product, quantity, unit price, total, customer message,
 and submission date. `TAJINOOS_WA_TEMPLATE_LANGUAGE` must match the approved
 template language code.
 
+
+## Academic demonstration status
+
+Tajinoos is an academic portfolio demonstration, not an operating store.
+Visitors must use fictional data. Test submissions are private WordPress
+records used to demonstrate the form, email and receipt flow and should be
+deleted periodically. WhatsApp order notifications remain available in code
+but are disabled with `TAJINOOS_WA_ENABLED` for the academic version.
+
+
+## Production migration checklist
+
+Do not hardcode a destination domain in the theme or database before the final
+hosting URL is known. When moving the complete LocalWP site to a public host:
+
+1. Back up the files and database and test the restore before changing URLs.
+2. Use production-safe configuration in `wp-config.php`:
+
+   ```php
+   define('WP_ENVIRONMENT_TYPE', 'production');
+   define('WP_DEBUG', false);
+   define('WP_DEBUG_DISPLAY', false);
+   define('FORCE_SSL_ADMIN', true);
+   ```
+
+3. Set the WordPress timezone to `Africa/Casablanca`.
+4. Configure both WordPress Address and Site Address with the final HTTPS URL.
+5. Replace the LocalWP URL with the final URL using a serialization-safe
+   WordPress migration tool or WP-CLI search-replace. Never run a plain SQL
+   replacement across serialized option or metadata values.
+6. In Elementor, run **Tools > Regenerate CSS & Data** after the URL change,
+   then purge WordPress, hosting and CDN caches.
+7. Keep French `/` and English `/?lang=en` as separate cache variants. The
+   cache/CDN must retain the `lang` query parameter and respect the language
+   cookie; it must never serve one language variant for both URLs.
+8. Confirm HTTPS redirects, secure cookies, the academic order flow, email
+   delivery, legal pages and the noindex thank-you page on the public host.
+

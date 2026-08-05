@@ -30,6 +30,26 @@ return [
         'navigation' => 'Navigation',
         'contact' => 'Contact',
     ],
+    'academic' => [
+        'eyebrow' => 'Projet académique',
+        'site_notice' => 'Projet académique — Site de démonstration. Aucune commande réelle ne sera expédiée.',
+        'form_privacy' => 'Les informations saisies sont utilisées uniquement pour démontrer le fonctionnement du formulaire dans le cadre d’un projet académique. N’utilisez pas de données personnelles réelles.',
+    ],
+    'legal' => [
+        'navigation_aria' => 'Informations légales du projet académique',
+        'privacy' => [
+            'title' => 'Politique de confidentialité',
+            'content' => '<p><strong>Tajinoos est un projet académique de portfolio.</strong> Ce site ne représente pas une entreprise actuellement en activité et ne réalise aucune vente réelle.</p><h2>Données de démonstration</h2><p>Le formulaire peut recueillir un nom, un numéro de téléphone, une ville, une adresse, une quantité et un message uniquement afin de démontrer un flux technique WordPress. Utilisez exclusivement des informations fictives et ne saisissez aucune donnée personnelle réelle.</p><h2>Utilisation et conservation</h2><p>Les soumissions de test peuvent être enregistrées comme commandes privées dans WordPress et générer une notification de démonstration destinée au responsable du projet. Elles servent uniquement aux essais techniques et doivent être supprimées périodiquement.</p><h2>Cookies techniques</h2><p>Le site peut utiliser un cookie de préférence linguistique et un jeton de reçu temporaire afin de présenter la bonne langue et la page de confirmation. Ces éléments ne sont pas utilisés à des fins publicitaires.</p><h2>Contact</h2><p>Pour toute question ou demande concernant une soumission de test, écrivez à <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p>',
+        ],
+        'terms' => [
+            'title' => 'Conditions d’utilisation',
+            'content' => '<p><strong>Tajinoos est une démonstration académique destinée à un portfolio.</strong> Le site ne représente pas une entreprise actuellement en activité.</p><h2>Absence de transaction commerciale</h2><p>Les produits, prix, formulaires et étapes de commande sont présentés uniquement pour démontrer une expérience numérique. Aucune vente, aucun paiement, aucune livraison, aucune garantie et aucun engagement commercial réel ne sont créés par l’utilisation du site.</p><h2>Utilisation du formulaire</h2><p>Les visiteurs doivent employer des données entièrement fictives. Les soumissions de test peuvent être stockées de façon privée dans WordPress pour vérifier le fonctionnement technique, puis supprimées périodiquement.</p><h2>Contenu du projet</h2><p>Les visuels, textes et interactions illustrent un concept de marque et une réalisation de développement web. Ils ne constituent ni une offre commerciale active ni une promesse de service.</p><h2>Contact</h2><p>Questions relatives au projet : <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p>',
+        ],
+        'legal' => [
+            'title' => 'Mentions légales',
+            'content' => '<p><strong>Nature du site :</strong> projet académique de portfolio et démonstration technique WordPress.</p><p><strong>Nom du projet :</strong> Tajinoos.</p><p><strong>Contact :</strong> <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p><p>Tajinoos ne correspond pas à une société actuellement exploitée. Aucun nom de société, numéro d’immatriculation, identifiant fiscal, adresse commerciale ou engagement juridique d’entreprise n’est revendiqué par ce site.</p><p>Les fonctions de commande, paiement à la livraison, expédition et garantie sont des éléments simulés de l’interface. Elles ne créent aucune vente, livraison, garantie ni obligation commerciale réelle.</p>',
+        ],
+    ],
     'floating' => [
         'order_title' => 'Commander',
         'order_aria' => 'Commander mon Tajinoos',
@@ -59,6 +79,7 @@ return [
         'quantity' => 'Veuillez choisir une quantité disponible.',
         'product' => 'Le modèle sélectionné n’est pas disponible.',
         'message_long' => 'Votre message est trop long (1 000 caractères maximum).',
+        'request_rejected' => 'Nous ne pouvons pas traiter cette demande. Actualisez la page puis réessayez.',
     ],
     'thank' => [
         'seo_title' => 'Merci pour votre commande — Tajinoos',

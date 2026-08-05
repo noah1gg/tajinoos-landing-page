@@ -79,6 +79,13 @@ function tajinoos_is_english(): bool
     return tajinoos_get_current_language() === 'en';
 }
 
+function tajinoos_is_localized_page(): bool
+{
+    return is_page(13)
+        || is_page('merci')
+        || (function_exists('tajinoos_academic_is_legal_page') && tajinoos_academic_is_legal_page());
+}
+
 /**
  * The secure receipt page is authoritative to its stored order language.
  */
@@ -253,14 +260,14 @@ function tajinoos_normalize_cookie_language_url(): void
 
 function tajinoos_language_cache_headers(): void
 {
-    if (is_page(13) && !headers_sent()) {
+    if (tajinoos_is_localized_page() && !headers_sent()) {
         header('Vary: Cookie', false);
     }
 }
 
 function tajinoos_filter_language_attributes(string $output, string $doctype): string
 {
-    if (!is_page(13) && !is_page('merci')) {
+    if (!tajinoos_is_localized_page()) {
         return $output;
     }
 
@@ -280,6 +287,12 @@ function tajinoos_filter_document_title_parts(array $parts): array
         unset($parts['site'], $parts['tagline']);
     } elseif (is_page('merci')) {
         $parts['title'] = tajinoos_translate('thank.seo_title', [], tajinoos_get_render_language());
+    } elseif (function_exists('tajinoos_academic_legal_page_type')) {
+        $type = tajinoos_academic_legal_page_type();
+        if ($type !== '') {
+            $parts['title'] = tajinoos_translate('legal.' . $type . '.title');
+            unset($parts['site'], $parts['tagline']);
+        }
     }
 
     return $parts;
@@ -287,7 +300,12 @@ function tajinoos_filter_document_title_parts(array $parts): array
 
 function tajinoos_filter_seo_title(string $title): string
 {
-    return is_page(13) ? tajinoos_translate('seo.title') : $title;
+    if (is_page(13)) {
+        return tajinoos_translate('seo.title');
+    }
+
+    $type = function_exists('tajinoos_academic_legal_page_type') ? tajinoos_academic_legal_page_type() : '';
+    return $type !== '' ? tajinoos_translate('legal.' . $type . '.title') : $title;
 }
 
 function tajinoos_filter_seo_description(string $description): string
@@ -297,27 +315,43 @@ function tajinoos_filter_seo_description(string $description): string
 
 function tajinoos_filter_seo_canonical(string $canonical): string
 {
-    return is_page(13) ? tajinoos_language_url(tajinoos_get_current_language()) : $canonical;
+    if (is_page(13)) {
+        return tajinoos_language_url(tajinoos_get_current_language());
+    }
+
+    $type = function_exists('tajinoos_academic_legal_page_type') ? tajinoos_academic_legal_page_type() : '';
+    return $type !== '' ? tajinoos_academic_legal_url($type) : $canonical;
 }
 
 function tajinoos_filter_core_canonical(string $canonical, WP_Post $post): string
 {
-    return (int) $post->ID === 13
-        ? tajinoos_language_url(tajinoos_get_current_language())
-        : $canonical;
+    if ((int) $post->ID === 13) {
+        return tajinoos_language_url(tajinoos_get_current_language());
+    }
+
+    $type = function_exists('tajinoos_academic_legal_page_type') ? tajinoos_academic_legal_page_type() : '';
+    return $type !== '' ? tajinoos_academic_legal_url($type) : $canonical;
 }
 
 function tajinoos_print_language_metadata(): void
 {
-    if (!is_page(13)) {
+    $legal_type = function_exists('tajinoos_academic_legal_page_type')
+        ? tajinoos_academic_legal_page_type()
+        : '';
+
+    if (!is_page(13) && $legal_type === '') {
         return;
     }
 
-    $fr_url = tajinoos_language_url('fr');
-    $en_url = tajinoos_language_url('en');
+    $fr_url = $legal_type !== ''
+        ? tajinoos_academic_legal_url($legal_type, 'fr')
+        : tajinoos_language_url('fr');
+    $en_url = $legal_type !== ''
+        ? tajinoos_academic_legal_url($legal_type, 'en')
+        : tajinoos_language_url('en');
     $seo_plugin_owns_meta = defined('WPSEO_VERSION') || defined('RANK_MATH_VERSION') || defined('AIOSEO_VERSION');
 
-    if (!$seo_plugin_owns_meta) {
+    if (is_page(13) && !$seo_plugin_owns_meta) {
         printf("\n<meta name=\"description\" content=\"%s\">", esc_attr(tajinoos_translate('seo.description')));
     }
 

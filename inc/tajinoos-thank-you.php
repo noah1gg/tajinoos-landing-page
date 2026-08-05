@@ -20,6 +20,7 @@ function tajinoos_child_render_thank_you_shortcode(): string
         ? tajinoos_normalize_language((string) $order_summary['language'])
         : tajinoos_get_current_language();
     $home_url = esc_url(wp_make_link_relative(tajinoos_language_url($language)));
+    $academic_notice = esc_html(tajinoos_translate('academic.site_notice', [], $language));
     $reference_markup = '';
     $summary_markup = '';
 
@@ -110,6 +111,8 @@ function tajinoos_child_render_thank_you_shortcode(): string
         <h1 id="taj-thanks-title">Merci pour<br>votre <em>confiance.</em></h1>
         <p class="taj-thanks-v2__lede">Votre commande a bien été enregistrée.</p>
         <p class="taj-thanks-v2__intro">Notre équipe vous contactera sur WhatsApp dans moins de 24 heures afin de confirmer vos informations et préparer la livraison.</p>
+
+        <aside class="taj-thanks-v2__academic-notice" role="note"><span aria-hidden="true">&#9671;</span><p>{$academic_notice}</p></aside>
 
         {$reference_markup}
         {$summary_markup}

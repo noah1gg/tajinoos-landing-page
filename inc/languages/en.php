@@ -30,6 +30,26 @@ return [
         'navigation' => 'Navigation',
         'contact' => 'Contact',
     ],
+    'academic' => [
+        'eyebrow' => 'Academic project',
+        'site_notice' => 'Academic project — Demonstration website. No real order will be shipped.',
+        'form_privacy' => 'The information entered is used only to demonstrate the form workflow as part of an academic project. Do not enter real personal information.',
+    ],
+    'legal' => [
+        'navigation_aria' => 'Academic project legal information',
+        'privacy' => [
+            'title' => 'Privacy Policy',
+            'content' => '<p><strong>Tajinoos is an academic portfolio project.</strong> This website does not represent a currently operating business and does not process real sales.</p><h2>Demonstration data</h2><p>The form may collect a name, telephone number, city, address, quantity and message solely to demonstrate a technical WordPress workflow. Use fictional information only and do not enter real personal data.</p><h2>Use and retention</h2><p>Test submissions may be stored as private orders in WordPress and may generate a demonstration notification for the project owner. They are used only for technical testing and should be deleted periodically.</p><h2>Technical cookies</h2><p>The website may use a language-preference cookie and a temporary receipt token to display the correct language and confirmation page. These items are not used for advertising.</p><h2>Contact</h2><p>For questions or requests concerning a test submission, email <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p>',
+        ],
+        'terms' => [
+            'title' => 'Terms of Use',
+            'content' => '<p><strong>Tajinoos is an academic portfolio demonstration.</strong> The website does not represent a currently operating business.</p><h2>No commercial transaction</h2><p>The products, prices, forms and order steps are shown only to demonstrate a digital experience. No real sale, payment, delivery, warranty or commercial commitment is created by using this website.</p><h2>Using the form</h2><p>Visitors must use entirely fictional data. Test submissions may be stored privately in WordPress to verify the technical workflow and should be deleted periodically.</p><h2>Project content</h2><p>The visuals, copy and interactions illustrate a brand concept and web-development project. They are not an active commercial offer or promise of service.</p><h2>Contact</h2><p>Questions about the project: <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p>',
+        ],
+        'legal' => [
+            'title' => 'Legal Notice',
+            'content' => '<p><strong>Website type:</strong> academic portfolio project and WordPress technical demonstration.</p><p><strong>Project name:</strong> Tajinoos.</p><p><strong>Contact:</strong> <a href="mailto:elhichemn@gmail.com">elhichemn@gmail.com</a>.</p><p>Tajinoos is not a currently operating company. This website does not claim a legal company name, registration number, tax identifier, commercial address or corporate legal commitment.</p><p>The order, cash-on-delivery, shipping and warranty functions are simulated interface elements. They create no real sale, delivery, warranty or commercial obligation.</p>',
+        ],
+    ],
     'floating' => [
         'order_title' => 'Order now',
         'order_aria' => 'Order my Tajinoos',
@@ -59,6 +79,7 @@ return [
         'quantity' => 'Please select an available quantity.',
         'product' => 'The selected model is not available.',
         'message_long' => 'Your message is too long (1,000 characters maximum).',
+        'request_rejected' => 'We could not process this request. Refresh the page and try again.',
     ],
     'thank' => [
         'seo_title' => 'Thank you for your order — Tajinoos',

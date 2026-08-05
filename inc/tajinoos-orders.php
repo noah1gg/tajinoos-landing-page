@@ -14,6 +14,9 @@ const TAJINOOS_ORDER_OTHER_CITY_DELIVERY_FEE = 20;
 const TAJINOOS_ORDER_PRODUCT = 'Tajine artisanal Tajinoos Premium';
 const TAJINOOS_ORDER_DUPLICATE_TTL = 180;
 const TAJINOOS_ORDER_RECEIPT_TTL = 1800;
+const TAJINOOS_ORDER_MIN_COMPLETION_SECONDS = 3;
+const TAJINOOS_ORDER_RATE_LIMIT_WINDOW = 600;
+const TAJINOOS_ORDER_RATE_LIMIT_MAX_ATTEMPTS = 8;
 
 add_action('init', 'tajinoos_register_order_post_type');
 add_action('wp_ajax_nopriv_tajinoos_submit_order', 'tajinoos_child_handle_order_submit');
@@ -164,6 +167,18 @@ function tajinoos_child_handle_order_submit(): void
         tajinoos_order_fail(tajinoos_translate('validation.session_expired', [], $language), '', 403);
     }
 
+    $rate_limit = tajinoos_enforce_order_rate_limit($language);
+    if (is_wp_error($rate_limit)) {
+        tajinoos_security_log('rate_limit');
+        tajinoos_order_fail($rate_limit->get_error_message(), '', 429);
+    }
+
+    $anti_spam = tajinoos_validate_order_anti_spam($_POST, $language);
+    if (is_wp_error($anti_spam)) {
+        tajinoos_security_log($anti_spam->get_error_code());
+        tajinoos_order_fail($anti_spam->get_error_message(), '', 422);
+    }
+
     $validated = tajinoos_validate_order_submission($_POST);
 
     if (is_wp_error($validated)) {
@@ -239,6 +254,79 @@ function tajinoos_child_handle_order_submit(): void
     do_action('tajinoos_order_created', $order_data, (int) $post_id);
 
     tajinoos_order_succeed($reference, false, $order_data['language']);
+}
+
+/**
+ * Count nonce-valid anonymous attempts in a short transient window. Logged-in
+ * administrators are excluded so routine maintenance cannot lock them out.
+ *
+ * @return true|WP_Error
+ */
+function tajinoos_enforce_order_rate_limit(string $language)
+{
+    if (is_user_logged_in() && current_user_can('manage_options')) {
+        return true;
+    }
+
+    $key = 'tajinoos_rate_' . tajinoos_order_client_fingerprint();
+    $attempts = (int) get_transient($key);
+
+    if ($attempts >= TAJINOOS_ORDER_RATE_LIMIT_MAX_ATTEMPTS) {
+        return new WP_Error(
+            'request_rejected',
+            tajinoos_translate('validation.request_rejected', [], $language)
+        );
+    }
+
+    set_transient($key, $attempts + 1, TAJINOOS_ORDER_RATE_LIMIT_WINDOW);
+    return true;
+}
+
+/**
+ * Reject common automated submissions without disclosing which signal fired.
+ *
+ * @param array<string, mixed> $request
+ * @return true|WP_Error
+ */
+function tajinoos_validate_order_anti_spam(array $request, string $language)
+{
+    $generic_error = tajinoos_translate('validation.request_rejected', [], $language);
+    $honeypot = tajinoos_request_text($request, 'tajinoos_website');
+
+    if ($honeypot !== '') {
+        return new WP_Error('honeypot', $generic_error);
+    }
+
+    $started_at = isset($request['tajinoos_started_at'])
+        ? absint(wp_unslash((string) $request['tajinoos_started_at']))
+        : 0;
+    $elapsed = time() - $started_at;
+
+    if ($started_at <= 0 || $elapsed < TAJINOOS_ORDER_MIN_COMPLETION_SECONDS) {
+        return new WP_Error('too_fast', $generic_error);
+    }
+
+    return true;
+}
+
+/**
+ * Return a keyed, non-reversible client identifier for transient names and
+ * abbreviated security logs. The complete network address is never stored.
+ */
+function tajinoos_order_client_fingerprint(): string
+{
+    $address = isset($_SERVER['REMOTE_ADDR'])
+        ? sanitize_text_field(wp_unslash((string) $_SERVER['REMOTE_ADDR']))
+        : 'unknown';
+
+    return hash_hmac('sha256', $address, wp_salt('nonce'));
+}
+
+function tajinoos_security_log(string $event): void
+{
+    $event = sanitize_key($event);
+    $actor = substr(tajinoos_order_client_fingerprint(), 0, 12);
+    error_log(sprintf('[Tajinoos Security] event=%s actor=%s', $event ?: 'unknown', $actor));
 }
 
 /**

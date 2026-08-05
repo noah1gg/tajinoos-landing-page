@@ -34123,3 +34123,192 @@ html body.page-id-13 .tajx-navbar-menu .taj-language-switcher__link:focus-visibl
     transition: none !important;
   }
 }
+
+/* Academic portfolio status and legal surfaces. */
+body.page-id-13 .taj-academic-site-notice {
+  position: relative;
+  z-index: 18;
+  min-height: 38px;
+  margin: 0;
+  padding: 9px clamp(18px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #fff8ef;
+  background: linear-gradient(90deg, #3a2117, #5b3021 48%, #3a2117);
+  border-bottom: 1px solid rgba(255, 248, 239, 0.14);
+  font: 700 11px/1.45 Manrope, sans-serif;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+body.page-id-13 .taj-academic-site-notice span {
+  color: #e6b577;
+  font-size: 12px;
+}
+
+body.page-id-13 .taj-academic-site-notice p,
+body.page-id-13 .tajcmd-form__academic-notice p,
+body.page-id-13 .tajcmd-form__privacy p,
+body.taj-thanks-page-body .taj-thanks-v2__academic-notice p {
+  margin: 0;
+}
+
+body.page-id-13 .tajcmd-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+body.page-id-13 .tajcmd-form__academic-notice,
+body.taj-thanks-page-body .taj-thanks-v2__academic-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(162, 88, 46, 0.22);
+  border-radius: 12px;
+  color: #5f3928;
+  background: linear-gradient(135deg, rgba(255, 247, 232, 0.98), rgba(246, 228, 199, 0.82));
+  font: 650 11px/1.55 Manrope, sans-serif;
+}
+
+body.page-id-13 .tajcmd-form__academic-notice > span,
+body.taj-thanks-page-body .taj-thanks-v2__academic-notice > span {
+  flex: 0 0 auto;
+  color: #aa4e2d;
+  font-size: 13px;
+}
+
+body.page-id-13 .tajcmd-form__privacy {
+  margin-top: 4px;
+  padding: 16px 17px;
+  border-radius: 13px;
+  color: #6a5145;
+  background: rgba(255, 250, 243, 0.74);
+  border: 1px solid rgba(121, 78, 54, 0.12);
+  font: 550 11px/1.62 Manrope, sans-serif;
+}
+
+body.page-id-13 .tajcmd-form__legal-links,
+body.page-id-13 .tajx-footer-legal,
+.taj-academic-legal-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+body.page-id-13 .tajcmd-form__legal-links {
+  margin-top: 9px;
+}
+
+body.page-id-13 .tajcmd-form__legal-links a,
+body.page-id-13 .tajx-footer-legal a,
+.taj-academic-legal-page__links a {
+  color: #8d3b24;
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+body.page-id-13 .tajx-footer-legal {
+  justify-content: center;
+  padding: 18px min(5vw, 54px) 22px;
+  border-top: 1px solid rgba(255, 248, 239, 0.13);
+  font: 650 11px/1.45 Manrope, sans-serif;
+}
+
+body.page-id-13 .tajx-footer-legal a {
+  color: #f4ddc3;
+}
+
+body.taj-thanks-page-body .taj-thanks-v2__academic-notice {
+  max-width: 620px;
+  margin: 20px 0 4px;
+}
+
+.taj-academic-legal-page {
+  width: min(900px, calc(100% - 32px));
+  margin: clamp(44px, 7vw, 90px) auto;
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid rgba(136, 76, 43, 0.14);
+  border-radius: 24px;
+  color: #4f392e;
+  background: linear-gradient(145deg, #fffaf3, #f6eadb);
+  box-shadow: 0 24px 70px rgba(69, 39, 24, 0.1);
+  font: 500 15px/1.75 Manrope, sans-serif;
+}
+
+.taj-academic-legal-page__eyebrow {
+  display: inline-flex;
+  margin-bottom: 13px;
+  color: #a44729;
+  font: 800 11px/1.2 Manrope, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.taj-academic-legal-page h1,
+.taj-academic-legal-page h2 {
+  color: #342017;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.taj-academic-legal-page h1 {
+  margin: 0 0 28px;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.04;
+}
+
+.taj-academic-legal-page h2 {
+  margin: 30px 0 8px;
+  font-size: clamp(24px, 3vw, 31px);
+}
+
+.taj-academic-legal-page p {
+  margin: 0 0 15px;
+}
+
+.taj-academic-legal-page a {
+  color: #8d3b24;
+}
+
+.taj-academic-legal-page__links {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(136, 76, 43, 0.16);
+  font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  body.page-id-13 .taj-academic-site-notice {
+    min-height: 34px;
+    padding: 8px 14px;
+    font-size: 10px;
+  }
+
+  body.page-id-13 .tajcmd-form__academic-notice,
+  body.taj-thanks-page-body .taj-thanks-v2__academic-notice {
+    font-size: 10px;
+  }
+
+  body.page-id-13 .tajcmd-form__legal-links,
+  body.page-id-13 .tajx-footer-legal,
+  .taj-academic-legal-page__links {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .taj-academic-legal-page {
+    width: min(100% - 22px, 900px);
+    margin: 22px auto 42px;
+    padding: 27px 20px;
+    border-radius: 18px;
+    font-size: 14px;
+  }
+}
